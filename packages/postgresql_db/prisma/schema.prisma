@@ -1,9 +1,3 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
-// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
-// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
-
 generator client {
   provider = "prisma-client"
   output   = "../src/generated/prisma"
@@ -11,4 +5,401 @@ generator client {
 
 datasource db {
   provider = "postgresql"
+}
+
+enum UserStatus {
+  ACTIVE
+  INACTIVE
+  SUSPENDED
+  PENDING_VERIFICATION
+}
+
+enum TaskStatus {
+  TODO
+  IN_PROGRESS
+  REVIEW
+  FAILED
+  APPROVED
+  DONE
+}
+
+enum TaskPriority {
+  LOW
+  MEDIUM
+  HIGH
+  URGENT
+}
+
+enum TaskType {
+  ASSET_BASED
+  MANUAL
+}
+
+enum ProjectStatus {
+  ACTIVE
+  COMPLETED
+  ARCHIVED
+  ON_HOLD
+}
+
+enum ApprovalStatus {
+  PENDING
+  APPROVED
+  REJECTED
+}
+
+enum ActivityAction {
+  USER_LOGIN
+  USER_LOGOUT
+  USER_REGISTERED
+  ORG_CREATED
+  ORG_UPDATED
+  PROJECT_CREATED
+  PROJECT_UPDATED
+  MODULE_CREATED
+  TASK_CREATED
+  TASK_ASSIGNED
+  TASK_STATUS_CHANGED
+  ASSET_UPLOADED
+  ASSET_APPROVED
+  ASSET_REJECTED
+  ASSET_FINALIZED
+  USER_CREATED
+  USER_UPDATED
+  USER_ROLE_CHANGED
+}
+
+model User {
+  id             Int     @id @default(autoincrement())
+  email          String  @unique
+  password       String
+  username       String
+  organizationId Int?
+  avatarUrl      String?
+
+  // Email verification
+  isEmailVerified Boolean   @default(false)
+  emailVerifiedAt DateTime?
+
+  // Password reset
+  resetPasswordToken  String?
+  resetPasswordExpiry DateTime?
+
+  // Status tracking
+  isActive    Boolean   @default(true)
+  lastLoginAt DateTime?
+  lastLoginIp String?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // Relations
+  organization Organization? @relation(fields: [organizationId], references: [id], onDelete: SetNull)
+
+  // Organizations created/assigned
+  createdOrganizations  Organization[] @relation("OrgCreator")
+  assignedOrganizations Organization[] @relation("OrgAssignee")
+
+  // Projects
+  createdProjects    Project[]           @relation("ProjectCreator")
+  assignedProjects   Project[]           @relation("ProjectAssignee")
+  projectTeamMembers ProjectTeamMember[]
+
+  // Modules
+  createdModules  Module[] @relation("ModuleCreator")
+  assignedModules Module[] @relation("ModuleAssignee")
+
+  // Tasks
+  createdTasks  Task[]    @relation("TaskCreator")
+  assignedTasks Task[]    @relation("TaskAssignee")
+  timeLogs      TimeLog[]
+
+  // Approvals
+  requestedApprovals Approval[] @relation("ApprovalRequester")
+  reviewedApprovals  Approval[] @relation("ApprovalReviewer")
+
+  // Activity logs
+  activityLogs ActivityLog[]
+
+  // Verification tokens
+  emailVerificationTokens EmailVerificationToken[]
+  passwordResetTokens     PasswordResetToken[]
+
+  @@index([email])
+  @@index([organizationId])
+  @@index([isActive])
+  @@map("users")
+}
+
+model EmailVerificationToken {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  expiresAt DateTime
+  isUsed    Boolean  @default(false)
+  userId    Int
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([token])
+  @@map("email_verification_tokens")
+}
+
+model PasswordResetToken {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  expiresAt DateTime
+  isUsed    Boolean  @default(false)
+  userId    Int
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([token])
+  @@map("password_reset_tokens")
+}
+
+model Organization {
+  id           Int        @id @default(autoincrement())
+  name         String
+  slug         String     @unique
+  description  String?
+  createdBy    Int
+  assignedTo   Int?
+  storageLimit BigInt     @default(10737418240)
+  storageUsed  BigInt     @default(0)
+  status       UserStatus @default(ACTIVE)
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+
+  creator      User          @relation("OrgCreator", fields: [createdBy], references: [id])
+  assignee     User?         @relation("OrgAssignee", fields: [assignedTo], references: [id])
+  users        User[]
+  projects     Project[]
+  activityLogs ActivityLog[]
+
+  @@index([slug])
+  @@index([createdBy])
+  @@index([status])
+  @@map("organizations")
+}
+
+model Project {
+  id             Int           @id @default(autoincrement())
+  name           String
+  slug           String
+  description    String?
+  createdBy      Int
+  assignedTo     Int?
+  organizationId Int
+  status         ProjectStatus @default(ACTIVE)
+  isArchived     Boolean       @default(false)
+  startDate      DateTime?
+  endDate        DateTime?
+  createdAt      DateTime      @default(now())
+  updatedAt      DateTime      @updatedAt
+
+  organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  creator      User         @relation("ProjectCreator", fields: [createdBy], references: [id])
+  assignee     User?        @relation("ProjectAssignee", fields: [assignedTo], references: [id])
+
+  modules     Module[]
+  teamMembers ProjectTeamMember[]
+
+  @@unique([organizationId, slug])
+  @@index([organizationId])
+  @@index([createdBy])
+  @@index([status])
+  @@map("projects")
+}
+
+model ProjectTeamMember {
+  id        Int      @id @default(autoincrement())
+  projectId Int
+  userId    Int
+  addedBy   Int
+  roleId    Int
+  addedAt   DateTime @default(now())
+
+  project Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  user    User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role    Role    @relation(fields: [roleId], references: [id])
+
+  @@unique([projectId, userId])
+  @@index([projectId])
+  @@index([userId])
+  @@map("project_team_members")
+}
+
+model Module {
+  id          Int           @id @default(autoincrement())
+  name        String
+  slug        String
+  description String?
+  projectId   Int
+  createdBy   Int
+  assignedTo  Int?
+  status      ProjectStatus @default(ACTIVE)
+  createdAt   DateTime      @default(now())
+  updatedAt   DateTime      @updatedAt
+
+  project  Project @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  creator  User    @relation("ModuleCreator", fields: [createdBy], references: [id])
+  assignee User?   @relation("ModuleAssignee", fields: [assignedTo], references: [id])
+  tasks    Task[]
+
+  @@unique([projectId, slug])
+  @@index([projectId])
+  @@index([createdBy])
+  @@index([assignedTo])
+  @@map("modules")
+}
+
+model Task {
+  id             Int          @id @default(autoincrement())
+  title          String
+  description    String?
+  moduleId       Int
+  taskType       TaskType     @default(MANUAL)
+  createdById    Int
+  assignedToId   Int?
+  status         TaskStatus   @default(TODO)
+  priority       TaskPriority @default(MEDIUM)
+  estimatedHours Decimal?     @db.Decimal(5, 2)
+  dueDate        DateTime?
+
+  // For asset-based tasks (MongoDB ObjectId as string)
+  assetId String?
+
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+  completedAt DateTime?
+
+  // Relations
+  module     Module @relation(fields: [moduleId], references: [id], onDelete: Cascade)
+  createdBy  User   @relation("TaskCreator", fields: [createdById], references: [id])
+  assignedTo User?  @relation("TaskAssignee", fields: [assignedToId], references: [id])
+
+  timeLogs  TimeLog[]
+  approvals Approval[]
+
+  @@index([moduleId])
+  @@index([createdById])
+  @@index([assignedToId])
+  @@index([status])
+  @@index([priority])
+  @@index([taskType])
+  @@index([assetId])
+  @@map("tasks")
+}
+
+model TimeLog {
+  id          Int      @id @default(autoincrement())
+  taskId      Int
+  userId      Int
+  hours       Decimal  @db.Decimal(5, 2)
+  description String?
+  loggedAt    DateTime @default(now())
+
+  // Relations
+  task Task @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  user User @relation(fields: [userId], references: [id])
+
+  @@index([taskId])
+  @@index([userId])
+  @@index([loggedAt])
+  @@map("time_logs")
+}
+
+model Approval {
+  id            Int            @id @default(autoincrement())
+  taskId        Int
+  assetId       String // MongoDB ObjectId
+  requestedById Int
+  reviewedById  Int?
+  status        ApprovalStatus @default(PENDING)
+  comments      String?
+  requestedAt   DateTime       @default(now())
+  reviewedAt    DateTime?
+
+  // Relations
+  task        Task  @relation(fields: [taskId], references: [id], onDelete: Cascade)
+  requestedBy User  @relation("ApprovalRequester", fields: [requestedById], references: [id])
+  reviewedBy  User? @relation("ApprovalReviewer", fields: [reviewedById], references: [id])
+
+  @@index([taskId])
+  @@index([assetId])
+  @@index([requestedById])
+  @@index([reviewedById])
+  @@index([status])
+  @@map("approvals")
+}
+
+model ActivityLog {
+  id             Int            @id @default(autoincrement())
+  userId         Int?
+  organizationId Int?
+  action         ActivityAction
+  entityType     String?
+  entityId       String? // Can be Int or MongoDB ObjectId
+  details        Json?
+  ipAddress      String?
+  userAgent      String?
+  createdAt      DateTime       @default(now())
+
+  // Relations
+  user         User?         @relation(fields: [userId], references: [id], onDelete: SetNull)
+  organization Organization? @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([organizationId])
+  @@index([action])
+  @@index([entityType, entityId])
+  @@index([createdAt])
+  @@map("activity_logs")
+}
+
+model Role {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  level       Int
+  description String?
+  createdAt   DateTime @default(now())
+
+  // Relations
+  permissions        RolePermission[]
+  projectTeamMembers ProjectTeamMember[]
+
+  @@map("roles")
+}
+
+model Permission {
+  id          Int      @id @default(autoincrement())
+  name        String   @unique
+  description String?
+  resource    String
+  action      String
+  createdAt   DateTime @default(now())
+
+  // Relations
+  roles RolePermission[]
+
+  @@unique([resource, action])
+  @@map("permissions")
+}
+
+model RolePermission {
+  id           Int      @id @default(autoincrement())
+  roleId       Int
+  permissionId Int
+  createdAt    DateTime @default(now())
+
+  // Relations
+  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@unique([roleId, permissionId])
+  @@map("role_permissions")
 }

@@ -28,43 +28,6 @@ services:
       timeout: 5s
       retries: 5
 
-  gateway-api:
-    build:
-      context: .
-      dockerfile: Docker/gateway.Dockerfile
-
-    env_file:
-      - .env
-
-    restart: always
-
-    ports:
-      - '8000:8000'
-
-    networks:
-      - dam-network
-
-  # =========== NGINX =============
-
-  nginx:
-    image: nginx:alpine
-
-    container_name: dam-nginx
-
-    depends_on:
-      - gateway-api
-
-    ports:
-      - '80:80'
-
-    volumes:
-      - ./infra/nginx/default.conf:/etc/nginx/conf.d/default.conf
-
-    restart: always
-
-    networks:
-      - dam-network
-
 volumes:
   dam-postgres-data:
     external: true

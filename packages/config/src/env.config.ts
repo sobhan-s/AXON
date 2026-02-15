@@ -15,4 +15,8 @@ export const env_config_variable = {
   DB: {
     POSTGRESQL_DB: process.env.DATABASE_URL as string,
   },
+  ENVIORMENT: {
+    DEV: process.env.DEV_ENV,
+    PROD: process.env.PROD_ENV,
+  },
 };

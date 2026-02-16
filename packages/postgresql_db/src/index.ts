@@ -4,7 +4,7 @@ import { env_config_variable } from '@dam/config/env_variables';
 import { logger } from '@dam/config/logs';
 
 const isDev = env_config_variable.ENVIORMENT.PROD !== 'production';
-const connectionSting = env_config_variable.DB.POSTGRESQL_DB;
+const connectionSting = env_config_variable.DB.DEV.POSTGRESQL_DB;
 
 const adapter = new PrismaPg({
   connectionSting,

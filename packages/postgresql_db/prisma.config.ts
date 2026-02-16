@@ -13,6 +13,6 @@ export default defineConfig({
     path: 'prisma/migrations',
   },
   datasource: {
-    url: env_config_variable.DB.POSTGRESQL_DB,
+    url: env_config_variable.DB.DEV.POSTGRESQL_DB,
   },
 });

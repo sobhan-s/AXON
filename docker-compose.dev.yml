@@ -28,8 +28,58 @@ services:
       timeout: 5s
       retries: 5
 
+  mongodb:
+    image: mongo:7
+
+    container_name: dam-mongo
+
+    restart: always
+
+    env_file:
+      - .env
+
+    environment:
+      - MONGO_USERNAME=${MONGO_USERNAME}
+      - MONGO_PASSWORD=${MONGO_PASSWORD}
+      - MONGO_DB=${MONGO_DB}
+
+    ports:
+      - '27017:27017'
+
+    volumes:
+      - dam_mongo_data:/data/db
+
+    networks:
+      - dam-network
+
+  minio:
+    image: minio/minio:latest
+
+    container_name: dam_assets-minio
+
+    restart: always
+
+    env_file:
+      - .env
+
+    ports:
+      - '9000:9000'
+      - '9001:9001'
+
+    volumes:
+      - minio_data:/data
+
+    command: server /data --console-address ":9001"
+
+    networks:
+      - dam-network
+
 volumes:
   dam-postgres-data:
+    external: true
+  dam_mongo_data:
+    external: true
+  minio_data:
     external: true
 
 networks:

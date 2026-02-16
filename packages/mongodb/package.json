@@ -1,12 +1,25 @@
 {
-  "name": "mongodb",
+  "name": "@dam/mongodb",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "type": "module",
+  "exports": {
+    "./index": "./inex.ts"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "dependencies": {
+    "@dam/typescript-config": "workspace:*",
+    "@dam/config": "workspace:*",
+    "mongoose": "^9.2.1"
+  },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^25.2.3"
+  }
 }

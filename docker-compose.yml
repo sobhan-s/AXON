@@ -44,13 +44,12 @@ services:
       - MONGO_DB=${MONGO_DB}
 
     ports:
-      - "27017:27017"
+      - '27017:27017'
 
     volumes:
       - dam_mongo_data:/data/db
     networks:
       - dam-network
-
 
   gateway-api:
     build:
@@ -67,8 +66,6 @@ services:
 
     networks:
       - dam-network
-
-
 
   # =========== NGINX =============
 

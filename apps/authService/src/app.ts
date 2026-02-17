@@ -1,7 +1,8 @@
-import { PostgresClient as prisma } from '@dam/postgresql_db/postgres_db';
+import { PostgresClient as prisma } from '@dam/postgresql_db';
 import express, { type Express } from 'express';
 import cookieparser from 'cookie-parser';
 import cors from 'cors';
+import { errorMiddleware } from '@dam/middlewares';
 
 const app: Express = express();
 
@@ -17,5 +18,6 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, limit: '8mb' }));
 app.use(cookieparser());
+app.use(errorMiddleware);
 
 export default app;

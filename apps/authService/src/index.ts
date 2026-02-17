@@ -1,9 +1,9 @@
-import app from './app';
-import { PostgresClient } from '@dam/postgresql_db/postgres_db';
-import { env_config_variable } from '@dam/config/env_variables';
-import { logger } from '@dam/config/logs';
+import app from './app.js';
+import { PostgresClient, PrismaClient } from '@dam/postgresql_db';
+import { env_config_variable } from '@dam/config';
+import { logger } from '@dam/config';
 
-const prisma = PostgresClient.getInstance();
+const prisma: PrismaClient = PostgresClient.getInstance();
 const PORT = env_config_variable.PORT.AUTH;
 
 let server: ReturnType<typeof app.listen>;
@@ -62,5 +62,7 @@ process.on('uncaughtException', (error) => {
   logger.error('❌ Uncaught Exception:', error);
   gracefulShutdown('uncaughtException');
 });
+
+export { prisma };
 
 startServer();

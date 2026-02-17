@@ -55,6 +55,20 @@ export const AnyNull = runtime.AnyNull;
 
 export const ModelName = {
   User: 'User',
+  EmailVerificationToken: 'EmailVerificationToken',
+  PasswordResetToken: 'PasswordResetToken',
+  RefreshToken: 'RefreshToken',
+  Organization: 'Organization',
+  Project: 'Project',
+  ProjectTeamMember: 'ProjectTeamMember',
+  Module: 'Module',
+  Task: 'Task',
+  TimeLog: 'TimeLog',
+  Approval: 'Approval',
+  ActivityLog: 'ActivityLog',
+  Role: 'Role',
+  Permission: 'Permission',
+  RolePermission: 'RolePermission',
 } as const;
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName];
@@ -80,10 +94,216 @@ export const UserScalarFieldEnum = {
   username: 'username',
   organizationId: 'organizationId',
   avatarUrl: 'avatarUrl',
+  isEmailVerified: 'isEmailVerified',
+  emailVerifiedAt: 'emailVerifiedAt',
+  resetPasswordToken: 'resetPasswordToken',
+  resetPasswordExpiry: 'resetPasswordExpiry',
+  isActive: 'isActive',
+  lastLoginAt: 'lastLoginAt',
+  lastLoginIp: 'lastLoginIp',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
 } as const;
 
 export type UserScalarFieldEnum =
   (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum];
+
+export const EmailVerificationTokenScalarFieldEnum = {
+  id: 'id',
+  token: 'token',
+  expiresAt: 'expiresAt',
+  isUsed: 'isUsed',
+  userId: 'userId',
+  createdAt: 'createdAt',
+} as const;
+
+export type EmailVerificationTokenScalarFieldEnum =
+  (typeof EmailVerificationTokenScalarFieldEnum)[keyof typeof EmailVerificationTokenScalarFieldEnum];
+
+export const PasswordResetTokenScalarFieldEnum = {
+  id: 'id',
+  token: 'token',
+  expiresAt: 'expiresAt',
+  isUsed: 'isUsed',
+  userId: 'userId',
+  createdAt: 'createdAt',
+} as const;
+
+export type PasswordResetTokenScalarFieldEnum =
+  (typeof PasswordResetTokenScalarFieldEnum)[keyof typeof PasswordResetTokenScalarFieldEnum];
+
+export const RefreshTokenScalarFieldEnum = {
+  id: 'id',
+  token: 'token',
+  userId: 'userId',
+  expiresAt: 'expiresAt',
+  revoked: 'revoked',
+  createdAt: 'createdAt',
+} as const;
+
+export type RefreshTokenScalarFieldEnum =
+  (typeof RefreshTokenScalarFieldEnum)[keyof typeof RefreshTokenScalarFieldEnum];
+
+export const OrganizationScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  description: 'description',
+  createdBy: 'createdBy',
+  assignedTo: 'assignedTo',
+  storageLimit: 'storageLimit',
+  storageUsed: 'storageUsed',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+} as const;
+
+export type OrganizationScalarFieldEnum =
+  (typeof OrganizationScalarFieldEnum)[keyof typeof OrganizationScalarFieldEnum];
+
+export const ProjectScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  description: 'description',
+  createdBy: 'createdBy',
+  assignedTo: 'assignedTo',
+  organizationId: 'organizationId',
+  status: 'status',
+  isArchived: 'isArchived',
+  startDate: 'startDate',
+  endDate: 'endDate',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+} as const;
+
+export type ProjectScalarFieldEnum =
+  (typeof ProjectScalarFieldEnum)[keyof typeof ProjectScalarFieldEnum];
+
+export const ProjectTeamMemberScalarFieldEnum = {
+  id: 'id',
+  projectId: 'projectId',
+  userId: 'userId',
+  addedBy: 'addedBy',
+  roleId: 'roleId',
+  addedAt: 'addedAt',
+} as const;
+
+export type ProjectTeamMemberScalarFieldEnum =
+  (typeof ProjectTeamMemberScalarFieldEnum)[keyof typeof ProjectTeamMemberScalarFieldEnum];
+
+export const ModuleScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  slug: 'slug',
+  description: 'description',
+  projectId: 'projectId',
+  createdBy: 'createdBy',
+  assignedTo: 'assignedTo',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+} as const;
+
+export type ModuleScalarFieldEnum =
+  (typeof ModuleScalarFieldEnum)[keyof typeof ModuleScalarFieldEnum];
+
+export const TaskScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  description: 'description',
+  moduleId: 'moduleId',
+  taskType: 'taskType',
+  createdById: 'createdById',
+  assignedToId: 'assignedToId',
+  status: 'status',
+  priority: 'priority',
+  estimatedHours: 'estimatedHours',
+  dueDate: 'dueDate',
+  assetId: 'assetId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  completedAt: 'completedAt',
+} as const;
+
+export type TaskScalarFieldEnum =
+  (typeof TaskScalarFieldEnum)[keyof typeof TaskScalarFieldEnum];
+
+export const TimeLogScalarFieldEnum = {
+  id: 'id',
+  taskId: 'taskId',
+  userId: 'userId',
+  hours: 'hours',
+  description: 'description',
+  loggedAt: 'loggedAt',
+} as const;
+
+export type TimeLogScalarFieldEnum =
+  (typeof TimeLogScalarFieldEnum)[keyof typeof TimeLogScalarFieldEnum];
+
+export const ApprovalScalarFieldEnum = {
+  id: 'id',
+  taskId: 'taskId',
+  assetId: 'assetId',
+  requestedById: 'requestedById',
+  reviewedById: 'reviewedById',
+  status: 'status',
+  comments: 'comments',
+  requestedAt: 'requestedAt',
+  reviewedAt: 'reviewedAt',
+} as const;
+
+export type ApprovalScalarFieldEnum =
+  (typeof ApprovalScalarFieldEnum)[keyof typeof ApprovalScalarFieldEnum];
+
+export const ActivityLogScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  organizationId: 'organizationId',
+  action: 'action',
+  entityType: 'entityType',
+  entityId: 'entityId',
+  details: 'details',
+  ipAddress: 'ipAddress',
+  userAgent: 'userAgent',
+  createdAt: 'createdAt',
+} as const;
+
+export type ActivityLogScalarFieldEnum =
+  (typeof ActivityLogScalarFieldEnum)[keyof typeof ActivityLogScalarFieldEnum];
+
+export const RoleScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  level: 'level',
+  description: 'description',
+  createdAt: 'createdAt',
+} as const;
+
+export type RoleScalarFieldEnum =
+  (typeof RoleScalarFieldEnum)[keyof typeof RoleScalarFieldEnum];
+
+export const PermissionScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  description: 'description',
+  resource: 'resource',
+  action: 'action',
+  createdAt: 'createdAt',
+} as const;
+
+export type PermissionScalarFieldEnum =
+  (typeof PermissionScalarFieldEnum)[keyof typeof PermissionScalarFieldEnum];
+
+export const RolePermissionScalarFieldEnum = {
+  id: 'id',
+  roleId: 'roleId',
+  permissionId: 'permissionId',
+  createdAt: 'createdAt',
+} as const;
+
+export type RolePermissionScalarFieldEnum =
+  (typeof RolePermissionScalarFieldEnum)[keyof typeof RolePermissionScalarFieldEnum];
 
 export const SortOrder = {
   asc: 'asc',
@@ -91,6 +311,14 @@ export const SortOrder = {
 } as const;
 
 export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder];
+
+export const NullableJsonNullValueInput = {
+  DbNull: DbNull,
+  JsonNull: JsonNull,
+} as const;
+
+export type NullableJsonNullValueInput =
+  (typeof NullableJsonNullValueInput)[keyof typeof NullableJsonNullValueInput];
 
 export const QueryMode = {
   default: 'default',
@@ -105,3 +333,12 @@ export const NullsOrder = {
 } as const;
 
 export type NullsOrder = (typeof NullsOrder)[keyof typeof NullsOrder];
+
+export const JsonNullValueFilter = {
+  DbNull: DbNull,
+  JsonNull: JsonNull,
+  AnyNull: AnyNull,
+} as const;
+
+export type JsonNullValueFilter =
+  (typeof JsonNullValueFilter)[keyof typeof JsonNullValueFilter];

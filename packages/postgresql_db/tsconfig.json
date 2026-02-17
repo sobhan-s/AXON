@@ -2,6 +2,8 @@
   "extends": "@dam/typescript-config/base.json",
   "compilerOptions": {
     "rootDir": "./src",
-    "outDir": "./dist"
+    "outDir": "./dist",
+    "allowImportingTsExtensions": true,
+    "noEmit": true
   }
 }

@@ -1,4 +1,4 @@
-import { PrismaClient } from './generated/prisma/client.js';
+import { PrismaClient } from './generated/prisma/client.ts';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { env_config_variable } from '@dam/config/env_variables';
 import { logger } from '@dam/config/logs';
@@ -35,4 +35,4 @@ class PostgresClient {
   }
 }
 
-export default PostgresClient;
+export { PostgresClient };

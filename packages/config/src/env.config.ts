@@ -36,4 +36,12 @@ export const env_config_variable = {
     DEV: process.env.DEV_ENV,
     PROD: process.env.PROD_ENV,
   },
+  MAIL: {
+    HOST: process.env.MAIL_HOST,
+    PORT: process.env.MAIL_PORT,
+    SECURE: process.env.MAIL_SECURE,
+    USER: process.env.MAIL_USER,
+    FROM: process.env.MAIL_FROM,
+    PASSWORD: process.env.MAIL_PASS,
+  },
 };

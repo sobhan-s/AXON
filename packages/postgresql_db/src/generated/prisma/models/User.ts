@@ -43,6 +43,15 @@ export type UserMinAggregateOutputType = {
   username: string | null;
   organizationId: number | null;
   avatarUrl: string | null;
+  isEmailVerified: boolean | null;
+  emailVerifiedAt: Date | null;
+  resetPasswordToken: string | null;
+  resetPasswordExpiry: Date | null;
+  isActive: boolean | null;
+  lastLoginAt: Date | null;
+  lastLoginIp: string | null;
+  createdAt: Date | null;
+  updatedAt: Date | null;
 };
 
 export type UserMaxAggregateOutputType = {
@@ -52,6 +61,15 @@ export type UserMaxAggregateOutputType = {
   username: string | null;
   organizationId: number | null;
   avatarUrl: string | null;
+  isEmailVerified: boolean | null;
+  emailVerifiedAt: Date | null;
+  resetPasswordToken: string | null;
+  resetPasswordExpiry: Date | null;
+  isActive: boolean | null;
+  lastLoginAt: Date | null;
+  lastLoginIp: string | null;
+  createdAt: Date | null;
+  updatedAt: Date | null;
 };
 
 export type UserCountAggregateOutputType = {
@@ -61,6 +79,15 @@ export type UserCountAggregateOutputType = {
   username: number;
   organizationId: number;
   avatarUrl: number;
+  isEmailVerified: number;
+  emailVerifiedAt: number;
+  resetPasswordToken: number;
+  resetPasswordExpiry: number;
+  isActive: number;
+  lastLoginAt: number;
+  lastLoginIp: number;
+  createdAt: number;
+  updatedAt: number;
   _all: number;
 };
 
@@ -81,6 +108,15 @@ export type UserMinAggregateInputType = {
   username?: true;
   organizationId?: true;
   avatarUrl?: true;
+  isEmailVerified?: true;
+  emailVerifiedAt?: true;
+  resetPasswordToken?: true;
+  resetPasswordExpiry?: true;
+  isActive?: true;
+  lastLoginAt?: true;
+  lastLoginIp?: true;
+  createdAt?: true;
+  updatedAt?: true;
 };
 
 export type UserMaxAggregateInputType = {
@@ -90,6 +126,15 @@ export type UserMaxAggregateInputType = {
   username?: true;
   organizationId?: true;
   avatarUrl?: true;
+  isEmailVerified?: true;
+  emailVerifiedAt?: true;
+  resetPasswordToken?: true;
+  resetPasswordExpiry?: true;
+  isActive?: true;
+  lastLoginAt?: true;
+  lastLoginIp?: true;
+  createdAt?: true;
+  updatedAt?: true;
 };
 
 export type UserCountAggregateInputType = {
@@ -99,6 +144,15 @@ export type UserCountAggregateInputType = {
   username?: true;
   organizationId?: true;
   avatarUrl?: true;
+  isEmailVerified?: true;
+  emailVerifiedAt?: true;
+  resetPasswordToken?: true;
+  resetPasswordExpiry?: true;
+  isActive?: true;
+  lastLoginAt?: true;
+  lastLoginIp?: true;
+  createdAt?: true;
+  updatedAt?: true;
   _all?: true;
 };
 
@@ -202,6 +256,15 @@ export type UserGroupByOutputType = {
   username: string;
   organizationId: number | null;
   avatarUrl: string | null;
+  isEmailVerified: boolean;
+  emailVerifiedAt: Date | null;
+  resetPasswordToken: string | null;
+  resetPasswordExpiry: Date | null;
+  isActive: boolean;
+  lastLoginAt: Date | null;
+  lastLoginIp: string | null;
+  createdAt: Date;
+  updatedAt: Date;
   _count: UserCountAggregateOutputType | null;
   _avg: UserAvgAggregateOutputType | null;
   _sum: UserSumAggregateOutputType | null;
@@ -231,6 +294,43 @@ export type UserWhereInput = {
   username?: Prisma.StringFilter<'User'> | string;
   organizationId?: Prisma.IntNullableFilter<'User'> | number | null;
   avatarUrl?: Prisma.StringNullableFilter<'User'> | string | null;
+  isEmailVerified?: Prisma.BoolFilter<'User'> | boolean;
+  emailVerifiedAt?:
+    | Prisma.DateTimeNullableFilter<'User'>
+    | Date
+    | string
+    | null;
+  resetPasswordToken?: Prisma.StringNullableFilter<'User'> | string | null;
+  resetPasswordExpiry?:
+    | Prisma.DateTimeNullableFilter<'User'>
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFilter<'User'> | boolean;
+  lastLoginAt?: Prisma.DateTimeNullableFilter<'User'> | Date | string | null;
+  lastLoginIp?: Prisma.StringNullableFilter<'User'> | string | null;
+  createdAt?: Prisma.DateTimeFilter<'User'> | Date | string;
+  updatedAt?: Prisma.DateTimeFilter<'User'> | Date | string;
+  organization?: Prisma.XOR<
+    Prisma.OrganizationNullableScalarRelationFilter,
+    Prisma.OrganizationWhereInput
+  > | null;
+  createdOrganizations?: Prisma.OrganizationListRelationFilter;
+  assignedOrganizations?: Prisma.OrganizationListRelationFilter;
+  createdProjects?: Prisma.ProjectListRelationFilter;
+  assignedProjects?: Prisma.ProjectListRelationFilter;
+  projectTeamMembers?: Prisma.ProjectTeamMemberListRelationFilter;
+  createdModules?: Prisma.ModuleListRelationFilter;
+  assignedModules?: Prisma.ModuleListRelationFilter;
+  createdTasks?: Prisma.TaskListRelationFilter;
+  assignedTasks?: Prisma.TaskListRelationFilter;
+  timeLogs?: Prisma.TimeLogListRelationFilter;
+  requestedApprovals?: Prisma.ApprovalListRelationFilter;
+  reviewedApprovals?: Prisma.ApprovalListRelationFilter;
+  activityLogs?: Prisma.ActivityLogListRelationFilter;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenListRelationFilter;
+  passwordResetTokens?: Prisma.PasswordResetTokenListRelationFilter;
+  refreshTokens?: Prisma.RefreshTokenListRelationFilter;
 };
 
 export type UserOrderByWithRelationInput = {
@@ -240,6 +340,32 @@ export type UserOrderByWithRelationInput = {
   username?: Prisma.SortOrder;
   organizationId?: Prisma.SortOrderInput | Prisma.SortOrder;
   avatarUrl?: Prisma.SortOrderInput | Prisma.SortOrder;
+  isEmailVerified?: Prisma.SortOrder;
+  emailVerifiedAt?: Prisma.SortOrderInput | Prisma.SortOrder;
+  resetPasswordToken?: Prisma.SortOrderInput | Prisma.SortOrder;
+  resetPasswordExpiry?: Prisma.SortOrderInput | Prisma.SortOrder;
+  isActive?: Prisma.SortOrder;
+  lastLoginAt?: Prisma.SortOrderInput | Prisma.SortOrder;
+  lastLoginIp?: Prisma.SortOrderInput | Prisma.SortOrder;
+  createdAt?: Prisma.SortOrder;
+  updatedAt?: Prisma.SortOrder;
+  organization?: Prisma.OrganizationOrderByWithRelationInput;
+  createdOrganizations?: Prisma.OrganizationOrderByRelationAggregateInput;
+  assignedOrganizations?: Prisma.OrganizationOrderByRelationAggregateInput;
+  createdProjects?: Prisma.ProjectOrderByRelationAggregateInput;
+  assignedProjects?: Prisma.ProjectOrderByRelationAggregateInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberOrderByRelationAggregateInput;
+  createdModules?: Prisma.ModuleOrderByRelationAggregateInput;
+  assignedModules?: Prisma.ModuleOrderByRelationAggregateInput;
+  createdTasks?: Prisma.TaskOrderByRelationAggregateInput;
+  assignedTasks?: Prisma.TaskOrderByRelationAggregateInput;
+  timeLogs?: Prisma.TimeLogOrderByRelationAggregateInput;
+  requestedApprovals?: Prisma.ApprovalOrderByRelationAggregateInput;
+  reviewedApprovals?: Prisma.ApprovalOrderByRelationAggregateInput;
+  activityLogs?: Prisma.ActivityLogOrderByRelationAggregateInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenOrderByRelationAggregateInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenOrderByRelationAggregateInput;
+  refreshTokens?: Prisma.RefreshTokenOrderByRelationAggregateInput;
 };
 
 export type UserWhereUniqueInput = Prisma.AtLeast<
@@ -253,6 +379,43 @@ export type UserWhereUniqueInput = Prisma.AtLeast<
     username?: Prisma.StringFilter<'User'> | string;
     organizationId?: Prisma.IntNullableFilter<'User'> | number | null;
     avatarUrl?: Prisma.StringNullableFilter<'User'> | string | null;
+    isEmailVerified?: Prisma.BoolFilter<'User'> | boolean;
+    emailVerifiedAt?:
+      | Prisma.DateTimeNullableFilter<'User'>
+      | Date
+      | string
+      | null;
+    resetPasswordToken?: Prisma.StringNullableFilter<'User'> | string | null;
+    resetPasswordExpiry?:
+      | Prisma.DateTimeNullableFilter<'User'>
+      | Date
+      | string
+      | null;
+    isActive?: Prisma.BoolFilter<'User'> | boolean;
+    lastLoginAt?: Prisma.DateTimeNullableFilter<'User'> | Date | string | null;
+    lastLoginIp?: Prisma.StringNullableFilter<'User'> | string | null;
+    createdAt?: Prisma.DateTimeFilter<'User'> | Date | string;
+    updatedAt?: Prisma.DateTimeFilter<'User'> | Date | string;
+    organization?: Prisma.XOR<
+      Prisma.OrganizationNullableScalarRelationFilter,
+      Prisma.OrganizationWhereInput
+    > | null;
+    createdOrganizations?: Prisma.OrganizationListRelationFilter;
+    assignedOrganizations?: Prisma.OrganizationListRelationFilter;
+    createdProjects?: Prisma.ProjectListRelationFilter;
+    assignedProjects?: Prisma.ProjectListRelationFilter;
+    projectTeamMembers?: Prisma.ProjectTeamMemberListRelationFilter;
+    createdModules?: Prisma.ModuleListRelationFilter;
+    assignedModules?: Prisma.ModuleListRelationFilter;
+    createdTasks?: Prisma.TaskListRelationFilter;
+    assignedTasks?: Prisma.TaskListRelationFilter;
+    timeLogs?: Prisma.TimeLogListRelationFilter;
+    requestedApprovals?: Prisma.ApprovalListRelationFilter;
+    reviewedApprovals?: Prisma.ApprovalListRelationFilter;
+    activityLogs?: Prisma.ActivityLogListRelationFilter;
+    emailVerificationTokens?: Prisma.EmailVerificationTokenListRelationFilter;
+    passwordResetTokens?: Prisma.PasswordResetTokenListRelationFilter;
+    refreshTokens?: Prisma.RefreshTokenListRelationFilter;
   },
   'id' | 'email'
 >;
@@ -264,6 +427,15 @@ export type UserOrderByWithAggregationInput = {
   username?: Prisma.SortOrder;
   organizationId?: Prisma.SortOrderInput | Prisma.SortOrder;
   avatarUrl?: Prisma.SortOrderInput | Prisma.SortOrder;
+  isEmailVerified?: Prisma.SortOrder;
+  emailVerifiedAt?: Prisma.SortOrderInput | Prisma.SortOrder;
+  resetPasswordToken?: Prisma.SortOrderInput | Prisma.SortOrder;
+  resetPasswordExpiry?: Prisma.SortOrderInput | Prisma.SortOrder;
+  isActive?: Prisma.SortOrder;
+  lastLoginAt?: Prisma.SortOrderInput | Prisma.SortOrder;
+  lastLoginIp?: Prisma.SortOrderInput | Prisma.SortOrder;
+  createdAt?: Prisma.SortOrder;
+  updatedAt?: Prisma.SortOrder;
   _count?: Prisma.UserCountOrderByAggregateInput;
   _avg?: Prisma.UserAvgOrderByAggregateInput;
   _max?: Prisma.UserMaxOrderByAggregateInput;
@@ -288,14 +460,66 @@ export type UserScalarWhereWithAggregatesInput = {
     | number
     | null;
   avatarUrl?: Prisma.StringNullableWithAggregatesFilter<'User'> | string | null;
+  isEmailVerified?: Prisma.BoolWithAggregatesFilter<'User'> | boolean;
+  emailVerifiedAt?:
+    | Prisma.DateTimeNullableWithAggregatesFilter<'User'>
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.StringNullableWithAggregatesFilter<'User'>
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.DateTimeNullableWithAggregatesFilter<'User'>
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolWithAggregatesFilter<'User'> | boolean;
+  lastLoginAt?:
+    | Prisma.DateTimeNullableWithAggregatesFilter<'User'>
+    | Date
+    | string
+    | null;
+  lastLoginIp?:
+    | Prisma.StringNullableWithAggregatesFilter<'User'>
+    | string
+    | null;
+  createdAt?: Prisma.DateTimeWithAggregatesFilter<'User'> | Date | string;
+  updatedAt?: Prisma.DateTimeWithAggregatesFilter<'User'> | Date | string;
 };
 
 export type UserCreateInput = {
   email: string;
   password: string;
   username: string;
-  organizationId?: number | null;
   avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  organization?: Prisma.OrganizationCreateNestedOneWithoutUsersInput;
+  createdOrganizations?: Prisma.OrganizationCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput;
 };
 
 export type UserUncheckedCreateInput = {
@@ -305,14 +529,79 @@ export type UserUncheckedCreateInput = {
   username: string;
   organizationId?: number | null;
   avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogUncheckedCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogUncheckedCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput;
 };
 
 export type UserUpdateInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string;
   password?: Prisma.StringFieldUpdateOperationsInput | string;
   username?: Prisma.StringFieldUpdateOperationsInput | string;
-  organizationId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  organization?: Prisma.OrganizationUpdateOneWithoutUsersNestedInput;
+  createdOrganizations?: Prisma.OrganizationUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput;
 };
 
 export type UserUncheckedUpdateInput = {
@@ -322,6 +611,46 @@ export type UserUncheckedUpdateInput = {
   username?: Prisma.StringFieldUpdateOperationsInput | string;
   organizationId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUncheckedUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUncheckedUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUncheckedUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput;
 };
 
 export type UserCreateManyInput = {
@@ -331,14 +660,46 @@ export type UserCreateManyInput = {
   username: string;
   organizationId?: number | null;
   avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
 };
 
 export type UserUpdateManyMutationInput = {
   email?: Prisma.StringFieldUpdateOperationsInput | string;
   password?: Prisma.StringFieldUpdateOperationsInput | string;
   username?: Prisma.StringFieldUpdateOperationsInput | string;
-  organizationId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
 
 export type UserUncheckedUpdateManyInput = {
@@ -348,6 +709,30 @@ export type UserUncheckedUpdateManyInput = {
   username?: Prisma.StringFieldUpdateOperationsInput | string;
   organizationId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
   avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
 };
 
 export type UserCountOrderByAggregateInput = {
@@ -357,6 +742,15 @@ export type UserCountOrderByAggregateInput = {
   username?: Prisma.SortOrder;
   organizationId?: Prisma.SortOrder;
   avatarUrl?: Prisma.SortOrder;
+  isEmailVerified?: Prisma.SortOrder;
+  emailVerifiedAt?: Prisma.SortOrder;
+  resetPasswordToken?: Prisma.SortOrder;
+  resetPasswordExpiry?: Prisma.SortOrder;
+  isActive?: Prisma.SortOrder;
+  lastLoginAt?: Prisma.SortOrder;
+  lastLoginIp?: Prisma.SortOrder;
+  createdAt?: Prisma.SortOrder;
+  updatedAt?: Prisma.SortOrder;
 };
 
 export type UserAvgOrderByAggregateInput = {
@@ -371,6 +765,15 @@ export type UserMaxOrderByAggregateInput = {
   username?: Prisma.SortOrder;
   organizationId?: Prisma.SortOrder;
   avatarUrl?: Prisma.SortOrder;
+  isEmailVerified?: Prisma.SortOrder;
+  emailVerifiedAt?: Prisma.SortOrder;
+  resetPasswordToken?: Prisma.SortOrder;
+  resetPasswordExpiry?: Prisma.SortOrder;
+  isActive?: Prisma.SortOrder;
+  lastLoginAt?: Prisma.SortOrder;
+  lastLoginIp?: Prisma.SortOrder;
+  createdAt?: Prisma.SortOrder;
+  updatedAt?: Prisma.SortOrder;
 };
 
 export type UserMinOrderByAggregateInput = {
@@ -380,6 +783,15 @@ export type UserMinOrderByAggregateInput = {
   username?: Prisma.SortOrder;
   organizationId?: Prisma.SortOrder;
   avatarUrl?: Prisma.SortOrder;
+  isEmailVerified?: Prisma.SortOrder;
+  emailVerifiedAt?: Prisma.SortOrder;
+  resetPasswordToken?: Prisma.SortOrder;
+  resetPasswordExpiry?: Prisma.SortOrder;
+  isActive?: Prisma.SortOrder;
+  lastLoginAt?: Prisma.SortOrder;
+  lastLoginIp?: Prisma.SortOrder;
+  createdAt?: Prisma.SortOrder;
+  updatedAt?: Prisma.SortOrder;
 };
 
 export type UserSumOrderByAggregateInput = {
@@ -387,8 +799,52 @@ export type UserSumOrderByAggregateInput = {
   organizationId?: Prisma.SortOrder;
 };
 
+export type UserScalarRelationFilter = {
+  is?: Prisma.UserWhereInput;
+  isNot?: Prisma.UserWhereInput;
+};
+
+export type UserNullableScalarRelationFilter = {
+  is?: Prisma.UserWhereInput | null;
+  isNot?: Prisma.UserWhereInput | null;
+};
+
+export type UserListRelationFilter = {
+  every?: Prisma.UserWhereInput;
+  some?: Prisma.UserWhereInput;
+  none?: Prisma.UserWhereInput;
+};
+
+export type UserOrderByRelationAggregateInput = {
+  _count?: Prisma.SortOrder;
+};
+
 export type StringFieldUpdateOperationsInput = {
   set?: string;
+};
+
+export type NullableStringFieldUpdateOperationsInput = {
+  set?: string | null;
+};
+
+export type BoolFieldUpdateOperationsInput = {
+  set?: boolean;
+};
+
+export type NullableDateTimeFieldUpdateOperationsInput = {
+  set?: Date | string | null;
+};
+
+export type DateTimeFieldUpdateOperationsInput = {
+  set?: Date | string;
+};
+
+export type IntFieldUpdateOperationsInput = {
+  set?: number;
+  increment?: number;
+  decrement?: number;
+  multiply?: number;
+  divide?: number;
 };
 
 export type NullableIntFieldUpdateOperationsInput = {
@@ -399,16 +855,4033 @@ export type NullableIntFieldUpdateOperationsInput = {
   divide?: number;
 };
 
-export type NullableStringFieldUpdateOperationsInput = {
-  set?: string | null;
+export type UserCreateNestedOneWithoutEmailVerificationTokensInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutEmailVerificationTokensInput,
+    Prisma.UserUncheckedCreateWithoutEmailVerificationTokensInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutEmailVerificationTokensInput;
+  connect?: Prisma.UserWhereUniqueInput;
 };
 
-export type IntFieldUpdateOperationsInput = {
-  set?: number;
-  increment?: number;
-  decrement?: number;
-  multiply?: number;
-  divide?: number;
+export type UserUpdateOneRequiredWithoutEmailVerificationTokensNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutEmailVerificationTokensInput,
+    Prisma.UserUncheckedCreateWithoutEmailVerificationTokensInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutEmailVerificationTokensInput;
+  upsert?: Prisma.UserUpsertWithoutEmailVerificationTokensInput;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutEmailVerificationTokensInput,
+      Prisma.UserUpdateWithoutEmailVerificationTokensInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutEmailVerificationTokensInput
+  >;
+};
+
+export type UserCreateNestedOneWithoutPasswordResetTokensInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutPasswordResetTokensInput,
+    Prisma.UserUncheckedCreateWithoutPasswordResetTokensInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPasswordResetTokensInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserUpdateOneRequiredWithoutPasswordResetTokensNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutPasswordResetTokensInput,
+    Prisma.UserUncheckedCreateWithoutPasswordResetTokensInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutPasswordResetTokensInput;
+  upsert?: Prisma.UserUpsertWithoutPasswordResetTokensInput;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutPasswordResetTokensInput,
+      Prisma.UserUpdateWithoutPasswordResetTokensInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutPasswordResetTokensInput
+  >;
+};
+
+export type UserCreateNestedOneWithoutRefreshTokensInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutRefreshTokensInput,
+    Prisma.UserUncheckedCreateWithoutRefreshTokensInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutRefreshTokensInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserUpdateOneRequiredWithoutRefreshTokensNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutRefreshTokensInput,
+    Prisma.UserUncheckedCreateWithoutRefreshTokensInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutRefreshTokensInput;
+  upsert?: Prisma.UserUpsertWithoutRefreshTokensInput;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutRefreshTokensInput,
+      Prisma.UserUpdateWithoutRefreshTokensInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutRefreshTokensInput
+  >;
+};
+
+export type UserCreateNestedOneWithoutCreatedOrganizationsInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutCreatedOrganizationsInput,
+    Prisma.UserUncheckedCreateWithoutCreatedOrganizationsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCreatedOrganizationsInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserCreateNestedOneWithoutAssignedOrganizationsInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutAssignedOrganizationsInput,
+    Prisma.UserUncheckedCreateWithoutAssignedOrganizationsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAssignedOrganizationsInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserCreateNestedManyWithoutOrganizationInput = {
+  create?:
+    | Prisma.XOR<
+        Prisma.UserCreateWithoutOrganizationInput,
+        Prisma.UserUncheckedCreateWithoutOrganizationInput
+      >
+    | Prisma.UserCreateWithoutOrganizationInput[]
+    | Prisma.UserUncheckedCreateWithoutOrganizationInput[];
+  connectOrCreate?:
+    | Prisma.UserCreateOrConnectWithoutOrganizationInput
+    | Prisma.UserCreateOrConnectWithoutOrganizationInput[];
+  createMany?: Prisma.UserCreateManyOrganizationInputEnvelope;
+  connect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+};
+
+export type UserUncheckedCreateNestedManyWithoutOrganizationInput = {
+  create?:
+    | Prisma.XOR<
+        Prisma.UserCreateWithoutOrganizationInput,
+        Prisma.UserUncheckedCreateWithoutOrganizationInput
+      >
+    | Prisma.UserCreateWithoutOrganizationInput[]
+    | Prisma.UserUncheckedCreateWithoutOrganizationInput[];
+  connectOrCreate?:
+    | Prisma.UserCreateOrConnectWithoutOrganizationInput
+    | Prisma.UserCreateOrConnectWithoutOrganizationInput[];
+  createMany?: Prisma.UserCreateManyOrganizationInputEnvelope;
+  connect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+};
+
+export type UserUpdateOneRequiredWithoutCreatedOrganizationsNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutCreatedOrganizationsInput,
+    Prisma.UserUncheckedCreateWithoutCreatedOrganizationsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCreatedOrganizationsInput;
+  upsert?: Prisma.UserUpsertWithoutCreatedOrganizationsInput;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutCreatedOrganizationsInput,
+      Prisma.UserUpdateWithoutCreatedOrganizationsInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutCreatedOrganizationsInput
+  >;
+};
+
+export type UserUpdateOneWithoutAssignedOrganizationsNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutAssignedOrganizationsInput,
+    Prisma.UserUncheckedCreateWithoutAssignedOrganizationsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAssignedOrganizationsInput;
+  upsert?: Prisma.UserUpsertWithoutAssignedOrganizationsInput;
+  disconnect?: Prisma.UserWhereInput | boolean;
+  delete?: Prisma.UserWhereInput | boolean;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutAssignedOrganizationsInput,
+      Prisma.UserUpdateWithoutAssignedOrganizationsInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutAssignedOrganizationsInput
+  >;
+};
+
+export type UserUpdateManyWithoutOrganizationNestedInput = {
+  create?:
+    | Prisma.XOR<
+        Prisma.UserCreateWithoutOrganizationInput,
+        Prisma.UserUncheckedCreateWithoutOrganizationInput
+      >
+    | Prisma.UserCreateWithoutOrganizationInput[]
+    | Prisma.UserUncheckedCreateWithoutOrganizationInput[];
+  connectOrCreate?:
+    | Prisma.UserCreateOrConnectWithoutOrganizationInput
+    | Prisma.UserCreateOrConnectWithoutOrganizationInput[];
+  upsert?:
+    | Prisma.UserUpsertWithWhereUniqueWithoutOrganizationInput
+    | Prisma.UserUpsertWithWhereUniqueWithoutOrganizationInput[];
+  createMany?: Prisma.UserCreateManyOrganizationInputEnvelope;
+  set?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  disconnect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  delete?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  connect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  update?:
+    | Prisma.UserUpdateWithWhereUniqueWithoutOrganizationInput
+    | Prisma.UserUpdateWithWhereUniqueWithoutOrganizationInput[];
+  updateMany?:
+    | Prisma.UserUpdateManyWithWhereWithoutOrganizationInput
+    | Prisma.UserUpdateManyWithWhereWithoutOrganizationInput[];
+  deleteMany?: Prisma.UserScalarWhereInput | Prisma.UserScalarWhereInput[];
+};
+
+export type UserUncheckedUpdateManyWithoutOrganizationNestedInput = {
+  create?:
+    | Prisma.XOR<
+        Prisma.UserCreateWithoutOrganizationInput,
+        Prisma.UserUncheckedCreateWithoutOrganizationInput
+      >
+    | Prisma.UserCreateWithoutOrganizationInput[]
+    | Prisma.UserUncheckedCreateWithoutOrganizationInput[];
+  connectOrCreate?:
+    | Prisma.UserCreateOrConnectWithoutOrganizationInput
+    | Prisma.UserCreateOrConnectWithoutOrganizationInput[];
+  upsert?:
+    | Prisma.UserUpsertWithWhereUniqueWithoutOrganizationInput
+    | Prisma.UserUpsertWithWhereUniqueWithoutOrganizationInput[];
+  createMany?: Prisma.UserCreateManyOrganizationInputEnvelope;
+  set?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  disconnect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  delete?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  connect?: Prisma.UserWhereUniqueInput | Prisma.UserWhereUniqueInput[];
+  update?:
+    | Prisma.UserUpdateWithWhereUniqueWithoutOrganizationInput
+    | Prisma.UserUpdateWithWhereUniqueWithoutOrganizationInput[];
+  updateMany?:
+    | Prisma.UserUpdateManyWithWhereWithoutOrganizationInput
+    | Prisma.UserUpdateManyWithWhereWithoutOrganizationInput[];
+  deleteMany?: Prisma.UserScalarWhereInput | Prisma.UserScalarWhereInput[];
+};
+
+export type UserCreateNestedOneWithoutCreatedProjectsInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutCreatedProjectsInput,
+    Prisma.UserUncheckedCreateWithoutCreatedProjectsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCreatedProjectsInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserCreateNestedOneWithoutAssignedProjectsInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutAssignedProjectsInput,
+    Prisma.UserUncheckedCreateWithoutAssignedProjectsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAssignedProjectsInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserUpdateOneRequiredWithoutCreatedProjectsNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutCreatedProjectsInput,
+    Prisma.UserUncheckedCreateWithoutCreatedProjectsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCreatedProjectsInput;
+  upsert?: Prisma.UserUpsertWithoutCreatedProjectsInput;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutCreatedProjectsInput,
+      Prisma.UserUpdateWithoutCreatedProjectsInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutCreatedProjectsInput
+  >;
+};
+
+export type UserUpdateOneWithoutAssignedProjectsNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutAssignedProjectsInput,
+    Prisma.UserUncheckedCreateWithoutAssignedProjectsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAssignedProjectsInput;
+  upsert?: Prisma.UserUpsertWithoutAssignedProjectsInput;
+  disconnect?: Prisma.UserWhereInput | boolean;
+  delete?: Prisma.UserWhereInput | boolean;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutAssignedProjectsInput,
+      Prisma.UserUpdateWithoutAssignedProjectsInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutAssignedProjectsInput
+  >;
+};
+
+export type UserCreateNestedOneWithoutProjectTeamMembersInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutProjectTeamMembersInput,
+    Prisma.UserUncheckedCreateWithoutProjectTeamMembersInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutProjectTeamMembersInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserUpdateOneRequiredWithoutProjectTeamMembersNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutProjectTeamMembersInput,
+    Prisma.UserUncheckedCreateWithoutProjectTeamMembersInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutProjectTeamMembersInput;
+  upsert?: Prisma.UserUpsertWithoutProjectTeamMembersInput;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutProjectTeamMembersInput,
+      Prisma.UserUpdateWithoutProjectTeamMembersInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutProjectTeamMembersInput
+  >;
+};
+
+export type UserCreateNestedOneWithoutCreatedModulesInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutCreatedModulesInput,
+    Prisma.UserUncheckedCreateWithoutCreatedModulesInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCreatedModulesInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserCreateNestedOneWithoutAssignedModulesInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutAssignedModulesInput,
+    Prisma.UserUncheckedCreateWithoutAssignedModulesInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAssignedModulesInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserUpdateOneRequiredWithoutCreatedModulesNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutCreatedModulesInput,
+    Prisma.UserUncheckedCreateWithoutCreatedModulesInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCreatedModulesInput;
+  upsert?: Prisma.UserUpsertWithoutCreatedModulesInput;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutCreatedModulesInput,
+      Prisma.UserUpdateWithoutCreatedModulesInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutCreatedModulesInput
+  >;
+};
+
+export type UserUpdateOneWithoutAssignedModulesNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutAssignedModulesInput,
+    Prisma.UserUncheckedCreateWithoutAssignedModulesInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAssignedModulesInput;
+  upsert?: Prisma.UserUpsertWithoutAssignedModulesInput;
+  disconnect?: Prisma.UserWhereInput | boolean;
+  delete?: Prisma.UserWhereInput | boolean;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutAssignedModulesInput,
+      Prisma.UserUpdateWithoutAssignedModulesInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutAssignedModulesInput
+  >;
+};
+
+export type UserCreateNestedOneWithoutCreatedTasksInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutCreatedTasksInput,
+    Prisma.UserUncheckedCreateWithoutCreatedTasksInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCreatedTasksInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserCreateNestedOneWithoutAssignedTasksInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutAssignedTasksInput,
+    Prisma.UserUncheckedCreateWithoutAssignedTasksInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAssignedTasksInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserUpdateOneRequiredWithoutCreatedTasksNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutCreatedTasksInput,
+    Prisma.UserUncheckedCreateWithoutCreatedTasksInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutCreatedTasksInput;
+  upsert?: Prisma.UserUpsertWithoutCreatedTasksInput;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutCreatedTasksInput,
+      Prisma.UserUpdateWithoutCreatedTasksInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutCreatedTasksInput
+  >;
+};
+
+export type UserUpdateOneWithoutAssignedTasksNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutAssignedTasksInput,
+    Prisma.UserUncheckedCreateWithoutAssignedTasksInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutAssignedTasksInput;
+  upsert?: Prisma.UserUpsertWithoutAssignedTasksInput;
+  disconnect?: Prisma.UserWhereInput | boolean;
+  delete?: Prisma.UserWhereInput | boolean;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutAssignedTasksInput,
+      Prisma.UserUpdateWithoutAssignedTasksInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutAssignedTasksInput
+  >;
+};
+
+export type UserCreateNestedOneWithoutTimeLogsInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutTimeLogsInput,
+    Prisma.UserUncheckedCreateWithoutTimeLogsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutTimeLogsInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserUpdateOneRequiredWithoutTimeLogsNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutTimeLogsInput,
+    Prisma.UserUncheckedCreateWithoutTimeLogsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutTimeLogsInput;
+  upsert?: Prisma.UserUpsertWithoutTimeLogsInput;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutTimeLogsInput,
+      Prisma.UserUpdateWithoutTimeLogsInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutTimeLogsInput
+  >;
+};
+
+export type UserCreateNestedOneWithoutRequestedApprovalsInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutRequestedApprovalsInput,
+    Prisma.UserUncheckedCreateWithoutRequestedApprovalsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutRequestedApprovalsInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserCreateNestedOneWithoutReviewedApprovalsInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutReviewedApprovalsInput,
+    Prisma.UserUncheckedCreateWithoutReviewedApprovalsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutReviewedApprovalsInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserUpdateOneRequiredWithoutRequestedApprovalsNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutRequestedApprovalsInput,
+    Prisma.UserUncheckedCreateWithoutRequestedApprovalsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutRequestedApprovalsInput;
+  upsert?: Prisma.UserUpsertWithoutRequestedApprovalsInput;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutRequestedApprovalsInput,
+      Prisma.UserUpdateWithoutRequestedApprovalsInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutRequestedApprovalsInput
+  >;
+};
+
+export type UserUpdateOneWithoutReviewedApprovalsNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutReviewedApprovalsInput,
+    Prisma.UserUncheckedCreateWithoutReviewedApprovalsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutReviewedApprovalsInput;
+  upsert?: Prisma.UserUpsertWithoutReviewedApprovalsInput;
+  disconnect?: Prisma.UserWhereInput | boolean;
+  delete?: Prisma.UserWhereInput | boolean;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutReviewedApprovalsInput,
+      Prisma.UserUpdateWithoutReviewedApprovalsInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutReviewedApprovalsInput
+  >;
+};
+
+export type UserCreateNestedOneWithoutActivityLogsInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutActivityLogsInput,
+    Prisma.UserUncheckedCreateWithoutActivityLogsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutActivityLogsInput;
+  connect?: Prisma.UserWhereUniqueInput;
+};
+
+export type UserUpdateOneWithoutActivityLogsNestedInput = {
+  create?: Prisma.XOR<
+    Prisma.UserCreateWithoutActivityLogsInput,
+    Prisma.UserUncheckedCreateWithoutActivityLogsInput
+  >;
+  connectOrCreate?: Prisma.UserCreateOrConnectWithoutActivityLogsInput;
+  upsert?: Prisma.UserUpsertWithoutActivityLogsInput;
+  disconnect?: Prisma.UserWhereInput | boolean;
+  delete?: Prisma.UserWhereInput | boolean;
+  connect?: Prisma.UserWhereUniqueInput;
+  update?: Prisma.XOR<
+    Prisma.XOR<
+      Prisma.UserUpdateToOneWithWhereWithoutActivityLogsInput,
+      Prisma.UserUpdateWithoutActivityLogsInput
+    >,
+    Prisma.UserUncheckedUpdateWithoutActivityLogsInput
+  >;
+};
+
+export type UserCreateWithoutEmailVerificationTokensInput = {
+  email: string;
+  password: string;
+  username: string;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  organization?: Prisma.OrganizationCreateNestedOneWithoutUsersInput;
+  createdOrganizations?: Prisma.OrganizationCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput;
+};
+
+export type UserUncheckedCreateWithoutEmailVerificationTokensInput = {
+  id?: number;
+  email: string;
+  password: string;
+  username: string;
+  organizationId?: number | null;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogUncheckedCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogUncheckedCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput;
+};
+
+export type UserCreateOrConnectWithoutEmailVerificationTokensInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutEmailVerificationTokensInput,
+    Prisma.UserUncheckedCreateWithoutEmailVerificationTokensInput
+  >;
+};
+
+export type UserUpsertWithoutEmailVerificationTokensInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutEmailVerificationTokensInput,
+    Prisma.UserUncheckedUpdateWithoutEmailVerificationTokensInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutEmailVerificationTokensInput,
+    Prisma.UserUncheckedCreateWithoutEmailVerificationTokensInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutEmailVerificationTokensInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutEmailVerificationTokensInput,
+    Prisma.UserUncheckedUpdateWithoutEmailVerificationTokensInput
+  >;
+};
+
+export type UserUpdateWithoutEmailVerificationTokensInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  organization?: Prisma.OrganizationUpdateOneWithoutUsersNestedInput;
+  createdOrganizations?: Prisma.OrganizationUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutEmailVerificationTokensInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  organizationId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUncheckedUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUncheckedUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUncheckedUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput;
+};
+
+export type UserCreateWithoutPasswordResetTokensInput = {
+  email: string;
+  password: string;
+  username: string;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  organization?: Prisma.OrganizationCreateNestedOneWithoutUsersInput;
+  createdOrganizations?: Prisma.OrganizationCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput;
+};
+
+export type UserUncheckedCreateWithoutPasswordResetTokensInput = {
+  id?: number;
+  email: string;
+  password: string;
+  username: string;
+  organizationId?: number | null;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogUncheckedCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogUncheckedCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput;
+};
+
+export type UserCreateOrConnectWithoutPasswordResetTokensInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutPasswordResetTokensInput,
+    Prisma.UserUncheckedCreateWithoutPasswordResetTokensInput
+  >;
+};
+
+export type UserUpsertWithoutPasswordResetTokensInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutPasswordResetTokensInput,
+    Prisma.UserUncheckedUpdateWithoutPasswordResetTokensInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutPasswordResetTokensInput,
+    Prisma.UserUncheckedCreateWithoutPasswordResetTokensInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutPasswordResetTokensInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutPasswordResetTokensInput,
+    Prisma.UserUncheckedUpdateWithoutPasswordResetTokensInput
+  >;
+};
+
+export type UserUpdateWithoutPasswordResetTokensInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  organization?: Prisma.OrganizationUpdateOneWithoutUsersNestedInput;
+  createdOrganizations?: Prisma.OrganizationUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutPasswordResetTokensInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  organizationId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUncheckedUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUncheckedUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUncheckedUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput;
+};
+
+export type UserCreateWithoutRefreshTokensInput = {
+  email: string;
+  password: string;
+  username: string;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  organization?: Prisma.OrganizationCreateNestedOneWithoutUsersInput;
+  createdOrganizations?: Prisma.OrganizationCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput;
+};
+
+export type UserUncheckedCreateWithoutRefreshTokensInput = {
+  id?: number;
+  email: string;
+  password: string;
+  username: string;
+  organizationId?: number | null;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogUncheckedCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogUncheckedCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput;
+};
+
+export type UserCreateOrConnectWithoutRefreshTokensInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutRefreshTokensInput,
+    Prisma.UserUncheckedCreateWithoutRefreshTokensInput
+  >;
+};
+
+export type UserUpsertWithoutRefreshTokensInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutRefreshTokensInput,
+    Prisma.UserUncheckedUpdateWithoutRefreshTokensInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutRefreshTokensInput,
+    Prisma.UserUncheckedCreateWithoutRefreshTokensInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutRefreshTokensInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutRefreshTokensInput,
+    Prisma.UserUncheckedUpdateWithoutRefreshTokensInput
+  >;
+};
+
+export type UserUpdateWithoutRefreshTokensInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  organization?: Prisma.OrganizationUpdateOneWithoutUsersNestedInput;
+  createdOrganizations?: Prisma.OrganizationUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutRefreshTokensInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  organizationId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUncheckedUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUncheckedUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUncheckedUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput;
+};
+
+export type UserCreateWithoutCreatedOrganizationsInput = {
+  email: string;
+  password: string;
+  username: string;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  organization?: Prisma.OrganizationCreateNestedOneWithoutUsersInput;
+  assignedOrganizations?: Prisma.OrganizationCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput;
+};
+
+export type UserUncheckedCreateWithoutCreatedOrganizationsInput = {
+  id?: number;
+  email: string;
+  password: string;
+  username: string;
+  organizationId?: number | null;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  assignedOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogUncheckedCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogUncheckedCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput;
+};
+
+export type UserCreateOrConnectWithoutCreatedOrganizationsInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutCreatedOrganizationsInput,
+    Prisma.UserUncheckedCreateWithoutCreatedOrganizationsInput
+  >;
+};
+
+export type UserCreateWithoutAssignedOrganizationsInput = {
+  email: string;
+  password: string;
+  username: string;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  organization?: Prisma.OrganizationCreateNestedOneWithoutUsersInput;
+  createdOrganizations?: Prisma.OrganizationCreateNestedManyWithoutCreatorInput;
+  createdProjects?: Prisma.ProjectCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput;
+};
+
+export type UserUncheckedCreateWithoutAssignedOrganizationsInput = {
+  id?: number;
+  email: string;
+  password: string;
+  username: string;
+  organizationId?: number | null;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutCreatorInput;
+  createdProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogUncheckedCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogUncheckedCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput;
+};
+
+export type UserCreateOrConnectWithoutAssignedOrganizationsInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutAssignedOrganizationsInput,
+    Prisma.UserUncheckedCreateWithoutAssignedOrganizationsInput
+  >;
+};
+
+export type UserCreateWithoutOrganizationInput = {
+  email: string;
+  password: string;
+  username: string;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  createdOrganizations?: Prisma.OrganizationCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput;
+};
+
+export type UserUncheckedCreateWithoutOrganizationInput = {
+  id?: number;
+  email: string;
+  password: string;
+  username: string;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogUncheckedCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogUncheckedCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput;
+};
+
+export type UserCreateOrConnectWithoutOrganizationInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutOrganizationInput,
+    Prisma.UserUncheckedCreateWithoutOrganizationInput
+  >;
+};
+
+export type UserCreateManyOrganizationInputEnvelope = {
+  data:
+    | Prisma.UserCreateManyOrganizationInput
+    | Prisma.UserCreateManyOrganizationInput[];
+  skipDuplicates?: boolean;
+};
+
+export type UserUpsertWithoutCreatedOrganizationsInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutCreatedOrganizationsInput,
+    Prisma.UserUncheckedUpdateWithoutCreatedOrganizationsInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutCreatedOrganizationsInput,
+    Prisma.UserUncheckedCreateWithoutCreatedOrganizationsInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutCreatedOrganizationsInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutCreatedOrganizationsInput,
+    Prisma.UserUncheckedUpdateWithoutCreatedOrganizationsInput
+  >;
+};
+
+export type UserUpdateWithoutCreatedOrganizationsInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  organization?: Prisma.OrganizationUpdateOneWithoutUsersNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutCreatedOrganizationsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  organizationId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  assignedOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUncheckedUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUncheckedUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUncheckedUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUpsertWithoutAssignedOrganizationsInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutAssignedOrganizationsInput,
+    Prisma.UserUncheckedUpdateWithoutAssignedOrganizationsInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutAssignedOrganizationsInput,
+    Prisma.UserUncheckedCreateWithoutAssignedOrganizationsInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutAssignedOrganizationsInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutAssignedOrganizationsInput,
+    Prisma.UserUncheckedUpdateWithoutAssignedOrganizationsInput
+  >;
+};
+
+export type UserUpdateWithoutAssignedOrganizationsInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  organization?: Prisma.OrganizationUpdateOneWithoutUsersNestedInput;
+  createdOrganizations?: Prisma.OrganizationUpdateManyWithoutCreatorNestedInput;
+  createdProjects?: Prisma.ProjectUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutAssignedOrganizationsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  organizationId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutCreatorNestedInput;
+  createdProjects?: Prisma.ProjectUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUncheckedUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUncheckedUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUncheckedUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUpsertWithWhereUniqueWithoutOrganizationInput = {
+  where: Prisma.UserWhereUniqueInput;
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutOrganizationInput,
+    Prisma.UserUncheckedUpdateWithoutOrganizationInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutOrganizationInput,
+    Prisma.UserUncheckedCreateWithoutOrganizationInput
+  >;
+};
+
+export type UserUpdateWithWhereUniqueWithoutOrganizationInput = {
+  where: Prisma.UserWhereUniqueInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutOrganizationInput,
+    Prisma.UserUncheckedUpdateWithoutOrganizationInput
+  >;
+};
+
+export type UserUpdateManyWithWhereWithoutOrganizationInput = {
+  where: Prisma.UserScalarWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateManyMutationInput,
+    Prisma.UserUncheckedUpdateManyWithoutOrganizationInput
+  >;
+};
+
+export type UserScalarWhereInput = {
+  AND?: Prisma.UserScalarWhereInput | Prisma.UserScalarWhereInput[];
+  OR?: Prisma.UserScalarWhereInput[];
+  NOT?: Prisma.UserScalarWhereInput | Prisma.UserScalarWhereInput[];
+  id?: Prisma.IntFilter<'User'> | number;
+  email?: Prisma.StringFilter<'User'> | string;
+  password?: Prisma.StringFilter<'User'> | string;
+  username?: Prisma.StringFilter<'User'> | string;
+  organizationId?: Prisma.IntNullableFilter<'User'> | number | null;
+  avatarUrl?: Prisma.StringNullableFilter<'User'> | string | null;
+  isEmailVerified?: Prisma.BoolFilter<'User'> | boolean;
+  emailVerifiedAt?:
+    | Prisma.DateTimeNullableFilter<'User'>
+    | Date
+    | string
+    | null;
+  resetPasswordToken?: Prisma.StringNullableFilter<'User'> | string | null;
+  resetPasswordExpiry?:
+    | Prisma.DateTimeNullableFilter<'User'>
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFilter<'User'> | boolean;
+  lastLoginAt?: Prisma.DateTimeNullableFilter<'User'> | Date | string | null;
+  lastLoginIp?: Prisma.StringNullableFilter<'User'> | string | null;
+  createdAt?: Prisma.DateTimeFilter<'User'> | Date | string;
+  updatedAt?: Prisma.DateTimeFilter<'User'> | Date | string;
+};
+
+export type UserCreateWithoutCreatedProjectsInput = {
+  email: string;
+  password: string;
+  username: string;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  organization?: Prisma.OrganizationCreateNestedOneWithoutUsersInput;
+  createdOrganizations?: Prisma.OrganizationCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationCreateNestedManyWithoutAssigneeInput;
+  assignedProjects?: Prisma.ProjectCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput;
+};
+
+export type UserUncheckedCreateWithoutCreatedProjectsInput = {
+  id?: number;
+  email: string;
+  password: string;
+  username: string;
+  organizationId?: number | null;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutAssigneeInput;
+  assignedProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogUncheckedCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogUncheckedCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput;
+};
+
+export type UserCreateOrConnectWithoutCreatedProjectsInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutCreatedProjectsInput,
+    Prisma.UserUncheckedCreateWithoutCreatedProjectsInput
+  >;
+};
+
+export type UserCreateWithoutAssignedProjectsInput = {
+  email: string;
+  password: string;
+  username: string;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  organization?: Prisma.OrganizationCreateNestedOneWithoutUsersInput;
+  createdOrganizations?: Prisma.OrganizationCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectCreateNestedManyWithoutCreatorInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput;
+};
+
+export type UserUncheckedCreateWithoutAssignedProjectsInput = {
+  id?: number;
+  email: string;
+  password: string;
+  username: string;
+  organizationId?: number | null;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutCreatorInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogUncheckedCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogUncheckedCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput;
+};
+
+export type UserCreateOrConnectWithoutAssignedProjectsInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutAssignedProjectsInput,
+    Prisma.UserUncheckedCreateWithoutAssignedProjectsInput
+  >;
+};
+
+export type UserUpsertWithoutCreatedProjectsInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutCreatedProjectsInput,
+    Prisma.UserUncheckedUpdateWithoutCreatedProjectsInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutCreatedProjectsInput,
+    Prisma.UserUncheckedCreateWithoutCreatedProjectsInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutCreatedProjectsInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutCreatedProjectsInput,
+    Prisma.UserUncheckedUpdateWithoutCreatedProjectsInput
+  >;
+};
+
+export type UserUpdateWithoutCreatedProjectsInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  organization?: Prisma.OrganizationUpdateOneWithoutUsersNestedInput;
+  createdOrganizations?: Prisma.OrganizationUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUpdateManyWithoutAssigneeNestedInput;
+  assignedProjects?: Prisma.ProjectUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutCreatedProjectsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  organizationId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutAssigneeNestedInput;
+  assignedProjects?: Prisma.ProjectUncheckedUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUncheckedUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUncheckedUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUpsertWithoutAssignedProjectsInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutAssignedProjectsInput,
+    Prisma.UserUncheckedUpdateWithoutAssignedProjectsInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutAssignedProjectsInput,
+    Prisma.UserUncheckedCreateWithoutAssignedProjectsInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutAssignedProjectsInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutAssignedProjectsInput,
+    Prisma.UserUncheckedUpdateWithoutAssignedProjectsInput
+  >;
+};
+
+export type UserUpdateWithoutAssignedProjectsInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  organization?: Prisma.OrganizationUpdateOneWithoutUsersNestedInput;
+  createdOrganizations?: Prisma.OrganizationUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUpdateManyWithoutCreatorNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutAssignedProjectsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  organizationId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUncheckedUpdateManyWithoutCreatorNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUncheckedUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUncheckedUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput;
+};
+
+export type UserCreateWithoutProjectTeamMembersInput = {
+  email: string;
+  password: string;
+  username: string;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  organization?: Prisma.OrganizationCreateNestedOneWithoutUsersInput;
+  createdOrganizations?: Prisma.OrganizationCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectCreateNestedManyWithoutAssigneeInput;
+  createdModules?: Prisma.ModuleCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput;
+};
+
+export type UserUncheckedCreateWithoutProjectTeamMembersInput = {
+  id?: number;
+  email: string;
+  password: string;
+  username: string;
+  organizationId?: number | null;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogUncheckedCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogUncheckedCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput;
+};
+
+export type UserCreateOrConnectWithoutProjectTeamMembersInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutProjectTeamMembersInput,
+    Prisma.UserUncheckedCreateWithoutProjectTeamMembersInput
+  >;
+};
+
+export type UserUpsertWithoutProjectTeamMembersInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutProjectTeamMembersInput,
+    Prisma.UserUncheckedUpdateWithoutProjectTeamMembersInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutProjectTeamMembersInput,
+    Prisma.UserUncheckedCreateWithoutProjectTeamMembersInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutProjectTeamMembersInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutProjectTeamMembersInput,
+    Prisma.UserUncheckedUpdateWithoutProjectTeamMembersInput
+  >;
+};
+
+export type UserUpdateWithoutProjectTeamMembersInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  organization?: Prisma.OrganizationUpdateOneWithoutUsersNestedInput;
+  createdOrganizations?: Prisma.OrganizationUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUpdateManyWithoutAssigneeNestedInput;
+  createdModules?: Prisma.ModuleUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutProjectTeamMembersInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  organizationId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdModules?: Prisma.ModuleUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUncheckedUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUncheckedUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput;
+};
+
+export type UserCreateWithoutCreatedModulesInput = {
+  email: string;
+  password: string;
+  username: string;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  organization?: Prisma.OrganizationCreateNestedOneWithoutUsersInput;
+  createdOrganizations?: Prisma.OrganizationCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberCreateNestedManyWithoutUserInput;
+  assignedModules?: Prisma.ModuleCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput;
+};
+
+export type UserUncheckedCreateWithoutCreatedModulesInput = {
+  id?: number;
+  email: string;
+  password: string;
+  username: string;
+  organizationId?: number | null;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedCreateNestedManyWithoutUserInput;
+  assignedModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogUncheckedCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogUncheckedCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput;
+};
+
+export type UserCreateOrConnectWithoutCreatedModulesInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutCreatedModulesInput,
+    Prisma.UserUncheckedCreateWithoutCreatedModulesInput
+  >;
+};
+
+export type UserCreateWithoutAssignedModulesInput = {
+  email: string;
+  password: string;
+  username: string;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  organization?: Prisma.OrganizationCreateNestedOneWithoutUsersInput;
+  createdOrganizations?: Prisma.OrganizationCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleCreateNestedManyWithoutCreatorInput;
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput;
+};
+
+export type UserUncheckedCreateWithoutAssignedModulesInput = {
+  id?: number;
+  email: string;
+  password: string;
+  username: string;
+  organizationId?: number | null;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutCreatorInput;
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogUncheckedCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogUncheckedCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput;
+};
+
+export type UserCreateOrConnectWithoutAssignedModulesInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutAssignedModulesInput,
+    Prisma.UserUncheckedCreateWithoutAssignedModulesInput
+  >;
+};
+
+export type UserUpsertWithoutCreatedModulesInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutCreatedModulesInput,
+    Prisma.UserUncheckedUpdateWithoutCreatedModulesInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutCreatedModulesInput,
+    Prisma.UserUncheckedCreateWithoutCreatedModulesInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutCreatedModulesInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutCreatedModulesInput,
+    Prisma.UserUncheckedUpdateWithoutCreatedModulesInput
+  >;
+};
+
+export type UserUpdateWithoutCreatedModulesInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  organization?: Prisma.OrganizationUpdateOneWithoutUsersNestedInput;
+  createdOrganizations?: Prisma.OrganizationUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUpdateManyWithoutUserNestedInput;
+  assignedModules?: Prisma.ModuleUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutCreatedModulesInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  organizationId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUncheckedUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedUpdateManyWithoutUserNestedInput;
+  assignedModules?: Prisma.ModuleUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUncheckedUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUncheckedUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUpsertWithoutAssignedModulesInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutAssignedModulesInput,
+    Prisma.UserUncheckedUpdateWithoutAssignedModulesInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutAssignedModulesInput,
+    Prisma.UserUncheckedCreateWithoutAssignedModulesInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutAssignedModulesInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutAssignedModulesInput,
+    Prisma.UserUncheckedUpdateWithoutAssignedModulesInput
+  >;
+};
+
+export type UserUpdateWithoutAssignedModulesInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  organization?: Prisma.OrganizationUpdateOneWithoutUsersNestedInput;
+  createdOrganizations?: Prisma.OrganizationUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUpdateManyWithoutCreatorNestedInput;
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutAssignedModulesInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  organizationId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUncheckedUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUncheckedUpdateManyWithoutCreatorNestedInput;
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUncheckedUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUncheckedUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput;
+};
+
+export type UserCreateWithoutCreatedTasksInput = {
+  email: string;
+  password: string;
+  username: string;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  organization?: Prisma.OrganizationCreateNestedOneWithoutUsersInput;
+  createdOrganizations?: Prisma.OrganizationCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleCreateNestedManyWithoutAssigneeInput;
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput;
+};
+
+export type UserUncheckedCreateWithoutCreatedTasksInput = {
+  id?: number;
+  email: string;
+  password: string;
+  username: string;
+  organizationId?: number | null;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutAssigneeInput;
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogUncheckedCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogUncheckedCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput;
+};
+
+export type UserCreateOrConnectWithoutCreatedTasksInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutCreatedTasksInput,
+    Prisma.UserUncheckedCreateWithoutCreatedTasksInput
+  >;
+};
+
+export type UserCreateWithoutAssignedTasksInput = {
+  email: string;
+  password: string;
+  username: string;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  organization?: Prisma.OrganizationCreateNestedOneWithoutUsersInput;
+  createdOrganizations?: Prisma.OrganizationCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatedByInput;
+  timeLogs?: Prisma.TimeLogCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput;
+};
+
+export type UserUncheckedCreateWithoutAssignedTasksInput = {
+  id?: number;
+  email: string;
+  password: string;
+  username: string;
+  organizationId?: number | null;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput;
+  timeLogs?: Prisma.TimeLogUncheckedCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogUncheckedCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput;
+};
+
+export type UserCreateOrConnectWithoutAssignedTasksInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutAssignedTasksInput,
+    Prisma.UserUncheckedCreateWithoutAssignedTasksInput
+  >;
+};
+
+export type UserUpsertWithoutCreatedTasksInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutCreatedTasksInput,
+    Prisma.UserUncheckedUpdateWithoutCreatedTasksInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutCreatedTasksInput,
+    Prisma.UserUncheckedCreateWithoutCreatedTasksInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutCreatedTasksInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutCreatedTasksInput,
+    Prisma.UserUncheckedUpdateWithoutCreatedTasksInput
+  >;
+};
+
+export type UserUpdateWithoutCreatedTasksInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  organization?: Prisma.OrganizationUpdateOneWithoutUsersNestedInput;
+  createdOrganizations?: Prisma.OrganizationUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUpdateManyWithoutAssigneeNestedInput;
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutCreatedTasksInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  organizationId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUncheckedUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUncheckedUpdateManyWithoutAssigneeNestedInput;
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUncheckedUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUncheckedUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUpsertWithoutAssignedTasksInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutAssignedTasksInput,
+    Prisma.UserUncheckedUpdateWithoutAssignedTasksInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutAssignedTasksInput,
+    Prisma.UserUncheckedCreateWithoutAssignedTasksInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutAssignedTasksInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutAssignedTasksInput,
+    Prisma.UserUncheckedUpdateWithoutAssignedTasksInput
+  >;
+};
+
+export type UserUpdateWithoutAssignedTasksInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  organization?: Prisma.OrganizationUpdateOneWithoutUsersNestedInput;
+  createdOrganizations?: Prisma.OrganizationUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput;
+  timeLogs?: Prisma.TimeLogUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutAssignedTasksInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  organizationId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUncheckedUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput;
+  timeLogs?: Prisma.TimeLogUncheckedUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUncheckedUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput;
+};
+
+export type UserCreateWithoutTimeLogsInput = {
+  email: string;
+  password: string;
+  username: string;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  organization?: Prisma.OrganizationCreateNestedOneWithoutUsersInput;
+  createdOrganizations?: Prisma.OrganizationCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssignedToInput;
+  requestedApprovals?: Prisma.ApprovalCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput;
+};
+
+export type UserUncheckedCreateWithoutTimeLogsInput = {
+  id?: number;
+  email: string;
+  password: string;
+  username: string;
+  organizationId?: number | null;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogUncheckedCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput;
+};
+
+export type UserCreateOrConnectWithoutTimeLogsInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutTimeLogsInput,
+    Prisma.UserUncheckedCreateWithoutTimeLogsInput
+  >;
+};
+
+export type UserUpsertWithoutTimeLogsInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutTimeLogsInput,
+    Prisma.UserUncheckedUpdateWithoutTimeLogsInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutTimeLogsInput,
+    Prisma.UserUncheckedCreateWithoutTimeLogsInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutTimeLogsInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutTimeLogsInput,
+    Prisma.UserUncheckedUpdateWithoutTimeLogsInput
+  >;
+};
+
+export type UserUpdateWithoutTimeLogsInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  organization?: Prisma.OrganizationUpdateOneWithoutUsersNestedInput;
+  createdOrganizations?: Prisma.OrganizationUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput;
+  requestedApprovals?: Prisma.ApprovalUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutTimeLogsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  organizationId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUncheckedUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUncheckedUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput;
+};
+
+export type UserCreateWithoutRequestedApprovalsInput = {
+  email: string;
+  password: string;
+  username: string;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  organization?: Prisma.OrganizationCreateNestedOneWithoutUsersInput;
+  createdOrganizations?: Prisma.OrganizationCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogCreateNestedManyWithoutUserInput;
+  reviewedApprovals?: Prisma.ApprovalCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput;
+};
+
+export type UserUncheckedCreateWithoutRequestedApprovalsInput = {
+  id?: number;
+  email: string;
+  password: string;
+  username: string;
+  organizationId?: number | null;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogUncheckedCreateNestedManyWithoutUserInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutReviewedByInput;
+  activityLogs?: Prisma.ActivityLogUncheckedCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput;
+};
+
+export type UserCreateOrConnectWithoutRequestedApprovalsInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutRequestedApprovalsInput,
+    Prisma.UserUncheckedCreateWithoutRequestedApprovalsInput
+  >;
+};
+
+export type UserCreateWithoutReviewedApprovalsInput = {
+  email: string;
+  password: string;
+  username: string;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  organization?: Prisma.OrganizationCreateNestedOneWithoutUsersInput;
+  createdOrganizations?: Prisma.OrganizationCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalCreateNestedManyWithoutRequestedByInput;
+  activityLogs?: Prisma.ActivityLogCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput;
+};
+
+export type UserUncheckedCreateWithoutReviewedApprovalsInput = {
+  id?: number;
+  email: string;
+  password: string;
+  username: string;
+  organizationId?: number | null;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogUncheckedCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutRequestedByInput;
+  activityLogs?: Prisma.ActivityLogUncheckedCreateNestedManyWithoutUserInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput;
+};
+
+export type UserCreateOrConnectWithoutReviewedApprovalsInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutReviewedApprovalsInput,
+    Prisma.UserUncheckedCreateWithoutReviewedApprovalsInput
+  >;
+};
+
+export type UserUpsertWithoutRequestedApprovalsInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutRequestedApprovalsInput,
+    Prisma.UserUncheckedUpdateWithoutRequestedApprovalsInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutRequestedApprovalsInput,
+    Prisma.UserUncheckedCreateWithoutRequestedApprovalsInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutRequestedApprovalsInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutRequestedApprovalsInput,
+    Prisma.UserUncheckedUpdateWithoutRequestedApprovalsInput
+  >;
+};
+
+export type UserUpdateWithoutRequestedApprovalsInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  organization?: Prisma.OrganizationUpdateOneWithoutUsersNestedInput;
+  createdOrganizations?: Prisma.OrganizationUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUpdateManyWithoutUserNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutRequestedApprovalsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  organizationId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUncheckedUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUncheckedUpdateManyWithoutUserNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUncheckedUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUpsertWithoutReviewedApprovalsInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutReviewedApprovalsInput,
+    Prisma.UserUncheckedUpdateWithoutReviewedApprovalsInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutReviewedApprovalsInput,
+    Prisma.UserUncheckedCreateWithoutReviewedApprovalsInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutReviewedApprovalsInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutReviewedApprovalsInput,
+    Prisma.UserUncheckedUpdateWithoutReviewedApprovalsInput
+  >;
+};
+
+export type UserUpdateWithoutReviewedApprovalsInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  organization?: Prisma.OrganizationUpdateOneWithoutUsersNestedInput;
+  createdOrganizations?: Prisma.OrganizationUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUpdateManyWithoutRequestedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutReviewedApprovalsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  organizationId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUncheckedUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUncheckedUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutRequestedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUncheckedUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput;
+};
+
+export type UserCreateWithoutActivityLogsInput = {
+  email: string;
+  password: string;
+  username: string;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  organization?: Prisma.OrganizationCreateNestedOneWithoutUsersInput;
+  createdOrganizations?: Prisma.OrganizationCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalCreateNestedManyWithoutReviewedByInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenCreateNestedManyWithoutUserInput;
+};
+
+export type UserUncheckedCreateWithoutActivityLogsInput = {
+  id?: number;
+  email: string;
+  password: string;
+  username: string;
+  organizationId?: number | null;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedProjects?: Prisma.ProjectUncheckedCreateNestedManyWithoutAssigneeInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedCreateNestedManyWithoutUserInput;
+  createdModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutCreatorInput;
+  assignedModules?: Prisma.ModuleUncheckedCreateNestedManyWithoutAssigneeInput;
+  createdTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutCreatedByInput;
+  assignedTasks?: Prisma.TaskUncheckedCreateNestedManyWithoutAssignedToInput;
+  timeLogs?: Prisma.TimeLogUncheckedCreateNestedManyWithoutUserInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutRequestedByInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedCreateNestedManyWithoutReviewedByInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedCreateNestedManyWithoutUserInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedCreateNestedManyWithoutUserInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedCreateNestedManyWithoutUserInput;
+};
+
+export type UserCreateOrConnectWithoutActivityLogsInput = {
+  where: Prisma.UserWhereUniqueInput;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutActivityLogsInput,
+    Prisma.UserUncheckedCreateWithoutActivityLogsInput
+  >;
+};
+
+export type UserUpsertWithoutActivityLogsInput = {
+  update: Prisma.XOR<
+    Prisma.UserUpdateWithoutActivityLogsInput,
+    Prisma.UserUncheckedUpdateWithoutActivityLogsInput
+  >;
+  create: Prisma.XOR<
+    Prisma.UserCreateWithoutActivityLogsInput,
+    Prisma.UserUncheckedCreateWithoutActivityLogsInput
+  >;
+  where?: Prisma.UserWhereInput;
+};
+
+export type UserUpdateToOneWithWhereWithoutActivityLogsInput = {
+  where?: Prisma.UserWhereInput;
+  data: Prisma.XOR<
+    Prisma.UserUpdateWithoutActivityLogsInput,
+    Prisma.UserUncheckedUpdateWithoutActivityLogsInput
+  >;
+};
+
+export type UserUpdateWithoutActivityLogsInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  organization?: Prisma.OrganizationUpdateOneWithoutUsersNestedInput;
+  createdOrganizations?: Prisma.OrganizationUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUpdateManyWithoutReviewedByNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutActivityLogsInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  organizationId?: Prisma.NullableIntFieldUpdateOperationsInput | number | null;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUncheckedUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUncheckedUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutReviewedByNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput;
+};
+
+export type UserCreateManyOrganizationInput = {
+  id?: number;
+  email: string;
+  password: string;
+  username: string;
+  avatarUrl?: string | null;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: Date | string | null;
+  resetPasswordToken?: string | null;
+  resetPasswordExpiry?: Date | string | null;
+  isActive?: boolean;
+  lastLoginAt?: Date | string | null;
+  lastLoginIp?: string | null;
+  createdAt?: Date | string;
+  updatedAt?: Date | string;
+};
+
+export type UserUpdateWithoutOrganizationInput = {
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  createdOrganizations?: Prisma.OrganizationUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUncheckedUpdateWithoutOrganizationInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  createdOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedOrganizations?: Prisma.OrganizationUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdProjects?: Prisma.ProjectUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedProjects?: Prisma.ProjectUncheckedUpdateManyWithoutAssigneeNestedInput;
+  projectTeamMembers?: Prisma.ProjectTeamMemberUncheckedUpdateManyWithoutUserNestedInput;
+  createdModules?: Prisma.ModuleUncheckedUpdateManyWithoutCreatorNestedInput;
+  assignedModules?: Prisma.ModuleUncheckedUpdateManyWithoutAssigneeNestedInput;
+  createdTasks?: Prisma.TaskUncheckedUpdateManyWithoutCreatedByNestedInput;
+  assignedTasks?: Prisma.TaskUncheckedUpdateManyWithoutAssignedToNestedInput;
+  timeLogs?: Prisma.TimeLogUncheckedUpdateManyWithoutUserNestedInput;
+  requestedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutRequestedByNestedInput;
+  reviewedApprovals?: Prisma.ApprovalUncheckedUpdateManyWithoutReviewedByNestedInput;
+  activityLogs?: Prisma.ActivityLogUncheckedUpdateManyWithoutUserNestedInput;
+  emailVerificationTokens?: Prisma.EmailVerificationTokenUncheckedUpdateManyWithoutUserNestedInput;
+  passwordResetTokens?: Prisma.PasswordResetTokenUncheckedUpdateManyWithoutUserNestedInput;
+  refreshTokens?: Prisma.RefreshTokenUncheckedUpdateManyWithoutUserNestedInput;
+};
+
+export type UserUncheckedUpdateManyWithoutOrganizationInput = {
+  id?: Prisma.IntFieldUpdateOperationsInput | number;
+  email?: Prisma.StringFieldUpdateOperationsInput | string;
+  password?: Prisma.StringFieldUpdateOperationsInput | string;
+  username?: Prisma.StringFieldUpdateOperationsInput | string;
+  avatarUrl?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  isEmailVerified?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  emailVerifiedAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  resetPasswordToken?:
+    | Prisma.NullableStringFieldUpdateOperationsInput
+    | string
+    | null;
+  resetPasswordExpiry?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  isActive?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+  lastLoginAt?:
+    | Prisma.NullableDateTimeFieldUpdateOperationsInput
+    | Date
+    | string
+    | null;
+  lastLoginIp?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+
+/**
+ * Count Type UserCountOutputType
+ */
+
+export type UserCountOutputType = {
+  createdOrganizations: number;
+  assignedOrganizations: number;
+  createdProjects: number;
+  assignedProjects: number;
+  projectTeamMembers: number;
+  createdModules: number;
+  assignedModules: number;
+  createdTasks: number;
+  assignedTasks: number;
+  timeLogs: number;
+  requestedApprovals: number;
+  reviewedApprovals: number;
+  activityLogs: number;
+  emailVerificationTokens: number;
+  passwordResetTokens: number;
+  refreshTokens: number;
+};
+
+export type UserCountOutputTypeSelect<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  createdOrganizations?:
+    | boolean
+    | UserCountOutputTypeCountCreatedOrganizationsArgs;
+  assignedOrganizations?:
+    | boolean
+    | UserCountOutputTypeCountAssignedOrganizationsArgs;
+  createdProjects?: boolean | UserCountOutputTypeCountCreatedProjectsArgs;
+  assignedProjects?: boolean | UserCountOutputTypeCountAssignedProjectsArgs;
+  projectTeamMembers?: boolean | UserCountOutputTypeCountProjectTeamMembersArgs;
+  createdModules?: boolean | UserCountOutputTypeCountCreatedModulesArgs;
+  assignedModules?: boolean | UserCountOutputTypeCountAssignedModulesArgs;
+  createdTasks?: boolean | UserCountOutputTypeCountCreatedTasksArgs;
+  assignedTasks?: boolean | UserCountOutputTypeCountAssignedTasksArgs;
+  timeLogs?: boolean | UserCountOutputTypeCountTimeLogsArgs;
+  requestedApprovals?: boolean | UserCountOutputTypeCountRequestedApprovalsArgs;
+  reviewedApprovals?: boolean | UserCountOutputTypeCountReviewedApprovalsArgs;
+  activityLogs?: boolean | UserCountOutputTypeCountActivityLogsArgs;
+  emailVerificationTokens?:
+    | boolean
+    | UserCountOutputTypeCountEmailVerificationTokensArgs;
+  passwordResetTokens?:
+    | boolean
+    | UserCountOutputTypeCountPasswordResetTokensArgs;
+  refreshTokens?: boolean | UserCountOutputTypeCountRefreshTokensArgs;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeDefaultArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the UserCountOutputType
+   */
+  select?: Prisma.UserCountOutputTypeSelect<ExtArgs> | null;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountCreatedOrganizationsArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.OrganizationWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountAssignedOrganizationsArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.OrganizationWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountCreatedProjectsArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.ProjectWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountAssignedProjectsArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.ProjectWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountProjectTeamMembersArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.ProjectTeamMemberWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountCreatedModulesArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.ModuleWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountAssignedModulesArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.ModuleWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountCreatedTasksArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.TaskWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountAssignedTasksArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.TaskWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountTimeLogsArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.TimeLogWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountRequestedApprovalsArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.ApprovalWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountReviewedApprovalsArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.ApprovalWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountActivityLogsArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.ActivityLogWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountEmailVerificationTokensArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.EmailVerificationTokenWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountPasswordResetTokensArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.PasswordResetTokenWhereInput;
+};
+
+/**
+ * UserCountOutputType without action
+ */
+export type UserCountOutputTypeCountRefreshTokensArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  where?: Prisma.RefreshTokenWhereInput;
 };
 
 export type UserSelect<
@@ -422,6 +4895,41 @@ export type UserSelect<
     username?: boolean;
     organizationId?: boolean;
     avatarUrl?: boolean;
+    isEmailVerified?: boolean;
+    emailVerifiedAt?: boolean;
+    resetPasswordToken?: boolean;
+    resetPasswordExpiry?: boolean;
+    isActive?: boolean;
+    lastLoginAt?: boolean;
+    lastLoginIp?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+    organization?: boolean | Prisma.User$organizationArgs<ExtArgs>;
+    createdOrganizations?:
+      | boolean
+      | Prisma.User$createdOrganizationsArgs<ExtArgs>;
+    assignedOrganizations?:
+      | boolean
+      | Prisma.User$assignedOrganizationsArgs<ExtArgs>;
+    createdProjects?: boolean | Prisma.User$createdProjectsArgs<ExtArgs>;
+    assignedProjects?: boolean | Prisma.User$assignedProjectsArgs<ExtArgs>;
+    projectTeamMembers?: boolean | Prisma.User$projectTeamMembersArgs<ExtArgs>;
+    createdModules?: boolean | Prisma.User$createdModulesArgs<ExtArgs>;
+    assignedModules?: boolean | Prisma.User$assignedModulesArgs<ExtArgs>;
+    createdTasks?: boolean | Prisma.User$createdTasksArgs<ExtArgs>;
+    assignedTasks?: boolean | Prisma.User$assignedTasksArgs<ExtArgs>;
+    timeLogs?: boolean | Prisma.User$timeLogsArgs<ExtArgs>;
+    requestedApprovals?: boolean | Prisma.User$requestedApprovalsArgs<ExtArgs>;
+    reviewedApprovals?: boolean | Prisma.User$reviewedApprovalsArgs<ExtArgs>;
+    activityLogs?: boolean | Prisma.User$activityLogsArgs<ExtArgs>;
+    emailVerificationTokens?:
+      | boolean
+      | Prisma.User$emailVerificationTokensArgs<ExtArgs>;
+    passwordResetTokens?:
+      | boolean
+      | Prisma.User$passwordResetTokensArgs<ExtArgs>;
+    refreshTokens?: boolean | Prisma.User$refreshTokensArgs<ExtArgs>;
+    _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>;
   },
   ExtArgs['result']['user']
 >;
@@ -437,6 +4945,16 @@ export type UserSelectCreateManyAndReturn<
     username?: boolean;
     organizationId?: boolean;
     avatarUrl?: boolean;
+    isEmailVerified?: boolean;
+    emailVerifiedAt?: boolean;
+    resetPasswordToken?: boolean;
+    resetPasswordExpiry?: boolean;
+    isActive?: boolean;
+    lastLoginAt?: boolean;
+    lastLoginIp?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+    organization?: boolean | Prisma.User$organizationArgs<ExtArgs>;
   },
   ExtArgs['result']['user']
 >;
@@ -452,6 +4970,16 @@ export type UserSelectUpdateManyAndReturn<
     username?: boolean;
     organizationId?: boolean;
     avatarUrl?: boolean;
+    isEmailVerified?: boolean;
+    emailVerifiedAt?: boolean;
+    resetPasswordToken?: boolean;
+    resetPasswordExpiry?: boolean;
+    isActive?: boolean;
+    lastLoginAt?: boolean;
+    lastLoginIp?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+    organization?: boolean | Prisma.User$organizationArgs<ExtArgs>;
   },
   ExtArgs['result']['user']
 >;
@@ -463,22 +4991,104 @@ export type UserSelectScalar = {
   username?: boolean;
   organizationId?: boolean;
   avatarUrl?: boolean;
+  isEmailVerified?: boolean;
+  emailVerifiedAt?: boolean;
+  resetPasswordToken?: boolean;
+  resetPasswordExpiry?: boolean;
+  isActive?: boolean;
+  lastLoginAt?: boolean;
+  lastLoginIp?: boolean;
+  createdAt?: boolean;
+  updatedAt?: boolean;
 };
 
 export type UserOmit<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = runtime.Types.Extensions.GetOmit<
-  'id' | 'email' | 'password' | 'username' | 'organizationId' | 'avatarUrl',
+  | 'id'
+  | 'email'
+  | 'password'
+  | 'username'
+  | 'organizationId'
+  | 'avatarUrl'
+  | 'isEmailVerified'
+  | 'emailVerifiedAt'
+  | 'resetPasswordToken'
+  | 'resetPasswordExpiry'
+  | 'isActive'
+  | 'lastLoginAt'
+  | 'lastLoginIp'
+  | 'createdAt'
+  | 'updatedAt',
   ExtArgs['result']['user']
 >;
+export type UserInclude<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  organization?: boolean | Prisma.User$organizationArgs<ExtArgs>;
+  createdOrganizations?:
+    | boolean
+    | Prisma.User$createdOrganizationsArgs<ExtArgs>;
+  assignedOrganizations?:
+    | boolean
+    | Prisma.User$assignedOrganizationsArgs<ExtArgs>;
+  createdProjects?: boolean | Prisma.User$createdProjectsArgs<ExtArgs>;
+  assignedProjects?: boolean | Prisma.User$assignedProjectsArgs<ExtArgs>;
+  projectTeamMembers?: boolean | Prisma.User$projectTeamMembersArgs<ExtArgs>;
+  createdModules?: boolean | Prisma.User$createdModulesArgs<ExtArgs>;
+  assignedModules?: boolean | Prisma.User$assignedModulesArgs<ExtArgs>;
+  createdTasks?: boolean | Prisma.User$createdTasksArgs<ExtArgs>;
+  assignedTasks?: boolean | Prisma.User$assignedTasksArgs<ExtArgs>;
+  timeLogs?: boolean | Prisma.User$timeLogsArgs<ExtArgs>;
+  requestedApprovals?: boolean | Prisma.User$requestedApprovalsArgs<ExtArgs>;
+  reviewedApprovals?: boolean | Prisma.User$reviewedApprovalsArgs<ExtArgs>;
+  activityLogs?: boolean | Prisma.User$activityLogsArgs<ExtArgs>;
+  emailVerificationTokens?:
+    | boolean
+    | Prisma.User$emailVerificationTokensArgs<ExtArgs>;
+  passwordResetTokens?: boolean | Prisma.User$passwordResetTokensArgs<ExtArgs>;
+  refreshTokens?: boolean | Prisma.User$refreshTokensArgs<ExtArgs>;
+  _count?: boolean | Prisma.UserCountOutputTypeDefaultArgs<ExtArgs>;
+};
+export type UserIncludeCreateManyAndReturn<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  organization?: boolean | Prisma.User$organizationArgs<ExtArgs>;
+};
+export type UserIncludeUpdateManyAndReturn<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  organization?: boolean | Prisma.User$organizationArgs<ExtArgs>;
+};
 
 export type $UserPayload<
   ExtArgs extends runtime.Types.Extensions.InternalArgs =
     runtime.Types.Extensions.DefaultArgs,
 > = {
   name: 'User';
-  objects: {};
+  objects: {
+    organization: Prisma.$OrganizationPayload<ExtArgs> | null;
+    createdOrganizations: Prisma.$OrganizationPayload<ExtArgs>[];
+    assignedOrganizations: Prisma.$OrganizationPayload<ExtArgs>[];
+    createdProjects: Prisma.$ProjectPayload<ExtArgs>[];
+    assignedProjects: Prisma.$ProjectPayload<ExtArgs>[];
+    projectTeamMembers: Prisma.$ProjectTeamMemberPayload<ExtArgs>[];
+    createdModules: Prisma.$ModulePayload<ExtArgs>[];
+    assignedModules: Prisma.$ModulePayload<ExtArgs>[];
+    createdTasks: Prisma.$TaskPayload<ExtArgs>[];
+    assignedTasks: Prisma.$TaskPayload<ExtArgs>[];
+    timeLogs: Prisma.$TimeLogPayload<ExtArgs>[];
+    requestedApprovals: Prisma.$ApprovalPayload<ExtArgs>[];
+    reviewedApprovals: Prisma.$ApprovalPayload<ExtArgs>[];
+    activityLogs: Prisma.$ActivityLogPayload<ExtArgs>[];
+    emailVerificationTokens: Prisma.$EmailVerificationTokenPayload<ExtArgs>[];
+    passwordResetTokens: Prisma.$PasswordResetTokenPayload<ExtArgs>[];
+    refreshTokens: Prisma.$RefreshTokenPayload<ExtArgs>[];
+  };
   scalars: runtime.Types.Extensions.GetPayloadResult<
     {
       id: number;
@@ -487,6 +5097,15 @@ export type $UserPayload<
       username: string;
       organizationId: number | null;
       avatarUrl: string | null;
+      isEmailVerified: boolean;
+      emailVerifiedAt: Date | null;
+      resetPasswordToken: string | null;
+      resetPasswordExpiry: Date | null;
+      isActive: boolean;
+      lastLoginAt: Date | null;
+      lastLoginIp: string | null;
+      createdAt: Date;
+      updatedAt: Date;
     },
     ExtArgs['result']['user']
   >;
@@ -1037,6 +5656,207 @@ export interface Prisma__UserClient<
   GlobalOmitOptions = {},
 > extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: 'PrismaPromise';
+  organization<T extends Prisma.User$organizationArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$organizationArgs<ExtArgs>>,
+  ): Prisma.Prisma__OrganizationClient<
+    runtime.Types.Result.GetResult<
+      Prisma.$OrganizationPayload<ExtArgs>,
+      T,
+      'findUniqueOrThrow',
+      GlobalOmitOptions
+    > | null,
+    null,
+    ExtArgs,
+    GlobalOmitOptions
+  >;
+  createdOrganizations<
+    T extends Prisma.User$createdOrganizationsArgs<ExtArgs> = {},
+  >(
+    args?: Prisma.Subset<T, Prisma.User$createdOrganizationsArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$OrganizationPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  assignedOrganizations<
+    T extends Prisma.User$assignedOrganizationsArgs<ExtArgs> = {},
+  >(
+    args?: Prisma.Subset<T, Prisma.User$assignedOrganizationsArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$OrganizationPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  createdProjects<T extends Prisma.User$createdProjectsArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$createdProjectsArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$ProjectPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  assignedProjects<T extends Prisma.User$assignedProjectsArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$assignedProjectsArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$ProjectPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  projectTeamMembers<
+    T extends Prisma.User$projectTeamMembersArgs<ExtArgs> = {},
+  >(
+    args?: Prisma.Subset<T, Prisma.User$projectTeamMembersArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$ProjectTeamMemberPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  createdModules<T extends Prisma.User$createdModulesArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$createdModulesArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$ModulePayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  assignedModules<T extends Prisma.User$assignedModulesArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$assignedModulesArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$ModulePayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  createdTasks<T extends Prisma.User$createdTasksArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$createdTasksArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$TaskPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  assignedTasks<T extends Prisma.User$assignedTasksArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$assignedTasksArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$TaskPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  timeLogs<T extends Prisma.User$timeLogsArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$timeLogsArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$TimeLogPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  requestedApprovals<
+    T extends Prisma.User$requestedApprovalsArgs<ExtArgs> = {},
+  >(
+    args?: Prisma.Subset<T, Prisma.User$requestedApprovalsArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$ApprovalPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  reviewedApprovals<T extends Prisma.User$reviewedApprovalsArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$reviewedApprovalsArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$ApprovalPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  activityLogs<T extends Prisma.User$activityLogsArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$activityLogsArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$ActivityLogPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  emailVerificationTokens<
+    T extends Prisma.User$emailVerificationTokensArgs<ExtArgs> = {},
+  >(
+    args?: Prisma.Subset<T, Prisma.User$emailVerificationTokensArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$EmailVerificationTokenPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  passwordResetTokens<
+    T extends Prisma.User$passwordResetTokensArgs<ExtArgs> = {},
+  >(
+    args?: Prisma.Subset<T, Prisma.User$passwordResetTokensArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$PasswordResetTokenPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
+  refreshTokens<T extends Prisma.User$refreshTokensArgs<ExtArgs> = {}>(
+    args?: Prisma.Subset<T, Prisma.User$refreshTokensArgs<ExtArgs>>,
+  ): Prisma.PrismaPromise<
+    | runtime.Types.Result.GetResult<
+        Prisma.$RefreshTokenPayload<ExtArgs>,
+        T,
+        'findMany',
+        GlobalOmitOptions
+      >
+    | Null
+  >;
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1085,6 +5905,15 @@ export interface UserFieldRefs {
   readonly username: Prisma.FieldRef<'User', 'String'>;
   readonly organizationId: Prisma.FieldRef<'User', 'Int'>;
   readonly avatarUrl: Prisma.FieldRef<'User', 'String'>;
+  readonly isEmailVerified: Prisma.FieldRef<'User', 'Boolean'>;
+  readonly emailVerifiedAt: Prisma.FieldRef<'User', 'DateTime'>;
+  readonly resetPasswordToken: Prisma.FieldRef<'User', 'String'>;
+  readonly resetPasswordExpiry: Prisma.FieldRef<'User', 'DateTime'>;
+  readonly isActive: Prisma.FieldRef<'User', 'Boolean'>;
+  readonly lastLoginAt: Prisma.FieldRef<'User', 'DateTime'>;
+  readonly lastLoginIp: Prisma.FieldRef<'User', 'String'>;
+  readonly createdAt: Prisma.FieldRef<'User', 'DateTime'>;
+  readonly updatedAt: Prisma.FieldRef<'User', 'DateTime'>;
 }
 
 // Custom InputTypes
@@ -1103,6 +5932,10 @@ export type UserFindUniqueArgs<
    * Omit specific fields from the User
    */
   omit?: Prisma.UserOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null;
   /**
    * Filter, which User to fetch.
    */
@@ -1125,6 +5958,10 @@ export type UserFindUniqueOrThrowArgs<
    */
   omit?: Prisma.UserOmit<ExtArgs> | null;
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null;
+  /**
    * Filter, which User to fetch.
    */
   where: Prisma.UserWhereUniqueInput;
@@ -1145,6 +5982,10 @@ export type UserFindFirstArgs<
    * Omit specific fields from the User
    */
   omit?: Prisma.UserOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null;
   /**
    * Filter, which User to fetch.
    */
@@ -1199,6 +6040,10 @@ export type UserFindFirstOrThrowArgs<
    */
   omit?: Prisma.UserOmit<ExtArgs> | null;
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null;
+  /**
    * Filter, which User to fetch.
    */
   where?: Prisma.UserWhereInput;
@@ -1252,6 +6097,10 @@ export type UserFindManyArgs<
    */
   omit?: Prisma.UserOmit<ExtArgs> | null;
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null;
+  /**
    * Filter, which Users to fetch.
    */
   where?: Prisma.UserWhereInput;
@@ -1300,6 +6149,10 @@ export type UserCreateArgs<
    */
   omit?: Prisma.UserOmit<ExtArgs> | null;
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null;
+  /**
    * The data needed to create a User.
    */
   data: Prisma.XOR<Prisma.UserCreateInput, Prisma.UserUncheckedCreateInput>;
@@ -1339,6 +6192,10 @@ export type UserCreateManyAndReturnArgs<
    */
   data: Prisma.UserCreateManyInput | Prisma.UserCreateManyInput[];
   skipDuplicates?: boolean;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserIncludeCreateManyAndReturn<ExtArgs> | null;
 };
 
 /**
@@ -1356,6 +6213,10 @@ export type UserUpdateArgs<
    * Omit specific fields from the User
    */
   omit?: Prisma.UserOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null;
   /**
    * The data needed to update a User.
    */
@@ -1420,6 +6281,10 @@ export type UserUpdateManyAndReturnArgs<
    * Limit how many Users to update.
    */
   limit?: number;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserIncludeUpdateManyAndReturn<ExtArgs> | null;
 };
 
 /**
@@ -1437,6 +6302,10 @@ export type UserUpsertArgs<
    * Omit specific fields from the User
    */
   omit?: Prisma.UserOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null;
   /**
    * The filter to search for the User to update in case it exists.
    */
@@ -1467,6 +6336,10 @@ export type UserDeleteArgs<
    */
   omit?: Prisma.UserOmit<ExtArgs> | null;
   /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null;
+  /**
    * Filter which User to delete.
    */
   where: Prisma.UserWhereUniqueInput;
@@ -1490,6 +6363,506 @@ export type UserDeleteManyArgs<
 };
 
 /**
+ * User.organization
+ */
+export type User$organizationArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the Organization
+   */
+  select?: Prisma.OrganizationSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the Organization
+   */
+  omit?: Prisma.OrganizationOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OrganizationInclude<ExtArgs> | null;
+  where?: Prisma.OrganizationWhereInput;
+};
+
+/**
+ * User.createdOrganizations
+ */
+export type User$createdOrganizationsArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the Organization
+   */
+  select?: Prisma.OrganizationSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the Organization
+   */
+  omit?: Prisma.OrganizationOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OrganizationInclude<ExtArgs> | null;
+  where?: Prisma.OrganizationWhereInput;
+  orderBy?:
+    | Prisma.OrganizationOrderByWithRelationInput
+    | Prisma.OrganizationOrderByWithRelationInput[];
+  cursor?: Prisma.OrganizationWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?:
+    | Prisma.OrganizationScalarFieldEnum
+    | Prisma.OrganizationScalarFieldEnum[];
+};
+
+/**
+ * User.assignedOrganizations
+ */
+export type User$assignedOrganizationsArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the Organization
+   */
+  select?: Prisma.OrganizationSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the Organization
+   */
+  omit?: Prisma.OrganizationOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.OrganizationInclude<ExtArgs> | null;
+  where?: Prisma.OrganizationWhereInput;
+  orderBy?:
+    | Prisma.OrganizationOrderByWithRelationInput
+    | Prisma.OrganizationOrderByWithRelationInput[];
+  cursor?: Prisma.OrganizationWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?:
+    | Prisma.OrganizationScalarFieldEnum
+    | Prisma.OrganizationScalarFieldEnum[];
+};
+
+/**
+ * User.createdProjects
+ */
+export type User$createdProjectsArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the Project
+   */
+  select?: Prisma.ProjectSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the Project
+   */
+  omit?: Prisma.ProjectOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProjectInclude<ExtArgs> | null;
+  where?: Prisma.ProjectWhereInput;
+  orderBy?:
+    | Prisma.ProjectOrderByWithRelationInput
+    | Prisma.ProjectOrderByWithRelationInput[];
+  cursor?: Prisma.ProjectWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?: Prisma.ProjectScalarFieldEnum | Prisma.ProjectScalarFieldEnum[];
+};
+
+/**
+ * User.assignedProjects
+ */
+export type User$assignedProjectsArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the Project
+   */
+  select?: Prisma.ProjectSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the Project
+   */
+  omit?: Prisma.ProjectOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProjectInclude<ExtArgs> | null;
+  where?: Prisma.ProjectWhereInput;
+  orderBy?:
+    | Prisma.ProjectOrderByWithRelationInput
+    | Prisma.ProjectOrderByWithRelationInput[];
+  cursor?: Prisma.ProjectWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?: Prisma.ProjectScalarFieldEnum | Prisma.ProjectScalarFieldEnum[];
+};
+
+/**
+ * User.projectTeamMembers
+ */
+export type User$projectTeamMembersArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the ProjectTeamMember
+   */
+  select?: Prisma.ProjectTeamMemberSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the ProjectTeamMember
+   */
+  omit?: Prisma.ProjectTeamMemberOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ProjectTeamMemberInclude<ExtArgs> | null;
+  where?: Prisma.ProjectTeamMemberWhereInput;
+  orderBy?:
+    | Prisma.ProjectTeamMemberOrderByWithRelationInput
+    | Prisma.ProjectTeamMemberOrderByWithRelationInput[];
+  cursor?: Prisma.ProjectTeamMemberWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?:
+    | Prisma.ProjectTeamMemberScalarFieldEnum
+    | Prisma.ProjectTeamMemberScalarFieldEnum[];
+};
+
+/**
+ * User.createdModules
+ */
+export type User$createdModulesArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the Module
+   */
+  select?: Prisma.ModuleSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the Module
+   */
+  omit?: Prisma.ModuleOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ModuleInclude<ExtArgs> | null;
+  where?: Prisma.ModuleWhereInput;
+  orderBy?:
+    | Prisma.ModuleOrderByWithRelationInput
+    | Prisma.ModuleOrderByWithRelationInput[];
+  cursor?: Prisma.ModuleWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?: Prisma.ModuleScalarFieldEnum | Prisma.ModuleScalarFieldEnum[];
+};
+
+/**
+ * User.assignedModules
+ */
+export type User$assignedModulesArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the Module
+   */
+  select?: Prisma.ModuleSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the Module
+   */
+  omit?: Prisma.ModuleOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ModuleInclude<ExtArgs> | null;
+  where?: Prisma.ModuleWhereInput;
+  orderBy?:
+    | Prisma.ModuleOrderByWithRelationInput
+    | Prisma.ModuleOrderByWithRelationInput[];
+  cursor?: Prisma.ModuleWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?: Prisma.ModuleScalarFieldEnum | Prisma.ModuleScalarFieldEnum[];
+};
+
+/**
+ * User.createdTasks
+ */
+export type User$createdTasksArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the Task
+   */
+  select?: Prisma.TaskSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the Task
+   */
+  omit?: Prisma.TaskOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TaskInclude<ExtArgs> | null;
+  where?: Prisma.TaskWhereInput;
+  orderBy?:
+    | Prisma.TaskOrderByWithRelationInput
+    | Prisma.TaskOrderByWithRelationInput[];
+  cursor?: Prisma.TaskWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?: Prisma.TaskScalarFieldEnum | Prisma.TaskScalarFieldEnum[];
+};
+
+/**
+ * User.assignedTasks
+ */
+export type User$assignedTasksArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the Task
+   */
+  select?: Prisma.TaskSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the Task
+   */
+  omit?: Prisma.TaskOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TaskInclude<ExtArgs> | null;
+  where?: Prisma.TaskWhereInput;
+  orderBy?:
+    | Prisma.TaskOrderByWithRelationInput
+    | Prisma.TaskOrderByWithRelationInput[];
+  cursor?: Prisma.TaskWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?: Prisma.TaskScalarFieldEnum | Prisma.TaskScalarFieldEnum[];
+};
+
+/**
+ * User.timeLogs
+ */
+export type User$timeLogsArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the TimeLog
+   */
+  select?: Prisma.TimeLogSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the TimeLog
+   */
+  omit?: Prisma.TimeLogOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.TimeLogInclude<ExtArgs> | null;
+  where?: Prisma.TimeLogWhereInput;
+  orderBy?:
+    | Prisma.TimeLogOrderByWithRelationInput
+    | Prisma.TimeLogOrderByWithRelationInput[];
+  cursor?: Prisma.TimeLogWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?: Prisma.TimeLogScalarFieldEnum | Prisma.TimeLogScalarFieldEnum[];
+};
+
+/**
+ * User.requestedApprovals
+ */
+export type User$requestedApprovalsArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the Approval
+   */
+  select?: Prisma.ApprovalSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the Approval
+   */
+  omit?: Prisma.ApprovalOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ApprovalInclude<ExtArgs> | null;
+  where?: Prisma.ApprovalWhereInput;
+  orderBy?:
+    | Prisma.ApprovalOrderByWithRelationInput
+    | Prisma.ApprovalOrderByWithRelationInput[];
+  cursor?: Prisma.ApprovalWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?: Prisma.ApprovalScalarFieldEnum | Prisma.ApprovalScalarFieldEnum[];
+};
+
+/**
+ * User.reviewedApprovals
+ */
+export type User$reviewedApprovalsArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the Approval
+   */
+  select?: Prisma.ApprovalSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the Approval
+   */
+  omit?: Prisma.ApprovalOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ApprovalInclude<ExtArgs> | null;
+  where?: Prisma.ApprovalWhereInput;
+  orderBy?:
+    | Prisma.ApprovalOrderByWithRelationInput
+    | Prisma.ApprovalOrderByWithRelationInput[];
+  cursor?: Prisma.ApprovalWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?: Prisma.ApprovalScalarFieldEnum | Prisma.ApprovalScalarFieldEnum[];
+};
+
+/**
+ * User.activityLogs
+ */
+export type User$activityLogsArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the ActivityLog
+   */
+  select?: Prisma.ActivityLogSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the ActivityLog
+   */
+  omit?: Prisma.ActivityLogOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.ActivityLogInclude<ExtArgs> | null;
+  where?: Prisma.ActivityLogWhereInput;
+  orderBy?:
+    | Prisma.ActivityLogOrderByWithRelationInput
+    | Prisma.ActivityLogOrderByWithRelationInput[];
+  cursor?: Prisma.ActivityLogWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?:
+    | Prisma.ActivityLogScalarFieldEnum
+    | Prisma.ActivityLogScalarFieldEnum[];
+};
+
+/**
+ * User.emailVerificationTokens
+ */
+export type User$emailVerificationTokensArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the EmailVerificationToken
+   */
+  select?: Prisma.EmailVerificationTokenSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the EmailVerificationToken
+   */
+  omit?: Prisma.EmailVerificationTokenOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmailVerificationTokenInclude<ExtArgs> | null;
+  where?: Prisma.EmailVerificationTokenWhereInput;
+  orderBy?:
+    | Prisma.EmailVerificationTokenOrderByWithRelationInput
+    | Prisma.EmailVerificationTokenOrderByWithRelationInput[];
+  cursor?: Prisma.EmailVerificationTokenWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?:
+    | Prisma.EmailVerificationTokenScalarFieldEnum
+    | Prisma.EmailVerificationTokenScalarFieldEnum[];
+};
+
+/**
+ * User.passwordResetTokens
+ */
+export type User$passwordResetTokensArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the PasswordResetToken
+   */
+  select?: Prisma.PasswordResetTokenSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the PasswordResetToken
+   */
+  omit?: Prisma.PasswordResetTokenOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.PasswordResetTokenInclude<ExtArgs> | null;
+  where?: Prisma.PasswordResetTokenWhereInput;
+  orderBy?:
+    | Prisma.PasswordResetTokenOrderByWithRelationInput
+    | Prisma.PasswordResetTokenOrderByWithRelationInput[];
+  cursor?: Prisma.PasswordResetTokenWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?:
+    | Prisma.PasswordResetTokenScalarFieldEnum
+    | Prisma.PasswordResetTokenScalarFieldEnum[];
+};
+
+/**
+ * User.refreshTokens
+ */
+export type User$refreshTokensArgs<
+  ExtArgs extends runtime.Types.Extensions.InternalArgs =
+    runtime.Types.Extensions.DefaultArgs,
+> = {
+  /**
+   * Select specific fields to fetch from the RefreshToken
+   */
+  select?: Prisma.RefreshTokenSelect<ExtArgs> | null;
+  /**
+   * Omit specific fields from the RefreshToken
+   */
+  omit?: Prisma.RefreshTokenOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.RefreshTokenInclude<ExtArgs> | null;
+  where?: Prisma.RefreshTokenWhereInput;
+  orderBy?:
+    | Prisma.RefreshTokenOrderByWithRelationInput
+    | Prisma.RefreshTokenOrderByWithRelationInput[];
+  cursor?: Prisma.RefreshTokenWhereUniqueInput;
+  take?: number;
+  skip?: number;
+  distinct?:
+    | Prisma.RefreshTokenScalarFieldEnum
+    | Prisma.RefreshTokenScalarFieldEnum[];
+};
+
+/**
  * User without action
  */
 export type UserDefaultArgs<
@@ -1504,4 +6877,8 @@ export type UserDefaultArgs<
    * Omit specific fields from the User
    */
   omit?: Prisma.UserOmit<ExtArgs> | null;
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.UserInclude<ExtArgs> | null;
 };

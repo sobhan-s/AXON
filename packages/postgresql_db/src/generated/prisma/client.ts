@@ -15,12 +15,12 @@ import { fileURLToPath } from 'node:url';
 globalThis['__dirname'] = path.dirname(fileURLToPath(import.meta.url));
 
 import * as runtime from '@prisma/client/runtime/client';
-import * as $Enums from './enums.js';
-import * as $Class from './internal/class.js';
-import * as Prisma from './internal/prismaNamespace.js';
+import * as $Enums from './enums.ts';
+import * as $Class from './internal/class.ts';
+import * as Prisma from './internal/prismaNamespace.ts';
 
-export * as $Enums from './enums.js';
-export * from './enums.js';
+export * as $Enums from './enums.ts';
+export * from './enums.ts';
 /**
  * ## Prisma Client
  *
@@ -49,3 +49,73 @@ export { Prisma };
  *
  */
 export type User = Prisma.UserModel;
+/**
+ * Model EmailVerificationToken
+ *
+ */
+export type EmailVerificationToken = Prisma.EmailVerificationTokenModel;
+/**
+ * Model PasswordResetToken
+ *
+ */
+export type PasswordResetToken = Prisma.PasswordResetTokenModel;
+/**
+ * Model RefreshToken
+ *
+ */
+export type RefreshToken = Prisma.RefreshTokenModel;
+/**
+ * Model Organization
+ *
+ */
+export type Organization = Prisma.OrganizationModel;
+/**
+ * Model Project
+ *
+ */
+export type Project = Prisma.ProjectModel;
+/**
+ * Model ProjectTeamMember
+ *
+ */
+export type ProjectTeamMember = Prisma.ProjectTeamMemberModel;
+/**
+ * Model Module
+ *
+ */
+export type Module = Prisma.ModuleModel;
+/**
+ * Model Task
+ *
+ */
+export type Task = Prisma.TaskModel;
+/**
+ * Model TimeLog
+ *
+ */
+export type TimeLog = Prisma.TimeLogModel;
+/**
+ * Model Approval
+ *
+ */
+export type Approval = Prisma.ApprovalModel;
+/**
+ * Model ActivityLog
+ *
+ */
+export type ActivityLog = Prisma.ActivityLogModel;
+/**
+ * Model Role
+ *
+ */
+export type Role = Prisma.RoleModel;
+/**
+ * Model Permission
+ *
+ */
+export type Permission = Prisma.PermissionModel;
+/**
+ * Model RolePermission
+ *
+ */
+export type RolePermission = Prisma.RolePermissionModel;

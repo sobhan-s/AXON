@@ -1,13 +1,11 @@
 {
-  "name": "@dam/config",
+  "name": "@dam/mail",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "type": "module",
   "exports": {
-    "./env_variables": "./src/env.config.ts",
-    "./logs": "./src/logger.config.ts",
-    "./mail": "./src/mail.config.ts"
+    "./templates": "./src/index.ts"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -16,13 +14,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@dam/constants": "workspace:*",
-    "@dam/eslint-config": "workspace:*",
-    "@dam/typescript-config": "workspace:*",
-    "@types/dotenv": "^8.2.3",
-    "dotenv": "^17.3.1",
     "nodemailer": "^8.0.1",
-    "winston": "^3.19.0"
+    "@dam/typescript-config": "workspace:*",
+    "@dam/config": "workspace:*"
   },
   "devDependencies": {
     "@types/nodemailer": "^7.0.10"

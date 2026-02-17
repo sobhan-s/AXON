@@ -21,3 +21,73 @@ export * from './enums.js';
  *
  */
 export type User = Prisma.UserModel;
+/**
+ * Model EmailVerificationToken
+ *
+ */
+export type EmailVerificationToken = Prisma.EmailVerificationTokenModel;
+/**
+ * Model PasswordResetToken
+ *
+ */
+export type PasswordResetToken = Prisma.PasswordResetTokenModel;
+/**
+ * Model RefreshToken
+ *
+ */
+export type RefreshToken = Prisma.RefreshTokenModel;
+/**
+ * Model Organization
+ *
+ */
+export type Organization = Prisma.OrganizationModel;
+/**
+ * Model Project
+ *
+ */
+export type Project = Prisma.ProjectModel;
+/**
+ * Model ProjectTeamMember
+ *
+ */
+export type ProjectTeamMember = Prisma.ProjectTeamMemberModel;
+/**
+ * Model Module
+ *
+ */
+export type Module = Prisma.ModuleModel;
+/**
+ * Model Task
+ *
+ */
+export type Task = Prisma.TaskModel;
+/**
+ * Model TimeLog
+ *
+ */
+export type TimeLog = Prisma.TimeLogModel;
+/**
+ * Model Approval
+ *
+ */
+export type Approval = Prisma.ApprovalModel;
+/**
+ * Model ActivityLog
+ *
+ */
+export type ActivityLog = Prisma.ActivityLogModel;
+/**
+ * Model Role
+ *
+ */
+export type Role = Prisma.RoleModel;
+/**
+ * Model Permission
+ *
+ */
+export type Permission = Prisma.PermissionModel;
+/**
+ * Model RolePermission
+ *
+ */
+export type RolePermission = Prisma.RolePermissionModel;

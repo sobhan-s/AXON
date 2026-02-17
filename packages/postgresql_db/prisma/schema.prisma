@@ -124,6 +124,7 @@ model User {
   // Verification tokens
   emailVerificationTokens EmailVerificationToken[]
   passwordResetTokens     PasswordResetToken[]
+  refreshTokens           RefreshToken[]
 
   @@index([email])
   @@index([organizationId])
@@ -159,6 +160,19 @@ model PasswordResetToken {
   @@index([userId])
   @@index([token])
   @@map("password_reset_tokens")
+}
+
+model RefreshToken {
+  id        Int      @id @default(autoincrement())
+  token     String   @unique
+  userId    Int
+  expiresAt DateTime
+  revoked   Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
 }
 
 model Organization {

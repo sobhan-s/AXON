@@ -1,9 +1,8 @@
 import app from './app.js';
-import { PostgresClient, PrismaClient } from '@dam/postgresql_db';
+import { PostgresClient as prisma, PrismaClient } from '@dam/postgresql_db';
 import { env_config_variable } from '@dam/config';
 import { logger } from '@dam/config';
 
-const prisma: PrismaClient = PostgresClient.getInstance();
 const PORT = env_config_variable.PORT.AUTH;
 
 let server: ReturnType<typeof app.listen>;
@@ -11,6 +10,8 @@ const SHUTDOWN_TIMEOUT = 10000;
 
 const startServer = async () => {
   try {
+    // logger.info("------====------",prisma)
+    // console.log(prisma.$queryRaw`SELECT now()`);
     await prisma.$connect();
     logger.info('✅ Database connected successfully');
 

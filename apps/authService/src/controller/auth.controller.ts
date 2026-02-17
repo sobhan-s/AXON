@@ -15,9 +15,10 @@ const service = new AuthService();
 export const register: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const parsed = registerSchema.safeParse(req.body);
+    const ip = req.ip as string;
     if (!parsed.success) throw new ApiError(400, parsed.error.message);
 
-    const result = await service.register(parsed.data);
+    const result = await service.register(parsed.data, ip);
 
     logger.info('Register controller success');
 

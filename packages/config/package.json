@@ -2,14 +2,17 @@
   "name": "@dam/config",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "type": "module",
   "exports": {
-    "./env_variables": "./src/env.config.ts",
-    "./logs": "./src/logger.config.ts",
-    "./mail": "./src/mail.config.ts"
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
   },
   "scripts": {
+    "build": "tsc -p tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -25,6 +28,7 @@
     "winston": "^3.19.0"
   },
   "devDependencies": {
+    "@types/node": "^25.2.3",
     "@types/nodemailer": "^7.0.10"
   }
 }

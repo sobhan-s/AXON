@@ -10,3 +10,246 @@
 {"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-17 08:41:20"}
 {"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 08:41:25"}
 {"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 08:41:25"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 08:56:23"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 08:56:23"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 08:57:15"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 08:57:15"}
+{"level":"info","message":"Gateway running on port 8000","timestamp":"2026-02-17 10:53:47"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 13:23:23"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 13:23:23"}
+{"address":"2404:6800:4000:1025::6c","code":"ESOCKET","command":"CONN","errno":-101,"level":"error","message":"Mail server connection failed connect ENETUNREACH 2404:6800:4000:1025::6c:587 - Local (:::0)","port":587,"stack":"Error: connect ENETUNREACH 2404:6800:4000:1025::6c:587 - Local (:::0)\n    at internalConnect (node:net:1110:16)\n    at defaultTriggerAsyncIdScope (node:internal/async_hooks:472:18)\n    at node:net:1356:9\n    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)","syscall":"connect","timestamp":"2026-02-17 13:23:24"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-17 13:27:17"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 13:27:19"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 13:27:19"}
+{"address":"2404:6800:4000:1025::6d","code":"ESOCKET","command":"CONN","errno":-101,"level":"error","message":"Mail server connection failed connect ENETUNREACH 2404:6800:4000:1025::6d:587 - Local (:::0)","port":587,"stack":"Error: connect ENETUNREACH 2404:6800:4000:1025::6d:587 - Local (:::0)\n    at internalConnect (node:net:1110:16)\n    at defaultTriggerAsyncIdScope (node:internal/async_hooks:472:18)\n    at node:net:1356:9\n    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)","syscall":"connect","timestamp":"2026-02-17 13:27:20"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-17 13:31:44"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 13:31:58"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 13:31:58"}
+{"address":"2404:6800:4000:1025::6d","code":"ESOCKET","command":"CONN","errno":-101,"level":"error","message":"Mail server connection failed connect ENETUNREACH 2404:6800:4000:1025::6d:587 - Local (:::0)","port":587,"stack":"Error: connect ENETUNREACH 2404:6800:4000:1025::6d:587 - Local (:::0)\n    at internalConnect (node:net:1110:16)\n    at defaultTriggerAsyncIdScope (node:internal/async_hooks:472:18)\n    at node:net:1356:9\n    at process.processTicksAndRejections (node:internal/process/task_queues:85:11)","syscall":"connect","timestamp":"2026-02-17 13:31:58"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-17 13:32:10"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 13:32:40"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 13:32:40"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 13:32:42"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-17 13:33:45"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 14:16:45"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 14:16:45"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 14:16:47"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-17 14:17:00"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 14:23:32"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 14:23:32"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 14:23:34"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-17 14:24:07"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 14:25:16"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 14:25:16"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 14:25:17"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 14:25:38"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 14:25:38"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 14:25:40"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 14:25:53"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 14:25:53"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 14:25:56"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 14:25:56"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 14:37:03"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 14:37:03"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 14:37:05"}
+{"level":"info","message":"Register service started","timestamp":"2026-02-17 14:38:43"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Finding user by email","timestamp":"2026-02-17 14:38:43"}
+{"error":{"clientVersion":"7.4.0"},"level":"error","message":"Error finding user by email","timestamp":"2026-02-17 14:38:43"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 14:45:14"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 14:45:14"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 14:45:16"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 14:45:35"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 14:45:37"}
+{"level":"info","message":"Register service started","timestamp":"2026-02-17 14:46:27"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Finding user by email","timestamp":"2026-02-17 14:46:27"}
+{"error":{"clientVersion":"7.4.0"},"level":"error","message":"Error finding user by email","timestamp":"2026-02-17 14:46:27"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-17 14:48:39"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 14:48:44"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 14:48:47"}
+{"level":"info","message":"Register service started","timestamp":"2026-02-17 14:49:02"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Finding user by email","timestamp":"2026-02-17 14:49:02"}
+{"error":{"clientVersion":"7.4.0"},"level":"error","message":"Error finding user by email","timestamp":"2026-02-17 14:49:02"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-17 14:50:03"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:00:42"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:00:42"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:00:44"}
+{"level":"info","message":"Register service started","timestamp":"2026-02-17 15:00:49"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Finding user by email","timestamp":"2026-02-17 15:00:49"}
+{"error":{"clientVersion":"7.4.0"},"level":"error","message":"Error finding user by email","timestamp":"2026-02-17 15:00:49"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:02:47"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:02:47"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:02:49"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:03:14"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:03:14"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:03:16"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:03:50"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:03:50"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:03:52"}
+{"level":"info","message":"------------","timestamp":"2026-02-17 15:03:59"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:03:59"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:03:59"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:04:01"}
+{"level":"info","message":"------------","timestamp":"2026-02-17 15:04:08"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:04:08"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:04:08"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:04:10"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:05:58"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:05:58"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:06:00"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:06:51"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:06:51"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:06:55"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:06:55"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:06:58"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:07:05"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:07:05"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-17 15:07:06"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:07:09"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:07:09"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:07:10"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:07:21"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:07:21"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:07:23"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:08:43"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:08:43"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-17 15:08:44"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:08:46"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:08:46"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:08:48"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:09:38"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:09:38"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:09:41"}
+{"level":"info","message":"Register service started","timestamp":"2026-02-17 15:09:45"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Finding user by email","timestamp":"2026-02-17 15:09:45"}
+{"error":{"clientVersion":"7.4.0"},"level":"error","message":"Error finding user by email","timestamp":"2026-02-17 15:09:45"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:13:31"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:21:59"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:22:33"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:23:31"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:23:31"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:23:33"}
+{"level":"info","message":"Register service started","timestamp":"2026-02-17 15:23:42"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Finding user by email","timestamp":"2026-02-17 15:23:42"}
+{"error":{"clientVersion":"7.4.0"},"level":"error","message":"Error finding user by email","timestamp":"2026-02-17 15:23:42"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:26:32"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:26:32"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:26:34"}
+{"level":"info","message":"Register service started","timestamp":"2026-02-17 15:26:36"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Creating new user","timestamp":"2026-02-17 15:26:36"}
+{"error":{"clientVersion":"7.4.0"},"level":"error","message":"Error creating user","timestamp":"2026-02-17 15:26:36"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:26:46"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:26:46"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:26:48"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-17 15:27:24"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:28:40"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:28:40"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:28:42"}
+{"level":"info","message":"Register service started","timestamp":"2026-02-17 15:28:50"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Finding user by email","timestamp":"2026-02-17 15:28:50"}
+{"error":{"clientVersion":"7.4.0"},"level":"error","message":"Error finding user by email","timestamp":"2026-02-17 15:28:50"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:29:56"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:29:56"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:29:58"}
+{"level":"info","message":"Register service started","timestamp":"2026-02-17 15:29:58"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Creating new user","timestamp":"2026-02-17 15:29:58"}
+{"error":{"clientVersion":"7.4.0"},"level":"error","message":"Error creating user","timestamp":"2026-02-17 15:29:58"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:32:04"}
+{"level":"info","message":"Register service started","timestamp":"2026-02-17 15:36:47"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Creating new user","timestamp":"2026-02-17 15:36:47"}
+{"error":{"clientVersion":"7.4.0"},"level":"error","message":"Error creating user","timestamp":"2026-02-17 15:36:47"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:39:16"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:39:16"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:39:18"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:39:22"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:39:22"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:39:25"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:39:25"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:39:27"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:41:18"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:41:18"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:41:20"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:42:18"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:42:18"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:42:20"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:42:45"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:42:45"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:42:47"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:43:46"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:43:46"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:43:48"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:45:33"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:45:33"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:45:36"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:47:25"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:47:25"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:47:27"}
+{"level":"info","message":"Register service started","timestamp":"2026-02-17 15:47:28"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Creating new user","timestamp":"2026-02-17 15:47:28"}
+{"error":{"clientVersion":"7.4.0","code":"P1001","meta":{"driverAdapterError":{"cause":{"host":"127.0.0.1","kind":"DatabaseNotReachable","port":5432},"name":"DriverAdapterError"},"modelName":"User"},"name":"PrismaClientKnownRequestError"},"level":"error","message":"Error creating user","timestamp":"2026-02-17 15:47:28"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-17 15:48:06"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:49:22"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:49:22"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:49:24"}
+{"level":"info","message":"Register service started","timestamp":"2026-02-17 15:49:25"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Creating new user","timestamp":"2026-02-17 15:49:25"}
+{"error":{"clientVersion":"7.4.0"},"level":"error","message":"Error creating user","timestamp":"2026-02-17 15:49:26"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-17 15:49:39"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 15:49:45"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 15:49:45"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 15:49:47"}
+{"level":"info","message":"Register service started","timestamp":"2026-02-17 15:49:50"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Creating new user","timestamp":"2026-02-17 15:49:50"}
+{"error":{"clientVersion":"7.4.0"},"level":"error","message":"Error creating user","timestamp":"2026-02-17 15:49:50"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-17 15:51:44"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 16:00:43"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 16:01:02"}
+{"clientVersion":"6.19.2","errorCode":"P1012","level":"error","message":"❌ Failed to start server \u001b[1;91merror\u001b[0m: \u001b[1mEnvironment variable not found: postgresql://sobhan:dampostgres123@localhost:5432/dampostgres?schema=public.\u001b[0m\n  \u001b[1;94m-->\u001b[0m  \u001b[4mschema.prisma:9\u001b[0m\n\u001b[1;94m   | \u001b[0m\n\u001b[1;94m 8 | \u001b[0m  provider = \"postgresql\"\n\u001b[1;94m 9 | \u001b[0m  url      = \u001b[1;91menv(\"postgresql://sobhan:dampostgres123@localhost:5432/dampostgres?schema=public\")\u001b[0m\n\u001b[1;94m   | \u001b[0m\n\nValidation Error Count: 1","name":"PrismaClientInitializationError","stack":"PrismaClientInitializationError: \u001b[1;91merror\u001b[0m: \u001b[1mEnvironment variable not found: postgresql://sobhan:dampostgres123@localhost:5432/dampostgres?schema=public.\u001b[0m\n  \u001b[1;94m-->\u001b[0m  \u001b[4mschema.prisma:9\u001b[0m\n\u001b[1;94m   | \u001b[0m\n\u001b[1;94m 8 | \u001b[0m  provider = \"postgresql\"\n\u001b[1;94m 9 | \u001b[0m  url      = \u001b[1;91menv(\"postgresql://sobhan:dampostgres123@localhost:5432/dampostgres?schema=public\")\u001b[0m\n\u001b[1;94m   | \u001b[0m\n\nValidation Error Count: 1\n    at r (/home/sobhan-sahoo/code/dam/node_modules/.pnpm/@prisma+client@6.19.2_prisma@6.19.2_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client/runtime/library.js:112:2770)\n    at async startServer (file:///home/sobhan-sahoo/code/dam/apps/authService/dist/index.js:12:9)","timestamp":"2026-02-17 16:02:02"}
+{"clientVersion":"6.19.2","errorCode":"P1012","level":"error","message":"❌ Failed to start server \u001b[1;91merror\u001b[0m: \u001b[1mEnvironment variable not found: postgresql://sobhan:dampostgres123@localhost:5432/dampostgres?schema=public.\u001b[0m\n  \u001b[1;94m-->\u001b[0m  \u001b[4mschema.prisma:9\u001b[0m\n\u001b[1;94m   | \u001b[0m\n\u001b[1;94m 8 | \u001b[0m  provider = \"postgresql\"\n\u001b[1;94m 9 | \u001b[0m  url      = \u001b[1;91menv(\"postgresql://sobhan:dampostgres123@localhost:5432/dampostgres?schema=public\")\u001b[0m\n\u001b[1;94m   | \u001b[0m\n\nValidation Error Count: 1","name":"PrismaClientInitializationError","stack":"PrismaClientInitializationError: \u001b[1;91merror\u001b[0m: \u001b[1mEnvironment variable not found: postgresql://sobhan:dampostgres123@localhost:5432/dampostgres?schema=public.\u001b[0m\n  \u001b[1;94m-->\u001b[0m  \u001b[4mschema.prisma:9\u001b[0m\n\u001b[1;94m   | \u001b[0m\n\u001b[1;94m 8 | \u001b[0m  provider = \"postgresql\"\n\u001b[1;94m 9 | \u001b[0m  url      = \u001b[1;91menv(\"postgresql://sobhan:dampostgres123@localhost:5432/dampostgres?schema=public\")\u001b[0m\n\u001b[1;94m   | \u001b[0m\n\nValidation Error Count: 1\n    at r (/home/sobhan-sahoo/code/dam/node_modules/.pnpm/@prisma+client@6.19.2_prisma@6.19.2_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client/runtime/library.js:112:2770)\n    at async startServer (file:///home/sobhan-sahoo/code/dam/apps/authService/dist/index.js:12:9)","timestamp":"2026-02-17 16:03:16"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 16:05:13"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 16:06:06"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 16:07:42"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 16:07:50"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 16:09:55"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 16:09:55"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 16:09:57"}
+{"level":"info","message":"Register service started","timestamp":"2026-02-17 16:10:03"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Creating new user","timestamp":"2026-02-17 16:10:03"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Verification email sent","timestamp":"2026-02-17 16:10:08"}
+{"level":"info","message":"User registered successfully","timestamp":"2026-02-17 16:10:08","userId":1}
+{"level":"info","message":"Register controller success","timestamp":"2026-02-17 16:10:08"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 16:16:12"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 16:16:12"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 16:16:14"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 16:16:16"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 16:16:16"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 16:16:18"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 16:16:24"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 16:16:24"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 16:16:26"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 16:16:31"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 16:16:31"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 16:16:33"}
+{"level":"info","message":"Verifying email","timestamp":"2026-02-17 16:16:47"}
+{"id":1,"level":"info","message":"Updating user","timestamp":"2026-02-17 16:16:47"}
+{"level":"info","message":"Email verified","timestamp":"2026-02-17 16:16:47","userId":1}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 16:24:19"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Login service started","timestamp":"2026-02-17 16:30:07"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Finding user by email","timestamp":"2026-02-17 16:30:07"}
+{"level":"info","message":"Login successful","timestamp":"2026-02-17 16:30:07","userId":1}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-17 18:12:07"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-17 18:12:07"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-17 18:12:09"}
+{"level":"info","message":"Register service started","timestamp":"2026-02-17 18:12:17"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Finding user by email","timestamp":"2026-02-17 18:12:17"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Creating new user","timestamp":"2026-02-17 18:12:17"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Verification email sent","timestamp":"2026-02-17 18:12:21"}
+{"level":"info","message":"User registered successfully","timestamp":"2026-02-17 18:12:21","userId":2}
+{"level":"info","message":"Register controller success","timestamp":"2026-02-17 18:12:21"}
+{"action":"USER_CREATED","level":"info","message":"Activity logged","timestamp":"2026-02-17 18:12:21","userId":2}
+{"level":"info","message":"Verifying email","timestamp":"2026-02-17 18:17:28"}
+{"level":"info","message":"Verifying email","timestamp":"2026-02-17 18:18:52"}
+{"id":2,"level":"info","message":"Updating user","timestamp":"2026-02-17 18:18:52"}
+{"level":"info","message":"Email verified","timestamp":"2026-02-17 18:18:52","userId":2}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-17 18:33:07"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-17 18:33:07"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-17 18:33:07"}

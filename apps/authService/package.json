@@ -19,6 +19,7 @@
     "@dam/typescript-config": "workspace:*",
     "@dam/utils": "workspace:*",
     "@dam/validations": "workspace:*",
+    "@dam/common": "workspace:*",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "express": "^5.2.1"

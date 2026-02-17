@@ -6,12 +6,14 @@ import SMTPTransport from 'nodemailer/lib/smtp-transport/index.js';
 const smtpOptions: SMTPTransport.Options = {
   host: env_config_variable.MAIL.HOST,
   port: Number(env_config_variable.MAIL.PORT),
-  secure: Boolean(env_config_variable.MAIL.SECURE),
+  secure: false,
   auth: {
     user: env_config_variable.MAIL.USER,
     pass: env_config_variable.MAIL.PASSWORD,
   },
 };
+
+console.log('asdfasdfasdfads', smtpOptions);
 
 const transporter = nodemailer.createTransport(smtpOptions);
 

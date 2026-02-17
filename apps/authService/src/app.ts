@@ -1,4 +1,3 @@
-import { PostgresClient as prisma } from '@dam/postgresql_db';
 import express, { type Express } from 'express';
 import cookieparser from 'cookie-parser';
 import cors from 'cors';
@@ -19,5 +18,10 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true, limit: '8mb' }));
 app.use(cookieparser());
 app.use(errorMiddleware);
+app.set('trust proxy', true);
+
+import authRouter from './routes/auth.routes.js';
+
+app.use('/auth', authRouter);
 
 export default app;

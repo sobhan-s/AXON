@@ -1,6 +1,6 @@
-import { transporter } from '@dam/config/mail';
-import { env_config_variable } from '@dam/config/env_variables';
-import { logger } from '@dam/config/logs';
+import { transporter } from '@dam/config';
+import { env_config_variable } from '@dam/config';
+import { logger } from '@dam/config';
 
 const baseUrl = 'http://localhost:8000/api/v1/auth';
 

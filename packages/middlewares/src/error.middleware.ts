@@ -1,5 +1,5 @@
-import { Request, Response, NextFunction } from 'express';
-import { ApiError } from '@dam/utils/index';
+import type { Request, Response, NextFunction } from 'express';
+import { ApiError } from '@dam/utils';
 
 export const errorMiddleware = (
   err: any,

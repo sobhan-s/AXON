@@ -4,11 +4,13 @@ import { ApiError } from '@dam/utils';
 import { logger } from '@dam/config';
 import { AuthRepository } from '../repository/auth.repository.js';
 import { sendPasswordResetEmail, sendVerificationEmail } from '@dam/mail';
+import { ActivityPayload, ActivityService } from '@dam/common';
 
 const repo = new AuthRepository();
+const activity = new ActivityService();
 
 export class AuthService {
-  async register(data: any) {
+  async register(data: any, ip: string) {
     logger.info('Register service started');
 
     const existing = await repo.findUserByEmail(data.email);
@@ -34,6 +36,20 @@ export class AuthService {
     });
 
     await sendVerificationEmail(user.email, token);
+
+    const payload: ActivityPayload = {
+      userId: user.id,
+      action: 'USER_CREATED',
+      entityType: 'USER',
+      entityId: user.id.toString(),
+      details: {
+        username: user.username,
+        email: user.email,
+      },
+      ipAddress: ip,
+    };
+
+    activity.logActivity(payload);
 
     logger.info('User registered successfully', { userId: user.id });
 

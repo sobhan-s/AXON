@@ -1,8 +1,7 @@
 {
   "extends": "@dam/typescript-config/base.json",
   "compilerOptions": {
-    // "rootDir": "./src",
-    "outDir": "./dist",
-    "declaration": true
+    "rootDir": "./src",
+    "outDir": "./dist"
   }
 }

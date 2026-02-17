@@ -3,4 +3,7 @@ import {
   type ActivityPayload,
 } from './services/activity.service.js';
 
-export { ActivityService, type ActivityPayload };
+import { TokenService } from './services/token.service.js';
+import { AuthRepository } from './repository/auth.repository.js';
+
+export { ActivityService, type ActivityPayload, TokenService, AuthRepository };

@@ -4,6 +4,7 @@ import {
   resetPasswordSchema,
   loginSchema,
   forgotPasswordSchema,
+  resendVerificationSchema,
 } from './auth/auth.validations.js';
 
 export {
@@ -12,4 +13,5 @@ export {
   resetPasswordSchema,
   loginSchema,
   forgotPasswordSchema,
+  resendVerificationSchema,
 };

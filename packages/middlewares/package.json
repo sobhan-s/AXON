@@ -19,9 +19,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@dam/config": "workspace:*",
     "@dam/typescript-config": "workspace:*",
     "@dam/utils": "workspace:*",
-    "express": "^5.2.1"
+    "@dam/common": "workspace:*",
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.2.1"
   },
   "devDependencies": {
     "@types/express": "^5.0.6",

@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true, limit: '8mb' }));
 app.use(cookieparser());
 app.use(errorMiddleware);
-app.set('trust proxy', true);
+app.set('trust proxy', 1);
 
 import authRouter from './routes/auth.routes.js';
 

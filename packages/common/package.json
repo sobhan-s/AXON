@@ -18,12 +18,15 @@
   "dependencies": {
     "@dam/config": "workspace:*",
     "@dam/postgresql_db": "workspace:*",
-    "@dam/typescript-config": "workspace:*"
+    "@dam/typescript-config": "workspace:*",
+    "@dam/utils": "workspace:*",
+    "jsonwebtoken": "^9.0.3"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^25.2.3"
   }
 }

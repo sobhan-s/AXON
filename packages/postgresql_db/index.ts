@@ -30,4 +30,4 @@ if (isDev) {
 }
 
 export { PrismaClient, PostgresClient };
-export type { ActivityAction };
+export { ActivityAction };

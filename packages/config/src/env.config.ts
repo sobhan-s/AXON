@@ -44,4 +44,10 @@ export const env_config_variable = {
     FROM: process.env.MAIL_FROM,
     PASSWORD: process.env.MAIL_PASS,
   },
+  TOKEN: {
+    ACCESS_TOKEN: process.env.ACCESS_TOKEN,
+    REFRESH_TOKEN: process.env.REFRESH_TOKEN,
+    ACCESS_TOKEN_EXPIRY: process.env.ACCESS_TOKEN_EXPIRY,
+    REFRESH_TOKEN_EXPIRY: process.env.REFRESH_TOKEN_EXPIRY,
+  },
 };

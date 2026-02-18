@@ -39,15 +39,36 @@ services:
       - .env
 
     environment:
-      - MONGO_USERNAME=${MONGO_USERNAME}
-      - MONGO_PASSWORD=${MONGO_PASSWORD}
-      - MONGO_DB=${MONGO_DB}
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_USERNAME}
+      - MONGO_INITDB_ROOT_PASSWORD=${MONGO_PASSWORD}
+      - MONGO_INITDB_DATABASE=${MONGO_DB}
 
     ports:
       - '27017:27017'
 
     volumes:
       - dam_mongo_data:/data/db
+
+    networks:
+      - dam-network
+
+  auth-api:
+    build:
+      context: .
+      dockerfile: Docker/authservice.Dockerfile
+
+    env_file:
+      - .env
+
+    restart: always
+
+    ports:
+      - '8001:8001'
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
     networks:
       - dam-network
 
@@ -60,6 +81,9 @@ services:
       - .env
 
     restart: always
+
+    depends_on:
+      - auth-api
 
     ports:
       - '8000:8000'

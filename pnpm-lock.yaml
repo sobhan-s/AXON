@@ -77,6 +77,9 @@ importers:
       '@dam/validations':
         specifier: workspace:*
         version: link:../../packages/validations
+      bcrypt:
+        specifier: ^6.0.0
+        version: 6.0.0
       cookie-parser:
         specifier: ^1.4.7
         version: 1.4.7
@@ -108,9 +111,6 @@ importers:
       '@types/node':
         specifier: ^25.2.3
         version: 25.2.3
-      bcrypt:
-        specifier: ^6.0.0
-        version: 6.0.0
       nodemon:
         specifier: ^3.1.11
         version: 3.1.11

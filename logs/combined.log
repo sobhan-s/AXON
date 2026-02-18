@@ -767,3 +767,6 @@
 {"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 13:05:42"}
 {"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 13:05:42"}
 {"level":"info","message":"Mail server ready","timestamp":"2026-02-18 13:05:45"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 13:06:11"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 13:06:11"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 13:06:13"}

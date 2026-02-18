@@ -428,3 +428,342 @@
 {"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-18 01:02:33"}
 {"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-18 01:02:33"}
 {"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-18 01:02:33"}
+{"clientVersion":"6.19.2","errorCode":"P1001","level":"error","message":"❌ Failed to start server Can't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.","name":"PrismaClientInitializationError","stack":"PrismaClientInitializationError: Can't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.\n    at r (/home/sobhan-sahoo/code/dam/node_modules/.pnpm/@prisma+client@6.19.2_prisma@6.19.2_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client/runtime/library.js:112:2770)\n    at async startServer (file:///home/sobhan-sahoo/code/dam/apps/authService/dist/index.js:12:9)","timestamp":"2026-02-18 10:56:05"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 11:34:10"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 11:34:10"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 11:34:17"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Login service called","timestamp":"2026-02-18 11:35:15"}
+{"action":"USER_LOGIN","level":"info","message":"Activity logged","timestamp":"2026-02-18 11:35:15","userId":3}
+{"level":"info","message":"User logged in successfully","timestamp":"2026-02-18 11:35:15","userId":3}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 11:36:05"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 11:36:05"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 11:36:09"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 11:36:09"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 11:36:15"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 11:36:15"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 11:36:17"}
+{"level":"info","message":"Fetching current user","timestamp":"2026-02-18 11:36:19","userid":3}
+{"level":"info","message":"User info got successfully ","timestamp":"2026-02-18 11:36:19"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 11:37:34"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 11:37:34"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 11:37:36"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 11:42:53"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 11:42:53"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 11:42:55"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 11:43:19"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 11:43:19"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 11:43:25"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 11:43:25"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 11:43:28"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 11:43:40"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 11:43:40"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 11:43:42"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 11:52:55"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 11:52:55"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 11:52:57"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 11:53:08"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 11:53:08"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 11:53:18"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 11:53:18"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 11:53:30"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 11:53:30"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 11:53:31"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 11:53:37"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 11:53:37"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 11:53:39"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 11:53:42"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 11:53:42"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 11:53:44"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 11:53:44"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 11:53:47"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 11:53:47"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 11:53:50"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 11:54:28"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 11:54:28"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 11:54:30"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-18 11:55:53"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-18 11:55:53","userId":3}
+{"level":"info","message":"updating current user services","timestamp":"2026-02-18 11:55:58"}
+{"level":"info","message":"User data updated got successfully ","timestamp":"2026-02-18 11:55:58"}
+{"error":{"clientVersion":"6.19.2","name":"PrismaClientValidationError"},"level":"error","message":"Error updating user","timestamp":"2026-02-18 11:55:58"}
+{"data":null,"errors":[],"level":"error","message":"❌ Unhandled Rejection: Database error while updating user","stack":"Error: Database error while updating user\n    at UserRepository.updateUser (file:///home/sobhan-sahoo/code/dam/apps/authService/dist/repository/user.repository.js:14:19)","statusCode":500,"success":false,"timestamp":"2026-02-18 11:55:58"}
+{"level":"info","message":"⚠️ unhandledRejection received. Starting graceful shutdown...","timestamp":"2026-02-18 11:55:58"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-18 11:55:58"}
+{"error":{"clientVersion":"6.19.2","name":"PrismaClientValidationError"},"level":"error","message":"Error finding user by id","timestamp":"2026-02-18 11:55:58"}
+{"data":null,"errors":[],"level":"error","message":"❌ Unhandled Rejection: Database error while fetching user","stack":"Error: Database error while fetching user\n    at AuthRepository.findUserById (file:///home/sobhan-sahoo/code/dam/apps/authService/dist/repository/auth.repository.js:24:19)","statusCode":500,"success":false,"timestamp":"2026-02-18 11:55:58"}
+{"level":"info","message":"⚠️ unhandledRejection received. Starting graceful shutdown...","timestamp":"2026-02-18 11:55:58"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-18 11:55:58"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-18 11:55:58"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:00:09"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:00:09"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:00:11"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:01:18"}
+{"level":"info","message":"updating current user services","timestamp":"2026-02-18 12:01:39"}
+{"level":"info","message":"User data updated got successfully ","timestamp":"2026-02-18 12:01:39"}
+{"error":{"clientVersion":"6.19.2","name":"PrismaClientValidationError"},"level":"error","message":"Error updating user","timestamp":"2026-02-18 12:01:39"}
+{"data":null,"errors":[],"level":"error","message":"❌ Unhandled Rejection: Database error while updating user","stack":"Error: Database error while updating user\n    at UserRepository.updateUser (file:///home/sobhan-sahoo/code/dam/apps/authService/dist/repository/user.repository.js:14:19)","statusCode":500,"success":false,"timestamp":"2026-02-18 12:01:39"}
+{"level":"info","message":"⚠️ unhandledRejection received. Starting graceful shutdown...","timestamp":"2026-02-18 12:01:39"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-18 12:01:39"}
+{"error":{"clientVersion":"6.19.2","name":"PrismaClientValidationError"},"level":"error","message":"Error finding user by id","timestamp":"2026-02-18 12:01:39"}
+{"data":null,"errors":[],"level":"error","message":"❌ Unhandled Rejection: Database error while fetching user","stack":"Error: Database error while fetching user\n    at AuthRepository.findUserById (file:///home/sobhan-sahoo/code/dam/apps/authService/dist/repository/auth.repository.js:24:19)","statusCode":500,"success":false,"timestamp":"2026-02-18 12:01:39"}
+{"level":"info","message":"⚠️ unhandledRejection received. Starting graceful shutdown...","timestamp":"2026-02-18 12:01:39"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-18 12:01:39"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-18 12:01:39"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:02:05"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:02:05"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:02:07"}
+{"level":"info","message":"Fetching current user","timestamp":"2026-02-18 12:02:11","userid":3}
+{"level":"info","message":"User info got successfully ","timestamp":"2026-02-18 12:02:11"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:05:29"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:05:29"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:05:31"}
+{"level":"info","message":"updating current user services","timestamp":"2026-02-18 12:05:55"}
+{"level":"info","message":"User data updated got successfully ","timestamp":"2026-02-18 12:05:55"}
+{"error":{"clientVersion":"6.19.2","name":"PrismaClientValidationError"},"level":"error","message":"Error updating user","timestamp":"2026-02-18 12:05:55"}
+{"data":null,"errors":[],"level":"error","message":"❌ Unhandled Rejection: Database error while updating user","stack":"Error: Database error while updating user\n    at UserRepository.updateUser (file:///home/sobhan-sahoo/code/dam/apps/authService/dist/repository/user.repository.js:14:19)","statusCode":500,"success":false,"timestamp":"2026-02-18 12:05:55"}
+{"level":"info","message":"⚠️ unhandledRejection received. Starting graceful shutdown...","timestamp":"2026-02-18 12:05:55"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-18 12:05:55"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-18 12:05:55"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:08:29"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:08:29"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:08:31"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:13:41"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:13:41"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:13:43"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:13:54"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:13:54"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:13:55"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:14:49"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:14:49"}
+{"level":"info","message":"updating current user services","timestamp":"2026-02-18 12:14:50"}
+{"level":"info","message":"User data updated got successfully ","timestamp":"2026-02-18 12:14:50"}
+{"error":{"clientVersion":"6.19.2","name":"PrismaClientValidationError"},"level":"error","message":"Error updating user","timestamp":"2026-02-18 12:14:50"}
+{"data":null,"errors":[],"level":"error","message":"❌ Unhandled Rejection: Database error while updating user","stack":"Error: Database error while updating user\n    at UserRepository.updateUser (file:///home/sobhan-sahoo/code/dam/apps/authService/dist/repository/user.repository.js:14:19)","statusCode":500,"success":false,"timestamp":"2026-02-18 12:14:50"}
+{"level":"info","message":"⚠️ unhandledRejection received. Starting graceful shutdown...","timestamp":"2026-02-18 12:14:50"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-18 12:14:50"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-18 12:14:50"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:15:13"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:15:13"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:15:15"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-18 12:15:17"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-18 12:15:17","userId":3}
+{"level":"info","message":"updating current user services","timestamp":"2026-02-18 12:15:21"}
+{"level":"info","message":"User data updated got successfully ","timestamp":"2026-02-18 12:15:21"}
+{"error":{"clientVersion":"6.19.2","name":"PrismaClientValidationError"},"level":"error","message":"Error updating user","timestamp":"2026-02-18 12:15:21"}
+{"data":null,"errors":[],"level":"error","message":"❌ Unhandled Rejection: Database error while updating user","stack":"Error: Database error while updating user\n    at UserRepository.updateUser (file:///home/sobhan-sahoo/code/dam/apps/authService/dist/repository/user.repository.js:14:19)","statusCode":500,"success":false,"timestamp":"2026-02-18 12:15:21"}
+{"level":"info","message":"⚠️ unhandledRejection received. Starting graceful shutdown...","timestamp":"2026-02-18 12:15:21"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-18 12:15:21"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-18 12:15:21"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:17:18"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:17:18"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:17:19"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:18:19"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:18:19"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:18:21"}
+{"level":"info","message":"updating current user services","timestamp":"2026-02-18 12:18:23","userid":3}
+{"level":"info","message":"User data updated got successfully ","timestamp":"2026-02-18 12:18:23"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:18:48"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:18:48"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:18:51"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:19:22"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:19:22"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:19:27"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:19:27"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:19:33"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:19:33"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:19:40"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:19:40"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:19:42"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:20:21"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:20:21"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:20:22"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:21:00"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:21:00"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:25:43"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:25:43"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:25:45"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:28:23"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:28:23"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:28:35"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:28:35"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:28:37"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:29:01"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:29:01"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:29:03"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:29:14"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:29:14"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:29:15"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:29:30"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:29:30"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:29:35"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:29:35"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:29:37"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:30:06"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:30:06"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:30:08"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:30:29"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:30:29"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:30:35"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:30:35"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:30:40"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:30:40"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:30:42"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:30:52"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:30:52"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:30:54"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:31:13"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:31:13"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:31:14"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:31:30"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:31:30"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:31:31"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-18 12:31:37"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-18 12:31:37","userId":3}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:32:16"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:32:16"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:32:28"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:32:28"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:32:34"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:32:34"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:32:36"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:37:38"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:37:38"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:37:40"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:37:54"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:37:54"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:37:55"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:40:20"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:40:20"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:40:22"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:40:31"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:40:31"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:40:33"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:40:38"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:40:38"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:40:40"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:40:40"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:40:44"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:40:44"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:40:47"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:40:47"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:40:48"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:46:51"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:46:51"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:46:55"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:46:55"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:46:57"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:47:03"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:47:03"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:47:05"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:47:11"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:47:11"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:47:12"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:47:16"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:47:16"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:47:18"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:47:23"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:47:23"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:47:25"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:47:28"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:47:28"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:47:30"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:49:41"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:49:41"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:49:43"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:50:45"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:50:45"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:50:47"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:51:04"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:51:04"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:51:06"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:51:42"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:51:42"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:51:44"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:51:44"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:51:46"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:52:08"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:52:08"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:52:12"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:52:12"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:52:20"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:52:20"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:52:22"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-18 12:52:28"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-18 12:52:28","userId":3}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:56:46"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:56:46"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:56:49"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:56:56"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:56:56"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:56:58"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:56:58"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:57:11"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:57:11"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:57:13"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:57:26"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:57:26"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:57:29"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:57:46"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:57:46"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:57:48"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:57:56"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:57:56"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:57:58"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:58:07"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:58:07"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:58:10"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:58:10"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:58:12"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 12:59:55"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 12:59:55"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 12:59:56"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 13:00:27"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 13:00:27"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 13:00:31"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 13:00:31"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 13:00:37"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 13:00:37"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 13:00:54"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 13:00:54"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 13:00:57"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 13:00:57"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 13:01:24"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 13:01:24"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 13:01:27"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 13:01:27"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 13:01:30"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 13:01:30"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 13:01:57"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 13:01:57"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 13:01:59"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 13:02:06"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 13:02:06"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 13:02:08"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 13:02:27"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 13:02:27"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 13:02:34"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 13:02:43"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 13:02:43"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 13:02:45"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 13:02:49"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 13:02:49"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 13:02:51"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 13:03:07"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 13:03:07"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 13:03:09"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 13:03:13"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 13:03:13"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 13:03:14"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 13:03:18"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 13:03:18"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 13:03:20"}
+{"level":"info","message":"Attempting to change password","timestamp":"2026-02-18 13:04:02","userId":3}
+{"level":"info","message":"Password changed successfully","timestamp":"2026-02-18 13:04:03","userId":3}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 13:05:33"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 13:05:33"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-18 13:05:35"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-18 13:05:35"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-18 13:05:35"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 13:05:42"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 13:05:42"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 13:05:45"}

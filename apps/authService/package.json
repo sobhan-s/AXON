@@ -13,6 +13,7 @@
   "dependencies": {
     "@dam/common": "workspace:*",
     "@dam/config": "workspace:*",
+    "@dam/constants": "workspace:*",
     "@dam/eslint-config": "workspace:*",
     "@dam/mail": "workspace:*",
     "@dam/middlewares": "workspace:*",

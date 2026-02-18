@@ -21,7 +21,9 @@ app.use(errorMiddleware);
 app.set('trust proxy', 1);
 
 import authRouter from './routes/auth.routes.js';
+import userRouter from './routes/user.routes.js';
 
 app.use('/auth', authRouter);
+app.use('/user', userRouter);
 
 export default app;

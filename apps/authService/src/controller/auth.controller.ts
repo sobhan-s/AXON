@@ -10,11 +10,12 @@ import {
 } from '@dam/validations';
 import { env_config_variable, logger } from '@dam/config';
 import type { RequestHandler, Request, Response } from 'express';
+import { CONSTANTS } from '@dam/constants';
 
 const service = new AuthService();
 
-const REFRESH_TOKEN_COOKIE = 'refresh_token';
-const ACCESS_TOKEN_COOKIE = 'access_token';
+// const REFRESH_TOKEN_COOKIE = 'refresh_token';
+// const ACCESS_TOKEN_COOKIE = 'access_token';
 
 const cookieOptions = {
   httpOnly: true,
@@ -74,9 +75,13 @@ export const login: RequestHandler = asyncHandler(
     );
 
     res
-      .cookie(ACCESS_TOKEN_COOKIE, result.accessToken, accessTokenCookieOptions)
       .cookie(
-        REFRESH_TOKEN_COOKIE,
+        CONSTANTS.TOKEN_NAME.ACCESS_TOKEN_COOKIE,
+        result.accessToken,
+        accessTokenCookieOptions,
+      )
+      .cookie(
+        CONSTANTS.TOKEN_NAME.REFRESH_TOKEN_COOKIE,
         result.refreshToken,
         refreshTokenCookieOptions,
       )
@@ -111,7 +116,9 @@ export const verifyEmail: RequestHandler = asyncHandler(
 
 export const refreshToken: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
-    const token = req.cookies[REFRESH_TOKEN_COOKIE] || req.body.refreshToken;
+    const token =
+      req.cookies[CONSTANTS.TOKEN_NAME.REFRESH_TOKEN_COOKIE] ||
+      req.body.refreshToken;
 
     if (!token) {
       throw new ApiError(401, 'Refresh token not provided');
@@ -120,9 +127,13 @@ export const refreshToken: RequestHandler = asyncHandler(
     const result = await service.refreshToken(token);
 
     res
-      .cookie(ACCESS_TOKEN_COOKIE, result.accessToken, accessTokenCookieOptions)
       .cookie(
-        REFRESH_TOKEN_COOKIE,
+        CONSTANTS.TOKEN_NAME.ACCESS_TOKEN_COOKIE,
+        result.accessToken,
+        accessTokenCookieOptions,
+      )
+      .cookie(
+        CONSTANTS.TOKEN_NAME.REFRESH_TOKEN_COOKIE,
         result.refreshToken,
         refreshTokenCookieOptions,
       )
@@ -139,7 +150,9 @@ export const refreshToken: RequestHandler = asyncHandler(
 
 export const logout: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
-    const token = req.cookies[REFRESH_TOKEN_COOKIE] || req.body.refreshToken;
+    const token =
+      req.cookies[CONSTANTS.TOKEN_NAME.REFRESH_TOKEN_COOKIE] ||
+      req.body.refreshToken;
 
     if (!token) {
       throw new ApiError(401, 'Refresh token not provided');
@@ -153,8 +166,8 @@ export const logout: RequestHandler = asyncHandler(
     await service.logout(token, userId);
 
     res
-      .clearCookie(ACCESS_TOKEN_COOKIE, cookieOptions)
-      .clearCookie(REFRESH_TOKEN_COOKIE, cookieOptions)
+      .clearCookie(CONSTANTS.TOKEN_NAME.ACCESS_TOKEN_COOKIE, cookieOptions)
+      .clearCookie(CONSTANTS.TOKEN_NAME.REFRESH_TOKEN_COOKIE, cookieOptions)
       .status(200)
       .json(new ApiResponse(200, null, 'Logged out successfully'));
   },
@@ -170,8 +183,8 @@ export const logoutAllDevices: RequestHandler = asyncHandler(
     await service.logoutAllDevices(userId);
 
     res
-      .clearCookie(ACCESS_TOKEN_COOKIE, cookieOptions)
-      .clearCookie(REFRESH_TOKEN_COOKIE, cookieOptions)
+      .clearCookie(CONSTANTS.TOKEN_NAME.ACCESS_TOKEN_COOKIE, cookieOptions)
+      .clearCookie(CONSTANTS.TOKEN_NAME.REFRESH_TOKEN_COOKIE, cookieOptions)
       .status(200)
       .json(
         new ApiResponse(200, null, 'Logged out from all devices successfully'),

@@ -8,6 +8,7 @@ import {
 } from './auth/auth.validations.js';
 
 import { passwordVerifySchema } from './user/user.validations.js';
+import { createOrgsSchemas } from './orgs/orgs.validations.js';
 
 export {
   verifyEmailSchema,
@@ -17,4 +18,5 @@ export {
   forgotPasswordSchema,
   resendVerificationSchema,
   passwordVerifySchema,
+  createOrgsSchemas,
 };

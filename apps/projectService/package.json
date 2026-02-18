@@ -1,5 +1,5 @@
 {
-  "name": "@dam/authService",
+  "name": "@dam/projectService",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -11,6 +11,9 @@
     "swagger-autogen": "node src/swagger.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "@dam/common": "workspace:*",
     "@dam/config": "workspace:*",
@@ -22,25 +25,18 @@
     "@dam/typescript-config": "workspace:*",
     "@dam/utils": "workspace:*",
     "@dam/validations": "workspace:*",
-    "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "express": "^5.2.1",
-    "jsonwebtoken": "^9.0.3",
     "swagger-autogen": "^2.23.7",
     "swagger-ui-express": "^5.0.1"
   },
   "devDependencies": {
-    "@types/bcrypt": "^6.0.0",
     "@types/cookie-parser": "^1.4.10",
     "@types/cors": "^2.8.19",
     "@types/express": "^5.0.6",
-    "@types/jsonwebtoken": "^9.0.10",
     "@types/node": "^25.2.3",
     "@types/swagger-ui-express": "^4.1.8",
     "nodemon": "^3.1.11"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }

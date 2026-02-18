@@ -770,3 +770,149 @@
 {"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 13:06:11"}
 {"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 13:06:11"}
 {"level":"info","message":"Mail server ready","timestamp":"2026-02-18 13:06:13"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 15:02:43"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 15:02:43"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 15:02:44"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 16:05:49"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 16:05:49"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 16:05:51"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 16:42:23"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-18 16:42:23"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-18 16:42:26"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-18 16:42:26"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-18 16:42:26"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 16:45:46"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 16:45:46"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 16:45:48"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 16:47:25"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 16:47:25"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 16:47:27"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 16:47:30"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 16:47:30"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 16:47:32"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 16:47:35"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 16:47:35"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 16:47:42"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 16:47:42"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 16:47:44"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 16:47:53"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 16:47:53"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 16:47:55"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 16:48:39"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 16:48:39"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 16:48:43"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Login service called","timestamp":"2026-02-18 16:49:23"}
+{"action":"USER_LOGIN","level":"info","message":"Activity logged","timestamp":"2026-02-18 16:49:24","userId":3}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Login service called","timestamp":"2026-02-18 16:49:32"}
+{"action":"USER_LOGIN","level":"info","message":"Activity logged","timestamp":"2026-02-18 16:49:32","userId":3}
+{"level":"info","message":"User logged in successfully","timestamp":"2026-02-18 16:49:32","userId":3}
+{"level":"info","message":"start creaing organization controllers . . .","timestamp":"2026-02-18 16:50:30"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"ip":"::1","level":"info","message":"Organization is creatation has been started : service","timestamp":"2026-02-18 16:50:30"}
+{"level":"info","message":"find orgs by there slugs","slug":"mindfire","timestamp":"2026-02-18 16:50:30"}
+{"level":"info","message":"Organization creations controller successfully","timestamp":"2026-02-18 16:50:30"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"level":"info","message":"creation of organization:repository","timestamp":"2026-02-18 16:50:30"}
+{"clientVersion":"6.19.2","level":"error","message":"❌ Unhandled Rejection: \nInvalid `prisma.organization.create()` invocation:\n\n{\n  data: {\n    createdBy: undefined,\n    name: \"mindfire\",\n    slug: \"mindfire\",\n    description: \"just for testing\",\n+   creator: {\n+     create: UserCreateWithoutCreatedOrganizationsInput | UserUncheckedCreateWithoutCreatedOrganizationsInput,\n+     connectOrCreate: UserCreateOrConnectWithoutCreatedOrganizationsInput,\n+     connect: UserWhereUniqueInput\n+   }\n  }\n}\n\nArgument `creator` is missing.","name":"PrismaClientValidationError","stack":"PrismaClientValidationError: \nInvalid `prisma.organization.create()` invocation:\n\n{\n  data: {\n    createdBy: undefined,\n    name: \"mindfire\",\n    slug: \"mindfire\",\n    description: \"just for testing\",\n+   creator: {\n+     create: UserCreateWithoutCreatedOrganizationsInput | UserUncheckedCreateWithoutCreatedOrganizationsInput,\n+     connectOrCreate: UserCreateOrConnectWithoutCreatedOrganizationsInput,\n+     connect: UserWhereUniqueInput\n+   }\n  }\n}\n\nArgument `creator` is missing.\n    at Nn (/home/sobhan-sahoo/code/dam/node_modules/.pnpm/@prisma+client@6.19.2_prisma@6.19.2_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client/runtime/library.js:29:1363)\n    at ei.handleRequestError (/home/sobhan-sahoo/code/dam/node_modules/.pnpm/@prisma+client@6.19.2_prisma@6.19.2_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client/runtime/library.js:121:6911)\n    at ei.handleAndLogRequestError (/home/sobhan-sahoo/code/dam/node_modules/.pnpm/@prisma+client@6.19.2_prisma@6.19.2_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client/runtime/library.js:121:6593)\n    at ei.request (/home/sobhan-sahoo/code/dam/node_modules/.pnpm/@prisma+client@6.19.2_prisma@6.19.2_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client/runtime/library.js:121:6300)\n    at async a (/home/sobhan-sahoo/code/dam/node_modules/.pnpm/@prisma+client@6.19.2_prisma@6.19.2_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client/runtime/library.js:130:9551)\n    at async OrganizationServices.createOrgs (file:///home/sobhan-sahoo/code/dam/apps/projectService/dist/services/organization.service.js:22:29)","timestamp":"2026-02-18 16:50:30"}
+{"level":"info","message":"⚠️ unhandledRejection received. Starting graceful shutdown...","timestamp":"2026-02-18 16:50:30"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-18 16:50:30"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-18 16:50:30"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 17:37:02"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 17:37:02"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 17:37:04"}
+{"level":"info","message":"start creaing organization controllers . . .","timestamp":"2026-02-18 17:41:14"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"ip":"::1","level":"info","message":"Organization is creatation has been started : service","timestamp":"2026-02-18 17:41:14"}
+{"level":"info","message":"find orgs by there slugs","slug":"mindfire","timestamp":"2026-02-18 17:41:14"}
+{"level":"info","message":"Organization creations controller successfully","timestamp":"2026-02-18 17:41:14"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"level":"info","message":"creation of organization:repository","timestamp":"2026-02-18 17:41:14"}
+{"clientVersion":"6.19.2","level":"error","message":"❌ Unhandled Rejection: \nInvalid `prisma.organization.create()` invocation:\n\n{\n  data: {\n    createdBy: undefined,\n    name: \"mindfire\",\n    slug: \"mindfire\",\n    description: \"just for testing\",\n+   creator: {\n+     create: UserCreateWithoutCreatedOrganizationsInput | UserUncheckedCreateWithoutCreatedOrganizationsInput,\n+     connectOrCreate: UserCreateOrConnectWithoutCreatedOrganizationsInput,\n+     connect: UserWhereUniqueInput\n+   }\n  }\n}\n\nArgument `creator` is missing.","name":"PrismaClientValidationError","stack":"PrismaClientValidationError: \nInvalid `prisma.organization.create()` invocation:\n\n{\n  data: {\n    createdBy: undefined,\n    name: \"mindfire\",\n    slug: \"mindfire\",\n    description: \"just for testing\",\n+   creator: {\n+     create: UserCreateWithoutCreatedOrganizationsInput | UserUncheckedCreateWithoutCreatedOrganizationsInput,\n+     connectOrCreate: UserCreateOrConnectWithoutCreatedOrganizationsInput,\n+     connect: UserWhereUniqueInput\n+   }\n  }\n}\n\nArgument `creator` is missing.\n    at Nn (/home/sobhan-sahoo/code/dam/node_modules/.pnpm/@prisma+client@6.19.2_prisma@6.19.2_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client/runtime/library.js:29:1363)\n    at ei.handleRequestError (/home/sobhan-sahoo/code/dam/node_modules/.pnpm/@prisma+client@6.19.2_prisma@6.19.2_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client/runtime/library.js:121:6911)\n    at ei.handleAndLogRequestError (/home/sobhan-sahoo/code/dam/node_modules/.pnpm/@prisma+client@6.19.2_prisma@6.19.2_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client/runtime/library.js:121:6593)\n    at ei.request (/home/sobhan-sahoo/code/dam/node_modules/.pnpm/@prisma+client@6.19.2_prisma@6.19.2_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client/runtime/library.js:121:6300)\n    at async a (/home/sobhan-sahoo/code/dam/node_modules/.pnpm/@prisma+client@6.19.2_prisma@6.19.2_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client/runtime/library.js:130:9551)\n    at async OrganizationServices.createOrgs (file:///home/sobhan-sahoo/code/dam/apps/projectService/dist/services/organization.service.js:22:29)","timestamp":"2026-02-18 17:41:14"}
+{"level":"info","message":"⚠️ unhandledRejection received. Starting graceful shutdown...","timestamp":"2026-02-18 17:41:14"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-18 17:41:14"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-18 17:41:14"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 17:41:38"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 17:41:38"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 17:41:40"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 17:41:57"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 17:41:57"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 17:41:58"}
+{"level":"info","message":"start creaing organization controllers . . .","timestamp":"2026-02-18 17:48:35"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"ip":"::1","level":"info","message":"Organization is creatation has been started : service","timestamp":"2026-02-18 17:48:35"}
+{"level":"info","message":"find orgs by there slugs","slug":"mindfire","timestamp":"2026-02-18 17:48:35"}
+{"level":"info","message":"Organization creations controller successfully","timestamp":"2026-02-18 17:48:35"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"level":"info","message":"creation of organization:repository","timestamp":"2026-02-18 17:48:35"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 17:48:52"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 17:48:52"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 17:51:23"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 17:51:23"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 17:51:24"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 17:52:45"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 17:52:45"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 17:52:48"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 17:52:52"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 17:52:52"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 17:52:53"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 17:54:01"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 17:54:01"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 17:54:03"}
+{"level":"info","message":"start creaing organization controllers . . .","timestamp":"2026-02-18 17:54:04"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"ip":"::1","level":"info","message":"Organization is creatation has been started : service","timestamp":"2026-02-18 17:54:04"}
+{"level":"info","message":"find orgs by there slugs","slug":"mindfire","timestamp":"2026-02-18 17:54:04"}
+{"level":"info","message":"Organization creations controller successfully","timestamp":"2026-02-18 17:54:04"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"level":"info","message":"creation of organization:repository","timestamp":"2026-02-18 17:54:04"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 18:08:02"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 18:08:02"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 18:08:04"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 18:08:32"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 18:08:32"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 18:08:34"}
+{"level":"info","message":"start creaing organization controllers . . .","timestamp":"2026-02-18 18:08:40"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"ip":"::1","level":"info","message":"Organization is creatation has been started : service","timestamp":"2026-02-18 18:08:40"}
+{"level":"info","message":"find orgs by there slugs","slug":"mindfire","timestamp":"2026-02-18 18:08:40"}
+{"level":"info","message":"Organization creations controller successfully","timestamp":"2026-02-18 18:08:40"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"level":"info","message":"creation of organization:repository","timestamp":"2026-02-18 18:08:40"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-18 18:09:10"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-18 18:09:10","userId":3}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 18:09:30"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 18:09:30"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 18:09:32"}
+{"level":"info","message":"start creaing organization controllers . . .","timestamp":"2026-02-18 18:09:32"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"ip":"::1","level":"info","message":"Organization is creatation has been started : service","timestamp":"2026-02-18 18:09:32"}
+{"level":"info","message":"find orgs by there slugs","slug":"mindfire","timestamp":"2026-02-18 18:09:32"}
+{"level":"info","message":"Organization creations controller successfully","timestamp":"2026-02-18 18:09:32"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"level":"info","message":"creation of organization:repository","timestamp":"2026-02-18 18:09:32"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 18:11:01"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 18:11:01"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 18:11:03"}
+{"level":"info","message":"start creaing organization controllers . . .","timestamp":"2026-02-18 18:11:07"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"ip":"::1","level":"info","message":"Organization is creatation has been started : service","timestamp":"2026-02-18 18:11:07"}
+{"level":"info","message":"find orgs by there slugs","slug":"mindfire","timestamp":"2026-02-18 18:11:07"}
+{"level":"info","message":"Organization creations controller successfully","timestamp":"2026-02-18 18:11:07"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"level":"info","message":"creation of organization:repository","timestamp":"2026-02-18 18:11:07"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-18 18:11:27"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-18 18:11:27","userId":3}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 18:11:47"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 18:11:47"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 18:11:49"}
+{"level":"info","message":"start creaing organization controllers . . .","timestamp":"2026-02-18 18:17:02"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"ip":"::1","level":"info","message":"Organization is creatation has been started : service","timestamp":"2026-02-18 18:17:02"}
+{"level":"info","message":"find orgs by there slugs","slug":"mindfire","timestamp":"2026-02-18 18:17:02"}
+{"level":"info","message":"Organization creations controller successfully","timestamp":"2026-02-18 18:17:02"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"level":"info","message":"creation of organization:repository","timestamp":"2026-02-18 18:17:02"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 18:20:23"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 18:34:43"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 18:35:07"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 18:35:13"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 18:35:30"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 18:36:29"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 18:36:29"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-18 18:36:32"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-18 18:36:32"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-18 18:36:32"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 18:36:39"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 18:36:39"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 18:36:41"}
+{"level":"info","message":"start creaing organization controllers . . .","timestamp":"2026-02-18 18:36:46"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"ip":"::1","level":"info","message":"Organization is creatation has been started : service","timestamp":"2026-02-18 18:36:46"}
+{"level":"info","message":"find orgs by there slugs","slug":"mindfire","timestamp":"2026-02-18 18:36:46"}
+{"level":"info","message":"Organization creations controller successfully","timestamp":"2026-02-18 18:36:46"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"level":"info","message":"creation of organization:repository","timestamp":"2026-02-18 18:36:46"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 18:37:07"}
+{"clientVersion":"6.19.2","errorCode":"P1001","level":"error","message":"❌ Failed to start server Can't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.","name":"PrismaClientInitializationError","stack":"PrismaClientInitializationError: Can't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.\n    at r (/home/sobhan-sahoo/code/dam/node_modules/.pnpm/@prisma+client@6.19.2_prisma@6.19.2_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client/runtime/library.js:112:2770)\n    at async startServer (file:///home/sobhan-sahoo/code/dam/apps/authService/dist/index.js:12:9)","timestamp":"2026-02-18 18:37:51"}

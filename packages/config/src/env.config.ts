@@ -11,6 +11,7 @@ export const env_config_variable = {
   PORT: {
     MAIN_PORT: parseInt(process.env.MAIN_PORT || '8000', 10),
     AUTH: parseInt(process.env.AUTH_PORT || '8001', 10),
+    PROJECT_PORT: parseInt(process.env.PROJECT_PORT || '8002', 10),
   },
   DB: {
     DEV: {

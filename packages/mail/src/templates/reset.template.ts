@@ -2,7 +2,7 @@ import { transporter } from '@dam/config';
 import { env_config_variable } from '@dam/config';
 import { logger } from '@dam/config';
 
-const baseUrl = 'http://localhost:8000/api/v1/auth';
+const baseUrl = 'http://localhost:5173';
 
 export const sendPasswordResetEmail = async (
   email: string,

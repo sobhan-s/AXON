@@ -16,7 +16,7 @@ const router: IRouter = Router();
 
 router.post('/register', rateLimiter(5, 15), register);
 router.post('/login', rateLimiter(5, 15), login);
-router.get('/verify-email', verifyEmail);
+router.post('/verify-email', verifyEmail);
 router.post(
   '/resend-verification',
   rateLimiter(3, 15),

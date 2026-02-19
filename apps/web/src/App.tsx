@@ -1,10 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+
 import SignupPage from './pages/auth/Signup';
 import LoginPage from './pages/auth/Login';
 import VerifyEmailPage from './pages/auth/verifyEmail';
 import ForgotPasswordPage from './pages/auth/ForgotPassword';
 import ResetPasswordPage from './pages/auth/ResetPassword';
+
+import Dashboard from './pages/Dashboard';
+import AccountPage from './pages/Accounts';
+
+import { ProtectedRoute, PublicRoute } from './lib/roteGuard';
 
 const NotFound: React.FC = () => (
   <div className="flex min-h-svh items-center justify-center text-center">
@@ -21,12 +27,20 @@ const NotFound: React.FC = () => (
 const App: React.FC = () => (
   <Router>
     <Routes>
-      <Route path="/" element={<SignupPage />} />
-      <Route path="/login" element={<LoginPage />} />
-      <Route path="/verify-email" element={<VerifyEmailPage />} />
-      <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+      <Route element={<PublicRoute />}>
+        <Route path="/" element={<SignupPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/verify-email" element={<VerifyEmailPage />} />
+        <Route path="/forgot-password" element={<ForgotPasswordPage />} />
+        <Route path="/reset-password" element={<ResetPasswordPage />} />
+      </Route>
+
+      <Route element={<ProtectedRoute />}>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/account" element={<AccountPage />} />
+      </Route>
+
       <Route path="*" element={<NotFound />} />
-      <Route path="/reset-password" element={<ResetPasswordPage />} />
     </Routes>
   </Router>
 );

@@ -1215,3 +1215,20 @@
 {"level":"info","message":"Reset password service called","timestamp":"2026-02-20 01:00:07"}
 {"action":"USER_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-20 01:00:08","userId":7}
 {"level":"info","message":"Password reset successfully","timestamp":"2026-02-20 01:00:08","userId":7}
+{"email":"sobhansahoo2000@gmail.com","level":"info","message":"Login service called","timestamp":"2026-02-20 02:05:01"}
+{"action":"USER_LOGIN","level":"info","message":"Activity logged","timestamp":"2026-02-20 02:05:01","userId":7}
+{"email":"sobhansahoo2000@gmail.com","level":"info","message":"Login service called","timestamp":"2026-02-20 02:05:09"}
+{"action":"USER_LOGIN","level":"info","message":"Activity logged","timestamp":"2026-02-20 02:05:09","userId":7}
+{"level":"info","message":"User logged in successfully","timestamp":"2026-02-20 02:05:09","userId":7}
+{"level":"info","message":"updating current user services","timestamp":"2026-02-20 02:13:27","userid":7}
+{"level":"info","message":"User data updated got successfully ","timestamp":"2026-02-20 02:13:27"}
+{"action":"USER_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-20 02:13:27","userId":7}
+{"level":"info","message":"Attempting to change password","timestamp":"2026-02-20 02:13:44","userId":7}
+{"level":"info","message":"Attempting to change password","timestamp":"2026-02-20 02:13:53","userId":7}
+{"level":"info","message":"Password changed successfully","timestamp":"2026-02-20 02:13:54","userId":7}
+{"level":"info","message":"Logout service called","timestamp":"2026-02-20 02:17:12","userId":7}
+{"action":"USER_LOGOUT","level":"info","message":"Activity logged","timestamp":"2026-02-20 02:17:12","userId":7}
+{"level":"info","message":"User logged out successfully","timestamp":"2026-02-20 02:17:12","userId":7}
+{"email":"superadmin1@axon.com","level":"info","message":"Login service called","timestamp":"2026-02-20 02:17:54"}
+{"action":"USER_LOGIN","level":"info","message":"Activity logged","timestamp":"2026-02-20 02:17:54","userId":4}
+{"level":"info","message":"User logged in successfully","timestamp":"2026-02-20 02:17:54","userId":4}

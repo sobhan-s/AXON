@@ -11,3 +11,10 @@ export const AUTH_ENDPOINTS = {
   FORGOT_PASSWORD: `${BASE}/auth/forgot-password`,
   RESET_PASSWORD: `${BASE}/auth/reset-password`,
 } as const;
+
+export const USER_ENDPOINTS = {
+  GET_ME: `${BASE}/user/getme`,
+  UPDATE_ME: `${BASE}/user/updateme`,
+  DELETE_ME: `${BASE}/user/deleteme`,
+  CHANGE_PASSWORD: `${BASE}/user/changePassword`,
+} as const;

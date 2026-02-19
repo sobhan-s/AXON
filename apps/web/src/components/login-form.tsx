@@ -5,13 +5,13 @@ import { z } from 'zod';
 import { Loader2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { FormAlert, type AlertState } from '@/components/form-alert';
 import { AUTH_ENDPOINTS } from '@/lib/api-endpints';
+import { useAuthStore } from '@/store/auth.store';
 
 const schema = z.object({
   email: z.email('Please enter a valid email'),
@@ -25,6 +25,10 @@ export function LoginForm({
   ...props
 }: React.ComponentProps<'form'>) {
   const navigate = useNavigate();
+  const setUser = useAuthStore((s) => s.setUser);
+  const startTokenRefresh = useAuthStore((s) => s.startTokenRefresh);
+  const fetchMe = useAuthStore((s) => s.fetchMe);
+
   const abortRef = useRef<AbortController | null>(null);
   const [alert, setAlert] = useState<AlertState>(null);
 
@@ -36,7 +40,6 @@ export function LoginForm({
 
   const dismissAlert = useCallback(() => setAlert(null), []);
 
-  // ── axios POST directly here — no service wrapper ─────────
   const onSubmit = async (values: FormValues) => {
     abortRef.current?.abort();
     abortRef.current = new AbortController();
@@ -46,21 +49,22 @@ export function LoginForm({
       const { data } = await axios.post(
         AUTH_ENDPOINTS.LOGIN,
         { email: values.email, password: values.password },
-        {
-          withCredentials: true, // accessToken + refreshToken set as httpOnly cookies
-          signal: abortRef.current.signal,
-        },
+        { withCredentials: true, signal: abortRef.current.signal },
       );
+
+      const user = data?.data?.user ?? data?.user ?? data?.data ?? null;
+      if (user) setUser(user);
+      else await fetchMe();
+
+      startTokenRefresh();
 
       setAlert({
         type: 'success',
-        message: data?.message || 'Login successful! Redirecting…',
+        message: data?.message || 'Login successful!',
       });
-
-      setTimeout(() => navigate('/dashboard'), 1200);
+      setTimeout(() => navigate('/dashboard'), 800);
     } catch (err) {
       if (axios.isAxiosError(err)) {
-        // Backend message is shown as-is — e.g. "Email not verified yet"
         setAlert({
           type: 'error',
           message:
@@ -82,18 +86,13 @@ export function LoginForm({
       noValidate
       {...props}
     >
-      {/* Header */}
       <div className="flex flex-col items-center gap-1 text-center">
         <h1 className="text-2xl font-bold">Login to your account</h1>
-        <p className="text-muted-foreground text-sm">
-          Welcome back! Enter your credentials below.
-        </p>
+        <p className="text-muted-foreground text-sm">Welcome back!</p>
       </div>
 
-      {/* Alert */}
       <FormAlert alert={alert} onDismiss={dismissAlert} />
 
-      {/* Email */}
       <div className="flex flex-col gap-1.5">
         <Label htmlFor="email">Email</Label>
         <Input
@@ -109,7 +108,6 @@ export function LoginForm({
         )}
       </div>
 
-      {/* Password */}
       <div className="flex flex-col gap-1.5">
         <div className="flex items-center justify-between">
           <Label htmlFor="password">Password</Label>
@@ -132,7 +130,6 @@ export function LoginForm({
         )}
       </div>
 
-      {/* Submit */}
       <Button type="submit" disabled={isSubmitting} className="w-full">
         {isSubmitting && <Loader2 className="mr-2 h-4 w-4 animate-spin" />}
         {isSubmitting ? 'Signing in…' : 'Sign In'}

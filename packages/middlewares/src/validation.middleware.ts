@@ -12,5 +12,7 @@ export const validate =
     }
 
     req.body = result.data;
+    console.log('00000000000');
+
     next();
   };

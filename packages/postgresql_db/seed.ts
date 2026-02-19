@@ -1,5 +1,6 @@
 import { logger } from '@dam/config';
 import { PrismaClient } from './index.js';
+import bcrypt from 'bcrypt';
 
 const prisma = new PrismaClient();
 
@@ -7,6 +8,57 @@ async function seedRBAC() {
   logger.info('Seeding RBAC data...');
 
   try {
+    const superAdmins = [
+      {
+        email: 'superadmin1@axon.com',
+        username: 'superadmin1',
+        password: '12345678',
+      },
+      {
+        email: 'superadmin2@axon.com',
+        username: 'superadmin1',
+        password: '12345678',
+      },
+      {
+        email: 'superadmin3@axon.com',
+        username: 'superadmin3',
+        password: '12345678',
+      },
+    ];
+
+    const createdSuperAdmins = [];
+
+    for (const admin of superAdmins) {
+      const existing = await prisma.user.findUnique({
+        where: { email: admin.email },
+      });
+
+      if (existing) {
+        console.log(`super Admin exists: ${admin.email}`);
+        createdSuperAdmins.push(existing);
+        continue;
+      }
+
+      const hashedPassword = await bcrypt.hash(admin.password, 12);
+
+      const user = await prisma.user.create({
+        data: {
+          email: admin.email,
+          username: admin.username,
+          password: hashedPassword,
+          isEmailVerified: true,
+          emailVerifiedAt: new Date(),
+          isActive: true,
+          organizationId: null,
+        },
+      });
+
+      createdSuperAdmins.push(user);
+
+      console.log(`Created: ${user.email}`);
+      console.log(`Password: ${admin.password}\n`);
+    }
+
     const roles = await Promise.all([
       prisma.role.upsert({
         where: { name: 'ADMIN' },
@@ -264,7 +316,7 @@ async function seedRBAC() {
 
     const managerPermissions = createdPermissions.filter((p) =>
       [
-        'view_organization',
+        // 'view_organization',
         'view_project',
         'update_project',
         'archive_project',
@@ -292,7 +344,7 @@ async function seedRBAC() {
 
     const leadPermissions = createdPermissions.filter((p) =>
       [
-        'view_organization',
+        // 'view_organization',
         'view_project',
         'view_module',
         'create_task',
@@ -310,7 +362,7 @@ async function seedRBAC() {
 
     const memberPermissions = createdPermissions.filter((p) =>
       [
-        'view_organization',
+        // 'view_organization',
         'view_project',
         'view_module',
         'view_task',
@@ -326,7 +378,7 @@ async function seedRBAC() {
 
     const reviewerPermissions = createdPermissions.filter((p) =>
       [
-        'view_organization',
+        // 'view_organization',
         'view_project',
         'view_module',
         'view_task',
@@ -361,10 +413,8 @@ async function seedRBAC() {
       })),
     ];
 
-    // Delete existing mappings
     await prisma.rolePermission.deleteMany();
 
-    // Create new mappings
     await prisma.rolePermission.createMany({
       data: mappings,
       skipDuplicates: true,

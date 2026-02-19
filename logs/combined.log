@@ -916,3 +916,235 @@
 {"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"level":"info","message":"creation of organization:repository","timestamp":"2026-02-18 18:36:46"}
 {"level":"info","message":"Mail server ready","timestamp":"2026-02-18 18:37:07"}
 {"clientVersion":"6.19.2","errorCode":"P1001","level":"error","message":"❌ Failed to start server Can't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.","name":"PrismaClientInitializationError","stack":"PrismaClientInitializationError: Can't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.\n    at r (/home/sobhan-sahoo/code/dam/node_modules/.pnpm/@prisma+client@6.19.2_prisma@6.19.2_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client/runtime/library.js:112:2770)\n    at async startServer (file:///home/sobhan-sahoo/code/dam/apps/authService/dist/index.js:12:9)","timestamp":"2026-02-18 18:37:51"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 21:13:20"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 21:13:20"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 21:13:22"}
+{"level":"info","message":"start creaing organization controllers . . .","timestamp":"2026-02-18 21:13:31"}
+{"data":{"description":"just for testing","name":"","slug":"mindfire"},"ip":"::1","level":"info","message":"Organization is creatation has been started : service","timestamp":"2026-02-18 21:13:31"}
+{"level":"info","message":"find orgs by there slugs","slug":"mindfire","timestamp":"2026-02-18 21:13:31"}
+{"level":"info","message":"Organization creations controller successfully","timestamp":"2026-02-18 21:13:31"}
+{"data":{"description":"just for testing","name":"","slug":"mindfire"},"level":"info","message":"creation of organization:repository","timestamp":"2026-02-18 21:13:31"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-18 21:13:51"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-18 21:13:51"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 21:13:52"}
+{"level":"info","message":"VALIDATION ERROR FROM THE BODY SCHEMA","timestamp":"2026-02-18 21:13:54"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-18 21:50:05"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-18 21:50:05"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-18 21:50:05"}
+{"level":"info","message":"Seeding RBAC data...","timestamp":"2026-02-18 23:36:31"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 23:36:33"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-18 23:36:57"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 00:43:01"}
+{"clientVersion":"6.19.2","errorCode":"P1001","level":"error","message":"❌ Failed to start server Can't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.","name":"PrismaClientInitializationError","stack":"PrismaClientInitializationError: Can't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.\n    at r (/home/sobhan-sahoo/code/dam/node_modules/.pnpm/@prisma+client@6.19.2_prisma@6.19.2_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client/runtime/library.js:112:2770)\n    at async startServer (file:///home/sobhan-sahoo/code/dam/apps/projectService/dist/index.js:12:9)","timestamp":"2026-02-19 09:26:11"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 09:26:52"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-19 09:26:52"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 09:26:55"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 09:26:58"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 09:26:58"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 09:26:59"}
+{"email":"superadmin1@axon.com","level":"info","message":"Login service called","timestamp":"2026-02-19 09:27:05"}
+{"action":"USER_LOGIN","level":"info","message":"Activity logged","timestamp":"2026-02-19 09:27:05","userId":4}
+{"level":"info","message":"User logged in successfully","timestamp":"2026-02-19 09:27:05","userId":4}
+{"level":"info","message":"VALIDATION ERROR FROM THE BODY SCHEMA","timestamp":"2026-02-19 09:27:18"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 09:28:12"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 09:28:12"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 09:28:14"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-19 09:31:31"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-19 09:31:31"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-19 09:31:31"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 09:31:48"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 09:31:48"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 09:31:51"}
+{"level":"info","message":"VALIDATION ERROR FROM THE BODY SCHEMA","timestamp":"2026-02-19 09:32:35"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-19 09:33:14"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-19 09:33:14"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-19 09:33:14"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 09:34:03"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 09:34:03"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 09:34:05"}
+{"level":"info","message":"VALIDATION ERROR FROM THE BODY SCHEMA","timestamp":"2026-02-19 09:34:09"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-19 09:35:59"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-19 09:35:59"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 09:36:02"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 09:36:02"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 09:36:04"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-19 09:36:19"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-19 09:36:19"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 09:36:34"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 09:36:34"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 09:36:36"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-19 09:37:07"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-19 09:37:07"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 09:37:46"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 09:37:46"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 09:37:48"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-19 09:38:30"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-19 09:38:30"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 09:38:50"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 09:38:50"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 09:38:52"}
+{"level":"info","message":"start creaing organization controllers . . .","timestamp":"2026-02-19 09:38:55"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"ip":"::1","level":"info","message":"Organization is creatation has been started : service","timestamp":"2026-02-19 09:38:55","userId":4}
+{"level":"info","message":"find orgs by there slugs","slug":"mindfire","timestamp":"2026-02-19 09:38:55"}
+{"level":"info","message":"Organization creations controller successfully","timestamp":"2026-02-19 09:38:55"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"level":"info","message":"creation of organization:repository","timestamp":"2026-02-19 09:38:55","userId":4}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 09:39:13"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 09:39:13"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 09:39:14"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-19 09:52:54"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-19 09:52:54"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-19 09:52:54"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-19 09:52:56"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-19 09:52:56"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-19 09:52:56"}
+{"clientVersion":"6.19.2","errorCode":"P1001","level":"error","message":"❌ Failed to start server Can't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.","name":"PrismaClientInitializationError","stack":"PrismaClientInitializationError: Can't reach database server at `localhost:5432`\n\nPlease make sure your database server is running at `localhost:5432`.\n    at r (/home/sobhan-sahoo/code/dam/node_modules/.pnpm/@prisma+client@6.19.2_prisma@6.19.2_typescript@5.9.2__typescript@5.9.2/node_modules/@prisma/client/runtime/library.js:112:2770)\n    at async startServer (file:///home/sobhan-sahoo/code/dam/apps/authService/dist/index.js:12:9)","timestamp":"2026-02-19 10:37:41"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 10:38:21"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-19 10:38:21"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 10:38:24"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 10:38:24"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 10:38:24"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 10:38:26"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 10:38:51"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 10:38:51"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 10:38:53"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-19 10:39:05"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-19 10:39:05","userId":4}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-19 10:41:26"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-19 10:41:26"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 10:41:28"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 10:41:28"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 10:41:33"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-19 10:42:48"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-19 10:42:48"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-19 10:42:48"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 10:42:51"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 10:42:51"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 10:42:54"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 10:43:29"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-19 10:45:17"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-19 10:45:17"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-19 10:45:17"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 10:45:20"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 10:45:20"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 10:45:22"}
+{"level":"info","message":"start creaing organization controllers . . .","timestamp":"2026-02-19 10:45:25"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"ip":"::1","level":"info","message":"Organization is creatation has been started : service","timestamp":"2026-02-19 10:45:25","userId":4}
+{"level":"info","message":"find orgs by there slugs","slug":"mindfire","timestamp":"2026-02-19 10:45:25"}
+{"level":"info","message":"Organization creations controller successfully","timestamp":"2026-02-19 10:45:25"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"level":"info","message":"creation of organization:repository","timestamp":"2026-02-19 10:45:25","userId":4}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-19 11:54:35"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-19 11:54:35"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-19 11:54:35"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 11:54:37"}
+{"level":"info","message":"🚀 Server running on port 8001","timestamp":"2026-02-19 11:54:37"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 11:54:39"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 11:54:45"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 11:54:45"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 11:54:47"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 11:56:13"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 11:56:13"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 11:56:15"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 11:56:19"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 11:56:19"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 11:56:21"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 11:56:30"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 11:56:30"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 11:56:32"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 11:56:40"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 11:56:40"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 11:56:41"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-19 11:56:55"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-19 11:56:55"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-19 11:56:55"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 11:57:01"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 11:57:01"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 11:57:05"}
+{"email":"superadmin1@axon.com","level":"info","message":"Login service called","timestamp":"2026-02-19 11:57:10"}
+{"action":"USER_LOGIN","level":"info","message":"Activity logged","timestamp":"2026-02-19 11:57:11","userId":4}
+{"level":"info","message":"User logged in successfully","timestamp":"2026-02-19 11:57:11","userId":4}
+{"level":"info","message":"Organization creation controller started","timestamp":"2026-02-19 11:57:19"}
+{"level":"info","message":"creating organization","orgName":"mindfire","orgSlug":"mindfire","superAdminId":4,"timestamp":"2026-02-19 11:57:19"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"level":"info","message":"Organization creation service started","superAdminId":4,"timestamp":"2026-02-19 11:57:19"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"level":"info","message":" Creating organization in database","superAdminId":4,"timestamp":"2026-02-19 11:57:19"}
+{"level":"info","message":"Organization created","organizationId":3,"timestamp":"2026-02-19 11:57:19"}
+{"action":"ORG_CREATED","level":"info","message":"Activity logged","timestamp":"2026-02-19 11:57:19","userId":4}
+{"level":"info","message":"Organization creation complete","timestamp":"2026-02-19 11:57:19"}
+{"level":"info","message":"Organization created successfully","organizationId":3,"timestamp":"2026-02-19 11:57:19"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 12:21:18"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 12:21:18"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 12:21:24"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 12:21:24"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 12:21:26"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 12:22:10"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 12:22:10"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 12:22:22"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 12:22:22"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 12:22:25"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-19 12:32:15"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-19 12:32:15","userId":4}
+{"level":"info","message":"Organization creation controller started","timestamp":"2026-02-19 12:32:19"}
+{"level":"info","message":"creating organization","orgName":"mindfire","orgSlug":"mindfire","superAdminId":4,"timestamp":"2026-02-19 12:32:19"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"level":"info","message":"Organization creation service started","superAdminId":4,"timestamp":"2026-02-19 12:32:19"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"level":"info","message":" Creating organization in database","superAdminId":4,"timestamp":"2026-02-19 12:32:19"}
+{"level":"info","message":"Organization created","organizationId":4,"timestamp":"2026-02-19 12:32:19"}
+{"action":"ORG_CREATED","level":"info","message":"Activity logged","timestamp":"2026-02-19 12:32:19","userId":4}
+{"level":"info","message":"Organization creation complete","timestamp":"2026-02-19 12:32:19"}
+{"level":"info","message":"Organization created successfully","organizationId":4,"timestamp":"2026-02-19 12:32:19"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-19 12:52:50"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-19 12:52:50"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-19 12:52:50"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 12:52:54"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 12:52:54"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 12:52:57"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 12:54:14"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 12:54:14"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 12:54:31"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 12:54:33"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 12:54:33"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 12:54:38"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 12:54:38"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 12:54:39"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 12:54:41"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 12:54:41"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 12:54:43"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 12:54:48"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 12:54:48"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 12:54:55"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 12:54:55"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 12:54:56"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-19 12:55:55"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-19 12:55:55","userId":4}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-19 12:56:49"}
+{"assignEmail":"work.sobhansahoo@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":4,"timestamp":"2026-02-19 12:56:49","userId":4}
+{"adminEmail":"work.sobhansahoo@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":4,"superAdminId":4,"timestamp":"2026-02-19 12:56:49"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-19 12:56:49"}
+{"level":"info","message":"Admin assigned to organization","organizationId":4,"timestamp":"2026-02-19 12:56:49","userId":3}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-19 12:56:49","userId":4}
+{"level":"info","message":"SuperAdmin 4 assign admin position to work.sobhansahoo@gmail.com","organizationId":3,"timestamp":"2026-02-19 12:56:49"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 12:58:14"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 12:58:14"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 12:58:17"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 12:58:35"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 12:58:35"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 12:58:37"}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-19 12:58:40"}
+{"assignEmail":"work.sobhansahoo@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":4,"timestamp":"2026-02-19 12:58:40","userId":4}
+{"adminEmail":"work.sobhansahoo@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":4,"superAdminId":4,"timestamp":"2026-02-19 12:58:40"}
+{"level":"info","message":"Organization creation controller started","timestamp":"2026-02-19 13:00:41"}
+{"level":"info","message":"creating organization","orgName":"mindfire","orgSlug":"mindfire","superAdminId":4,"timestamp":"2026-02-19 13:00:41"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"level":"info","message":"Organization creation service started","superAdminId":4,"timestamp":"2026-02-19 13:00:41"}
+{"data":{"description":"just for testing","name":"mindfire","slug":"mindfire"},"level":"info","message":" Creating organization in database","superAdminId":4,"timestamp":"2026-02-19 13:00:41"}
+{"level":"info","message":"Organization created","organizationId":5,"timestamp":"2026-02-19 13:00:41"}
+{"action":"ORG_CREATED","level":"info","message":"Activity logged","timestamp":"2026-02-19 13:00:41","userId":4}
+{"level":"info","message":"Organization creation complete","timestamp":"2026-02-19 13:00:41"}
+{"level":"info","message":"Organization created successfully","organizationId":5,"timestamp":"2026-02-19 13:00:41"}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-19 13:00:52"}
+{"assignEmail":"work.sobhansahoo@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":5,"timestamp":"2026-02-19 13:00:52","userId":4}
+{"adminEmail":"work.sobhansahoo@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":5,"superAdminId":4,"timestamp":"2026-02-19 13:00:52"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-19 13:00:52"}
+{"level":"info","message":"Admin assigned to organization","organizationId":5,"timestamp":"2026-02-19 13:00:52","userId":3}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-19 13:00:52","userId":4}
+{"level":"info","message":"SuperAdmin 4 assign admin position to work.sobhansahoo@gmail.com","organizationId":3,"timestamp":"2026-02-19 13:00:52"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-19 13:06:56"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-19 13:06:56"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-19 13:06:58"}

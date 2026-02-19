@@ -4,7 +4,7 @@ import { ApiError } from '@dam/utils';
 
 export class OrganizationRepositories {
   async createOrganizations(
-    userId: number,
+    superAdminId: number,
     data: {
       name: string;
       slug: string;
@@ -12,37 +12,142 @@ export class OrganizationRepositories {
     },
   ) {
     try {
-      logger.info('creation of organization:repository', { userId, data });
-      return prisma.organization.create({
+      logger.info(' Creating organization in database', {
+        superAdminId,
+        data,
+      });
+
+      return await prisma.organization.create({
         data: {
-          createdBy: userId,
           name: data.name,
           slug: data.slug,
           description: data.description,
-          users: {
-            connect: {
-              id: userId,
-            },
-          },
+          createdBy: superAdminId,
+          assignedTo: null,
+          status: 'ACTIVE',
         },
       });
     } catch (error) {
-      logger.error('Error during creation of organizations', { error });
-      throw new ApiError(500, 'Database error while creating Organizations');
+      logger.error('Error creating organization', { error });
+      throw new ApiError(500, 'Database error while creating organization');
+    }
+  }
+
+  async assignToOrgs(organizationId: number, adminId: number) {
+    try {
+      const result = await prisma.organization.update({
+        where: { id: organizationId },
+        data: { assignedTo: adminId },
+      });
+
+      await prisma.user.update({
+        where: { id: adminId },
+        data: { organizationId: organizationId },
+      });
+
+      return result;
+    } catch (error) {
+      logger.error('Error in assign the admin to organization', { error });
+      throw new ApiError(
+        500,
+        'Database error while assign the admin to organization',
+      );
+    }
+  }
+
+  async findUser(email: string) {
+    try {
+      logger.info('Finding the user in repo via email', { email });
+      return await prisma.user.findUnique({
+        where: { email },
+        select: {
+          id: true,
+          isEmailVerified: true,
+          organizationId: true,
+          email: true,
+          username: true,
+        },
+      });
+    } catch (error) {
+      logger.error('Error in finding users', { error });
+      throw new ApiError(500, 'Database error while finding the user');
     }
   }
 
   async findOrgsBySlugs(slug: string) {
     try {
-      logger.info('find orgs by there slugs', { slug });
-      return prisma.organization.findUnique({
-        where: {
-          slug,
+      return await prisma.organization.findUnique({
+        where: { slug },
+      });
+    } catch (error) {
+      logger.error(' Error finding organization', { error });
+      throw new ApiError(500, 'Database error while finding organization');
+    }
+  }
+
+  async findOrgById(id: number) {
+    try {
+      return await prisma.organization.findUnique({
+        where: { id },
+        include: {
+          creator: {
+            select: {
+              id: true,
+              email: true,
+              username: true,
+            },
+          },
+          assignee: {
+            select: {
+              id: true,
+              email: true,
+              username: true,
+            },
+          },
+          _count: {
+            select: {
+              projects: true,
+              users: true,
+            },
+          },
         },
       });
     } catch (error) {
-      logger.error('Error during creation of organizations', { error });
-      throw new ApiError(500, 'Database error while creating Organizations');
+      logger.error('Error finding organization', { error });
+      throw new ApiError(500, 'Database error');
+    }
+  }
+
+  async getAllOrganizations() {
+    try {
+      return await prisma.organization.findMany({
+        include: {
+          creator: {
+            select: {
+              id: true,
+              email: true,
+              username: true,
+            },
+          },
+          assignee: {
+            select: {
+              id: true,
+              email: true,
+              username: true,
+            },
+          },
+          _count: {
+            select: {
+              projects: true,
+              users: true,
+            },
+          },
+        },
+        orderBy: { createdAt: 'desc' },
+      });
+    } catch (error) {
+      logger.error('Error fetching organizations', { error });
+      throw new ApiError(500, 'Database error');
     }
   }
 }

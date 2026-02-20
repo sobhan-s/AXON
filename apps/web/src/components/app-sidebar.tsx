@@ -2,8 +2,7 @@
 
 import * as React from 'react';
 import {
-  ArrowUpCircleIcon,
-  BarChartIcon,
+   BarChartIcon,
   CameraIcon,
   ClipboardListIcon,
   DatabaseIcon,
@@ -160,7 +159,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
-              <div className="w-[150px] h-[70px]">
+              <div className="w-[130px] h-[70px]">
                 <img src="axon_logo.png" alt="logo" />
               </div>
             </SidebarMenuButton>

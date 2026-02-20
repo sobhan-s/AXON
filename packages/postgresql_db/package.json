@@ -14,7 +14,11 @@
   "scripts": {
     "build": "tsc -p tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "db:seed": "node dist/seed.js"
+    "db:seed": "node dist/seed.js",
+    "generate": "pnpm prisma generate"
+  },
+  "prisma": {
+    "binaryTargets": ["native", "linux-musl-arm64-openssl-3.0.x"]
   },
   "dependencies": {
     "@dam/config": "workspace:*",

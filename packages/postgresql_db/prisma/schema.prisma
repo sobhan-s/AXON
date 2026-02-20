@@ -1,6 +1,7 @@
 generator client {
-  provider     = "prisma-client-js"
-  moduleFormat = "esm"
+  provider      = "prisma-client-js"
+  moduleFormat  = "esm"
+  binaryTargets = ["linux-musl-openssl-3.0.x"]
 }
 
 datasource db {
@@ -9,22 +10,22 @@ datasource db {
 }
 
 model User {
-  id                      Int                      @id @default(autoincrement())
-  email                   String                   @unique
-  password                String
-  username                String
-  organizationId          Int?
-  avatarUrl               String?
-  isEmailVerified         Boolean                  @default(false)
-  emailVerifiedAt         DateTime?
-  resetPasswordToken      String?
-  resetPasswordExpiry     DateTime?
-  isActive                Boolean                  @default(true)
-  lastLoginAt             DateTime?
-  lastLoginIp             String?
-  createdAt               DateTime                 @default(now())
-  updatedAt               DateTime                 @updatedAt
-  
+  id                  Int       @id @default(autoincrement())
+  email               String    @unique
+  password            String
+  username            String
+  organizationId      Int?
+  avatarUrl           String?
+  isEmailVerified     Boolean   @default(false)
+  emailVerifiedAt     DateTime?
+  resetPasswordToken  String?
+  resetPasswordExpiry DateTime?
+  isActive            Boolean   @default(true)
+  lastLoginAt         DateTime?
+  lastLoginIp         String?
+  createdAt           DateTime  @default(now())
+  updatedAt           DateTime  @updatedAt
+
   refreshTokens           RefreshToken[]
   activityLogs            ActivityLog[]
   requestedApprovals      Approval[]               @relation("ApprovalRequester")

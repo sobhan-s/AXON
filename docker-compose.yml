@@ -73,6 +73,8 @@ services:
       - dam-network
 
   gateway-api:
+    container_name: gateway-api
+
     build:
       context: .
       dockerfile: Docker/gateway.Dockerfile
@@ -91,32 +93,25 @@ services:
     networks:
       - dam-network
 
-  # =========== NGINX =============
-
-  nginx:
-    image: nginx:alpine
-
-    container_name: dam-nginx
-
+  web:
+    build:
+      context: .
+      dockerfile: Docker/web.Dockerfile
+    container_name: dam-web
+    ports:
+      - '80:80' 
     depends_on:
       - gateway-api
-
-    ports:
-      - '80:80'
-
-    volumes:
-      - ./infra/nginx/default.conf:/etc/nginx/conf.d/default.conf
-
-    restart: always
-
     networks:
       - dam-network
+    restart: always
 
 volumes:
   dam-postgres-data:
     external: true
   dam_mongo_data:
     external: true
+  web-build:
 
 networks:
   dam-network:

@@ -23,8 +23,11 @@
     "@dam/eslint-config": "workspace:*",
     "@dam/typescript-config": "workspace:*",
     "@types/dotenv": "^8.2.3",
+    "@types/jest": "^30.0.0",
     "dotenv": "^17.3.1",
+    "jest": "^30.2.0",
     "nodemailer": "^8.0.1",
+    "ts-jest": "^29.4.6",
     "winston": "^3.19.0"
   },
   "devDependencies": {

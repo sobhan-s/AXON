@@ -184,6 +184,9 @@ export default function VerifyEmailPage() {
                 <Button onClick={handleResend} disabled={resendLoading}>
                   {resendLoading ? 'Sending...' : 'Send Link'}
                 </Button>
+                {resendAlert && (
+                  <FormAlert alert={resendAlert} className="w-full" />
+                )}
               </div>
             )}
           </div>

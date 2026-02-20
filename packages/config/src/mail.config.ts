@@ -13,7 +13,7 @@ const smtpOptions: SMTPTransport.Options = {
   },
 };
 
-console.log('asdfasdfasdfads', smtpOptions);
+// console.log('asdfasdfasdfads', smtpOptions);
 
 const transporter = nodemailer.createTransport(smtpOptions);
 

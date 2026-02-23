@@ -33,6 +33,32 @@ export class OrganizationRepositories {
     }
   }
 
+  async updateOrganizations(
+    organizationId: number,
+    data: Partial<{
+      name: string;
+      description: string;
+      storageLimit: string;
+    }>,
+  ) {
+    try {
+      logger.info('Organization updation in repository');
+      return await prisma.organization.update({
+        where: { id: organizationId },
+        data: {
+          ...(data.name && { name: data.name }),
+          ...(data.description !== undefined && {
+            description: data.description,
+          }),
+          ...(data.storageLimit && { storageLimit: BigInt(data.storageLimit) }),
+        },
+      });
+    } catch (error) {
+      logger.error('Error updating in organization', { error });
+      throw new ApiError(500, 'Database error while update the organization');
+    }
+  }
+
   async assignToOrgs(organizationId: number, adminId: number) {
     try {
       const result = await prisma.organization.update({
@@ -147,7 +173,70 @@ export class OrganizationRepositories {
       });
     } catch (error) {
       logger.error('Error fetching organizations', { error });
-      throw new ApiError(500, 'Database error');
+      throw new ApiError(
+        500,
+        'Database error while fetching all organizations .',
+      );
     }
   }
+
+  async deleteOrganization(organizationId: number) {
+    try {
+      logger.info('delete organization stated in repository');
+      return await prisma.organization.delete({
+        where: { id: organizationId },
+      });
+    } catch (error) {
+      logger.error('Error deleting organizations', { error });
+      throw new ApiError(500, 'Database error while deleteing organizations .');
+    }
+  }
+
+  async unAssignAdmin(organizationId: number, assignAdmin: number) {
+    try {
+      logger.info('Un assign admin from the organizations in reppo');
+      const result = await prisma.organization.update({
+        where: {
+          id: organizationId,
+        },
+        data: {
+          assignedTo: null,
+        },
+      });
+
+      if (result.assignedTo) {
+        throw new ApiError(403, 'From organization assign id not removed ');
+      }
+
+      await prisma.user.update({
+        where: {
+          id: assignAdmin,
+        },
+        data: {
+          organizationId: null,
+        },
+      });
+
+      return result;
+    } catch (error) {
+      logger.error('Error in unassign form organizations', { error });
+      throw new ApiError(
+        500,
+        'Database error while unassign from organizations .',
+      );
+    }
+  }
+
+  // async changeAssignAdmin(organisationId: number, assignAdmin: number) {
+  //   try {
+  //     logger.info("Chnage assign admin in repo stated")
+      
+  //   } catch (error) {
+  //     logger.error('Error in unassign form organizations', { error });
+  //     throw new ApiError(
+  //       500,
+  //       'Database error while unassign from organizations .',
+  //     );
+  //   }
+  // }
 }

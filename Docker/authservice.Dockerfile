@@ -9,7 +9,6 @@ COPY packages ./packages
 
 RUN pnpm install --frozen-lockfile
 
-# ✅ Prisma generation (NOW WORKS)
 RUN pnpm --filter @dam/postgresql_db exec prisma generate
 
 RUN pnpm --filter @dam/authService build

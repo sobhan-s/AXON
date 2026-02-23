@@ -86,10 +86,7 @@ export class OrganizationServices {
     }
 
     if (organization.assignedTo) {
-      throw new ApiError(
-        400,
-        'Organization already has an admin. Use update endpoint to change admin.',
-      );
+      throw new ApiError(400, 'Organization already has an admin.');
     }
 
     const adminUser = await this.orgRepo.findUser(adminEmail);
@@ -158,7 +155,20 @@ export class OrganizationServices {
 
     const organizations = await this.orgRepo.getAllOrganizations();
 
-    return { organizations };
+    const result = organizations.map((org) => {
+      return {
+        ...org,
+        storageLimit: org.storageLimit.toString(),
+        storageUsed: org.storageUsed.toString(),
+      };
+    });
+
+    logger.info('fetched All organization successfully service', {
+      result,
+    });
+    return {
+      result,
+    };
   }
 
   async getOrganizationById(organizationId: number) {
@@ -170,7 +180,15 @@ export class OrganizationServices {
       throw new ApiError(404, 'Organization not found');
     }
 
-    return { organization };
+    logger.info('fetched organization successfully service');
+
+    return {
+      organization: {
+        ...organization,
+        storageLimit: organization.storageLimit.toString(),
+        storageUsed: organization.storageUsed.toString(),
+      },
+    };
   }
 
   async updateOrganization(
@@ -178,44 +196,217 @@ export class OrganizationServices {
     data: {
       name?: string;
       description?: string;
-      storageLimit?: number;
+      storageLimit?: string;
     },
+    userId: number,
+    ip: string,
+    userAgent: string,
   ) {
-    logger.info('Updating organization', { organizationId, data });
+    logger.info('Updating organization', { organizationId, data, userId });
 
     const organization = await this.orgRepo.findOrgById(organizationId);
     if (!organization) {
       throw new ApiError(404, 'Organization not found');
     }
 
-    const updated = await prisma.organization.update({
-      where: { id: organizationId },
-      data: {
-        ...(data.name && { name: data.name }),
-        ...(data.description !== undefined && {
-          description: data.description,
-        }),
-        ...(data.storageLimit && { storageLimit: BigInt(data.storageLimit) }),
+    const updatedOrg = await this.orgRepo.updateOrganizations(
+      organizationId,
+      data,
+    );
+
+    logger.info('Organization updated', { organizationId: updatedOrg.id });
+
+    await this.activityService.logActivity({
+      userId: userId,
+      organizationId: updatedOrg.id,
+      action: 'ORG_UPDATED',
+      entityType: 'organization',
+      entityId: updatedOrg.id.toString(),
+      details: {
+        orgName: data.name,
+        description: data.description,
+        storgeLimit: data.storageLimit,
+        changedOrgName: updatedOrg.name,
+        changedDescription: updatedOrg.description,
+        chnagedStorgeLimit: updatedOrg.storageLimit?.toString(),
       },
+      ipAddress: ip,
+      userAgent: userAgent,
     });
 
-    return { organization: updated };
+    logger.info('Organization updation complete');
+
+    return {
+      organization: {
+        ...updatedOrg,
+        storageLimit: updatedOrg.storageLimit.toString(),
+        storageUsed: updatedOrg.storageUsed.toString(),
+      },
+    };
   }
 
-  async deleteOrganization(superAdminId: number, organizationId: number) {
+  async deleteOrganization(
+    superAdminId: number,
+    organizationId: number,
+    ip: string,
+    userAgent: string,
+  ) {
     logger.info('Deleting organization', { superAdminId, organizationId });
 
-    const organization = await this.orgRepo.findOrgById(organizationId);
+    const organization = await this.getOrganizationById(organizationId);
     if (!organization) {
       throw new ApiError(404, 'Organization not found');
     }
 
-    await prisma.organization.delete({
-      where: { id: organizationId },
+    const assignId = organization.organization.assignedTo;
+
+    if (assignId) {
+      throw new ApiError(
+        403,
+        'Before delete the organization , u have to remove the assign of organization admin . . .',
+      );
+    }
+
+    this.orgRepo.deleteOrganization(organizationId);
+
+    await this.activityService.logActivity({
+      userId: superAdminId,
+      organizationId: organization.organization.id,
+      action: 'ORG_DELETED',
+      entityType: 'organization',
+      entityId: organization.organization.id.toString(),
+      details: {
+        orgName: organization.organization.name,
+        deletedBy: superAdminId,
+      },
+      ipAddress: ip,
+      userAgent: userAgent,
     });
 
     logger.info('Organization deleted', { organizationId });
 
     return { message: 'Organization deleted successfully' };
+  }
+
+  async unAssignFromOrganization(superAdminId: number, organizationId: number) {
+    logger.info('remove the admin from organization', {
+      superAdminId,
+      organizationId,
+    });
+
+    const organisations = await this.getOrganizationById(organizationId);
+
+    if (!organisations) {
+      throw new ApiError(404, 'can not find the organizations');
+    }
+
+    const assignAdmin = organisations.organization.assignedTo as number;
+
+    if (!assignAdmin) {
+      throw new ApiError(404, 'can not find the admin');
+    }
+
+    const org = await this.orgRepo.unAssignAdmin(organizationId, assignAdmin);
+
+    if (org.assignedTo) {
+      throw new ApiError(
+        403,
+        'from organization assignadmin is not removed yet . . .',
+      );
+    }
+
+    this.activityService.logActivity({
+      userId: superAdminId,
+      organizationId: org.id,
+      action: 'ORG_UPDATED',
+      entityType: 'organization',
+      entityId: org.id.toString(),
+      details: {
+        message: 'super admin removed organization admin successfully',
+      },
+    });
+
+    logger.info(`Admin removed from organization`, {
+      organizationId,
+      superAdminId,
+      removedAdminId: assignAdmin,
+    });
+
+    return {
+      organisations: {
+        ...org,
+        storageLimit: org.storageLimit.toString(),
+        storageUsed: org.storageUsed.toString(),
+      },
+    };
+  }
+
+  async changeAssignAdmin(
+    superAdminId: number,
+    organizationId: number,
+    newAdminEmail: string,
+    ip: string,
+  ) {
+    logger.info('change the org admin service');
+
+    const organisations = await this.getOrganizationById(organizationId);
+
+    if (!organisations) {
+      throw new ApiError(404, 'No organisation found');
+    }
+
+    if (organisations.organization.assignee?.email == newAdminEmail) {
+      throw new ApiError(
+        400,
+        'Same admin has now org admin, so if u want please change the admin . . .',
+      );
+    }
+
+    const assignAdmin = organisations.organization.assignedTo as number;
+
+    if (!assignAdmin) {
+      throw new ApiError(404, 'No admin is assign not yet .');
+    }
+
+    const adminUser = await this.orgRepo.findUser(newAdminEmail);
+
+    if (!adminUser) {
+      throw new ApiError(
+        404,
+        `User with email ${newAdminEmail} not found. Please ensure the user is registered first.`,
+      );
+    }
+
+    const org = await this.orgRepo.assignToOrgs(organizationId, adminUser.id);
+
+    this.activityService.logActivity({
+      userId: superAdminId,
+      organizationId: organizationId,
+      action: 'ORG_UPDATED',
+      entityType: 'organization',
+      entityId: organizationId.toString(),
+      details: {
+        action: 'admin_assigned_updated',
+        prevAdmin: organisations.organization.assignee?.email,
+        newAdmin: adminUser.email,
+        adminUserId: adminUser.id,
+      },
+      ipAddress: ip,
+    });
+
+    logger.info('super admin has assign new org admin successfully');
+
+    return {
+      organization: {
+        ...org,
+        storageLimit: org.storageLimit.toString(),
+        storageUsed: org.storageUsed.toString(),
+      },
+      admin: {
+        id: adminUser.id,
+        email: adminUser.email,
+        username: adminUser.username,
+      },
+    };
   }
 }

@@ -13,39 +13,39 @@ const startServer = async () => {
     // logger.info("------====------",prisma)
     // console.log(prisma.$queryRaw`SELECT now()`);
     await prisma.$connect();
-    logger.info('✅ Database connected successfully');
+    logger.info(' Database connected successfully');
 
     server = app.listen(PORT, () => {
-      logger.info(`🚀 Server running on port ${PORT}`);
+      logger.info(` Server running on port ${PORT}`);
     });
   } catch (error) {
-    logger.error('❌ Failed to start server', error);
+    logger.error(' Failed to start server', error);
     process.exit(1);
   }
 };
 
 const gracefulShutdown = async (signal: string) => {
-  logger.info(`⚠️ ${signal} received. Starting graceful shutdown...`);
+  logger.info(` ${signal} received. Starting graceful shutdown...`);
 
   const forceShutdown = setTimeout(() => {
-    logger.error('❌ Shutdown timeout reached. Forcing exit.');
+    logger.error('Shutdown timeout reached. Forcing exit.');
     process.exit(1);
   }, SHUTDOWN_TIMEOUT);
 
   try {
     if (server) {
       server.close(() => {
-        logger.info('✅ HTTP server closed');
+        logger.info(' HTTP server closed');
       });
     }
 
     await prisma.$disconnect();
-    logger.info('✅ Database disconnected');
+    logger.info(' Database disconnected');
 
     clearTimeout(forceShutdown);
     process.exit(0);
   } catch (error) {
-    logger.error('❌ Error during graceful shutdown', error);
+    logger.error(' Error during graceful shutdown', error);
     process.exit(1);
   }
 };

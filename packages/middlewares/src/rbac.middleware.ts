@@ -10,7 +10,7 @@ export async function requireSuperAdmin(
   res: Response,
   next: NextFunction,
 ) {
-  console.log('`11111111111111111111');
+  // console.log('`11111111111111111111');
 
   try {
     const userId = (req as any).user?.id;
@@ -32,66 +32,70 @@ export async function requireSuperAdmin(
   }
 }
 
-export function requireOrgAccess() {
-  return async (req: Request, res: Response, next: NextFunction) => {
-    try {
-      const userId = (req as any).user?.id;
-      const organizationId = parseInt(
-        req.params.organizationId ||
-          req.body.organizationId ||
-          (req.query.organizationId as string),
-      );
+export async function requireOrgAccess(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
+  try {
+    const userId = (req as any).user?.id;
+    const organizationId = parseInt(
+      req.params.organizationId ||
+        req.body.organizationId ||
+        (req.query.organizationId as string),
+    );
 
-      if (!organizationId) {
-        throw new ApiError(400, 'Organization ID required');
-      }
-
-      const canAccess = await permissionService.canAccessOrganization(
-        userId,
-        organizationId,
-      );
-
-      if (!canAccess) {
-        throw new ApiError(403, 'Access denied to this organization');
-      }
-
-      next();
-    } catch (error) {
-      next(error);
+    if (!organizationId) {
+      throw new ApiError(400, 'Organization ID required');
     }
-  };
+
+    const canAccess = await permissionService.canAccessOrganization(
+      userId,
+      organizationId,
+    );
+
+    if (!canAccess) {
+      throw new ApiError(403, 'Access denied to this organization');
+    }
+
+    next();
+  } catch (error) {
+    next(error);
+  }
 }
 
-export function requireProjectAccess() {
-  return async (req: Request, res: Response, next: NextFunction) => {
-    try {
-      const userId = (req as any).user?.id;
-      const projectId = parseInt(
-        req.params.projectId ||
-          req.body.projectId ||
-          (req.query.projectId as string),
-      );
+export async function requireProjectAccess(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
+  try {
+    const userId = (req as any).user?.id;
+    const projectId = parseInt(
+      req.params.projectId ||
+        req.body.projectId ||
+        (req.query.projectId as string),
+    );
 
-      if (!projectId) {
-        throw new ApiError(400, 'Project ID required');
-      }
-
-      const canAccess = await permissionService.canAccessProject(
-        userId,
-        projectId,
-      );
-
-      if (!canAccess) {
-        throw new ApiError(403, 'Not a member of this project');
-      }
-
-      (req as any).projectId = projectId;
-
-      next();
-    } catch (error) {
-      next(error);
+    if (!projectId) {
+      throw new ApiError(400, 'Project ID required');
     }
-  };
+
+    const canAccess = await permissionService.canAccessProject(
+      userId,
+      projectId,
+    );
+
+    if (!canAccess) {
+      throw new ApiError(403, 'Not a member of this project');
+    }
+
+    (req as any).projectId = projectId;
+
+    next();
+  } catch (error) {
+    next(error);
+  }
 }
 
 export function requireModuleAccess() {

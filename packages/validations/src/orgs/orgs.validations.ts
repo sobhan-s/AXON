@@ -37,8 +37,5 @@ export const updateOrgsSchema = z.object({
     .max(500, 'Description must be less than 500 characters')
     .optional(),
 
-  storageLimit: z
-    .number()
-    .positive('Storage limit must be positive')
-    .optional(),
+  storageLimit: z.string().optional(),
 });

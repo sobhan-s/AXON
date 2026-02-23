@@ -1422,3 +1422,1245 @@
 {"level":"info","message":"Mail server ready","timestamp":"2026-02-23 09:09:15"}
 {"level":"info","message":"Mail server ready","timestamp":"2026-02-23 09:10:11"}
 {"level":"info","message":"Mail server ready","timestamp":"2026-02-23 09:10:41"}
+{"clientVersion":"6.19.2","errorCode":"P1001","level":"error","message":"❌ Failed to start server Can't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.","name":"PrismaClientInitializationError","stack":"PrismaClientInitializationError: Can't reach database server at `postgres:5432`\n\nPlease make sure your database server is running at `postgres:5432`.\n    at r (/home/sobhan-sahoo/code/dam/node_modules/.pnpm/@prisma+client@6.19.2_prisma@6.19.2_magicast@0.5.2_typescript@5.9.3__typescript@5.9.3/node_modules/@prisma/client/runtime/library.js:112:2770)\n    at async startServer (file:///home/sobhan-sahoo/code/dam/apps/projectService/dist/index.js:12:9)","timestamp":"2026-02-23 09:26:14"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 09:27:41"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 09:28:22"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 09:28:22"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 09:28:24"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-23 09:29:00"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-23 09:29:00"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-23 09:29:00"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 10:42:55"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 10:42:55"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 10:42:57"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 10:43:37"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 10:44:58"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 10:44:58"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 10:44:59"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 10:45:14"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 10:45:14"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 10:45:15"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 10:45:23"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 10:45:23"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 10:45:25"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 10:45:25"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 10:45:27"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:38:20"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:38:20"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:38:24"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:38:24"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 11:38:28"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:38:49"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:38:49"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 11:38:51"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:38:58"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:38:58"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:39:01"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:39:01"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:39:03"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:39:03"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:39:06"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:39:06"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 11:39:08"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:39:22"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:39:22"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 11:39:24"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:39:33"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:39:33"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 11:39:35"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:40:19"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:40:19"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:40:22"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:40:22"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 11:40:23"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:40:28"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:40:28"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 11:40:30"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:40:40"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:40:40"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 11:40:42"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:40:54"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:40:54"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 11:40:55"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:41:56"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:41:56"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 11:41:58"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:42:02"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:42:02"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 11:42:04"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:44:38"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:44:38"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 11:44:40"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:44:48"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:44:48"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:48:08"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:48:08"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 11:48:10"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:48:25"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:48:25"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:50:04"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:50:04"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 11:50:06"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:50:11"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:50:11"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:52:25"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:52:25"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 11:52:27"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:52:38"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:52:38"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 11:52:40"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:52:45"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:52:45"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 11:52:47"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:57:37"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:57:37"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:57:41"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:57:41"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 11:57:55"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 11:57:55"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 11:57:57"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 12:28:05"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 12:28:05"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 12:28:07"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 12:29:05"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 12:29:05"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 12:29:06"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 12:30:39"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 12:30:39"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 12:30:41"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 12:31:04"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 12:31:04"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 12:31:06"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 12:51:28"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 12:51:28"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 12:51:32"}
+{"level":"info","message":"Database connected successfully","timestamp":"2026-02-23 12:52:03"}
+{"level":"info","message":"server running on port 8001","timestamp":"2026-02-23 12:52:03"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 12:52:04"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 12:53:10"}
+{"email":"superadmin1@axon.com","level":"info","message":"Login service called","timestamp":"2026-02-23 12:53:30"}
+{"action":"USER_LOGIN","level":"info","message":"Activity logged","timestamp":"2026-02-23 12:53:30","userId":4}
+{"level":"info","message":"User logged in successfully","timestamp":"2026-02-23 12:53:30","userId":4}
+{"level":"info","message":"Organization updation controller has started .","timestamp":"2026-02-23 12:54:54"}
+{"data":{"description":"just for testing 1","name":"mindfire llp","storageLimit":1073741824},"level":"info","message":"Updating organization","organizationId":5,"timestamp":"2026-02-23 12:54:54","userId":4}
+{"level":"info","message":"Organization updation in repository","timestamp":"2026-02-23 12:54:54"}
+{"level":"info","message":"Organization updated","organizationId":5,"timestamp":"2026-02-23 12:54:54"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-23 12:54:54","userId":4}
+{"level":"info","message":"Organization updation complete","timestamp":"2026-02-23 12:54:54"}
+{"level":"info","message":"SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-23 12:55:24"}
+{"level":"info","message":"HTTP server closed","timestamp":"2026-02-23 12:55:24"}
+{"level":"info","message":"Database disconnected","timestamp":"2026-02-23 12:55:24"}
+{"level":"info","message":"Database connected successfully","timestamp":"2026-02-23 12:55:27"}
+{"level":"info","message":"server running on port 8001","timestamp":"2026-02-23 12:55:27"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 12:55:29"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-23 12:55:30"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-23 12:55:30"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-23 12:55:30"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 12:55:32"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 12:55:32"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 12:55:33"}
+{"level":"info","message":"VALIDATION ERROR FROM THE BODY SCHEMA","timestamp":"2026-02-23 12:55:36"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-23 13:04:55"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-23 13:04:55"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-23 13:04:55"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 13:06:59"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 13:06:59"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 13:07:00"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 13:07:49"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 13:07:49"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 13:07:51"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 13:08:26"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 13:08:26"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 13:08:28"}
+{"level":"info","message":"VALIDATION ERROR FROM THE BODY SCHEMA","timestamp":"2026-02-23 13:08:49"}
+{"level":"info","message":"Organization updation controller has started .","timestamp":"2026-02-23 13:09:01"}
+{"data":{"description":"just for testing 1","name":"mindfire llp","storageLimit":"1073741824"},"level":"info","message":"Updating organization","organizationId":5,"timestamp":"2026-02-23 13:09:01","userId":4}
+{"level":"info","message":"Organization updation in repository","timestamp":"2026-02-23 13:09:01"}
+{"level":"info","message":"Organization updated","organizationId":5,"timestamp":"2026-02-23 13:09:01"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-23 13:09:01","userId":4}
+{"level":"info","message":"Organization updation complete","timestamp":"2026-02-23 13:09:01"}
+{"level":"info","message":"⚠️ SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-23 13:09:11"}
+{"level":"info","message":"✅ HTTP server closed","timestamp":"2026-02-23 13:09:11"}
+{"level":"info","message":"✅ Database disconnected","timestamp":"2026-02-23 13:09:11"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 13:09:16"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 13:09:16"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 13:09:18"}
+{"level":"info","message":"Organization updation controller has started .","timestamp":"2026-02-23 13:09:19"}
+{"data":{"description":"just for testing 1","name":"mindfire llp","storageLimit":"1073741824"},"level":"info","message":"Updating organization","organizationId":5,"timestamp":"2026-02-23 13:09:19","userId":4}
+{"level":"info","message":"Organization updation in repository","timestamp":"2026-02-23 13:09:19"}
+{"level":"info","message":"Organization updated","organizationId":5,"timestamp":"2026-02-23 13:09:19"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-23 13:09:19","userId":4}
+{"level":"info","message":"Organization updation complete","timestamp":"2026-02-23 13:09:19"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 13:12:06"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 13:12:06"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 13:12:09"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 13:12:09"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 13:12:11"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 13:12:11"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 13:12:15"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 13:12:15"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 13:12:17"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 13:12:26"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 13:12:26"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 13:12:28"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 13:13:09"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 13:13:09"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 13:13:11"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 13:13:15"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 13:13:15"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 13:13:20"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 13:13:20"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 13:13:21"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-23 13:13:35"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-23 13:13:35","userId":4}
+{"level":"info","message":"Organization updation controller has started .","timestamp":"2026-02-23 13:13:38"}
+{"data":{"description":"just for testing 2","name":"mindfire ll","storageLimit":"10737418240"},"level":"info","message":"Updating organization","organizationId":5,"timestamp":"2026-02-23 13:13:38","userId":4}
+{"level":"info","message":"Organization updation in repository","timestamp":"2026-02-23 13:13:38"}
+{"level":"info","message":"Organization updated","organizationId":5,"timestamp":"2026-02-23 13:13:38"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-23 13:13:38","userId":4}
+{"level":"info","message":"Organization updation complete","timestamp":"2026-02-23 13:13:38"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 13:14:00"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 13:14:00"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 13:14:02"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 15:59:04"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 15:59:04"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 15:59:06"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:03:23"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:03:23"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:03:26"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:03:37"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:03:37"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:03:40"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:03:57"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:03:57"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:03:59"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:04:01"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:04:01"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:04:03"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:04:37"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:04:37"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:04:39"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:04:43"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:04:43"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:04:45"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-23 16:05:07"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-23 16:05:07","userId":4}
+{"level":"info","message":"Organization updation controller has started .","timestamp":"2026-02-23 16:05:10"}
+{"data":{"description":"just for testing 3","name":"mindfire llp","storageLimit":"1073741824"},"level":"info","message":"Updating organization","organizationId":5,"timestamp":"2026-02-23 16:05:10","userId":4}
+{"level":"info","message":"Organization updation in repository","timestamp":"2026-02-23 16:05:10"}
+{"level":"info","message":"Organization updated","organizationId":5,"timestamp":"2026-02-23 16:05:10"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-23 16:05:10","userId":4}
+{"level":"info","message":"Organization updation complete","timestamp":"2026-02-23 16:05:10"}
+{"level":"info","message":"Organization updated successfully","organizationId":5,"timestamp":"2026-02-23 16:05:10"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:07:39"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:07:39"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:07:42"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:07:42"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:07:44"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:07:53"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:07:53"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:07:55"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:07:59"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:07:59"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:08:01"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:08:24"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:08:24"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:08:28"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:08:28"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:08:30"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:19:24"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:19:24"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:19:26"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:23:40"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:23:40"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:23:42"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:25:25"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:25:25"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:25:26"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:25:31"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:25:31"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:25:33"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:26:05"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:26:08"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:26:08"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:26:11"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:26:11"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:26:14"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:26:14"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:26:16"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:26:20"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:26:20"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:26:22"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:26:31"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:26:31"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:26:34"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:26:34"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:26:36"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:26:41"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:26:41"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:26:44"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-23 16:27:15"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-23 16:27:15","userId":4}
+{"level":"info","message":"getAll Organization Controller has been started . . .","timestamp":"2026-02-23 16:27:18"}
+{"level":"info","message":"Fetching all organizations","superAdminId":4,"timestamp":"2026-02-23 16:27:18"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:27:45"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:27:45"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:27:49"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:27:49"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:27:50"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:27:58"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:27:58"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:28:32"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:28:32"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:28:34"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:28:39"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:28:39"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:28:41"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:28:49"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:28:49"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:28:53"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:28:53"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:28:56"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:29:00"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:29:00"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:29:01"}
+{"level":"info","message":"getAll Organization Controller has been started . . .","timestamp":"2026-02-23 16:29:03"}
+{"level":"info","message":"Fetching all organizations","superAdminId":4,"timestamp":"2026-02-23 16:29:03"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:29:52"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:29:52"}
+{"level":"info","message":"getAll Organization Controller has been started . . .","timestamp":"2026-02-23 16:29:53"}
+{"level":"info","message":"Fetching all organizations","superAdminId":4,"timestamp":"2026-02-23 16:29:53"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:29:56"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:30:15"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:30:15"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:30:17"}
+{"level":"info","message":"getAll Organization Controller has been started . . .","timestamp":"2026-02-23 16:30:25"}
+{"level":"info","message":"Fetching all organizations","superAdminId":4,"timestamp":"2026-02-23 16:30:25"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:30:44"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:30:44"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:30:46"}
+{"level":"info","message":"getAll Organization Controller has been started . . .","timestamp":"2026-02-23 16:30:48"}
+{"level":"info","message":"Fetching all organizations","superAdminId":4,"timestamp":"2026-02-23 16:30:48"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:31:15"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:31:15"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:31:17"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:31:20"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:31:20"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:31:22"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:31:26"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:31:26"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:31:27"}
+{"level":"info","message":"getAll Organization Controller has been started . . .","timestamp":"2026-02-23 16:31:28"}
+{"level":"info","message":"Fetching all organizations","superAdminId":4,"timestamp":"2026-02-23 16:31:28"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:32:03"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:32:03"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:32:06"}
+{"level":"info","message":"getAll Organization Controller has been started . . .","timestamp":"2026-02-23 16:32:25"}
+{"level":"info","message":"Fetching all organizations","superAdminId":4,"timestamp":"2026-02-23 16:32:25"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:33:21"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:33:21"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:33:23"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:33:26"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:33:26"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:33:29"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:34:58"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:34:58"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:35:02"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:35:02"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:35:09"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:35:09"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:35:11"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:35:40"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:35:40"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:35:44"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:36:17"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:36:17"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:36:19"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:36:24"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:36:24"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:36:27"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:36:27"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:36:43"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:36:43"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:36:44"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:37:06"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:37:06"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:37:07"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:37:45"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:37:45"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:37:47"}
+{"level":"info","message":"getAll Organization Controller has been started . . .","timestamp":"2026-02-23 16:37:49"}
+{"level":"info","message":"Fetching all organizations","superAdminId":4,"timestamp":"2026-02-23 16:37:49"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:44:24"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:44:24"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:44:26"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:45:11"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:45:11"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:45:13"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:45:42"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:45:42"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:45:44"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:45:47"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:45:47"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:45:50"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:45:50"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:45:54"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:45:54"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:45:56"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:46:30"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:46:30"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:46:31"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:46:37"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:46:37"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:46:40"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:46:40"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:46:42"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:46:46"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:46:46"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:46:49"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:46:49"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:46:51"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:47:28"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:47:28"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:47:33"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:47:33"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:47:35"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:48:31"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:48:31"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:48:33"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:48:33"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:48:35"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:48:57"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:48:57"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:48:58"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:49:53"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:49:53"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:49:56"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:49:56"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:49:59"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:49:59"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:50:08"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:50:08"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:50:10"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:51:00"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:51:00"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:51:02"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:51:25"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:51:25"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:51:27"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:51:29"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:51:29"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:51:35"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:51:35"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:51:36"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:51:46"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:51:46"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:51:48"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:51:56"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:51:56"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:51:59"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:51:59"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:52:05"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:52:05"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:52:08"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:52:11"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:52:11"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:52:13"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:52:22"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:52:22"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:52:23"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-23 16:52:39"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-23 16:52:40","userId":4}
+{"level":"info","message":"get organization by id controller started . . .","timestamp":"2026-02-23 16:52:42"}
+{"level":"info","message":"Fetching organization","organizationId":5,"timestamp":"2026-02-23 16:52:42"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:53:40"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:53:40"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:53:43"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:53:43"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:53:46"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:53:46"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:53:47"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:53:52"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:53:52"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:53:54"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:54:03"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:54:03"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:54:05"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:54:11"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:54:11"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:54:14"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:54:14"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:54:16"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:54:19"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:54:19"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:54:21"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:54:28"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:54:28"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:54:29"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:54:46"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:54:46"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:54:49"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:55:01"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:55:01"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:55:05"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:55:05"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:55:07"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:55:24"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:55:24"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:55:25"}
+{"level":"info","message":"getAll Organization Controller has been started . . .","timestamp":"2026-02-23 16:55:42"}
+{"level":"info","message":"Fetching all organizations","superAdminId":4,"timestamp":"2026-02-23 16:55:42"}
+{"level":"info","message":"fetched All organization successfully service","result":[{"_count":{"projects":0,"users":1},"assignedTo":3,"assignee":{"email":"work.sobhansahoo@gmail.com","id":3,"username":"worksobhan"},"createdAt":"2026-02-19T07:30:41.389Z","createdBy":4,"creator":{"email":"superadmin1@axon.com","id":4,"username":"superadmin1"},"description":"just for testing 3","id":5,"name":"mindfire llp","slug":"mindfire","status":"ACTIVE","storageLimit":"1073741824","storageUsed":"0","updatedAt":"2026-02-23T10:35:10.671Z"}],"timestamp":"2026-02-23 16:55:42"}
+{"level":"info","message":"fetched All organization successfully","result":{"result":[{"_count":{"projects":0,"users":1},"assignedTo":3,"assignee":{"email":"work.sobhansahoo@gmail.com","id":3,"username":"worksobhan"},"createdAt":"2026-02-19T07:30:41.389Z","createdBy":4,"creator":{"email":"superadmin1@axon.com","id":4,"username":"superadmin1"},"description":"just for testing 3","id":5,"name":"mindfire llp","slug":"mindfire","status":"ACTIVE","storageLimit":"1073741824","storageUsed":"0","updatedAt":"2026-02-23T10:35:10.671Z"}]},"timestamp":"2026-02-23 16:55:42"}
+{"level":"info","message":"get organization by id controller started . . .","timestamp":"2026-02-23 16:55:51"}
+{"level":"info","message":"Fetching organization","organizationId":5,"timestamp":"2026-02-23 16:55:51"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:56:24"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:56:24"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:56:26"}
+{"level":"info","message":"get organization by id controller started . . .","timestamp":"2026-02-23 16:56:31"}
+{"level":"info","message":"Fetching organization","organizationId":5,"timestamp":"2026-02-23 16:56:31"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-23 16:56:31"}
+{"level":"info","message":"fetched organization successfully.","result":{"organization":{"_count":{"projects":0,"users":1},"assignedTo":3,"assignee":{"email":"work.sobhansahoo@gmail.com","id":3,"username":"worksobhan"},"createdAt":"2026-02-19T07:30:41.389Z","createdBy":4,"creator":{"email":"superadmin1@axon.com","id":4,"username":"superadmin1"},"description":"just for testing 3","id":5,"name":"mindfire llp","slug":"mindfire","status":"ACTIVE","storageLimit":"1073741824","storageUsed":"0","updatedAt":"2026-02-23T10:35:10.671Z"}},"timestamp":"2026-02-23 16:56:31"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:56:49"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:56:49"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:56:51"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:58:36"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:58:36"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:58:38"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:58:47"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:58:47"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:58:53"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:58:53"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:58:56"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:58:56"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:58:57"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:59:01"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:59:01"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:59:03"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 16:59:18"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 16:59:18"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 16:59:20"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 17:00:30"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 17:00:30"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:00:31"}
+{"level":"info","message":"✅ Database connected successfully","timestamp":"2026-02-23 17:00:35"}
+{"level":"info","message":"🚀 Server running on port 8002","timestamp":"2026-02-23 17:00:35"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:00:37"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:03:39"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:03:39"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:03:45"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:03:45"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:03:52"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:03:52"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:04:00"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:04:00"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:04:02"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:04:27"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:04:27"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:04:29"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:06:29"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:06:29"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:06:32"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:06:32"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:06:33"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:07:21"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:07:21"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:07:23"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:07:46"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:07:46"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:07:48"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:07:52"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:07:52"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:07:54"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:07:57"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:07:57"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:07:59"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:08:02"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:08:02"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:08:07"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:08:07"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:08:10"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:08:29"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:08:29"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:08:31"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:08:47"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:08:47"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:08:49"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:09:03"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:09:03"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:09:05"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:09:18"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:09:18"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:09:19"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:09:30"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:09:30"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:09:31"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:09:35"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:09:35"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:09:37"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:09:42"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:09:42"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:09:44"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:09:57"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:09:57"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:09:59"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:10:51"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:10:51"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:10:54"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:10:54"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:10:56"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:11:11"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:11:11"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:11:13"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:11:21"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:11:21"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:11:24"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:11:27"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:11:27"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:11:29"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:14:46"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:14:46"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:14:54"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:14:54"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:14:58"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:14:58"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:15:05"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:15:05"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:15:06"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:15:21"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:15:21"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:15:24"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:15:26"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:15:26"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:15:28"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:16:14"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:16:14"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:16:16"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:16:21"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:16:21"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:16:22"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:16:36"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:16:36"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:16:38"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:17:09"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:17:09"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:17:11"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:17:16"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:17:16"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:17:18"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:20:31"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:24:50"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:24:50"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:24:52"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:25:11"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:25:11"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:25:12"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:25:15"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:25:15"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:25:17"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:25:20"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:25:20"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:25:23"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:25:23"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:25:25"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:25:43"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:25:43"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:25:45"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:25:48"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:25:48"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:25:50"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-23 17:26:18"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-23 17:26:18","userId":4}
+{"level":"info","message":"Delete organisations stated ","timestamp":"2026-02-23 17:26:22"}
+{"level":"info","message":"Deleting organization","organizationId":5,"superAdminId":4,"timestamp":"2026-02-23 17:26:22"}
+{"level":"info","message":"Fetching organization","organizationId":5,"timestamp":"2026-02-23 17:26:22"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-23 17:26:22"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:26:54"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:26:54"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:26:55"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:26:58"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:26:58"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:27:00"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:27:41"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:27:41"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:27:43"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:27:55"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:27:55"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:28:34"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:28:34"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:28:36"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:28:58"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:28:58"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:29:00"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:29:09"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:29:09"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:29:11"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:30:32"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:30:32"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:30:34"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:30:50"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:30:50"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:30:52"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:31:12"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:31:12"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:31:14"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:31:43"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:31:43"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:31:45"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:31:53"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:31:53"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:31:55"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:32:21"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:32:21"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:32:24"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:32:24"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:32:26"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:32:53"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:32:53"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:32:55"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:32:55"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:32:57"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:33:11"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:33:11"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:33:13"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:33:13"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:33:15"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:34:09"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:34:09"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:34:10"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:34:55"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:34:55"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:34:57"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:36:05"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:36:05"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:36:07"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:36:21"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:36:21"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:36:23"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:36:23"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:36:25"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:36:25"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:36:27"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:36:36"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:36:36"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:36:38"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:36:50"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:36:50"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:36:58"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:36:58"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:38:00"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:38:00"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:38:03"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:38:03"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:38:04"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:38:09"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:38:09"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:38:10"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:38:44"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:38:44"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:38:46"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:39:12"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:39:12"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:39:14"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:39:51"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:39:51"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:39:53"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:39:56"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:39:56"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:39:58"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:39:58"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:40:00"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:40:00"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:40:02"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:40:04"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:40:04"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:40:06"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:41:05"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:41:05"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:41:06"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:41:10"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:41:10"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:41:12"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:41:18"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:41:18"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:41:19"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:41:19"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:41:21"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:41:25"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:41:25"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:41:27"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:41:27"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:41:29"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:41:37"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:41:37"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:41:39"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:41:41"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:41:41"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:41:44"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:41:44"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:41:46"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:42:07"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:42:07"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:42:08"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:42:11"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:42:11"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:42:13"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:42:59"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:42:59"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:43:01"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:43:23"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:43:23"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:43:26"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:43:26"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:43:29"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:43:35"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:43:35"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:43:37"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:43:37"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:43:39"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:43:41"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:43:41"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:43:44"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:43:44"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:43:45"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:43:48"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:43:48"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:43:50"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:43:55"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:43:55"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:43:57"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:44:07"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:44:07"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:44:09"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:44:16"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:44:16"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:44:18"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:44:26"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:44:26"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:44:27"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:44:34"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:44:34"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:44:36"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:48:07"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:48:07"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:48:09"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:48:15"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:48:15"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:48:17"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:48:20"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:48:20"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:48:22"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:48:22"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:48:24"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:48:28"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:48:28"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:48:30"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:48:30"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:48:32"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:54:21"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:54:21"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:54:23"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:54:35"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:54:35"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:54:37"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:55:00"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:55:00"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:55:04"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:55:04"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:55:06"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:55:14"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:55:14"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:55:16"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:55:50"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:55:50"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:55:57"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:55:57"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:55:59"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:56:31"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:56:31"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:56:33"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:56:46"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:56:46"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:56:48"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:56:53"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:56:53"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:56:56"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:56:56"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:56:58"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:58:22"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:58:22"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:58:24"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:58:24"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:58:25"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:58:30"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:58:30"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:58:33"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:58:33"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:58:36"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:58:36"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:58:37"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:58:56"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:58:56"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:58:58"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:59:16"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:59:16"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:59:18"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 17:59:22"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 17:59:22"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 17:59:24"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:00:03"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:00:03"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:00:05"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:03:34"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:03:34"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:03:36"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:03:48"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:03:48"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:03:53"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:03:53"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:03:55"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:03:58"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:03:58"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:03:59"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:04:09"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:04:09"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:04:15"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:04:15"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:04:17"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:04:20"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:04:20"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:04:37"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:04:37"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:04:39"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:04:42"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:04:42"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:04:44"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:04:45"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:04:45"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:04:47"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:04:53"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:04:53"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:04:55"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:05:04"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:05:04"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:05:06"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:05:06"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:05:08"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:05:15"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:05:15"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:05:16"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:05:41"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:05:41"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:05:43"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:05:43"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:05:45"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:05:51"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:05:51"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:05:53"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:05:53"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:05:54"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:05:58"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:05:58"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:06:00"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:06:04"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:06:04"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:06:06"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:06:13"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:06:13"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:06:15"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:06:21"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:06:21"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:06:24"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:06:24"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:06:26"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:06:26"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:06:28"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-23 18:06:40"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-23 18:06:40","userId":4}
+{"level":"info","message":"Unassign from the org","timestamp":"2026-02-23 18:07:23"}
+{"level":"info","message":"remove the admin from organization","organizationId":5,"superAdminId":4,"timestamp":"2026-02-23 18:07:23"}
+{"level":"info","message":"Fetching organization","organizationId":5,"timestamp":"2026-02-23 18:07:23"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-23 18:07:23"}
+{"level":"info","message":"Un assign admin from the organizations in reppo","timestamp":"2026-02-23 18:07:23"}
+{"level":"info","message":"Admin removed from organization","organizationId":5,"removedAdminId":3,"superAdminId":4,"timestamp":"2026-02-23 18:07:23"}
+{"level":"info","message":"unassign admin from this orgs successfully.","timestamp":"2026-02-23 18:07:23"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:07:58"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:11:59"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:11:59"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:12:05"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:12:05"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:12:08"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:12:08"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:12:10"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:12:30"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:12:30"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:12:31"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:12:33"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:12:33"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:12:36"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:15:39"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:15:39"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:15:42"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:15:42"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:15:44"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:15:48"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:15:48"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:15:49"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:15:52"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:15:52"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:15:55"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:15:58"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:15:58"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:16:00"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:16:03"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:16:03"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:16:05"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:16:48"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:16:48"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:16:50"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:17:06"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:17:06"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:17:08"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:17:50"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:17:50"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:17:52"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:17:56"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:17:56"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:17:59"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:17:59"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:18:35"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:18:35"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:18:47"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:18:47"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:18:49"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:18:54"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:18:54"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:18:55"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:19:16"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:19:16"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:19:18"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:19:33"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:19:33"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:19:35"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:19:35"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:19:37"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:20:26"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:20:26"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:20:29"}
+{"code":"EDNS","command":"CONN","errno":-3001,"hostname":"smtp.gmail.com","level":"error","message":"Mail server connection failed getaddrinfo EAI_AGAIN smtp.gmail.com","stack":"Error: getaddrinfo EAI_AGAIN smtp.gmail.com\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)","syscall":"getaddrinfo","timestamp":"2026-02-23 18:20:57"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:20:57"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:20:57"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:21:00"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:21:00"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:21:02"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:21:07"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:21:07"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:21:10"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:21:10"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:21:12"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:21:20"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:21:20"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:21:22"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:26:30"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:26:30"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:26:31"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:26:59"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:26:59"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:27:02"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:27:03"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:27:03"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:27:05"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:27:16"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:27:16"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:27:18"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:27:30"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:27:30"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:27:31"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:27:39"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:27:39"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:27:41"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:27:44"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:27:44"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:27:45"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:27:51"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:27:51"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:27:55"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:27:55"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:27:57"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:28:40"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:28:40"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:28:42"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:29:01"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:29:01"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:29:03"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:31:26"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:31:26"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:31:31"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:31:31"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:31:32"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:33:02"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:33:02"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:33:05"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:33:05"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:33:07"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:33:07"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:33:09"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:33:42"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:33:42"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:33:44"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:33:46"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:33:46"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:33:49"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:33:49"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:33:51"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:33:53"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:33:53"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:33:55"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:34:05"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:34:05"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:34:07"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:34:19"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:34:19"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:34:20"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:35:28"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:35:28"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:35:29"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:39:50"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:39:50"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:39:52"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:40:13"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:40:13"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:40:15"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:40:15"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:40:17"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:40:20"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:40:20"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:40:24"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:40:24"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:40:25"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:40:54"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:40:54"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:40:55"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:41:02"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:41:02"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:41:03"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:41:07"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:41:07"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:41:09"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:41:09"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:41:11"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:41:21"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:41:21"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:41:23"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:42:10"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:42:10"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:42:12"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:42:16"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:42:16"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:42:18"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:42:26"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:42:26"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:42:28"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:42:40"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:42:40"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:42:42"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:43:17"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:43:17"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:43:26"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:43:26"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:43:28"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:43:59"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:43:59"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:44:00"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:44:06"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:44:06"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:44:08"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:44:55"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:44:55"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:44:57"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:45:06"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:45:06"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:45:08"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:45:22"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:45:22"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:45:24"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:45:53"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:45:53"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:45:57"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:45:57"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:46:00"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:46:00"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:46:02"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:46:07"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:46:07"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:46:09"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:47:06"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:47:06"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:47:08"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-23 18:48:31"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-23 18:48:32","userId":4}
+{"level":"info","message":"Assign new admin to the organizations.","timestamp":"2026-02-23 18:48:53"}
+{"assignEmail":"work.sobhansahoo@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":5,"timestamp":"2026-02-23 18:48:53","userId":4}
+{"level":"info","message":"change the org admin service","timestamp":"2026-02-23 18:48:53"}
+{"level":"info","message":"Fetching organization","organizationId":5,"timestamp":"2026-02-23 18:48:53"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-23 18:48:53"}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-23 18:49:05"}
+{"assignEmail":"work.sobhansahoo@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":5,"timestamp":"2026-02-23 18:49:05","userId":4}
+{"adminEmail":"work.sobhansahoo@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":5,"superAdminId":4,"timestamp":"2026-02-23 18:49:05"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-23 18:49:05"}
+{"level":"info","message":"Admin assigned to organization","organizationId":5,"timestamp":"2026-02-23 18:49:05","userId":3}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-23 18:49:05","userId":4}
+{"level":"info","message":"SuperAdmin 4 assign admin position to work.sobhansahoo@gmail.com","organizationId":3,"timestamp":"2026-02-23 18:49:05"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:50:54"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:50:54"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:50:56"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:50:59"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:50:59"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:51:03"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:51:03"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:51:05"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:51:05"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:51:06"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:51:11"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:51:11"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:51:12"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:51:15"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:51:15"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:51:16"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:51:18"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:51:18"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:51:20"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:51:22"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:51:22"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:51:24"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-23 18:51:34"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-23 18:51:34"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-23 18:51:36"}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-23 18:51:42"}
+{"assignEmail":"work.sobhansahoo@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":5,"timestamp":"2026-02-23 18:51:42","userId":4}
+{"adminEmail":"work.sobhansahoo@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":5,"superAdminId":4,"timestamp":"2026-02-23 18:51:42"}
+{"level":"info","message":"Assign new admin to the organizations.","timestamp":"2026-02-23 18:52:42"}
+{"assignEmail":"work.sobhansahoo@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":5,"timestamp":"2026-02-23 18:52:42","userId":4}
+{"level":"info","message":"change the org admin service","timestamp":"2026-02-23 18:52:42"}
+{"level":"info","message":"Fetching organization","organizationId":5,"timestamp":"2026-02-23 18:52:42"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-23 18:52:42"}
+{"level":"info","message":"Assign new admin to the organizations.","timestamp":"2026-02-23 18:52:58"}
+{"assignEmail":"work.sobhansahoo@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":5,"timestamp":"2026-02-23 18:52:58","userId":4}
+{"level":"info","message":"change the org admin service","timestamp":"2026-02-23 18:52:58"}
+{"level":"info","message":"Fetching organization","organizationId":5,"timestamp":"2026-02-23 18:52:58"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-23 18:52:58"}
+{"level":"info","message":"Assign new admin to the organizations.","timestamp":"2026-02-23 18:53:16"}
+{"assignEmail":"sobhansahoo2000@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":5,"timestamp":"2026-02-23 18:53:16","userId":4}
+{"level":"info","message":"change the org admin service","timestamp":"2026-02-23 18:53:16"}
+{"level":"info","message":"Fetching organization","organizationId":5,"timestamp":"2026-02-23 18:53:16"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-23 18:53:16"}
+{"email":"sobhansahoo2000@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-23 18:53:16"}
+{"level":"info","message":"super admin has assign new org admin successfully","timestamp":"2026-02-23 18:53:16"}
+{"level":"info","message":"SuperAdmin 4 change assign admin position to sobhansahoo2000@gmail.com","organizationId":10,"timestamp":"2026-02-23 18:53:16"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-23 18:53:16","userId":4}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-23 18:54:20"}
+{"level":"info","message":" HTTP server closed","timestamp":"2026-02-23 18:54:20"}
+{"level":"info","message":" Database disconnected","timestamp":"2026-02-23 18:54:20"}
+{"level":"info","message":"SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-23 18:54:23"}
+{"level":"info","message":"HTTP server closed","timestamp":"2026-02-23 18:54:23"}
+{"level":"info","message":"Database disconnected","timestamp":"2026-02-23 18:54:23"}

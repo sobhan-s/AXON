@@ -1,6 +1,6 @@
 generator client {
-  provider      = "prisma-client-js"
-  moduleFormat  = "esm"
+  provider     = "prisma-client-js"
+  moduleFormat = "esm"
   // binaryTargets = ["linux-musl-openssl-3.0.x"]
 }
 
@@ -357,6 +357,7 @@ enum ActivityAction {
   USER_REGISTERED
   ORG_CREATED
   ORG_UPDATED
+  ORG_DELETED
   PROJECT_CREATED
   PROJECT_UPDATED
   MODULE_CREATED

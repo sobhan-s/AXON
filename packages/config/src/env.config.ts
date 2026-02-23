@@ -1,8 +1,8 @@
 import dotenv from 'dotenv';
 import path from 'path';
 
-dotenv.config({ path: path.resolve('../../', '.env') });
-// dotenv.config({ path: path.resolve('../../', '.env.local') });
+// dotenv.config({ path: path.resolve('../../', '.env') });
+dotenv.config({ path: path.resolve('../../', '.env.local') });
 
 // console.log("-------",process.env.AUTH_SERVICE_URI);
 

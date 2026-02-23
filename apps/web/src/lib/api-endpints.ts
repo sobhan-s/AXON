@@ -1,4 +1,4 @@
-const BASE = 'http://localhost:8001';
+const BASE = '/api';
 
 export const AUTH_ENDPOINTS = {
   REGISTER: `${BASE}/auth/register`,

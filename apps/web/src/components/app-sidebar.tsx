@@ -2,7 +2,7 @@
 
 import * as React from 'react';
 import {
-   BarChartIcon,
+  BarChartIcon,
   CameraIcon,
   ClipboardListIcon,
   DatabaseIcon,

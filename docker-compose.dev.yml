@@ -7,7 +7,7 @@ services:
     restart: always
 
     env_file:
-      - .env
+      - .env.local
 
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
@@ -36,7 +36,7 @@ services:
     restart: always
 
     env_file:
-      - .env
+      - .env.local
 
     environment:
       - MONGO_USERNAME=${MONGO_USERNAME}
@@ -60,7 +60,7 @@ services:
     restart: always
 
     env_file:
-      - .env
+      - .env.local
 
     ports:
       - '9000:9000'

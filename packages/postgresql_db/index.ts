@@ -1,5 +1,5 @@
 import { PrismaClient } from '@prisma/client';
-import { type ActivityAction } from '@prisma/client';
+import { ActivityAction } from '@prisma/client';
 import { PrismaPg } from '@prisma/adapter-pg';
 import { env_config_variable } from '@dam/config';
 import { logger } from '@dam/config';

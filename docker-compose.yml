@@ -99,7 +99,7 @@ services:
       dockerfile: Docker/web.Dockerfile
     container_name: dam-web
     ports:
-      - '80:80' 
+      - '80:80'
     depends_on:
       - gateway-api
     networks:

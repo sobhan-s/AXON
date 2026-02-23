@@ -1,6 +1,6 @@
 import app from './app.js';
 import { PostgresClient as prisma } from '@dam/postgresql_db';
-import { PrismaClient } from '@prisma/client';
+// import { PrismaClient } from '@prisma/client';
 import { env_config_variable } from '@dam/config';
 import { logger } from '@dam/config';
 

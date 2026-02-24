@@ -112,7 +112,7 @@ export class PermissionService {
     const membership = await prisma.projectTeamMember.findFirst({
       where: {
         userId,
-        project: { organizationId },
+        organizationId: organizationId,
         role: { name: 'ADMIN' },
       },
     });

@@ -119,6 +119,7 @@ export class OrganizationServices {
     const updatedOrg = await this.orgRepo.assignToOrgs(
       organizationId,
       adminUser.id,
+      superAdminId,
     );
 
     logger.info('Admin assigned to organization', {

@@ -3004,3 +3004,569 @@
 {"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:06:54"}
 {"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:06:54"}
 {"level":"info","message":"Mail server ready","timestamp":"2026-02-24 13:06:56"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:08:01"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:08:01"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 13:08:03"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:08:13"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:08:13"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 13:08:15"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:08:22"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:08:22"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 13:08:23"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:08:32"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:08:32"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 13:08:34"}
+{"level":"info","message":"changes status of organizatino called in controller","timestamp":"2026-02-24 13:12:28"}
+{"level":"info","message":"Chnage status service called","timestamp":"2026-02-24 13:12:28"}
+{"level":"info","message":"change staus service called in repo","timestamp":"2026-02-24 13:12:28"}
+{"error":{"clientVersion":"6.19.2","name":"PrismaClientValidationError"},"level":"error","message":"Error in changing status of organizations","timestamp":"2026-02-24 13:12:28"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:14:05"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:14:05"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 13:14:09"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:14:20"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:14:20"}
+{"level":"info","message":"changes status of organizatino called in controller","timestamp":"2026-02-24 13:14:23"}
+{"level":"info","message":"Chnage status service called","timestamp":"2026-02-24 13:14:23"}
+{"level":"info","message":"change staus service called in repo","timestamp":"2026-02-24 13:14:23"}
+{"error":{"clientVersion":"6.19.2","name":"PrismaClientValidationError"},"level":"error","message":"Error in changing status of organizations","timestamp":"2026-02-24 13:14:23"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 13:14:23"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:14:57"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:14:57"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 13:15:01"}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-24 13:15:05"}
+{"level":"info","message":" HTTP server closed","timestamp":"2026-02-24 13:15:05"}
+{"level":"info","message":" Database disconnected","timestamp":"2026-02-24 13:15:05"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:15:08"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:15:08"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 13:15:12"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:16:14"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:16:14"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 13:16:16"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:16:19"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:16:19"}
+{"level":"info","message":"changes status of organizatino called in controller","timestamp":"2026-02-24 13:16:20"}
+{"level":"info","message":"Chnage status service called","timestamp":"2026-02-24 13:16:20"}
+{"level":"info","message":"change staus service called in repo","timestamp":"2026-02-24 13:16:20"}
+{"error":{"clientVersion":"6.19.2","name":"PrismaClientValidationError"},"level":"error","message":"Error in changing status of organizations","timestamp":"2026-02-24 13:16:20"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 13:16:21"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:16:38"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:16:38"}
+{"level":"info","message":"changes status of organizatino called in controller","timestamp":"2026-02-24 13:16:41"}
+{"level":"info","message":"Chnage status service called","timestamp":"2026-02-24 13:16:41"}
+{"level":"info","message":"change staus service called in repo","timestamp":"2026-02-24 13:16:41"}
+{"error":{"clientVersion":"6.19.2","name":"PrismaClientValidationError"},"level":"error","message":"Error in changing status of organizations","timestamp":"2026-02-24 13:16:41"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 13:16:42"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:17:19"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:17:19"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:17:49"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:17:49"}
+{"level":"info","message":"changes status of organizatino called in controller","timestamp":"2026-02-24 13:17:51"}
+{"level":"info","message":"Chnage status service called","timestamp":"2026-02-24 13:17:51"}
+{"level":"info","message":"change staus service called in repo","timestamp":"2026-02-24 13:17:51"}
+{"level":"info","message":"Organization status chnaged successdfully . . .","timestamp":"2026-02-24 13:17:51"}
+{"level":"info","message":"Organization status changed successfully","timestamp":"2026-02-24 13:17:51"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 13:17:51","userId":1}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 13:17:53"}
+{"level":"info","message":"changes status of organizatino called in controller","timestamp":"2026-02-24 13:18:13"}
+{"level":"info","message":"Chnage status service called","timestamp":"2026-02-24 13:18:13"}
+{"level":"info","message":"change staus service called in repo","timestamp":"2026-02-24 13:18:13"}
+{"level":"info","message":"Organization status chnaged successdfully . . .","timestamp":"2026-02-24 13:18:13"}
+{"level":"info","message":"Organization status changed successfully","timestamp":"2026-02-24 13:18:13"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 13:18:13","userId":1}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:20:04"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:20:04"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 13:20:08"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:36:05"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:36:05"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 13:36:08"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:37:25"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:37:25"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:37:42"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:37:42"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 13:37:47"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:38:54"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:38:54"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 13:38:58"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:40:02"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:40:02"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:40:13"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:40:13"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 13:40:16"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 13:40:24"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 13:40:24"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 13:40:27"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 14:22:25"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 14:22:25"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 14:22:29"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 14:22:29"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 14:22:30"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 14:22:34"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 14:22:34"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 14:22:36"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 14:22:36"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 14:22:39"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 14:22:39"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 14:22:40"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 14:22:51"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 14:22:51"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 14:22:54"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 14:22:54"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 14:22:57"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 14:22:57"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 14:23:02"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 14:23:02"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 14:23:10"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 14:23:10"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 14:23:12"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 14:23:50"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 14:23:50"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 14:23:52"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 14:27:12"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 14:27:12"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 14:27:30"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 14:27:30"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 14:28:02"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 14:28:02"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 14:28:04"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 14:28:19"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 14:28:19"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 14:28:21"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 14:28:30"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 14:28:30"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 14:28:31"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 14:29:02"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 14:29:02"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 14:29:03"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 14:29:07"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 14:29:07"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 14:29:11"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 14:29:11"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 14:29:13"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 14:29:23"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 14:29:23"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 14:29:25"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-24 14:45:24"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-24 14:45:24","userId":1}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 14:46:20"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 14:46:20"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 14:46:22"}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 14:46:23"}
+{"assignEmail":"sobhansahoo2000@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 14:46:23","userId":1}
+{"adminEmail":"sobhansahoo2000@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 14:46:23"}
+{"email":"sobhansahoo2000@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 14:46:23"}
+{"level":"info","message":"Admin assigned to organization","organizationId":1,"timestamp":"2026-02-24 14:46:23","userId":5}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 14:46:23","userId":1}
+{"level":"info","message":"SuperAdmin 1 assign admin position to sobhansahoo2000@gmail.com","organizationId":5,"timestamp":"2026-02-24 14:46:23"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 15:09:26"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 15:09:26"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:09:28"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 15:09:31"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 15:09:31"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:09:35"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 15:12:11"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 15:12:11"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:12:13"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 15:13:29"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 15:13:29"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:13:33"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 15:14:23"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 15:14:23"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:14:25"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 15:16:20"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 15:16:20"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:16:22"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 15:16:44"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 15:16:44"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:16:46"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 15:17:11"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 15:17:11"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:17:13"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 15:20:28"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 15:20:28"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 15:20:31"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 15:20:31"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:20:32"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-24 15:20:56"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-24 15:20:56","userId":1}
+{"level":"info","message":"Unassign from the org","timestamp":"2026-02-24 15:20:58"}
+{"level":"info","message":"remove the admin from organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 15:20:58"}
+{"level":"info","message":"Fetching organization","organizationId":1,"timestamp":"2026-02-24 15:20:58"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-24 15:20:58"}
+{"level":"info","message":"Un assign admin from the organizations in reppo","timestamp":"2026-02-24 15:20:58"}
+{"level":"info","message":"Admin removed from organization","organizationId":1,"removedAdminId":5,"superAdminId":1,"timestamp":"2026-02-24 15:20:58"}
+{"level":"info","message":"unassign admin from this orgs successfully.","timestamp":"2026-02-24 15:20:58"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 15:20:58","userId":1}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 15:21:39"}
+{"assignEmail":"sobhansahoo2000@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 15:21:39","userId":1}
+{"adminEmail":"sobhansahoo2000@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 15:21:39"}
+{"email":"sobhansahoo2000@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 15:21:39"}
+{"error":{"clientVersion":"6.19.2","code":"P2003","meta":{"constraint":"project_team_members_projectId_fkey","modelName":"ProjectTeamMember"},"name":"PrismaClientKnownRequestError"},"level":"error","message":"Error in assign the admin to organization","timestamp":"2026-02-24 15:21:39"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 15:26:22"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 15:26:22"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:26:24"}
+{"level":"info","message":"Unassign from the org","timestamp":"2026-02-24 15:26:45"}
+{"level":"info","message":"remove the admin from organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 15:26:45"}
+{"level":"info","message":"Fetching organization","organizationId":1,"timestamp":"2026-02-24 15:26:45"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-24 15:26:45"}
+{"level":"info","message":"Un assign admin from the organizations in reppo","timestamp":"2026-02-24 15:26:45"}
+{"level":"info","message":"Admin removed from organization","organizationId":1,"removedAdminId":5,"superAdminId":1,"timestamp":"2026-02-24 15:26:45"}
+{"level":"info","message":"unassign admin from this orgs successfully.","timestamp":"2026-02-24 15:26:45"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 15:26:45","userId":1}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 15:26:48"}
+{"assignEmail":"sobhansahoo2000@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 15:26:48","userId":1}
+{"adminEmail":"sobhansahoo2000@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 15:26:48"}
+{"email":"sobhansahoo2000@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 15:26:48"}
+{"error":{"clientVersion":"6.19.2","code":"P2003","meta":{"constraint":"project_team_members_projectId_fkey","modelName":"ProjectTeamMember"},"name":"PrismaClientKnownRequestError"},"level":"error","message":"Error assigning admin to organization","timestamp":"2026-02-24 15:26:48"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:40:32"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:41:03"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:41:15"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 15:42:51"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 15:42:51"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:44:50"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:45:36"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 15:45:59"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 15:45:59"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:46:01"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-24 15:46:34"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-24 15:46:34","userId":1}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 15:46:37"}
+{"assignEmail":"sobhansahoo2000@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 15:46:37","userId":1}
+{"adminEmail":"sobhansahoo2000@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 15:46:37"}
+{"email":"sobhansahoo2000@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 15:46:37"}
+{"level":"info","message":"Admin assigned to organization","organizationId":1,"timestamp":"2026-02-24 15:46:37","userId":5}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 15:46:37","userId":1}
+{"level":"info","message":"SuperAdmin 1 assign admin position to sobhansahoo2000@gmail.com","organizationId":5,"timestamp":"2026-02-24 15:46:37"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:47:02"}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 15:49:22"}
+{"assignEmail":"work.sobhansahoo@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 15:49:22","userId":1}
+{"adminEmail":"work.sobhansahoo@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 15:49:22"}
+{"level":"info","message":"remove the admin from organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 15:49:22"}
+{"level":"info","message":"Fetching organization","organizationId":1,"timestamp":"2026-02-24 15:49:22"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-24 15:49:22"}
+{"level":"info","message":"Un assign admin from the organizations in reppo","timestamp":"2026-02-24 15:49:22"}
+{"level":"info","message":"Admin removed from organization","organizationId":1,"removedAdminId":5,"superAdminId":1,"timestamp":"2026-02-24 15:49:22"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 15:49:22"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 15:49:22","userId":1}
+{"level":"info","message":"Admin assigned to organization","organizationId":1,"timestamp":"2026-02-24 15:49:22","userId":4}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 15:49:22","userId":1}
+{"level":"info","message":"SuperAdmin 1 assign admin position to work.sobhansahoo@gmail.com","organizationId":4,"timestamp":"2026-02-24 15:49:22"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 15:51:14"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 15:51:14"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:51:16"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 15:51:31"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 15:51:31"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:51:33"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 15:52:45"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 15:52:45"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:52:47"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 15:53:15"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 15:53:15"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:53:17"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 15:53:20"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 15:53:20"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:53:23"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 15:53:38"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 15:53:38"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:53:41"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 15:54:01"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 15:54:01"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:54:04"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:58:19"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:58:55"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 15:59:06"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:00:01"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:00:13"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:00:50"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:00:50"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:00:52"}
+{"level":"info","message":"Unassign from the org","timestamp":"2026-02-24 16:00:54"}
+{"level":"info","message":"remove the admin from organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:00:54"}
+{"level":"info","message":"Fetching organization","organizationId":1,"timestamp":"2026-02-24 16:00:54"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-24 16:00:54"}
+{"level":"info","message":"Un assign admin from the organizations in reppo","timestamp":"2026-02-24 16:00:54"}
+{"level":"info","message":"Admin removed from organization","organizationId":1,"removedAdminId":4,"superAdminId":1,"timestamp":"2026-02-24 16:00:54"}
+{"level":"info","message":"unassign admin from this orgs successfully.","timestamp":"2026-02-24 16:00:54"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:00:54","userId":1}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 16:00:58"}
+{"assignEmail":"work.sobhansahoo@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 16:00:58","userId":1}
+{"adminEmail":"work.sobhansahoo@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:00:58"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 16:00:58"}
+{"level":"info","message":"Admin assigned to organization","organizationId":1,"timestamp":"2026-02-24 16:00:58","userId":4}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:00:58","userId":1}
+{"level":"info","message":"SuperAdmin 1 assign admin position to work.sobhansahoo@gmail.com","organizationId":4,"timestamp":"2026-02-24 16:00:58"}
+{"level":"info","message":"Unassign from the org","timestamp":"2026-02-24 16:01:25"}
+{"level":"info","message":"remove the admin from organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:01:25"}
+{"level":"info","message":"Fetching organization","organizationId":1,"timestamp":"2026-02-24 16:01:25"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-24 16:01:25"}
+{"level":"info","message":"Un assign admin from the organizations in reppo","timestamp":"2026-02-24 16:01:25"}
+{"level":"info","message":"Admin removed from organization","organizationId":1,"removedAdminId":4,"superAdminId":1,"timestamp":"2026-02-24 16:01:25"}
+{"level":"info","message":"unassign admin from this orgs successfully.","timestamp":"2026-02-24 16:01:25"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:01:25","userId":1}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 16:01:29"}
+{"assignEmail":"work.sobhansahoo@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 16:01:29","userId":1}
+{"adminEmail":"work.sobhansahoo@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:01:29"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 16:01:29"}
+{"level":"info","message":"Admin assigned to organization","organizationId":1,"timestamp":"2026-02-24 16:01:29","userId":4}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:01:29","userId":1}
+{"level":"info","message":"SuperAdmin 1 assign admin position to work.sobhansahoo@gmail.com","organizationId":4,"timestamp":"2026-02-24 16:01:29"}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 16:02:02"}
+{"assignEmail":"sobhansahoo2000@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 16:02:02","userId":1}
+{"adminEmail":"sobhansahoo2000@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:02:02"}
+{"level":"info","message":"remove the admin from organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:02:02"}
+{"level":"info","message":"Fetching organization","organizationId":1,"timestamp":"2026-02-24 16:02:02"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-24 16:02:02"}
+{"level":"info","message":"Un assign admin from the organizations in reppo","timestamp":"2026-02-24 16:02:02"}
+{"level":"info","message":"Admin removed from organization","organizationId":1,"removedAdminId":4,"superAdminId":1,"timestamp":"2026-02-24 16:02:02"}
+{"email":"sobhansahoo2000@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 16:02:02"}
+{"level":"info","message":"Admin assigned to organization","organizationId":1,"timestamp":"2026-02-24 16:02:02","userId":5}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:02:02","userId":1}
+{"level":"info","message":"SuperAdmin 1 assign admin position to sobhansahoo2000@gmail.com","organizationId":5,"timestamp":"2026-02-24 16:02:02"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:02:02","userId":1}
+{"level":"info","message":"Unassign from the org","timestamp":"2026-02-24 16:03:26"}
+{"level":"info","message":"remove the admin from organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:03:26"}
+{"level":"info","message":"Fetching organization","organizationId":1,"timestamp":"2026-02-24 16:03:26"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-24 16:03:27"}
+{"level":"info","message":"Un assign admin from the organizations in reppo","timestamp":"2026-02-24 16:03:27"}
+{"level":"info","message":"Admin removed from organization","organizationId":1,"removedAdminId":5,"superAdminId":1,"timestamp":"2026-02-24 16:03:27"}
+{"level":"info","message":"unassign admin from this orgs successfully.","timestamp":"2026-02-24 16:03:27"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:03:27","userId":1}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:03:50"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:03:50"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:03:54"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:03:54"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:03:56"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:04:02"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:04:02"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:04:04"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:04:07"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:04:07"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:04:09"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:04:34"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:04:34"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:04:37"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:04:37"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:04:39"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:05:06"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:05:06"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:05:08"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:05:16"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:05:16"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:05:18"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:05:31"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:05:31"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:05:32"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:06:29"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:06:29"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:06:57"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:06:57"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:06:59"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:07:05"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:07:05"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:07:07"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:07:10"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:07:10"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:07:11"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-24 16:07:14"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-24 16:07:14","userId":1}
+{"level":"info","message":"Unassign from the org","timestamp":"2026-02-24 16:07:17"}
+{"level":"info","message":"remove the admin from organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:07:17"}
+{"level":"info","message":"Fetching organization","organizationId":1,"timestamp":"2026-02-24 16:07:17"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-24 16:07:17"}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 16:07:23"}
+{"assignEmail":"sobhansahoo2000@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 16:07:23","userId":1}
+{"adminEmail":"sobhansahoo2000@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:07:23"}
+{"email":"sobhansahoo2000@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 16:07:23"}
+{"error":{"clientVersion":"6.19.2","name":"PrismaClientValidationError"},"level":"error","message":"Error assigning admin to organization","timestamp":"2026-02-24 16:07:23"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:14:28"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:14:28"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:14:43"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:14:43"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:14:45"}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 16:14:55"}
+{"assignEmail":"sobhansahoo2000@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 16:14:55","userId":1}
+{"adminEmail":"sobhansahoo2000@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:14:55"}
+{"email":"sobhansahoo2000@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 16:14:55"}
+{"error":{"clientVersion":"6.19.2","name":"PrismaClientValidationError"},"level":"error","message":"Error assigning admin to organization","timestamp":"2026-02-24 16:14:55"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:18:51"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:18:51"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:19:24"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:19:24"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:19:26"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:22:03"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:22:03"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:22:06"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:22:11"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:22:11"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:22:13"}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 16:22:26"}
+{"assignEmail":"sobhansahoo2000@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 16:22:26","userId":1}
+{"adminEmail":"sobhansahoo2000@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:22:26"}
+{"email":"sobhansahoo2000@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 16:22:26"}
+{"error":{"clientVersion":"6.19.2","name":"PrismaClientValidationError"},"level":"error","message":"Error assigning admin to organization","timestamp":"2026-02-24 16:22:26"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:23:03"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:23:03"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:23:04"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:24:58"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:24:58"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:25:02"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:25:02"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:25:12"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:25:12"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:25:14"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:25:37"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:25:37"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:25:39"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:25:48"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:25:48"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:25:49"}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 16:25:55"}
+{"assignEmail":"sobhansahoo2000@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 16:25:55","userId":1}
+{"adminEmail":"sobhansahoo2000@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:25:55"}
+{"email":"sobhansahoo2000@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 16:25:55"}
+{"level":"info","message":"Admin assigned to organization","organizationId":1,"timestamp":"2026-02-24 16:25:55","userId":5}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:25:55","userId":1}
+{"level":"info","message":"SuperAdmin 1 assign admin position to sobhansahoo2000@gmail.com","organizationId":5,"timestamp":"2026-02-24 16:25:55"}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 16:26:42"}
+{"assignEmail":"work.sobhansahoo@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 16:26:42","userId":1}
+{"adminEmail":"work.sobhansahoo@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:26:42"}
+{"level":"info","message":"remove the admin from organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:26:42"}
+{"level":"info","message":"Fetching organization","organizationId":1,"timestamp":"2026-02-24 16:26:42"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-24 16:26:42"}
+{"level":"info","message":"Un assign admin from the organizations in reppo","timestamp":"2026-02-24 16:26:42"}
+{"level":"info","message":"Admin removed from organization","organizationId":1,"removedAdminId":5,"superAdminId":1,"timestamp":"2026-02-24 16:26:42"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 16:26:42"}
+{"level":"info","message":"Admin assigned to organization","organizationId":1,"timestamp":"2026-02-24 16:26:42","userId":4}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:26:42","userId":1}
+{"level":"info","message":"SuperAdmin 1 assign admin position to work.sobhansahoo@gmail.com","organizationId":4,"timestamp":"2026-02-24 16:26:42"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:26:42","userId":1}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:28:39"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:28:40"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:28:41"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-24 16:28:46"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-24 16:28:46","userId":1}
+{"level":"info","message":"Unassign from the org","timestamp":"2026-02-24 16:28:49"}
+{"level":"info","message":"remove the admin from organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:28:49"}
+{"level":"info","message":"Fetching organization","organizationId":1,"timestamp":"2026-02-24 16:28:49"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-24 16:28:49"}
+{"level":"info","message":"Un assign admin from the organizations in reppo","timestamp":"2026-02-24 16:28:49"}
+{"level":"info","message":"Admin removed from organization","organizationId":1,"removedAdminId":4,"superAdminId":1,"timestamp":"2026-02-24 16:28:49"}
+{"level":"info","message":"unassign admin from this orgs successfully.","timestamp":"2026-02-24 16:28:49"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:28:49","userId":1}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 16:28:52"}
+{"assignEmail":"work.sobhansahoo@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 16:28:52","userId":1}
+{"adminEmail":"work.sobhansahoo@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:28:52"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 16:28:52"}
+{"level":"info","message":"Admin assigned to organization","organizationId":1,"timestamp":"2026-02-24 16:28:52","userId":4}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:28:52","userId":1}
+{"level":"info","message":"SuperAdmin 1 assign admin position to work.sobhansahoo@gmail.com","organizationId":4,"timestamp":"2026-02-24 16:28:52"}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 16:29:29"}
+{"assignEmail":"sobhansahoo2000@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 16:29:29","userId":1}
+{"adminEmail":"sobhansahoo2000@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:29:29"}
+{"level":"info","message":"remove the admin from organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:29:29"}
+{"level":"info","message":"Fetching organization","organizationId":1,"timestamp":"2026-02-24 16:29:29"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-24 16:29:29"}
+{"level":"info","message":"Un assign admin from the organizations in reppo","timestamp":"2026-02-24 16:29:29"}
+{"level":"info","message":"Admin removed from organization","organizationId":1,"removedAdminId":4,"superAdminId":1,"timestamp":"2026-02-24 16:29:29"}
+{"email":"sobhansahoo2000@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 16:29:29"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:29:29","userId":1}
+{"level":"info","message":"Admin assigned to organization","organizationId":1,"timestamp":"2026-02-24 16:29:29","userId":5}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:29:29","userId":1}
+{"level":"info","message":"SuperAdmin 1 assign admin position to sobhansahoo2000@gmail.com","organizationId":5,"timestamp":"2026-02-24 16:29:29"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:29:52"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:29:52"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:29:53"}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 16:30:43"}
+{"assignEmail":"work.sobhansahoo@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 16:30:43","userId":1}
+{"adminEmail":"work.sobhansahoo@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:30:43"}
+{"level":"info","message":"remove the admin from organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:30:43"}
+{"level":"info","message":"Fetching organization","organizationId":1,"timestamp":"2026-02-24 16:30:43"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-24 16:30:43"}
+{"level":"info","message":"Un assign admin from the organizations in reppo","timestamp":"2026-02-24 16:30:43"}
+{"level":"info","message":"Admin removed from organization","organizationId":1,"removedAdminId":5,"superAdminId":1,"timestamp":"2026-02-24 16:30:43"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 16:30:43"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:30:43","userId":1}
+{"level":"info","message":"Admin assigned to organization","organizationId":1,"timestamp":"2026-02-24 16:30:44","userId":4}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:30:44","userId":1}
+{"level":"info","message":"SuperAdmin 1 assign admin position to work.sobhansahoo@gmail.com","organizationId":4,"timestamp":"2026-02-24 16:30:44"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:31:27"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:31:27"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:31:29"}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 16:31:33"}
+{"assignEmail":"sobhansahoo2000@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 16:31:33","userId":1}
+{"adminEmail":"sobhansahoo2000@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:31:33"}
+{"level":"info","message":"remove the admin from organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:31:33"}
+{"level":"info","message":"Fetching organization","organizationId":1,"timestamp":"2026-02-24 16:31:33"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-24 16:31:33"}
+{"level":"info","message":"Un assign admin from the organizations in reppo","timestamp":"2026-02-24 16:31:33"}
+{"level":"info","message":"Admin removed from organization","organizationId":1,"removedAdminId":4,"superAdminId":1,"timestamp":"2026-02-24 16:31:34"}
+{"email":"sobhansahoo2000@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 16:31:34"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:31:34","userId":1}
+{"level":"info","message":"Admin assigned to organization","organizationId":1,"timestamp":"2026-02-24 16:31:34","userId":5}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:31:34","userId":1}
+{"level":"info","message":"SuperAdmin 1 assign admin position to sobhansahoo2000@gmail.com","organizationId":5,"timestamp":"2026-02-24 16:31:34"}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 16:31:57"}
+{"assignEmail":"work.sobhansahoo@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 16:31:57","userId":1}
+{"adminEmail":"work.sobhansahoo@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:31:57"}
+{"level":"info","message":"remove the admin from organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:31:57"}
+{"level":"info","message":"Fetching organization","organizationId":1,"timestamp":"2026-02-24 16:31:57"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-24 16:31:57"}
+{"level":"info","message":"Un assign admin from the organizations in reppo","timestamp":"2026-02-24 16:31:57"}
+{"level":"info","message":"Admin removed from organization","organizationId":1,"removedAdminId":5,"superAdminId":1,"timestamp":"2026-02-24 16:31:57"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 16:31:57"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:31:57","userId":1}
+{"level":"info","message":"Admin assigned to organization","organizationId":1,"timestamp":"2026-02-24 16:31:57","userId":4}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:31:57","userId":1}
+{"level":"info","message":"SuperAdmin 1 assign admin position to work.sobhansahoo@gmail.com","organizationId":4,"timestamp":"2026-02-24 16:31:57"}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 16:32:21"}
+{"assignEmail":"sobhansahoo2000@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 16:32:21","userId":1}
+{"adminEmail":"sobhansahoo2000@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:32:21"}
+{"level":"info","message":"remove the admin from organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:32:21"}
+{"level":"info","message":"Fetching organization","organizationId":1,"timestamp":"2026-02-24 16:32:21"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-24 16:32:21"}
+{"level":"info","message":"Un assign admin from the organizations in reppo","timestamp":"2026-02-24 16:32:21"}
+{"level":"info","message":"Admin removed from organization","organizationId":1,"removedAdminId":4,"superAdminId":1,"timestamp":"2026-02-24 16:32:21"}
+{"email":"sobhansahoo2000@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 16:32:21"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:32:21","userId":1}
+{"level":"info","message":"Admin assigned to organization","organizationId":1,"timestamp":"2026-02-24 16:32:21","userId":5}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:32:21","userId":1}
+{"level":"info","message":"SuperAdmin 1 assign admin position to sobhansahoo2000@gmail.com","organizationId":5,"timestamp":"2026-02-24 16:32:21"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:36:18"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:36:18"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:36:20"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:36:27"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:36:27"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:36:29"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:37:25"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:37:25"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:37:27"}
+{"level":"info","message":"Unassign from the org","timestamp":"2026-02-24 16:37:33"}
+{"level":"info","message":"remove the admin from organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:37:33"}
+{"level":"info","message":"Fetching organization","organizationId":1,"timestamp":"2026-02-24 16:37:33"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-24 16:37:33"}
+{"level":"info","message":"Un assign admin from the organizations in reppo","timestamp":"2026-02-24 16:37:33"}
+{"level":"info","message":"Admin removed from organization","organizationId":1,"removedAdminId":5,"superAdminId":1,"timestamp":"2026-02-24 16:37:33"}
+{"level":"info","message":"unassign admin from this orgs successfully.","timestamp":"2026-02-24 16:37:34"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:37:34","userId":1}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 16:37:38"}
+{"assignEmail":"sobhansahoo2000@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 16:37:38","userId":1}
+{"adminEmail":"sobhansahoo2000@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:37:38"}
+{"email":"sobhansahoo2000@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 16:37:38"}
+{"level":"info","message":"Admin assigned to organization","organizationId":1,"timestamp":"2026-02-24 16:37:38","userId":5}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:37:38","userId":1}
+{"level":"info","message":"SuperAdmin 1 assign admin position to sobhansahoo2000@gmail.com","organizationId":5,"timestamp":"2026-02-24 16:37:38"}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 16:38:04"}
+{"assignEmail":"work.sobhansahoo@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 16:38:04","userId":1}
+{"adminEmail":"work.sobhansahoo@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:38:04"}
+{"level":"info","message":"remove the admin from organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:38:04"}
+{"level":"info","message":"Fetching organization","organizationId":1,"timestamp":"2026-02-24 16:38:04"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-24 16:38:04"}
+{"level":"info","message":"Un assign admin from the organizations in reppo","timestamp":"2026-02-24 16:38:04"}
+{"level":"info","message":"Admin removed from organization","organizationId":1,"removedAdminId":5,"superAdminId":1,"timestamp":"2026-02-24 16:38:04"}
+{"email":"work.sobhansahoo@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 16:38:04"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:38:04","userId":1}
+{"level":"info","message":"Admin assigned to organization","organizationId":1,"timestamp":"2026-02-24 16:38:04","userId":4}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:38:04","userId":1}
+{"level":"info","message":"SuperAdmin 1 assign admin position to work.sobhansahoo@gmail.com","organizationId":4,"timestamp":"2026-02-24 16:38:04"}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-24 16:47:33"}
+{"level":"info","message":" HTTP server closed","timestamp":"2026-02-24 16:47:33"}
+{"level":"info","message":" Database disconnected","timestamp":"2026-02-24 16:47:33"}

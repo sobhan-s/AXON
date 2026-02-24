@@ -60,24 +60,83 @@ export class OrganizationRepositories {
     }
   }
 
-  async assignToOrgs(organizationId: number, adminId: number) {
+  async assignToOrgs(
+    organizationId: number,
+    adminId: number,
+    superAdminId: number,
+  ) {
     try {
-      const result = await prisma.organization.update({
-        where: { id: organizationId },
-        data: { assignedTo: adminId },
-      });
+      return await prisma.$transaction(async (tx) => {
+        const orgsInProjectMember = await tx.projectTeamMember.findFirst({
+          where: {
+            organizationId: organizationId,
+          },
+          select: {
+            id: true,
+          },
+        });
 
-      await prisma.user.update({
-        where: { id: adminId },
-        data: { organizationId: organizationId },
-      });
+        console.log(orgsInProjectMember);
+        console.log(adminId);
 
-      return result;
-    } catch (error) {
-      logger.error('Error in assign the admin to organization', { error });
+        const result = await tx.organization.update({
+          where: { id: organizationId },
+          data: { assignedTo: adminId },
+        });
+
+        await tx.user.update({
+          where: { id: adminId },
+          data: { organizationId: organizationId },
+        });
+
+        await tx.projectTeamMember.upsert({
+          where: {
+            id: orgsInProjectMember?.id,
+          },
+          update: {
+            userId: adminId,
+          },
+          create: {
+            organizationId: organizationId,
+            userId: adminId,
+            addedBy: superAdminId,
+            roleId: 1,
+          },
+        });
+        // if (orgsInProjectMember?.id) {
+        //   await tx.projectTeamMember.update({
+        //     where: {
+        //       id: orgsInProjectMember?.id,
+        //     },
+        //     data: {
+        //       userId: adminId,
+        //     },
+        //   });
+
+        //   return result;
+        // }
+
+        // await tx.projectTeamMember.create({
+        //   data: {
+        //     organizationId: organizationId,
+        //     userId: adminId,
+        //     addedBy: superAdminId,
+        //     roleId: 1,
+        //   },
+        // });
+
+        return result;
+      });
+    } catch (error: any) {
+      logger.error('Error assigning admin to organization', { error });
+
+      if (error.code === 'P2025') {
+        throw new ApiError(404, 'Organization or User not found');
+      }
+
       throw new ApiError(
         500,
-        'Database error while assign the admin to organization',
+        'Database error while assigning the admin to organization',
       );
     }
   }
@@ -229,6 +288,10 @@ export class OrganizationRepositories {
   }
 
   async changeStatus(organizationId: number, status: OrganizationStatus) {
+    // console.log((status as any).status);
+    // console.log(typeof (status as any).status);
+
+    const sts = (status as any)?.status;
     try {
       logger.info('change staus service called in repo');
       return await prisma.organization.update({
@@ -236,7 +299,7 @@ export class OrganizationRepositories {
           id: organizationId,
         },
         data: {
-          status: status,
+          status: sts,
         },
       });
     } catch (error) {

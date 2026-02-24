@@ -90,20 +90,21 @@ model RefreshToken {
 }
 
 model Organization {
-  id           Int           @id @default(autoincrement())
+  id           Int                 @id @default(autoincrement())
   name         String
-  slug         String        @unique
+  slug         String              @unique
   description  String?
   createdBy    Int
   assignedTo   Int?
-  storageLimit BigInt        @default(10737418240)
-  storageUsed  BigInt        @default(0)
-  status       UserStatus    @default(ACTIVE)
-  createdAt    DateTime      @default(now())
-  updatedAt    DateTime      @updatedAt
+  storageLimit BigInt              @default(10737418240)
+  storageUsed  BigInt              @default(0)
+  status       UserStatus          @default(ACTIVE)
+  createdAt    DateTime            @default(now())
+  updatedAt    DateTime            @updatedAt
   activityLogs ActivityLog[]
-  assignee     User?         @relation("OrgAssignee", fields: [assignedTo], references: [id])
-  creator      User          @relation("OrgCreator", fields: [createdBy], references: [id])
+  teamMembers  ProjectTeamMember[]
+  assignee     User?               @relation("OrgAssignee", fields: [assignedTo], references: [id])
+  creator      User                @relation("OrgCreator", fields: [createdBy], references: [id])
   projects     Project[]
   users        User[]
 
@@ -141,17 +142,19 @@ model Project {
 }
 
 model ProjectTeamMember {
-  id        Int      @id @default(autoincrement())
-  projectId Int
-  userId    Int
-  addedBy   Int
-  roleId    Int
-  addedAt   DateTime @default(now())
-  project   Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
-  role      Role     @relation(fields: [roleId], references: [id])
-  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  id             Int          @id @default(autoincrement())
+  projectId      Int?
+  organizationId Int
+  userId         Int
+  addedBy        Int
+  roleId         Int
+  addedAt        DateTime     @default(now())
+  project        Project?     @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  role           Role         @relation(fields: [roleId], references: [id])
+  user           User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  organization   Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
 
-  @@unique([projectId, userId])
+  @@unique([organizationId,userId])
   @@index([projectId])
   @@index([userId])
   @@map("project_team_members")

@@ -117,6 +117,9 @@ export class PermissionService {
       },
     });
 
+    // console.log(!membership);
+    console.log(!!membership);
+
     return !!membership;
   }
 

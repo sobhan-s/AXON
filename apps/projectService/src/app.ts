@@ -23,7 +23,9 @@ app.use(errorMiddleware);
 app.set('trust proxy', 1);
 
 import organizationRoutes from './routes/organization.routes.js';
+import projectRouter from './routes/project.routes.js';
 
 app.use('/orgs', organizationRoutes);
+app.use('/project', projectRouter);
 
 export default app;

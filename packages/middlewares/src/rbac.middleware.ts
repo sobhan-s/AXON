@@ -40,9 +40,7 @@ export async function requireOrgAccess(
   try {
     const userId = (req as any).user?.id;
     const organizationId = parseInt(
-      req.params.organizationId ||
-        req.body.organizationId ||
-        (req.query.organizationId as string),
+      req.params.orgId || req.body.orgId || (req.query.orgId as string),
     );
 
     if (!organizationId) {
@@ -150,6 +148,7 @@ export function requirePermission(permission: string) {
           }
 
           allowed = await permissionService.isOrgAdmin(userId, organizationId);
+          console.log(allowed);
           break;
         }
 

@@ -14,6 +14,12 @@ import {
   updateOrgsSchema,
   organizationStatusSchema,
 } from './orgs/orgs.validations.js';
+import {
+  createProjectsSchemas,
+  assignManagerSchema,
+  updateProjectSchema,
+  ProjectStatusSchema,
+} from './project/project.validation.js';
 
 export {
   verifyEmailSchema,
@@ -27,4 +33,8 @@ export {
   assignAdminSchema,
   updateOrgsSchema,
   organizationStatusSchema,
+  createProjectsSchemas,
+  assignManagerSchema,
+  updateProjectSchema,
+  ProjectStatusSchema,
 };

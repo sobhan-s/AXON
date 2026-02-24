@@ -3570,3 +3570,96 @@
 {"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-24 16:47:33"}
 {"level":"info","message":" HTTP server closed","timestamp":"2026-02-24 16:47:33"}
 {"level":"info","message":" Database disconnected","timestamp":"2026-02-24 16:47:33"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:51:00"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:51:00"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:51:02"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-24 16:51:23"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-24 16:51:23","userId":1}
+{"level":"info","message":"Assign admin to the organizations.","timestamp":"2026-02-24 16:51:26"}
+{"assignEmail":"sobhansahoo2000@gmail.com","level":"info","message":"Assigning to the organizaitons . . .","organizationId":1,"timestamp":"2026-02-24 16:51:26","userId":1}
+{"adminEmail":"sobhansahoo2000@gmail.com","level":"info","message":" Assigning admin to organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:51:26"}
+{"level":"info","message":"remove the admin from organization","organizationId":1,"superAdminId":1,"timestamp":"2026-02-24 16:51:26"}
+{"level":"info","message":"Fetching organization","organizationId":1,"timestamp":"2026-02-24 16:51:26"}
+{"level":"info","message":"fetched organization successfully service","timestamp":"2026-02-24 16:51:26"}
+{"level":"info","message":"Un assign admin from the organizations in reppo","timestamp":"2026-02-24 16:51:26"}
+{"level":"info","message":"Admin removed from organization","organizationId":1,"removedAdminId":4,"superAdminId":1,"timestamp":"2026-02-24 16:51:26"}
+{"email":"sobhansahoo2000@gmail.com","level":"info","message":"Finding the user in repo via email","timestamp":"2026-02-24 16:51:26"}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:51:26","userId":1}
+{"level":"info","message":"Admin assigned to organization","organizationId":1,"timestamp":"2026-02-24 16:51:26","userId":5}
+{"action":"ORG_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 16:51:26","userId":1}
+{"level":"info","message":"SuperAdmin 1 assign admin position to sobhansahoo2000@gmail.com","organizationId":5,"timestamp":"2026-02-24 16:51:26"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 16:53:22"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 16:53:22"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 16:53:24"}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-24 17:20:34"}
+{"level":"info","message":" HTTP server closed","timestamp":"2026-02-24 17:20:34"}
+{"level":"info","message":" Database disconnected","timestamp":"2026-02-24 17:20:34"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 17:22:52"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 17:22:52"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 17:22:55"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-24 17:23:09"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-24 17:23:09","userId":1}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 17:24:32"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 17:24:32"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 17:24:34"}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-24 17:28:20"}
+{"level":"info","message":" HTTP server closed","timestamp":"2026-02-24 17:28:20"}
+{"level":"info","message":" Database disconnected","timestamp":"2026-02-24 17:28:20"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 17:28:22"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 17:28:22"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 17:28:24"}
+{"email":"sobhansahoo2000@gmail.com","level":"info","message":"Login service called","timestamp":"2026-02-24 17:29:11"}
+{"action":"USER_LOGIN","level":"info","message":"Activity logged","timestamp":"2026-02-24 17:29:11","userId":5}
+{"level":"info","message":"User logged in successfully","timestamp":"2026-02-24 17:29:11","userId":5}
+{"level":"warn","message":"Permission denied","permission":"create_project","route":"/1/create","timestamp":"2026-02-24 17:29:21","userId":5}
+{"level":"warn","message":"Permission denied","permission":"create_project","route":"/1/create","timestamp":"2026-02-24 17:33:24","userId":5}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-24 17:33:57"}
+{"level":"info","message":" HTTP server closed","timestamp":"2026-02-24 17:33:57"}
+{"level":"info","message":" Database disconnected","timestamp":"2026-02-24 17:33:57"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 17:34:00"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 17:34:00"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 17:34:02"}
+{"level":"warn","message":"Permission denied","permission":"create_project","route":"/1/create","timestamp":"2026-02-24 17:34:03","userId":5}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-24 17:34:42"}
+{"level":"info","message":" HTTP server closed","timestamp":"2026-02-24 17:34:42"}
+{"level":"info","message":" Database disconnected","timestamp":"2026-02-24 17:34:42"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 17:35:06"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 17:35:06"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 17:35:09"}
+{"level":"warn","message":"Permission denied","permission":"create_project","route":"/1/create","timestamp":"2026-02-24 17:35:09","userId":5}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-24 17:36:52"}
+{"level":"info","message":" HTTP server closed","timestamp":"2026-02-24 17:36:52"}
+{"level":"info","message":" Database disconnected","timestamp":"2026-02-24 17:36:52"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 17:36:54"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 17:36:54"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 17:36:56"}
+{"level":"warn","message":"Permission denied","permission":"create_project","route":"/1/create","timestamp":"2026-02-24 17:36:58","userId":5}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-24 17:43:59"}
+{"level":"info","message":" HTTP server closed","timestamp":"2026-02-24 17:43:59"}
+{"level":"info","message":" Database disconnected","timestamp":"2026-02-24 17:43:59"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 17:44:14"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 17:44:14"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 17:44:16"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-02-24 17:44:24"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-02-24 17:44:24","userId":5}
+{"level":"warn","message":"Permission denied","permission":"create_project","route":"/1/create","timestamp":"2026-02-24 17:44:26","userId":5}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-24 17:45:04"}
+{"level":"info","message":" HTTP server closed","timestamp":"2026-02-24 17:45:04"}
+{"level":"info","message":" Database disconnected","timestamp":"2026-02-24 17:45:04"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-24 17:45:06"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-02-24 17:45:06"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-24 17:45:08"}
+{"level":"info","message":"Creation of project in controller called  . . .","timestamp":"2026-02-24 17:45:10"}
+{"adminId":5,"data":{"description":"this is for testing , test 1","name":"media production","slug":"mediaproduction"},"level":"info","message":"Project creation service started","timestamp":"2026-02-24 17:45:10"}
+{"level":"info","message":"Find by project by slugs serice called . . .","timestamp":"2026-02-24 17:45:10"}
+{"adminId":5,"data":{"description":"this is for testing , test 1","name":"media production","slug":"mediaproduction"},"level":"info","message":" Creating organization in database","timestamp":"2026-02-24 17:45:10"}
+{"level":"info","message":"project created","organizationId":1,"timestamp":"2026-02-24 17:45:10"}
+{"action":"PROJECT_CREATED","level":"info","message":"Activity logged","timestamp":"2026-02-24 17:45:10","userId":5}
+{"level":"info","message":"Organization creation complete","timestamp":"2026-02-24 17:45:10"}
+{"level":"info","message":"Createion of Project successfully","timestamp":"2026-02-24 17:45:10"}
+{"level":"info","message":"Creation of project in controller called  . . .","timestamp":"2026-02-24 17:50:26"}
+{"adminId":5,"data":{"description":"this is for testing , test 1","name":"media production","slug":"mediaproduction"},"level":"info","message":"Project creation service started","timestamp":"2026-02-24 17:50:26"}
+{"level":"info","message":"Find by project by slugs serice called . . .","timestamp":"2026-02-24 17:50:26"}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-24 17:56:19"}
+{"level":"info","message":" HTTP server closed","timestamp":"2026-02-24 17:56:19"}
+{"level":"info","message":" Database disconnected","timestamp":"2026-02-24 17:56:19"}

@@ -2,7 +2,7 @@ import { logger } from '@dam/config';
 import { OrganizationRepositories } from '../repository/organization.repository.js';
 import { ApiError } from '@dam/utils';
 import { ActivityService } from '@dam/common';
-import { prisma } from '../index.js';
+import { OrganizationStatus } from '@dam/postgresql_db';
 
 export class OrganizationServices {
   private orgRepo: OrganizationRepositories;
@@ -85,8 +85,12 @@ export class OrganizationServices {
       throw new ApiError(404, 'Organization not found');
     }
 
+    // if (organization.assignedTo) {
+    //   throw new ApiError(400, 'Organization already has an admin.');
+    // }
+
     if (organization.assignedTo) {
-      throw new ApiError(400, 'Organization already has an admin.');
+      await this.unAssignFromOrganization(superAdminId, organizationId);
     }
 
     const adminUser = await this.orgRepo.findUser(adminEmail);
@@ -341,71 +345,48 @@ export class OrganizationServices {
     };
   }
 
-  async changeAssignAdmin(
-    superAdminId: number,
-    organizationId: number,
-    newAdminEmail: string,
+  async changeStautus(
+    organisationsId: number,
+    status: OrganizationStatus,
     ip: string,
+    userAgent: string,
   ) {
-    logger.info('change the org admin service');
+    logger.info('Chnage status service called');
 
-    const organisations = await this.getOrganizationById(organizationId);
+    const orgs = await this.orgRepo.findOrgById(organisationsId);
 
-    if (!organisations) {
-      throw new ApiError(404, 'No organisation found');
+    if (!orgs) {
+      throw new ApiError(404, 'Organization is not found');
     }
 
-    if (organisations.organization.assignee?.email == newAdminEmail) {
-      throw new ApiError(
-        400,
-        'Same admin has now org admin, so if u want please change the admin . . .',
-      );
+    const result = await this.orgRepo.changeStatus(orgs.id, status);
+
+    if (result.status == status) {
+      throw new ApiError(500, 'Error while changing status of organizations');
     }
 
-    const assignAdmin = organisations.organization.assignedTo as number;
-
-    if (!assignAdmin) {
-      throw new ApiError(404, 'No admin is assign not yet .');
-    }
-
-    const adminUser = await this.orgRepo.findUser(newAdminEmail);
-
-    if (!adminUser) {
-      throw new ApiError(
-        404,
-        `User with email ${newAdminEmail} not found. Please ensure the user is registered first.`,
-      );
-    }
-
-    const org = await this.orgRepo.assignToOrgs(organizationId, adminUser.id);
+    logger.info('Organization status chnaged successdfully . . .');
 
     this.activityService.logActivity({
-      userId: superAdminId,
-      organizationId: organizationId,
+      userId: orgs.creator.id,
+      organizationId: orgs.id,
       action: 'ORG_UPDATED',
       entityType: 'organization',
-      entityId: organizationId.toString(),
+      entityId: orgs.id.toString(),
       details: {
-        action: 'admin_assigned_updated',
-        prevAdmin: organisations.organization.assignee?.email,
-        newAdmin: adminUser.email,
-        adminUserId: adminUser.id,
+        orgName: orgs.name,
+        changedStatusFrom: orgs.status,
+        changedstatusTo: result.status,
       },
       ipAddress: ip,
+      userAgent: userAgent,
     });
-
-    logger.info('super admin has assign new org admin successfully');
 
     return {
       organization: {
-        ...org,
-        storageLimit: org.storageLimit.toString(),
-        storageUsed: org.storageUsed.toString(),
-      },
-      admin: {
-        id: adminUser.id,
-        email: adminUser.email,
-        username: adminUser.username,
+        ...result,
+        storageLimit: result.storageLimit.toString(),
+        storageUsed: result.storageUsed.toString(),
       },
     };
   }

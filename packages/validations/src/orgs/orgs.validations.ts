@@ -39,3 +39,7 @@ export const updateOrgsSchema = z.object({
 
   storageLimit: z.string().optional(),
 });
+
+export const organizationStatusSchema = z.object({
+  status: z.enum(['ACTIVE', 'INACTIVE']),
+});

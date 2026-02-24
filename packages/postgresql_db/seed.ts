@@ -130,8 +130,8 @@ async function seedRBAC() {
         description: 'Manage organization users',
       },
 
-      // Project 
-      
+      // Project
+
       {
         name: 'create_project',
         resource: 'project',

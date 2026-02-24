@@ -18,7 +18,6 @@
     "prisma:generate": "pnpm prisma generate",
     "db:deploy": "pnpm prisma migrate deploy"
   },
-  
   "dependencies": {
     "@dam/config": "workspace:*",
     "@dam/typescript-config": "workspace:*",

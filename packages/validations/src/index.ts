@@ -12,6 +12,7 @@ import {
   createOrgsSchemas,
   assignAdminSchema,
   updateOrgsSchema,
+  organizationStatusSchema,
 } from './orgs/orgs.validations.js';
 
 export {
@@ -25,4 +26,5 @@ export {
   createOrgsSchemas,
   assignAdminSchema,
   updateOrgsSchema,
+  organizationStatusSchema,
 };

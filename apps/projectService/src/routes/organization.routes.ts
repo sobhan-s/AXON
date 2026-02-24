@@ -7,10 +7,14 @@ import {
   getOrganizationById,
   deleteOrganization,
   unAssignFromOrganization,
-  changeAssignOfOrganization,
+  changeStatus,
 } from '../controller/organization.controller.js';
 import { validate } from '@dam/middlewares';
-import { createOrgsSchemas, assignAdminSchema } from '@dam/validations';
+import {
+  createOrgsSchemas,
+  assignAdminSchema,
+  organizationStatusSchema,
+} from '@dam/validations';
 import { requireSuperAdmin, authMiddleware } from '@dam/middlewares';
 import { updateOrgsSchema } from '@dam/validations';
 
@@ -60,12 +64,12 @@ router
   .patch(authMiddleware, requireSuperAdmin, unAssignFromOrganization);
 
 router
-  .route('/changeAssign/:orgId')
+  .route('/status/:orgId')
   .patch(
     authMiddleware,
     requireSuperAdmin,
-    validate(assignAdminSchema),
-    changeAssignOfOrganization
+    validate(organizationStatusSchema),
+    changeStatus,
   );
 
 export default router;

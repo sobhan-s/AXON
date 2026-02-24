@@ -1,6 +1,7 @@
 import { logger } from '@dam/config';
 import { prisma } from '../index.js';
 import { ApiError } from '@dam/utils';
+import { OrganizationStatus } from '@dam/postgresql_db';
 
 export class OrganizationRepositories {
   async createOrganizations(
@@ -227,16 +228,23 @@ export class OrganizationRepositories {
     }
   }
 
-  // async changeAssignAdmin(organisationId: number, assignAdmin: number) {
-  //   try {
-  //     logger.info("Chnage assign admin in repo stated")
-      
-  //   } catch (error) {
-  //     logger.error('Error in unassign form organizations', { error });
-  //     throw new ApiError(
-  //       500,
-  //       'Database error while unassign from organizations .',
-  //     );
-  //   }
-  // }
+  async changeStatus(organizationId: number, status: OrganizationStatus) {
+    try {
+      logger.info('change staus service called in repo');
+      return await prisma.organization.update({
+        where: {
+          id: organizationId,
+        },
+        data: {
+          status: status,
+        },
+      });
+    } catch (error) {
+      logger.error('Error in changing status of organizations', { error });
+      throw new ApiError(
+        500,
+        'Database error while changing status of organizations .',
+      );
+    }
+  }
 }

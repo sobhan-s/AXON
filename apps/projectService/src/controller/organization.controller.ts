@@ -195,33 +195,23 @@ export const unAssignFromOrganization: RequestHandler = asyncHandler(
   },
 );
 
-export const changeAssignOfOrganization: RequestHandler = asyncHandler(
+export const changeStatus: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
-    logger.info('Assign new admin to the organizations.');
-    const userId = (req as any).user?.id;
+    logger.info('changes status of organizatino called in controller');
+
+    const organisationsId = Number(req.params.orgId);
+    const status = req.body;
     const ip = req.ip as string;
-    const organizationId = Number(req.params.orgId);
-    const assignEmail = req.body.adminEmail;
+    const userAgent = req.get('user-agent') as string;
 
-    logger.info('Assigning to the organizaitons . . .', {
-      userId,
-      assignEmail,
-      organizationId,
-    });
-
-    const result = await orgService.changeAssignAdmin(
-      userId,
-      organizationId,
-      assignEmail,
+    const result = await orgService.changeStautus(
+      organisationsId,
+      status,
       ip,
+      userAgent,
     );
 
-    logger.info(
-      `SuperAdmin ${userId} change assign admin position to ${assignEmail}`,
-      {
-        organizationId: result.organization.assignedTo,
-      },
-    );
+    logger.info('Organization status changed successfully');
 
     res
       .status(204)
@@ -229,7 +219,7 @@ export const changeAssignOfOrganization: RequestHandler = asyncHandler(
         new ApiResponse(
           204,
           result,
-          'chnage admin in organization successfully.',
+          'Organization status changed successfully',
         ),
       );
   },

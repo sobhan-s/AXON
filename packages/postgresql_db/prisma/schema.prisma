@@ -1,7 +1,6 @@
 generator client {
   provider     = "prisma-client-js"
   moduleFormat = "esm"
-  // binaryTargets = ["linux-musl-openssl-3.0.x"]
 }
 
 datasource db {
@@ -308,6 +307,11 @@ model RolePermission {
 
   @@unique([roleId, permissionId])
   @@map("role_permissions")
+}
+
+enum OrganizationStatus {
+  ACTIVE
+  INACTIVE
 }
 
 enum UserStatus {

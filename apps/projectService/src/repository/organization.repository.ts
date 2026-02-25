@@ -310,4 +310,53 @@ export class OrganizationRepositories {
       );
     }
   }
+
+  async addToOrgs(
+    organizationId: number,
+    targetedUserId: number,
+    userId: number,
+    roleId: number,
+  ) {
+    try {
+      logger.info('add to organizaition in repo layer.');
+      return await prisma.$transaction(async (tx) => {
+        await tx.projectTeamMember.create({
+          data: {
+            organizationId: organizationId,
+            userId: targetedUserId,
+            addedBy: userId,
+            roleId: roleId,
+          },
+        });
+
+        return await tx.user.update({
+          where: {
+            id: targetedUserId,
+          },
+          data: {
+            organizationId: organizationId,
+          },
+          select: {
+            email: true,
+            organizationId: true,
+            projectTeamMembers: {
+              select: {
+                role: {
+                  select: {
+                    name: true,
+                  },
+                },
+              },
+            },
+          },
+        });
+      });
+    } catch (error) {
+      logger.error('Error in Adding to the organization', { error });
+      throw new ApiError(
+        500,
+        'Database error while Adding to the organization .',
+      );
+    }
+  }
 }

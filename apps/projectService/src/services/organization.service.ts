@@ -392,5 +392,45 @@ export class OrganizationServices {
     };
   }
 
-  // async addToTheOrganizations(userId:)
+  async addToTheOrganizations(
+    organizationId: number,
+    userId: number,
+    ip: string,
+    userAgent: string,
+    data: {
+      targetedUserId: number;
+      roleId: number;
+    },
+  ) {
+    logger.info('Started adding user to the organizatoin ');
+
+    const isOrgExist = this.orgRepo.findOrgById(organizationId);
+
+    if (!isOrgExist) {
+      throw new ApiError(404, 'Organization not found .');
+    }
+
+    const result = await this.orgRepo.addToOrgs(
+      organizationId,
+      data.targetedUserId,
+      userId,
+      data.roleId,
+    );
+
+    this.activityService.logActivity({
+      userId: userId,
+      organizationId: organizationId,
+      action: 'ORG_UPDATED',
+      entityType: 'organization',
+      entityId: organizationId.toString(),
+      details: {
+        data: result.organizationId,
+        details: `user ${userId} add ${data.targetedUserId} in to organization ${organizationId} with role ${data.roleId}`,
+      },
+      ipAddress: ip,
+      userAgent: userAgent,
+    });
+
+    return result;
+  }
 }

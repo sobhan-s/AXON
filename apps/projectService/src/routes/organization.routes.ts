@@ -8,12 +8,18 @@ import {
   deleteOrganization,
   unAssignFromOrganization,
   changeStatus,
+  addToOrganization,
 } from '../controller/organization.controller.js';
-import { validate } from '@dam/middlewares';
+import {
+  requireOrgAccess,
+  requirePermission,
+  validate,
+} from '@dam/middlewares';
 import {
   createOrgsSchemas,
   assignAdminSchema,
   organizationStatusSchema,
+  addedToOrg,
 } from '@dam/validations';
 import { requireSuperAdmin, authMiddleware } from '@dam/middlewares';
 import { updateOrgsSchema } from '@dam/validations';
@@ -70,6 +76,16 @@ router
     requireSuperAdmin,
     validate(organizationStatusSchema),
     changeStatus,
+  );
+
+router
+  .route('/addToOrg/:orgId')
+  .patch(
+    authMiddleware,
+    requireOrgAccess,
+    requirePermission('manage_org_users'),
+    validate(addedToOrg),
+    addToOrganization,
   );
 
 export default router;

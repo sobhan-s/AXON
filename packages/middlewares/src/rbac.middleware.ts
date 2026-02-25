@@ -39,9 +39,10 @@ export async function requireOrgAccess(
 ) {
   try {
     const userId = (req as any).user?.id;
-    const organizationId = parseInt(
+    const organizationId = Number(
       req.params.orgId || req.body.orgId || (req.query.orgId as string),
     );
+    // console.log('--------------', organizationId);
 
     if (!organizationId) {
       throw new ApiError(400, 'Organization ID required');

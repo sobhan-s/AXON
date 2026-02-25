@@ -43,3 +43,8 @@ export const updateOrgsSchema = z.object({
 export const organizationStatusSchema = z.object({
   status: z.enum(['ACTIVE', 'INACTIVE']),
 });
+
+export const addedToOrg = z.object({
+  targetedUserId: z.number(),
+  roleId: z.number(),
+});

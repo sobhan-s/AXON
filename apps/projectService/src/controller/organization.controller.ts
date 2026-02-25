@@ -228,5 +228,32 @@ export const changeStatus: RequestHandler = asyncHandler(
 export const addToOrganization: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Add to the organizations . . .');
+
+    const ip = req.ip!;
+    const userAgent = req.get('user-agent')!;
+    const userId = (req as any).user?.id;
+    const orgId = Number(req.params.orgId);
+
+    const result = orgService.addToTheOrganizations(
+      orgId,
+      userId,
+      ip,
+      userAgent,
+      req.body,
+    );
+
+    logger.info(
+      'successfully Added organization and added a role for this organization ',
+    );
+
+    res
+      .status(204)
+      .json(
+        new ApiResponse(
+          204,
+          result,
+          'successfully Added organization and added a role for this organization ',
+        ),
+      );
   },
 );

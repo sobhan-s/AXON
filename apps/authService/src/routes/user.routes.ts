@@ -24,9 +24,6 @@ router.route('/getme').get(authMiddleware, getUserMe);
 router.route('/updateme').patch(authMiddleware, updateUserMe);
 router.route('/deleteme').delete(authMiddleware, deleteMe);
 router.route('/changePassword').patch(authMiddleware, changePasswordHandler);
-router
-  .route('/:orgId/:userId')
-  .get(authMiddleware, requireOrgAccess, getParticularUser);
 
 // Admin level routes
 router
@@ -37,6 +34,10 @@ router
     requirePermission('manage_org_users'),
     getOrganizationMembers,
   );
+
+router
+  .route('/puser/:orgId/:userId')
+  .get(authMiddleware, requireOrgAccess, getParticularUser);
 
 router
   .route('/createUser/:orgId')

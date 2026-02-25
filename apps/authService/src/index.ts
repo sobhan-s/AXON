@@ -61,16 +61,6 @@ process.on('SIGINT', () => gracefulShutdown('SIGINT'));
 
 process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
 
-process.on('unhandledRejection', (reason) => {
-  logger.error('Unhandled Rejection:', reason);
-  gracefulShutdown('unhandledRejection');
-});
-
-process.on('uncaughtException', (error) => {
-  logger.error('Uncaught Exception:', error);
-  gracefulShutdown('uncaughtException');
-});
-
 export { prisma };
 
 startServer();

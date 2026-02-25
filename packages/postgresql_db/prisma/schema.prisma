@@ -264,7 +264,7 @@ model ActivityLog {
   ipAddress      String?
   userAgent      String?
   createdAt      DateTime       @default(now())
-  organization   Organization?  @relation(fields: [organizationId], references: [id], onDelete: Cascade)
+  organization   Organization?  @relation(fields: [organizationId], references: [id])
   user           User?          @relation(fields: [userId], references: [id])
 
   @@index([userId])

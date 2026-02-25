@@ -138,9 +138,7 @@ export function requirePermission(permission: string) {
         case 'update_organization':
         case 'manage_org_users': {
           const organizationId = parseInt(
-            req.params.organizationId ||
-              req.body.organizationId ||
-              (req as any).user?.organizationId,
+            req.params.orgId || req.body.orgId || (req as any).user?.orgId,
           );
 
           if (!organizationId) {

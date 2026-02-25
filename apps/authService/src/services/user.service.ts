@@ -96,4 +96,169 @@ export class userService {
 
     logger.info('Password changed successfully', { userId });
   }
+
+  async getOrgUsers(orgId: number) {
+    logger.info(
+      'get the organizaiton users belong to the organization of admin',
+    );
+
+    const isOrgExist = await this.userRepo.findOrgById(orgId);
+
+    if (!isOrgExist) {
+      throw new ApiError(404, 'Organization is not found');
+    }
+
+    const OrgUsers = await this.userRepo.getOrganizationMembers(orgId);
+
+    return {
+      OrgUsers,
+    };
+  }
+
+  async addUserToOranization(
+    orgId: number,
+    userId: number,
+    ip: string,
+    userAgent: string,
+    data: {
+      username: string;
+      email: string;
+      password: string;
+      roleId: number;
+    },
+  ) {
+    logger.info('add user to the organization in admin level in service layer');
+
+    const isOrgExist = await this.userRepo.findOrgById(orgId);
+
+    if (!isOrgExist) {
+      throw new ApiError(404, 'Organization does not exist');
+    }
+
+    const hassedPassword = await bcrypt.hash(data.password, 12);
+
+    const createdUser = await this.userRepo.addUsersToOrganizations(
+      userId,
+      orgId,
+      { ...data, password: hassedPassword },
+    );
+
+    if (!createdUser.id) {
+      throw new ApiError(
+        500,
+        'while creating user in admin level some server error has been occuered',
+      );
+    }
+
+    this.activityService.logActivity({
+      userId: createdUser.id,
+      action: 'USER_CREATED',
+      entityType: 'user',
+      entityId: createdUser.id.toString(),
+      details: {
+        currendata: data,
+        updatedData: createdUser,
+      },
+      userAgent: userAgent,
+      ipAddress: ip,
+    });
+
+    logger.info('Creation of user in admin level successfully created ');
+
+    return {
+      createdUser,
+    };
+  }
+
+  async removeUserToOrganization(
+    orgId: number,
+    userId: number,
+    targetUserId: number,
+    ip: string,
+    userAgent: string,
+  ) {
+    logger.info('Removing the user from orgs service layer');
+
+    const isOrgExist = await this.userRepo.findOrgById(orgId);
+
+    if (!isOrgExist) {
+      throw new ApiError(404, 'Organization is not found');
+    }
+
+    const removedUser = await this.userRepo.removeUsersToOrganizations(
+      targetUserId,
+      orgId,
+    );
+
+    this.activityService.logActivity({
+      userId: removedUser.id,
+      action: 'USER_UPDATED',
+      entityType: 'user',
+      entityId: removedUser.id.toString(),
+      details: {
+        currendata: {
+          orgId,
+          userId,
+          targetUserId,
+        },
+        details: `user ${userId} removed user ${targetUserId} from this organizations ${orgId}`,
+      },
+      userAgent: userAgent,
+      ipAddress: ip,
+    });
+
+    return removedUser;
+  }
+
+  async getUserProfiles(userId: number) {
+    logger.info('Giveme the userDetails in service layer');
+
+    const userDetails = await this.userRepo.getParticularUser(userId);
+
+    logger.info('UserProfile detials fetched successfully');
+
+    return userDetails;
+  }
+
+  async updateUserDetails(
+    orgId: number,
+    userAgent: string,
+    ip: string,
+    data: {
+      email?: string;
+      username?: string;
+      isActive?: boolean;
+      roleId?: number;
+    },
+  ) {
+    logger.info('update the userDetails info in service layer');
+
+    const isOrgExist = await this.userRepo.findOrgById(orgId);
+
+    if (!isOrgExist) {
+      throw new ApiError(404, 'Organization is does not exist');
+    }
+
+    const updatedData = await this.userRepo.updateUserProfileAdminLevel(
+      orgId,
+      data,
+    );
+
+    this.activityService.logActivity({
+      userId: updatedData.id,
+      action: 'USER_UPDATED',
+      entityType: 'user',
+      entityId: updatedData.id.toString(),
+      details: {
+        currendata: data,
+        updatedData: updatedData,
+      },
+      userAgent: userAgent,
+      ipAddress: ip,
+    });
+
+    logger.info('user data is updated successfully in adminlevel');
+
+    return updatedData;
+  }
 }

@@ -7,13 +7,19 @@ import {
   resendVerificationSchema,
 } from './auth/auth.validations.js';
 
-import { passwordVerifySchema } from './user/user.validations.js';
+import {
+  passwordVerifySchema,
+  addUserToOrg,
+  updateUserAdminLevelSchema,
+} from './user/user.validations.js';
+
 import {
   createOrgsSchemas,
   assignAdminSchema,
   updateOrgsSchema,
   organizationStatusSchema,
 } from './orgs/orgs.validations.js';
+
 import {
   createProjectsSchemas,
   assignManagerSchema,
@@ -37,4 +43,6 @@ export {
   assignManagerSchema,
   updateProjectSchema,
   ProjectStatusSchema,
+  addUserToOrg,
+  updateUserAdminLevelSchema,
 };

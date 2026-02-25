@@ -1,0 +1,8 @@
+GET    /api/v1/users
+POST   /api/v1/users
+GET    /api/v1/users/:id
+PUT    /api/v1/users/:id
+DELETE /api/v1/users/:id
+PATCH  /api/v1/users/:id/role
+PATCH  /api/v1/users/:id/activate
+PATCH  /api/v1/users/:id/deactivate

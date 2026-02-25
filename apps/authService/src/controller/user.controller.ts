@@ -72,4 +72,130 @@ const changePasswordHandler: RequestHandler = asyncHandler(
   },
 );
 
-export { getUserMe, updateUserMe, deleteMe, changePasswordHandler };
+const getOrganizationMembers: RequestHandler = asyncHandler(
+  async (req: Request, res: Response) => {
+    logger.info('fetch orgnization members controller stated . . .');
+
+    const orgId = Number(req.params.orgId);
+
+    const result = await service.getOrgUsers(orgId);
+
+    logger.info('Fetched Successfully all organization users .');
+
+    res
+      .status(200)
+      .json(
+        new ApiResponse(
+          200,
+          result,
+          'All organization users fetched successfully',
+        ),
+      );
+  },
+);
+
+const addUsersToOrganizations: RequestHandler = asyncHandler(
+  async (req: Request, res: Response) => {
+    logger.info('add users to the organizations controller stated . . . ');
+    const userId = (req as any).user?.id;
+    const ip = req.ip!;
+    const userAgent = req.get('user-agent')!;
+    const orgId = Number(req.params.orgId);
+
+    const creationOfUser = await service.addUserToOranization(
+      orgId,
+      userId,
+      ip,
+      userAgent,
+      req.body,
+    );
+
+    logger.info('creation of user in admin level successfully done');
+
+    res
+      .status(201)
+      .json(
+        new ApiResponse(
+          201,
+          creationOfUser,
+          'creation of user in admin level successfully done',
+        ),
+      );
+  },
+);
+
+const removeUsersToOrganizations: RequestHandler = asyncHandler(
+  async (req: Request, res: Response) => {
+    logger.info('Removed user process stated from the controllers .  . .');
+
+    const userId = (req as any).user?.id;
+    const targetUserId = req.body.targetUserId;
+    const ip = req.ip!;
+    const userAgent = req.get('user-agent')!;
+    const orgId = Number(req.params.orgId);
+
+    const removedUser = service.removeUserToOrganization(
+      orgId,
+      userId,
+      targetUserId,
+      ip,
+      userAgent,
+    );
+
+    logger.info('User is removed successfully from this organizations .');
+
+    res
+      .status(204)
+      .json(
+        new ApiResponse(204, removedUser, 'User is removed succussfully .'),
+      );
+  },
+);
+
+const getParticularUser: RequestHandler = asyncHandler(
+  async (req: Request, res: Response) => {
+    logger.info('get user profile of a particular user');
+
+    const userId = Number(req.params.userId);
+
+    const result = await service.getUserProfiles(userId);
+
+    logger.info('user details fethces successfully');
+
+    res
+      .status(200)
+      .json(new ApiResponse(200, result, 'user details fethces successfully'));
+  },
+);
+
+const updateUserDetailInOrg: RequestHandler = asyncHandler(
+  async (req: Request, res: Response) => {
+    logger.info('user data is start updating in controller level');
+
+    const ip = req.ip!;
+    const userAgent = req.get('user-agent')!;
+    const orgId = Number(req.params.orgId);
+
+    const result = service.updateUserDetails(orgId, userAgent, ip, req.body);
+
+    logger.info('user data is updated successfully');
+
+    res
+      .status(204)
+      .json(
+        new ApiResponse(204, result, 'user data is updated successfully .'),
+      );
+  },
+);
+
+export {
+  getUserMe,
+  updateUserMe,
+  deleteMe,
+  changePasswordHandler,
+  getOrganizationMembers,
+  addUsersToOrganizations,
+  removeUsersToOrganizations,
+  getParticularUser,
+  updateUserDetailInOrg
+};

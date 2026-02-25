@@ -89,41 +89,41 @@ export class OrganizationRepositories {
           data: { organizationId: organizationId },
         });
 
-        await tx.projectTeamMember.upsert({
-          where: {
-            id: orgsInProjectMember?.id,
-          },
-          update: {
-            userId: adminId,
-          },
-          create: {
-            organizationId: organizationId,
-            userId: adminId,
-            addedBy: superAdminId,
-            roleId: 1,
-          },
-        });
-        // if (orgsInProjectMember?.id) {
-        //   await tx.projectTeamMember.update({
-        //     where: {
-        //       id: orgsInProjectMember?.id,
-        //     },
-        //     data: {
-        //       userId: adminId,
-        //     },
-        //   });
-
-        //   return result;
-        // }
-
-        // await tx.projectTeamMember.create({
-        //   data: {
+        // await tx.projectTeamMember.upsert({
+        //   where: {
+        //     id: orgsInProjectMember?.id,
+        //   },
+        //   update: {
+        //     userId: adminId,
+        //   },
+        //   create: {
         //     organizationId: organizationId,
         //     userId: adminId,
         //     addedBy: superAdminId,
         //     roleId: 1,
         //   },
         // });
+        if (orgsInProjectMember?.id) {
+          await tx.projectTeamMember.update({
+            where: {
+              id: orgsInProjectMember?.id,
+            },
+            data: {
+              userId: adminId,
+            },
+          });
+
+          return result;
+        }
+
+        await tx.projectTeamMember.create({
+          data: {
+            organizationId: organizationId,
+            userId: adminId,
+            addedBy: superAdminId,
+            roleId: 1,
+          },
+        });
 
         return result;
       });

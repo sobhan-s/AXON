@@ -224,3 +224,9 @@ export const changeStatus: RequestHandler = asyncHandler(
       );
   },
 );
+
+export const addToOrganization: RequestHandler = asyncHandler(
+  async (req: Request, res: Response) => {
+    logger.info('Add to the organizations . . .');
+  },
+);

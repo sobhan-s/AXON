@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { optional, z } from 'zod';
 
 export const createProjectsSchemas = z.object({
   name: z
@@ -37,7 +37,13 @@ export const updateProjectSchema = z.object({
     .max(500, 'Description must be less than 500 characters')
     .optional(),
 
-  storageLimit: z.string().optional(),
+  status: z.enum(['ACTIVE', 'COMPLETED', 'ARCHIVED', 'ON_HOLD']).optional(),
+
+  startDate: z.date().optional(),
+
+  endDate: z.date().optional(),
+
+  assignedTo: z.number().optional(),
 });
 
 export const ProjectStatusSchema = z.object({

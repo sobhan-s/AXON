@@ -391,4 +391,6 @@ export class OrganizationServices {
       },
     };
   }
+
+  // async addToTheOrganizations(userId:)
 }

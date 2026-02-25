@@ -29,3 +29,130 @@ export const createProject: RequestHandler = asyncHandler(
       .json(new ApiResponse(201, result, 'Proect Created Successfully'));
   },
 );
+
+export const getAllProjects: RequestHandler = asyncHandler(
+  async (req: Request, res: Response) => {
+    logger.info('start fetching all project of organization ');
+    const organizationId = Number(req.params.orgId);
+
+    const result = await projectService.getAllProjects(organizationId);
+
+    logger.info('All project fethced successfully .');
+
+    res
+      .status(200)
+      .json(new ApiResponse(200, result, 'Projects retrieved successfully'));
+  },
+);
+
+export const getMyProjects: RequestHandler = asyncHandler(
+  async (req: Request, res: Response) => {
+    logger.info('get my project controller has stated');
+    const userId = (req as any).user?.id;
+
+    const result = await projectService.getUserProjects(userId);
+
+    logger.info('get my projects fethced successfully . ');
+
+    res
+      .status(200)
+      .json(
+        new ApiResponse(200, result, 'Your projects retrieved successfully'),
+      );
+  },
+);
+
+export const getProjectById: RequestHandler = asyncHandler(
+  async (req: Request, res: Response) => {
+    const projectId = Number(req.params.projectId);
+
+    const result = await projectService.getProjectById(projectId);
+
+    res.json(new ApiResponse(200, result, 'Project retrieved successfully'));
+  },
+);
+
+export const updateProject: RequestHandler = asyncHandler(
+  async (req: Request, res: Response) => {
+    logger.info('update project controller has been stated');
+    const userId = (req as any).user?.id;
+    const projectId = Number(req.params.projectId);
+
+    const result = await projectService.updateProject(
+      projectId,
+      userId,
+      req.body,
+    );
+
+    res.json(new ApiResponse(200, result, 'Project updated successfully'));
+  },
+);
+
+export const archiveProject: RequestHandler = asyncHandler(
+  async (req: Request, res: Response) => {
+    const userId = (req as any).user?.id;
+    const projectId = Number(req.params.projectId);
+
+    const result = await projectService.archiveProject(projectId, userId);
+
+    res.json(new ApiResponse(200, result, 'Project archived successfully'));
+  },
+);
+
+export const deleteProject: RequestHandler = asyncHandler(
+  async (req: Request, res: Response) => {
+    const userId = (req as any).user?.id;
+    const projectId = Number(req.params.projectId);
+
+    const result = await projectService.deleteProject(projectId, userId);
+
+    res.json(new ApiResponse(200, result, 'Project deleted successfully'));
+  },
+);
+
+export const addTeamMember: RequestHandler = asyncHandler(
+  async (req: Request, res: Response) => {
+    const userId = (req as any).user?.id;
+    const projectId = Number(req.params.projectId);
+    const { userId: targetUserId, roleId } = req.body;
+
+    const result = await projectService.addTeamMember(
+      projectId,
+      userId,
+      targetUserId,
+      roleId,
+    );
+
+    res
+      .status(201)
+      .json(new ApiResponse(201, result, 'Team member added successfully'));
+  },
+);
+
+export const removeTeamMember: RequestHandler = asyncHandler(
+  async (req: Request, res: Response) => {
+    const userId = (req as any).user?.id;
+    const projectId = Number(req.params.projectId);
+    const { userId: targetUserId } = req.body;
+
+    const result = await projectService.removeTeamMember(
+      projectId,
+      userId,
+      targetUserId,
+    );
+
+    res.json(new ApiResponse(200, result, 'Team member removed successfully'));
+  },
+);
+
+export const getTeamMembers: RequestHandler = asyncHandler(
+  async (req: Request, res: Response) => {
+    const projectId = Number(req.params.projectId);
+
+    const result = await projectService.getTeamMembers(projectId);
+
+    res.json(
+      new ApiResponse(200, result, 'Team members retrieved successfully'),
+    );
+  },
+);

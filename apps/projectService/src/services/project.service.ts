@@ -125,7 +125,6 @@ export class ProjectServices {
       status?: ProjectStatus;
       startDate?: string;
       endDate?: string;
-      assignedTo?: number;
     },
   ) {
     logger.info('Updating project', { projectId, data });
@@ -136,8 +135,8 @@ export class ProjectServices {
       throw new ApiError(404, 'Project not found');
     }
 
-    console.log('==========', data.status);
-    console.log('==========', typeof data.status);
+    // console.log('==========', data.status);
+    // console.log('==========', typeof data.status);
 
     const updatedProject = await this.projectRepo.updateProject(projectId, {
       name: data.name,
@@ -145,7 +144,6 @@ export class ProjectServices {
       status: data.status as any,
       startDate: data.startDate ? new Date(data.startDate) : undefined,
       endDate: data.endDate ? new Date(data.endDate) : undefined,
-      assignedTo: data.assignedTo,
     });
 
     await this.activityService.logActivity({
@@ -158,6 +156,83 @@ export class ProjectServices {
     });
 
     return { project: updatedProject };
+  }
+
+  async assignManagerToProject(
+    projectId: number,
+    organizationId: number,
+    targetUserId: number,
+    adminUserId: number,
+    ip: string,
+    userAgent: string,
+  ) {
+    logger.info('assign a manager to the project service stated');
+
+    const isOrgIdExist = await this.orgRepo.findOrgById(organizationId);
+
+    if (!isOrgIdExist) {
+      throw new ApiError(404, 'Organization not found');
+    }
+
+    const isProjectExist = await this.projectRepo.isProjectExist(projectId);
+
+    if (!isProjectExist) {
+      throw new ApiError(404, 'Project not found');
+    }
+
+    const isTargetUserExist = await this.authRepo.findUserById(targetUserId);
+
+    if (!isTargetUserExist) {
+      throw new ApiError(500, 'Target user or mangager is does not exsit');
+    }
+
+    // const isManager = await this.projectRepo.checkRole(
+    //   organizationId,
+    //   targetUserId,
+    // );
+
+    // console.log("---------------------",isManager);
+
+    // if (!isManager) {
+    //   throw new ApiError(
+    //     403,
+    //     'this member is not exist in this orgnaizations, admin need to be add first in this organizations.',
+    //   );
+    // }
+
+    // if (!(isManager?.roleId == 2)) {
+    //   throw new ApiError(
+    //     403,
+    //     'u can not assign any other member to poject , project only assign to a manager only .',
+    //   );
+    // }
+
+    const result = await this.projectRepo.assignManagerToProject(
+      projectId,
+      organizationId,
+      targetUserId,
+      adminUserId,
+    );
+
+    this.activityService.logActivity({
+      userId: targetUserId,
+      organizationId: result?.organizationId,
+      action: 'PROJECT_UPDATED',
+      entityType: 'PROJECT',
+      entityId: result?.id.toString(),
+      details: {
+        projectName: result?.name,
+        status: 'Manager assigned successffully',
+        userAssign: adminUserId,
+        managerOfTheProject: targetUserId,
+      },
+      ipAddress: ip,
+      userAgent: userAgent,
+    });
+
+    logger.info('admin add manager successfully');
+
+    return result;
   }
 
   async archiveProject(projectId: number, userId: number) {
@@ -215,47 +290,67 @@ export class ProjectServices {
 
   async addTeamMember(
     projectId: number,
-    userId: number,
+    addedBy: number,
     targetUserId: number,
-    roleId: number,
   ) {
-    logger.info('Adding team member', { projectId, targetUserId, roleId });
+    logger.info('Adding team member', { projectId, targetUserId });
 
     const project = await this.projectRepo.findProjectById(projectId);
-
     if (!project) {
       throw new ApiError(404, 'Project not found');
     }
 
     const targetUser = await this.authRepo.findUserById(targetUserId);
-
     if (!targetUser) {
       throw new ApiError(404, 'User not found');
     }
 
     if (targetUser.organizationId !== project.organizationId) {
-      throw new ApiError(400, 'User must be in the same organization');
+      throw new ApiError(
+        400,
+        'User must be in the same organization as the project',
+      );
     }
 
     const isAlreadyMember = await this.projectRepo.isTeamMember(
       projectId,
       targetUserId,
     );
-
     if (isAlreadyMember) {
-      throw new ApiError(400, 'User is already a team member');
+      throw new ApiError(400, 'User is already a team member of this project');
+    }
+
+    const roleOfMember = await this.projectRepo.checkRole(
+      project.organizationId,
+      targetUserId,
+    );
+
+    if (!roleOfMember) {
+      throw new ApiError(
+        403,
+        'Admin needs to add this user to the organization first.',
+      );
+    }
+
+    const memberLevel = roleOfMember.roleId;
+    const allowedLevels = [2, 3, 4, 5];
+
+    if (!allowedLevels.includes(memberLevel)) {
+      throw new ApiError(
+        403,
+        'This role cannot be added as a project team member.',
+      );
     }
 
     const member = await this.projectRepo.addTeamMember(
       projectId,
       targetUserId,
-      roleId,
-      userId,
       project.organizationId,
+      addedBy,
     );
 
     await this.activityService.logActivity({
-      userId,
+      userId: addedBy,
       organizationId: project.organizationId,
       action: 'PROJECT_UPDATED',
       entityType: 'project',
@@ -263,7 +358,7 @@ export class ProjectServices {
       details: {
         action: 'team_member_added',
         targetUserId,
-        roleId,
+        role: roleOfMember.roleId,
       },
     });
 

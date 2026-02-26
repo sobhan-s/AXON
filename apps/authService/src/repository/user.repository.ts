@@ -103,6 +103,13 @@ export class UserRepository {
               description: true,
             },
           },
+          project: {
+            select: {
+              id: true,
+              name: true,
+              slug: true,
+            },
+          },
         },
         orderBy: { addedAt: 'asc' },
       });
@@ -113,7 +120,7 @@ export class UserRepository {
   }
 
   async addUsersToOrganizations(
-    userId: number,
+    addedBy: number,
     orgId: number,
     data: {
       username: string;
@@ -123,7 +130,7 @@ export class UserRepository {
     },
   ) {
     try {
-      logger.info('creating user and add to the organizations in repository');
+      logger.info('Creating user and adding to organization');
 
       return prisma.$transaction(async (tx) => {
         const createdUser = await tx.user.create({
@@ -145,7 +152,7 @@ export class UserRepository {
           data: {
             organizationId: orgId,
             userId: createdUser.id,
-            addedBy: userId,
+            addedBy: addedBy,
             roleId: data.roleId,
           },
         });
@@ -153,32 +160,28 @@ export class UserRepository {
         return createdUser;
       });
     } catch (error) {
-      logger.error('Error in creating user in admin level', { error });
+      logger.error('Error creating user at admin level', { error });
       throw new ApiError(
         500,
-        'Database error while creating user in admin level',
+        'Database error while creating user at admin level',
       );
     }
   }
 
   async removeUsersToOrganizations(userId: number, orgId: number) {
     try {
-      logger.info('Remove users from the organization and remove the users');
+      logger.info('Removing user from organization');
 
       return await prisma.$transaction(async (tx) => {
-        await tx.projectTeamMember.delete({
+        await tx.projectTeamMember.deleteMany({
           where: {
-            organizationId_userId: {
-              organizationId: orgId,
-              userId,
-            },
+            userId: userId,
+            organizationId: orgId,
           },
         });
 
         const deletedUser = await tx.user.delete({
-          where: {
-            id: userId,
-          },
+          where: { id: userId },
           select: {
             id: true,
             username: true,
@@ -189,62 +192,52 @@ export class UserRepository {
         return deletedUser;
       });
     } catch (error) {
-      logger.error('Error in removing the user from the admin level', {
-        error,
-      });
+      logger.error('Error removing user from organization', { error });
       throw new ApiError(
         500,
-        'Database error while removing the user from the admin level',
+        'Database error while removing user from organization',
       );
     }
   }
 
   async getParticularUser(userId: number) {
     try {
-      logger.info('get a particular user info');
+      logger.info('Fetching particular user info');
 
-      return await prisma.$transaction(async (tx) => {
-        return await tx.user.findUnique({
-          where: {
-            id: userId,
-          },
-          select: {
-            username: true,
-            email: true,
-            organizationId: true,
-            avatarUrl: true,
-            isActive: true,
-            organization: {
-              select: {
-                name: true,
-                description: true,
-                status: true,
-                teamMembers: {
-                  select: {
-                    role: {
-                      select: {
-                        name: true,
-                      },
-                    },
-                    user: {
-                      select: {
-                        email: true,
-                        username: true,
-                        isActive: true,
-                      },
+      return await prisma.user.findUnique({
+        where: { id: userId },
+        select: {
+          username: true,
+          email: true,
+          organizationId: true,
+          avatarUrl: true,
+          isActive: true,
+          organization: {
+            select: {
+              name: true,
+              description: true,
+              status: true,
+              teamMembers: {
+                select: {
+                  role: {
+                    select: { name: true },
+                  },
+                  user: {
+                    select: {
+                      email: true,
+                      username: true,
+                      isActive: true,
                     },
                   },
                 },
               },
             },
           },
-        });
+        },
       });
     } catch (error) {
-      logger.error('Error in featching user profile', {
-        error,
-      });
-      throw new ApiError(500, 'Database error while featching user profile');
+      logger.error('Error fetching user profile', { error });
+      throw new ApiError(500, 'Database error while fetching user profile');
     }
   }
 
@@ -255,16 +248,15 @@ export class UserRepository {
       username: string;
       isActive: boolean;
       roleId: number;
+      projectId?: number;
     }>,
   ) {
     try {
-      logger.info('update userDetails');
+      logger.info('Updating user details at admin level');
 
       return await prisma.$transaction(async (tx) => {
         const updatedUser = await tx.user.update({
-          where: {
-            email: data.email,
-          },
+          where: { email: data.email },
           data: {
             username: data.username,
             isActive: data.isActive,
@@ -277,28 +269,36 @@ export class UserRepository {
           },
         });
 
-        if (data.roleId && organizationId) {
-          await tx.projectTeamMember.update({
-            where: {
-              organizationId_userId: {
-                organizationId: organizationId,
-                userId: updatedUser.id,
+        if (data.roleId) {
+          if (data.projectId) {
+            await tx.projectTeamMember.update({
+              where: {
+                projectId_userId: {
+                  projectId: data.projectId,
+                  userId: updatedUser.id,
+                },
               },
-            },
-            data: {
-              roleId: data.roleId,
-            },
-          });
+              data: { roleId: data.roleId },
+            });
+          } else {
+            await tx.projectTeamMember.updateMany({
+              where: {
+                userId: updatedUser.id,
+                organizationId: organizationId,
+                projectId: null,
+              },
+              data: { roleId: data.roleId },
+            });
+          }
         }
+
         return updatedUser;
       });
     } catch (error) {
-      logger.error('Error in updating the user details in admin level', {
-        error,
-      });
+      logger.error('Error updating user details at admin level', { error });
       throw new ApiError(
         500,
-        'Database error while updating the user details in admin level',
+        'Database error while updating user details at admin level',
       );
     }
   }

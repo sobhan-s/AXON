@@ -10,11 +10,8 @@ export async function requireSuperAdmin(
   res: Response,
   next: NextFunction,
 ) {
-  // console.log('`11111111111111111111');
-
   try {
     const userId = (req as any).user?.id;
-    console.log(userId);
 
     if (!userId) {
       throw new ApiError(401, 'Unauthorized');
@@ -42,7 +39,6 @@ export async function requireOrgAccess(
     const organizationId = Number(
       req.params.orgId || req.body.orgId || (req.query.orgId as string),
     );
-    // console.log('--------------', organizationId);
 
     if (!organizationId) {
       throw new ApiError(400, 'Organization ID required');
@@ -97,36 +93,6 @@ export async function requireProjectAccess(
   }
 }
 
-export function requireModuleAccess() {
-  return async (req: Request, res: Response, next: NextFunction) => {
-    try {
-      const userId = (req as any).user?.id;
-      const moduleId = parseInt(
-        req.params.moduleId ||
-          req.body.moduleId ||
-          (req.query.moduleId as string),
-      );
-
-      if (!moduleId) {
-        throw new ApiError(400, 'Module ID required');
-      }
-
-      const canAccess = await permissionService.canAccessModule(
-        userId,
-        moduleId,
-      );
-
-      if (!canAccess) {
-        throw new ApiError(403, 'Access denied to this module');
-      }
-
-      next();
-    } catch (error) {
-      next(error);
-    }
-  };
-}
-
 export function requirePermission(permission: string) {
   return async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -147,13 +113,14 @@ export function requirePermission(permission: string) {
           }
 
           allowed = await permissionService.isOrgAdmin(userId, organizationId);
-          console.log(allowed);
           break;
         }
 
-        case 'create_module':
+        // REMOVED: case 'create_module' — Module no longer exists
         case 'update_project':
-        case 'delete_project': {
+        case 'delete_project':
+        case 'manage_project_team':
+        case 'archive_project': {
           projectId = parseInt(
             req.params.projectId ||
               req.body.projectId ||
@@ -173,25 +140,34 @@ export function requirePermission(permission: string) {
         }
 
         case 'create_task': {
-          const moduleId = parseInt(req.body.moduleId);
-          if (!moduleId) {
-            throw new ApiError(400, 'Module ID required');
+          // CHANGED: was moduleId — tasks now belong directly to project
+          projectId = parseInt(
+            req.params.projectId ||
+              req.body.projectId ||
+              (req as any).projectId,
+          );
+
+          if (!projectId) {
+            throw new ApiError(400, 'Project ID required');
           }
 
-          allowed = await permissionService.canCreateTask(userId, moduleId);
+          allowed = await permissionService.canCreateTask(userId, projectId);
           break;
         }
 
         case 'upload_asset': {
-          const uploadModuleId = parseInt(req.body.moduleId);
-          if (!uploadModuleId) {
-            throw new ApiError(400, 'Module ID required');
+          // CHANGED: was moduleId — uploads now scoped to project
+          projectId = parseInt(
+            req.params.projectId ||
+              req.body.projectId ||
+              (req as any).projectId,
+          );
+
+          if (!projectId) {
+            throw new ApiError(400, 'Project ID required');
           }
 
-          allowed = await permissionService.canUploadAsset(
-            userId,
-            uploadModuleId,
-          );
+          allowed = await permissionService.canUploadAsset(userId, projectId);
           break;
         }
 

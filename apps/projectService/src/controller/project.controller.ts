@@ -88,6 +88,40 @@ export const updateProject: RequestHandler = asyncHandler(
   },
 );
 
+export const addManager: RequestHandler = asyncHandler(
+  async (req: Request, res: Response) => {
+    logger.info('Adding a manager to the project has been stated');
+
+    const userId = (req as any).user?.id;
+    const targetUserId = req.body.targetUserId;
+    const projectId = Number(req.params.projectId);
+    const organizationId = Number(req.params.orgId);
+    const ip = req.ip!;
+    const userAgent = req.get('user-agent')!;
+
+    const result = await projectService.assignManagerToProject(
+      projectId,
+      organizationId,
+      targetUserId,
+      userId,
+      ip,
+      userAgent,
+    );
+
+    logger.info('adding a manager to the project successfully completed');
+
+    res
+      .status(200)
+      .json(
+        new ApiResponse(
+          200,
+          result,
+          'adding a manager to the project successfully completed',
+        ),
+      );
+  },
+);
+
 export const archiveProject: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const userId = (req as any).user?.id;
@@ -112,15 +146,15 @@ export const deleteProject: RequestHandler = asyncHandler(
 
 export const addTeamMember: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
+    logger.info('Adding team member controlle has been statend ');
     const userId = (req as any).user?.id;
     const projectId = Number(req.params.projectId);
-    const { userId: targetUserId, roleId } = req.body;
+    const targetUserId = req.body.targetUserId;
 
     const result = await projectService.addTeamMember(
       projectId,
       userId,
       targetUserId,
-      roleId,
     );
 
     res

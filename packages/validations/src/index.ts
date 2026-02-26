@@ -18,7 +18,7 @@ import {
   assignAdminSchema,
   updateOrgsSchema,
   organizationStatusSchema,
-  addedToOrg
+  addedToOrg,
 } from './orgs/orgs.validations.js';
 
 import {
@@ -46,5 +46,5 @@ export {
   ProjectStatusSchema,
   addUserToOrg,
   updateUserAdminLevelSchema,
-  addedToOrg
+  addedToOrg,
 };

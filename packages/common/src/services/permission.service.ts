@@ -11,7 +11,6 @@ export class PermissionService {
         isActive: true,
       },
     });
-    console.log(user);
 
     if (!user) return false;
 
@@ -64,18 +63,6 @@ export class PermissionService {
     permissionName: string,
   ): Promise<boolean> {
     if (await this.isSuperAdmin(userId)) {
-      const project = await prisma.project.findUnique({
-        where: { id: projectId },
-      });
-
-      if (project?.organizationId) {
-        logger.warn('Super admin attempted to access org internal resource', {
-          userId,
-          projectId,
-        });
-        return false;
-      }
-
       return true;
     }
 
@@ -112,13 +99,10 @@ export class PermissionService {
     const membership = await prisma.projectTeamMember.findFirst({
       where: {
         userId,
-        organizationId: organizationId,
+        organizationId,
         role: { name: 'ADMIN' },
       },
     });
-
-    // console.log(!membership);
-    console.log(!!membership);
 
     return !!membership;
   }
@@ -146,51 +130,8 @@ export class PermissionService {
     return await this.hasPermission(userId, projectId, 'delete_project');
   }
 
-  async canAccessModule(userId: number, moduleId: number): Promise<boolean> {
-    const module = await prisma.module.findUnique({
-      where: { id: moduleId },
-      include: { project: true },
-    });
-
-    if (!module) return false;
-
-    return await this.isProjectMember(userId, module.projectId);
-  }
-
-  async canManageModule(userId: number, moduleId: number): Promise<boolean> {
-    const module = await prisma.module.findUnique({
-      where: { id: moduleId },
-      include: { project: true },
-    });
-
-    if (!module) return false;
-
-    const hasPermission = await this.hasPermission(
-      userId,
-      module.projectId,
-      'update_module',
-    );
-
-    if (!hasPermission) return false;
-
-    const userRole = await this.getUserProjectRole(userId, module.projectId);
-
-    if (userRole?.role.name === 'MANAGER') {
-      return module.assignedTo === userId;
-    }
-
-    return userRole?.role.name === 'ADMIN';
-  }
-
-  async canCreateTask(userId: number, moduleId: number): Promise<boolean> {
-    const module = await prisma.module.findUnique({
-      where: { id: moduleId },
-      include: { project: true },
-    });
-
-    if (!module) return false;
-
-    return await this.hasPermission(userId, module.projectId, 'create_task');
+  async canCreateTask(userId: number, projectId: number): Promise<boolean> {
+    return await this.hasPermission(userId, projectId, 'create_task');
   }
 
   async canAssignTask(
@@ -200,16 +141,13 @@ export class PermissionService {
   ): Promise<{ allowed: boolean; reason?: string }> {
     const task = await prisma.task.findUnique({
       where: { id: taskId },
-      include: {
-        module: { include: { project: true } },
-      },
     });
 
     if (!task) {
       return { allowed: false, reason: 'Task not found' };
     }
 
-    const projectId = task.module.projectId;
+    const projectId = task.projectId;
 
     const [isUserInProject, isTargetInProject] = await Promise.all([
       this.isProjectMember(userId, projectId),
@@ -230,25 +168,19 @@ export class PermissionService {
   async canUpdateTask(userId: number, taskId: number): Promise<boolean> {
     const task = await prisma.task.findUnique({
       where: { id: taskId },
-      include: {
-        module: { include: { project: true } },
-      },
     });
 
     if (!task) return false;
 
     const hasPermission = await this.hasPermission(
       userId,
-      task.module.projectId,
+      task.projectId,
       'update_task',
     );
 
     if (!hasPermission) return false;
 
-    const userRole = await this.getUserProjectRole(
-      userId,
-      task.module.projectId,
-    );
+    const userRole = await this.getUserProjectRole(userId, task.projectId);
 
     if (userRole?.role.name === 'MEMBER') {
       return task.assignedToId === userId;
@@ -260,26 +192,19 @@ export class PermissionService {
   async canDeleteTask(userId: number, taskId: number): Promise<boolean> {
     const task = await prisma.task.findUnique({
       where: { id: taskId },
-      include: {
-        module: { include: { project: true } },
-      },
     });
 
     if (!task) return false;
 
     const hasPermission = await this.hasPermission(
       userId,
-      task.module.projectId,
+      task.projectId,
       'delete_task',
     );
 
     if (!hasPermission) return false;
 
-    // LEAD can only delete tasks they created
-    const userRole = await this.getUserProjectRole(
-      userId,
-      task.module.projectId,
-    );
+    const userRole = await this.getUserProjectRole(userId, task.projectId);
 
     if (userRole?.role.name === 'LEAD') {
       return task.createdById === userId;
@@ -288,104 +213,39 @@ export class PermissionService {
     return true;
   }
 
-  async canUploadAsset(userId: number, moduleId: number): Promise<boolean> {
-    const module = await prisma.module.findUnique({
-      where: { id: moduleId },
-      include: { project: true },
-    });
-
-    if (!module) return false;
-
-    return await this.hasPermission(userId, module.projectId, 'upload_asset');
+  async canUploadAsset(userId: number, projectId: number): Promise<boolean> {
+    return await this.hasPermission(userId, projectId, 'upload_asset');
   }
 
   async canApproveAsset(userId: number, taskId: number): Promise<boolean> {
     const task = await prisma.task.findUnique({
       where: { id: taskId },
-      include: {
-        module: { include: { project: true } },
-      },
     });
 
     if (!task) return false;
 
-    return await this.hasPermission(
-      userId,
-      task.module.projectId,
-      'approve_asset',
-    );
+    return await this.hasPermission(userId, task.projectId, 'approve_asset');
   }
 
   async canRejectAsset(userId: number, taskId: number): Promise<boolean> {
     const task = await prisma.task.findUnique({
       where: { id: taskId },
-      include: {
-        module: { include: { project: true } },
-      },
     });
 
     if (!task) return false;
 
-    return await this.hasPermission(
-      userId,
-      task.module.projectId,
-      'reject_asset',
-    );
+    return await this.hasPermission(userId, task.projectId, 'reject_asset');
   }
 
   async canFinalizeAsset(userId: number, taskId: number): Promise<boolean> {
     const task = await prisma.task.findUnique({
       where: { id: taskId },
-      include: {
-        module: { include: { project: true } },
-      },
     });
 
     if (!task) return false;
 
-    return await this.hasPermission(
-      userId,
-      task.module.projectId,
-      'finalize_asset',
-    );
+    return await this.hasPermission(userId, task.projectId, 'finalize_asset');
   }
-
-  //   async canDeleteAsset(userId: number, assetId: string): Promise<boolean> {
-  //     // Get asset from MongoDB to find taskId
-  //     const { Asset } = await import('@dam/mongodb');
-
-  //     const asset = await Asset.findById(assetId);
-  //     if (!asset) return false;
-
-  //     // Get task to find project
-  //     const task = await prisma.task.findUnique({
-  //       where: { id: asset.taskId },
-  //       include: {
-  //         module: { include: { project: true } },
-  //       },
-  //     });
-
-  //     if (!task) return false;
-
-  //     const hasPermission = await this.hasPermission(
-  //       userId,
-  //       task.module.projectId,
-  //       'delete_asset',
-  //     );
-
-  //     if (!hasPermission) return false;
-
-  //     const userRole = await this.getUserProjectRole(
-  //       userId,
-  //       task.module.projectId,
-  //     );
-
-  //     if (userRole?.role.name === 'MEMBER') {
-  //       return asset.uploadedBy === userId && asset.status !== 'approved';
-  //     }
-
-  //     return true;
-  //   }
 
   async canViewOrgAnalytics(
     userId: number,

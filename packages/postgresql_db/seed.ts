@@ -59,6 +59,8 @@ async function seedRBAC() {
       console.log(`Password: ${admin.password}\n`);
     }
 
+    // ── Roles ──────────────────────────────────────────────────────────────
+    // CHANGE: Renamed REVIEWER → REVISER to match RoleType enum in schema
     const roles = await Promise.all([
       prisma.role.upsert({
         where: { name: 'ADMIN' },
@@ -75,7 +77,7 @@ async function seedRBAC() {
         create: {
           name: 'MANAGER',
           level: 2,
-          description: 'Project manager who oversees projects and modules',
+          description: 'Project manager who oversees projects',
         },
       }),
       prisma.role.upsert({
@@ -88,21 +90,21 @@ async function seedRBAC() {
         },
       }),
       prisma.role.upsert({
-        where: { name: 'MEMBER' },
-        update: {},
-        create: {
-          name: 'MEMBER',
-          level: 4,
-          description: 'Team member who executes tasks',
-        },
-      }),
-      prisma.role.upsert({
         where: { name: 'REVIEWER' },
         update: {},
         create: {
           name: 'REVIEWER',
+          level: 4,
+          description: 'REVIEWER who approves or rejects assets',
+        },
+      }),
+      prisma.role.upsert({
+        where: { name: 'MEMBER' },
+        update: {},
+        create: {
+          name: 'MEMBER',
           level: 5,
-          description: 'Reviewer who approves or rejects assets',
+          description: 'Team member who executes tasks',
         },
       }),
     ]);
@@ -110,7 +112,6 @@ async function seedRBAC() {
     console.log(`Created ${roles.length} roles`);
 
     const permissions = [
-      // Organization
       {
         name: 'view_organization',
         resource: 'organization',
@@ -129,8 +130,6 @@ async function seedRBAC() {
         action: 'manage_users',
         description: 'Manage organization users',
       },
-
-      // Project
 
       {
         name: 'create_project',
@@ -169,33 +168,6 @@ async function seedRBAC() {
         description: 'Add/remove project members',
       },
 
-      // Module
-      {
-        name: 'create_module',
-        resource: 'module',
-        action: 'create',
-        description: 'Create new modules',
-      },
-      {
-        name: 'view_module',
-        resource: 'module',
-        action: 'view',
-        description: 'View module details',
-      },
-      {
-        name: 'update_module',
-        resource: 'module',
-        action: 'update',
-        description: 'Update module details',
-      },
-      {
-        name: 'delete_module',
-        resource: 'module',
-        action: 'delete',
-        description: 'Delete modules',
-      },
-
-      // Task
       {
         name: 'create_task',
         resource: 'task',
@@ -227,7 +199,6 @@ async function seedRBAC() {
         description: 'Assign tasks to team members',
       },
 
-      // Asset
       {
         name: 'upload_asset',
         resource: 'asset',
@@ -271,7 +242,6 @@ async function seedRBAC() {
         description: 'Mark assets as final',
       },
 
-      // Analytics
       {
         name: 'view_org_analytics',
         resource: 'analytics',
@@ -285,7 +255,6 @@ async function seedRBAC() {
         description: 'View project analytics',
       },
 
-      // Time
       {
         name: 'log_time',
         resource: 'time',
@@ -311,21 +280,16 @@ async function seedRBAC() {
 
     console.log(`Created ${createdPermissions.length} permissions`);
 
-    const [adminRole, managerRole, leadRole, memberRole, reviewerRole] = roles;
+    const [adminRole, managerRole, leadRole, reviserRole, memberRole] = roles;
 
     const adminPermissions = createdPermissions;
 
     const managerPermissions = createdPermissions.filter((p) =>
       [
-        // 'view_organization',
         'view_project',
         'update_project',
         'archive_project',
         'manage_project_team',
-        'create_module',
-        'view_module',
-        'update_module',
-        'delete_module',
         'create_task',
         'view_task',
         'update_task',
@@ -345,9 +309,7 @@ async function seedRBAC() {
 
     const leadPermissions = createdPermissions.filter((p) =>
       [
-        // 'view_organization',
         'view_project',
-        'view_module',
         'create_task',
         'view_task',
         'update_task',
@@ -363,9 +325,7 @@ async function seedRBAC() {
 
     const memberPermissions = createdPermissions.filter((p) =>
       [
-        // 'view_organization',
         'view_project',
-        'view_module',
         'view_task',
         'update_task',
         'assign_task',
@@ -377,11 +337,9 @@ async function seedRBAC() {
       ].includes(p.name),
     );
 
-    const reviewerPermissions = createdPermissions.filter((p) =>
+    const reviserPermissions = createdPermissions.filter((p) =>
       [
-        // 'view_organization',
         'view_project',
-        'view_module',
         'view_task',
         'assign_task',
         'view_asset',
@@ -408,8 +366,8 @@ async function seedRBAC() {
         roleId: memberRole.id,
         permissionId: p.id,
       })),
-      ...reviewerPermissions.map((p) => ({
-        roleId: reviewerRole.id,
+      ...reviserPermissions.map((p) => ({
+        roleId: reviserRole.id,
         permissionId: p.id,
       })),
     ];
@@ -428,7 +386,7 @@ async function seedRBAC() {
     console.log(`MANAGER: ${managerPermissions.length} permissions`);
     console.log(`LEAD: ${leadPermissions.length} permissions`);
     console.log(`MEMBER: ${memberPermissions.length} permissions`);
-    console.log(`REVIEWER: ${reviewerPermissions.length} permissions`);
+    console.log(`REVIEWER: ${reviserPermissions.length} permissions`);
 
     console.log('\n RBAC seeding complete!');
   } catch (error) {

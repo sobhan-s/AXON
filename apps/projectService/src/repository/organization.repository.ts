@@ -67,18 +67,6 @@ export class OrganizationRepositories {
   ) {
     try {
       return await prisma.$transaction(async (tx) => {
-        const orgsInProjectMember = await tx.projectTeamMember.findFirst({
-          where: {
-            organizationId: organizationId,
-          },
-          select: {
-            id: true,
-          },
-        });
-
-        console.log(orgsInProjectMember);
-        console.log(adminId);
-
         const result = await tx.organization.update({
           where: { id: organizationId },
           data: { assignedTo: adminId },
@@ -89,51 +77,38 @@ export class OrganizationRepositories {
           data: { organizationId: organizationId },
         });
 
-        // await tx.projectTeamMember.upsert({
-        //   where: {
-        //     id: orgsInProjectMember?.id,
-        //   },
-        //   update: {
-        //     userId: adminId,
-        //   },
-        //   create: {
-        //     organizationId: organizationId,
-        //     userId: adminId,
-        //     addedBy: superAdminId,
-        //     roleId: 1,
-        //   },
-        // });
-        if (orgsInProjectMember?.id) {
+        const existingMembership = await tx.projectTeamMember.findFirst({
+          where: {
+            userId: adminId,
+            organizationId: organizationId,
+            projectId: null,
+          },
+          select: { id: true },
+        });
+
+        if (existingMembership) {
           await tx.projectTeamMember.update({
-            where: {
-              id: orgsInProjectMember?.id,
-            },
+            where: { id: existingMembership.id },
+            data: { roleId: 1 },
+          });
+        } else {
+          await tx.projectTeamMember.create({
             data: {
+              organizationId: organizationId,
               userId: adminId,
+              addedBy: superAdminId,
+              roleId: 1,
             },
           });
-
-          return result;
         }
-
-        await tx.projectTeamMember.create({
-          data: {
-            organizationId: organizationId,
-            userId: adminId,
-            addedBy: superAdminId,
-            roleId: 1,
-          },
-        });
 
         return result;
       });
     } catch (error: any) {
       logger.error('Error assigning admin to organization', { error });
-
       if (error.code === 'P2025') {
         throw new ApiError(404, 'Organization or User not found');
       }
-
       throw new ApiError(
         500,
         'Database error while assigning the admin to organization',
@@ -255,29 +230,39 @@ export class OrganizationRepositories {
   async unAssignAdmin(organizationId: number, assignAdmin: number) {
     try {
       logger.info('Un assign admin from the organizations in reppo');
-      const result = await prisma.organization.update({
-        where: {
-          id: organizationId,
-        },
-        data: {
-          assignedTo: null,
-        },
+
+      return prisma.$transaction(async (tx) => {
+        const result = await tx.organization.update({
+          where: {
+            id: organizationId,
+          },
+          data: {
+            assignedTo: null,
+          },
+        });
+
+        if (result.assignedTo) {
+          throw new ApiError(403, 'From organization assign id not removed ');
+        }
+
+        await tx.user.update({
+          where: {
+            id: assignAdmin,
+          },
+          data: {
+            organizationId: null,
+          },
+        });
+
+        await tx.projectTeamMember.deleteMany({
+          where: {
+            organizationId: organizationId,
+            userId: assignAdmin,
+          },
+        });
+
+        return result;
       });
-
-      if (result.assignedTo) {
-        throw new ApiError(403, 'From organization assign id not removed ');
-      }
-
-      await prisma.user.update({
-        where: {
-          id: assignAdmin,
-        },
-        data: {
-          organizationId: null,
-        },
-      });
-
-      return result;
     } catch (error) {
       logger.error('Error in unassign form organizations', { error });
       throw new ApiError(

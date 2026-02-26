@@ -1,4 +1,6 @@
 import {
+  addManager,
+  addTeamMember,
   createProject,
   getAllProjects,
   getMyProjects,
@@ -31,6 +33,15 @@ router.get('/:orgId/all', authMiddleware, requireOrgAccess, getAllProjects);
 // user level , all project i am member of
 router.get('/my-projects', authMiddleware, getMyProjects);
 
+router
+  .route('/assignManager/:orgId/:projectId')
+  .patch(
+    authMiddleware,
+    requireOrgAccess,
+    requirePermission('manage_org_users'),
+    addManager,
+  );
+
 router.put(
   '/:projectId',
   authMiddleware,
@@ -39,5 +50,14 @@ router.put(
   validate(updateProjectSchema),
   updateProject,
 );
+
+router
+  .route('/addTeamMembers/:orgId/:projectId')
+  .post(
+    authMiddleware,
+    requireOrgAccess,
+    requirePermission('manage_project_team'),
+    addTeamMember,
+  );
 
 export default router;

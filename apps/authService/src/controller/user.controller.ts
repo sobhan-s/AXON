@@ -197,5 +197,5 @@ export {
   addUsersToOrganizations,
   removeUsersToOrganizations,
   getParticularUser,
-  updateUserDetailInOrg
+  updateUserDetailInOrg,
 };

@@ -14,21 +14,9 @@ export class ProjectRepository {
     },
   ) {
     try {
-      logger.info(' Creating organization in database', {
-        adminId,
-        data,
-      });
+      logger.info('Creating project in database', { adminId, data });
 
       return await prisma.$transaction(async (tx) => {
-        const orgsInProjectMember = await tx.projectTeamMember.findFirst({
-          where: {
-            organizationId: organizationId,
-          },
-          select: {
-            id: true,
-          },
-        });
-
         const createProject = await tx.project.create({
           data: {
             name: data.name,
@@ -39,14 +27,32 @@ export class ProjectRepository {
           },
         });
 
-        await tx.projectTeamMember.update({
+        const existingMembership = await tx.projectTeamMember.findFirst({
           where: {
-            id: orgsInProjectMember?.id,
+            userId: adminId,
+            organizationId: organizationId,
+            projectId: null,
           },
-          data: {
-            projectId: createProject.id,
-          },
+          select: { id: true },
         });
+
+        if (existingMembership) {
+          // Admin already has an org-level record — update it with the new projectId
+          await tx.projectTeamMember.update({
+            where: { id: existingMembership.id },
+            data: { projectId: createProject.id },
+          });
+        } else {
+          await tx.projectTeamMember.create({
+            data: {
+              organizationId: organizationId,
+              projectId: createProject.id,
+              userId: adminId,
+              addedBy: adminId,
+              roleId: 1,
+            },
+          });
+        }
 
         return createProject;
       });
@@ -61,7 +67,7 @@ export class ProjectRepository {
 
   async findProjectBySlugs(organizationId: number, slug: string) {
     try {
-      logger.info('Find by project by slugs serice called . . .');
+      logger.info('Finding project by slug');
 
       return await prisma.project.findUnique({
         where: {
@@ -93,7 +99,8 @@ export class ProjectRepository {
           },
           _count: {
             select: {
-              modules: true,
+              // FIXED: removed modules (model deleted) — replaced with tasks
+              tasks: true,
               teamMembers: true,
             },
           },
@@ -118,7 +125,8 @@ export class ProjectRepository {
           },
           _count: {
             select: {
-              modules: true,
+              // FIXED: removed modules — replaced with tasks
+              tasks: true,
               teamMembers: true,
             },
           },
@@ -136,9 +144,7 @@ export class ProjectRepository {
       return await prisma.project.findMany({
         where: {
           teamMembers: {
-            some: {
-              userId: userId,
-            },
+            some: { userId },
           },
         },
         include: {
@@ -150,7 +156,8 @@ export class ProjectRepository {
           },
           _count: {
             select: {
-              modules: true,
+              // FIXED: removed modules — replaced with tasks
+              tasks: true,
               teamMembers: true,
             },
           },
@@ -171,7 +178,6 @@ export class ProjectRepository {
       status?: ProjectStatus;
       startDate?: Date;
       endDate?: Date;
-      assignedTo?: number;
     }>,
   ) {
     try {
@@ -196,6 +202,61 @@ export class ProjectRepository {
     } catch (error) {
       logger.error('Error updating project', { error });
       throw new ApiError(500, 'Error updating project');
+    }
+  }
+
+  async assignManagerToProject(
+    projectId: number,
+    organizationId: number,
+    managerId: number,
+    adminUserId: number,
+  ) {
+    try {
+      logger.info('Assigning manager to project in repository');
+
+      return await prisma.$transaction(async (tx) => {
+        const updatedProject = await tx.project.update({
+          where: { id: projectId },
+          data: { assignedTo: managerId },
+          select: {
+            id: true,
+            assignedTo: true,
+            name: true,
+            organizationId: true,
+          },
+        });
+
+        const existingMembership = await tx.projectTeamMember.findFirst({
+          where: {
+            userId: managerId,
+            organizationId: organizationId,
+            projectId: null,
+          },
+          select: { id: true },
+        });
+
+        if (existingMembership) {
+          await tx.projectTeamMember.update({
+            where: { id: existingMembership.id },
+            data: { projectId },
+          });
+        } else {
+          await tx.projectTeamMember.create({
+            data: {
+              organizationId,
+              projectId,
+              userId: managerId,
+              addedBy: adminUserId,
+              roleId: 2,
+            },
+          });
+        }
+
+        return updatedProject;
+      });
+    } catch (error) {
+      logger.error('Error assigning manager to project', { error });
+      throw new ApiError(500, 'Error assigning manager to project');
     }
   }
 
@@ -228,27 +289,41 @@ export class ProjectRepository {
   async addTeamMember(
     projectId: number,
     userId: number,
-    roleId: number,
-    addedBy: number,
     organizationId: number,
+    addedBy: number,
   ) {
     try {
-      return await prisma.projectTeamMember.create({
-        data: {
-          projectId,
-          userId,
-          roleId,
-          addedBy,
-          organizationId,
-        },
-        include: {
-          user: {
-            select: { id: true, email: true, username: true },
+      return await prisma.$transaction(async (tx) => {
+        const existingOrgMembership = await tx.projectTeamMember.findFirst({
+          where: {
+            userId,
+            organizationId,
+            projectId: null,
           },
-          role: {
-            select: { id: true, name: true, level: true },
-          },
-        },
+          select: { id: true, roleId: true },
+        });
+
+        if (existingOrgMembership) {
+          return await tx.projectTeamMember.update({
+            where: { id: existingOrgMembership.id },
+            data: { projectId },
+          });
+        }
+
+        // const anyMembership = await tx.projectTeamMember.findFirst({
+        //   where: { userId, organizationId },
+        //   select: { roleId: true },
+        // });
+
+        // return await tx.projectTeamMember.create({
+        //   data: {
+        //     organizationId,
+        //     projectId,
+        //     userId,
+        //     addedBy,
+        //     roleId: anyMembership!.roleId,
+        //   },
+        // });
       });
     } catch (error) {
       logger.error('Error adding team member', { error });
@@ -258,10 +333,12 @@ export class ProjectRepository {
 
   async removeTeamMember(projectId: number, userId: number) {
     try {
-      return await prisma.projectTeamMember.deleteMany({
+      return await prisma.projectTeamMember.delete({
         where: {
-          projectId,
-          userId,
+          projectId_userId: {
+            projectId,
+            userId,
+          },
         },
       });
     } catch (error) {
@@ -308,6 +385,60 @@ export class ProjectRepository {
       return !!member;
     } catch (error) {
       return false;
+    }
+  }
+
+  async isProjectExist(projectId: number) {
+    try {
+      return await prisma.project.findUnique({
+        where: { id: projectId },
+        select: {
+          id: true,
+          name: true,
+        },
+      });
+    } catch (error) {
+      logger.error('Error finding project', { error });
+      throw new ApiError(500, 'Error finding project');
+    }
+  }
+
+  async checkRoleInProject(projectId: number, userId: number) {
+    try {
+      return await prisma.projectTeamMember.findUnique({
+        where: {
+          projectId_userId: {
+            projectId,
+            userId,
+          },
+        },
+        select: {
+          role: {
+            select: {
+              name: true,
+              level: true,
+            },
+          },
+        },
+      });
+    } catch (error) {
+      logger.error('Error checking role in project', { error });
+      throw new ApiError(500, 'Error checking role in project');
+    }
+  }
+
+  async checkRole(organizationId: number, userId: number) {
+    try {
+      return await prisma.projectTeamMember.findFirst({
+        where: {
+          userId,
+          organizationId,
+          projectId: null,
+        },
+      });
+    } catch (error) {
+      logger.error('Error in finding check role');
+      throw new ApiError(500, 'Error in finding check role');
     }
   }
 }

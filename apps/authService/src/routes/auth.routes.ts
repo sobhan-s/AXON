@@ -15,7 +15,7 @@ import { authMiddleware, rateLimiter } from '@dam/middlewares';
 const router: IRouter = Router();
 
 router.post('/register', rateLimiter(5, 15), register);
-router.post('/login', rateLimiter(5, 15), login);
+router.post('/login', login);
 router.post('/verify-email', verifyEmail);
 router.post(
   '/resend-verification',

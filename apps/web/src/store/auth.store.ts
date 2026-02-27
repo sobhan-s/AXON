@@ -15,6 +15,16 @@ export interface AuthUser {
   lastLoginAt: Date | null;
   createdAt: Date;
   updatedAt: Date;
+  organization: {
+    id: number;
+    name: string;
+    slug: string;
+  };
+  role: {
+    id: number;
+    name: string;
+    level: number;
+  };
 }
 
 interface AuthState {
@@ -30,6 +40,8 @@ interface AuthState {
   logout: () => Promise<void>;
   fetchMe: () => Promise<void>;
 }
+
+console.log();
 
 export const useAuthStore = create<AuthState>()(
   persist(
@@ -53,6 +65,7 @@ export const useAuthStore = create<AuthState>()(
             withCredentials: true,
           });
           const user = data?.data ?? data;
+          console.log('4444444444444', user);
           set({ user, isAuthenticated: true });
         } catch {
           set({ user: null, isAuthenticated: false });

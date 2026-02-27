@@ -24,6 +24,63 @@ export class AuthRepository {
       throw new ApiError(500, 'Database error while fetching user');
     }
   }
+  
+  async getFindUserById(userId: number) {
+    try {
+      const user = await prisma.user.findUnique({
+        where: { id: userId },
+        select: {
+          id: true,
+          email: true,
+          username: true,
+          organizationId: true,
+          avatarUrl: true,
+          isEmailVerified: true,
+          emailVerifiedAt: true,
+          isActive: true,
+          lastLoginAt: true,
+          createdAt: true,
+          updatedAt: true,
+           organization: {
+            select: {
+              id: true,
+              name: true,
+              slug: true,
+            },
+          },
+           projectTeamMembers: {
+            take: 1,
+            select: {
+              role: {
+                select: {
+                  id: true,
+                  name: true,
+                  level: true,
+                },
+              },
+            },
+          },
+        },
+      });
+
+      if (!user) return null;
+
+      const role =
+        user.organizationId === null
+          ? { id: 0, name: 'SUPER_ADMIN', level: 0 }
+          : (user.projectTeamMembers[0]?.role ?? null);
+
+      const { projectTeamMembers, ...rest } = user;
+
+      return {
+        ...rest,
+        role,
+      };
+    } catch (error) {
+      logger.error('Error fetching user profile', { error });
+      throw new ApiError(500, 'Error fetching user profile');
+    }
+  }
 
   async createUser(data: {
     email: string;

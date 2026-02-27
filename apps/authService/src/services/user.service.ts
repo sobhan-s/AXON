@@ -19,7 +19,7 @@ export class userService {
   async getMe(userid: number) {
     logger.info('Fetching current user', { userid });
 
-    const user = this.authRepo.findUserById(userid);
+    const user = await this.authRepo.getFindUserById(userid);
 
     if (!user) {
       throw new ApiError(404, 'User not found');

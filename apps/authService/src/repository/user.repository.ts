@@ -180,7 +180,7 @@ export class UserRepository {
           },
         });
 
-        const deletedUser = await tx.user.delete({
+        const deletedUser = await tx.user.delete({ 
           where: { id: userId },
           select: {
             id: true,

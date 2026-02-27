@@ -10,7 +10,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { FormAlert, type AlertState } from '@/components/form-alert';
-import { AUTH_ENDPOINTS } from '@/lib/api-endpints';
+import { AUTH_ENDPOINTS, USER_ENDPOINTS } from '@/lib/api-endpints';
 import { useAuthStore } from '@/store/auth.store';
 
 const schema = z.object({
@@ -28,6 +28,8 @@ export function LoginForm({
   const setUser = useAuthStore((s) => s.setUser);
   const startTokenRefresh = useAuthStore((s) => s.startTokenRefresh);
   const fetchMe = useAuthStore((s) => s.fetchMe);
+
+  console.log('2222222222', fetchMe);
 
   const abortRef = useRef<AbortController | null>(null);
   const [alert, setAlert] = useState<AlertState>(null);
@@ -51,9 +53,13 @@ export function LoginForm({
         { email: values.email, password: values.password },
         { withCredentials: true, signal: abortRef.current.signal },
       );
+      
+      const userData = await axios.get(USER_ENDPOINTS.GET_ME, {
+        withCredentials: true,
+      });
+      console.log(userData.data?.data);
 
-      const user = data?.data?.user ?? data?.user ?? data?.data ?? null;
-      if (user) setUser(user);
+      if (userData) setUser(userData.data?.data);
       else await fetchMe();
 
       startTokenRefresh();

@@ -9,7 +9,7 @@ const app: Express = express();
 
 app.use(
   cors({
-    origin: ['http://localhost:3000', '*'],
+    origin: ['http://localhost:5173', '*'],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
     allowedHeaders: ['Content-Type', 'Authorization'],
@@ -22,6 +22,13 @@ app.use(cookieparser());
 app.use(errorMiddleware);
 app.set('trust proxy', 1);
 
+app.get('/hlth', (req, res) => {
+  res.status(200).json({
+    status: 'OK',
+    service: 'project-service',
+    currentTime: `${new Date().toISOString()}`,
+  });
+});
 import organizationRoutes from './routes/organization.routes.js';
 import projectRouter from './routes/project.routes.js';
 

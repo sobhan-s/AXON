@@ -1,26 +1,15 @@
-// "use client"
-
 import * as React from 'react';
 import {
-  BarChartIcon,
-  CameraIcon,
-  ClipboardListIcon,
-  DatabaseIcon,
-  FileCodeIcon,
-  FileIcon,
-  FileTextIcon,
-  FolderIcon,
-  HelpCircleIcon,
   LayoutDashboardIcon,
-  ListIcon,
-  SearchIcon,
-  SettingsIcon,
   UsersIcon,
+  FolderIcon,
+  BarChartIcon,
+  SettingsIcon,
+  BuildingIcon,
+  CheckSquareIcon,
+  ClipboardListIcon,
 } from 'lucide-react';
-
-import { NavDocuments } from '@/components/nav-documents';
 import { NavMain } from '@/components/nav-main';
-import { NavSecondary } from '@/components/nav-secondary';
 import { NavUser } from '@/components/nav-user';
 import {
   Sidebar,
@@ -31,125 +20,65 @@ import {
   SidebarMenuButton,
   SidebarMenuItem,
 } from '@/components/ui/sidebar';
+import { useAuthStore } from '@/store/auth.store';
 
-const data = {
-  user: {
-    name: 'shadcn',
-    email: 'm@example.com',
-    avatar: '/avatars/shadcn.jpg',
-  },
-  navMain: [
-    {
-      title: 'Dashboard',
-      url: '#',
-      icon: LayoutDashboardIcon,
-    },
-    {
-      title: 'Lifecycle',
-      url: '#',
-      icon: ListIcon,
-    },
-    {
-      title: 'Analytics',
-      url: '#',
-      icon: BarChartIcon,
-    },
-    {
-      title: 'Projects',
-      url: '#',
-      icon: FolderIcon,
-    },
-    {
-      title: 'Team',
-      url: '#',
-      icon: UsersIcon,
-    },
-  ],
-  navClouds: [
-    {
-      title: 'Capture',
-      icon: CameraIcon,
-      isActive: true,
-      url: '#',
-      items: [
-        {
-          title: 'Active Proposals',
-          url: '#',
-        },
-        {
-          title: 'Archived',
-          url: '#',
-        },
-      ],
-    },
-    {
-      title: 'Proposal',
-      icon: FileTextIcon,
-      url: '#',
-      items: [
-        {
-          title: 'Active Proposals',
-          url: '#',
-        },
-        {
-          title: 'Archived',
-          url: '#',
-        },
-      ],
-    },
-    {
-      title: 'Prompts',
-      icon: FileCodeIcon,
-      url: '#',
-      items: [
-        {
-          title: 'Active Proposals',
-          url: '#',
-        },
-        {
-          title: 'Archived',
-          url: '#',
-        },
-      ],
-    },
-  ],
-  navSecondary: [
-    {
-      title: 'Settings',
-      url: '#',
-      icon: SettingsIcon,
-    },
-    {
-      title: 'Get Help',
-      url: '#',
-      icon: HelpCircleIcon,
-    },
-    {
-      title: 'Search',
-      url: '#',
-      icon: SearchIcon,
-    },
-  ],
-  documents: [
-    {
-      name: 'Data Library',
-      url: '#',
-      icon: DatabaseIcon,
-    },
-    {
-      name: 'Reports',
-      url: '#',
-      icon: ClipboardListIcon,
-    },
-    {
-      name: 'Word Assistant',
-      url: '#',
-      icon: FileIcon,
-    },
-  ],
-};
+const NAV_BY_ROLE: Record<string, { title: string; url: string; icon: any }[]> =
+  {
+    SUPER_ADMIN: [
+      { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },
+      { title: 'Organizations', url: '/dashboard/orgs', icon: BuildingIcon },
+      { title: 'All Projects', url: '/dashboard/projects', icon: FolderIcon },
+      { title: 'All Users', url: '/dashboard/users', icon: UsersIcon },
+      { title: 'Analytics', url: '/dashboard/analytics', icon: BarChartIcon },
+    ],
+    ADMIN: [
+      { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },
+      { title: 'User Management', url: '/dashboard/users', icon: UsersIcon },
+      { title: 'Projects', url: '/dashboard/projects', icon: FolderIcon },
+      { title: 'Analytics', url: '/dashboard/analytics', icon: BarChartIcon },
+      { title: 'Org Settings', url: '/dashboard/settings', icon: SettingsIcon },
+    ],
+    MANAGER: [
+      { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },
+      { title: 'My Projects', url: '/dashboard/projects', icon: FolderIcon },
+      { title: 'Tasks', url: '/dashboard/tasks', icon: CheckSquareIcon },
+      { title: 'Team', url: '/dashboard/team', icon: UsersIcon },
+      { title: 'Analytics', url: '/dashboard/analytics', icon: BarChartIcon },
+    ],
+    LEAD: [
+      { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },
+      { title: 'My Projects', url: '/dashboard/projects', icon: FolderIcon },
+      { title: 'Tasks', url: '/dashboard/tasks', icon: CheckSquareIcon },
+      { title: 'My Team', url: '/dashboard/team', icon: UsersIcon },
+    ],
+    REVISER: [
+      { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },
+      {
+        title: 'Review Queue',
+        url: '/dashboard/review',
+        icon: ClipboardListIcon,
+      },
+      { title: 'Projects', url: '/dashboard/projects', icon: FolderIcon },
+    ],
+    MEMBER: [
+      { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },
+      { title: 'My Tasks', url: '/dashboard/tasks', icon: CheckSquareIcon },
+      { title: 'Projects', url: '/dashboard/projects', icon: FolderIcon },
+    ],
+  };
+
+// const NAV_SECONDARY = [
+//   { title: 'Settings', url: '/dashboard/settings', icon: SettingsIcon },
+//   { title: 'Get Help', url: '#', icon: HelpCircleIcon },
+//   { title: 'Search', url: '#', icon: SearchIcon },
+// ];
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
+  const user = useAuthStore((s) => s.user);
+  const role = user?.role?.name ?? 'MEMBER';
+  console.log("===========",role)
+  const navItems = NAV_BY_ROLE[role] ?? NAV_BY_ROLE.MEMBER;
+
   return (
     <Sidebar collapsible="offcanvas" {...props}>
       <SidebarHeader>
@@ -159,18 +88,18 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
-              <div className="w-[130px] h-[70px]">
-                <img src="axon_logo.png" alt="logo" />
+              <div className="w-[175px] h-[70px]">
+                <img src="/axon_logo.png" alt="logo" />
               </div>
             </SidebarMenuButton>
           </SidebarMenuItem>
         </SidebarMenu>
       </SidebarHeader>
+
       <SidebarContent>
-        <NavMain items={data.navMain} />
-        <NavDocuments items={data.documents} />
-        <NavSecondary items={data.navSecondary} className="mt-auto" />
+        <NavMain items={navItems} />
       </SidebarContent>
+
       <SidebarFooter>
         <NavUser />
       </SidebarFooter>

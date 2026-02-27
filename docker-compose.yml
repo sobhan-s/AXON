@@ -72,6 +72,26 @@ services:
     networks:
       - dam-network
 
+  project-api:
+    build:
+      context: .
+      dockerfile: Docker/projectservice.Dockerfile
+
+    env_file:
+      - .env
+
+    restart: always
+
+    ports:
+      - '8002:8002'
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+    networks:
+      - dam-network
+
   gateway-api:
     container_name: gateway-api
 

@@ -8914,3 +8914,15 @@
 {"level":"info","message":"Get team member controller has been stated . . . ","timestamp":"2026-02-28 22:47:01"}
 {"level":"info","message":"Fetching team members","projectId":15,"timestamp":"2026-02-28 22:47:01"}
 {"level":"info","message":"Data has fetched successfully .","timestamp":"2026-02-28 22:47:01"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-28 23:10:37"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-02-28 23:10:37"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-28 23:10:39"}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-28 23:10:46"}
+{"level":"info","message":" HTTP server closed","timestamp":"2026-02-28 23:10:46"}
+{"level":"info","message":" Database disconnected","timestamp":"2026-02-28 23:10:46"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-02-28 23:10:48"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-02-28 23:10:48"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-02-28 23:10:50"}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-28 23:10:51"}
+{"level":"info","message":" HTTP server closed","timestamp":"2026-02-28 23:10:51"}
+{"level":"info","message":" Database disconnected","timestamp":"2026-02-28 23:10:51"}

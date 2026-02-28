@@ -105,13 +105,15 @@ export class ProjectServices {
   }
 
   async getProjectById(projectId: number) {
-    logger.info('Fetching project', { projectId });
+    logger.info('Fetching project from service', { projectId });
 
     const project = await this.projectRepo.findProjectById(projectId);
 
     if (!project) {
       throw new ApiError(404, 'Project not found');
     }
+
+    logger.info('Fetching project from service completed', { project });
 
     return { project };
   }
@@ -259,6 +261,8 @@ export class ProjectServices {
       details: { action: 'archived' },
     });
 
+    logger.info('Archived project successfully in service layer.');
+
     return { project: archivedProject };
   }
 
@@ -284,6 +288,8 @@ export class ProjectServices {
         deletedBy: userId,
       },
     });
+
+    logger.info('Deleting project successfully in service layer');
 
     return { message: 'Project deleted successfully' };
   }
@@ -320,27 +326,27 @@ export class ProjectServices {
       throw new ApiError(400, 'User is already a team member of this project');
     }
 
-    const roleOfMember = await this.projectRepo.checkRole(
-      project.organizationId,
-      targetUserId,
-    );
+    // const roleOfMember = await this.projectRepo.checkRole(
+    //   project.organizationId,
+    //   targetUserId,
+    // );
 
-    if (!roleOfMember) {
-      throw new ApiError(
-        403,
-        'Admin needs to add this user to the organization first.',
-      );
-    }
+    // if (!roleOfMember) {
+    //   throw new ApiError(
+    //     403,
+    //     'Admin needs to add this user to the organization first.',
+    //   );
+    // }
 
-    const memberLevel = roleOfMember.roleId;
-    const allowedLevels = [2, 3, 4, 5];
+    // const memberLevel = roleOfMember.roleId;
+    // const allowedLevels = [2, 3, 4, 5];
 
-    if (!allowedLevels.includes(memberLevel)) {
-      throw new ApiError(
-        403,
-        'This role cannot be added as a project team member.',
-      );
-    }
+    // if (!allowedLevels.includes(memberLevel)) {
+    //   throw new ApiError(
+    //     403,
+    //     'This role cannot be added as a project team member.',
+    //   );
+    // }
 
     const member = await this.projectRepo.addTeamMember(
       projectId,
@@ -358,7 +364,6 @@ export class ProjectServices {
       details: {
         action: 'team_member_added',
         targetUserId,
-        role: roleOfMember.roleId,
       },
     });
 
@@ -369,6 +374,7 @@ export class ProjectServices {
     projectId: number,
     userId: number,
     targetUserId: number,
+    organizationId: number,
   ) {
     logger.info('Removing team member', { projectId, targetUserId });
 
@@ -391,7 +397,11 @@ export class ProjectServices {
       throw new ApiError(404, 'User is not a team member');
     }
 
-    await this.projectRepo.removeTeamMember(projectId, targetUserId);
+    await this.projectRepo.removeTeamMember(
+      projectId,
+      targetUserId,
+      organizationId,
+    );
 
     await this.activityService.logActivity({
       userId,

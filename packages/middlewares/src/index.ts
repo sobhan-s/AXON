@@ -4,7 +4,6 @@ import { rateLimiter } from './ratelimitor.middleware.js';
 import { validate } from './validation.middleware.js';
 import {
   requireOrgAccess,
-  requireModuleAccess,
   requirePermission,
   requireProjectAccess,
   requireSuperAdmin,
@@ -18,7 +17,6 @@ export {
   rateLimiter,
   validate,
   requireOrgAccess,
-  requireModuleAccess,
   requirePermission,
   requireProjectAccess,
   requireSuperAdmin,

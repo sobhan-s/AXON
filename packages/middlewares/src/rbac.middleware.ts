@@ -102,6 +102,7 @@ export function requirePermission(permission: string) {
 
       switch (permission) {
         case 'create_project':
+        case 'delete_project':
         case 'update_organization':
         case 'manage_org_users': {
           const organizationId = parseInt(
@@ -116,9 +117,7 @@ export function requirePermission(permission: string) {
           break;
         }
 
-        // REMOVED: case 'create_module' — Module no longer exists
         case 'update_project':
-        case 'delete_project':
         case 'manage_project_team':
         case 'archive_project': {
           projectId = parseInt(
@@ -140,7 +139,6 @@ export function requirePermission(permission: string) {
         }
 
         case 'create_task': {
-          // CHANGED: was moduleId — tasks now belong directly to project
           projectId = parseInt(
             req.params.projectId ||
               req.body.projectId ||

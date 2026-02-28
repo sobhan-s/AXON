@@ -88,7 +88,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
-              <div className="w-[175px] h-[70px]">
+              <div className="w-[170px] h-[70px]">
                 <img src="/axon_logo.png" alt="logo" />
               </div>
             </SidebarMenuButton>

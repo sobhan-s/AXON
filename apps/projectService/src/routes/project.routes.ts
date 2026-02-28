@@ -1,9 +1,14 @@
 import {
   addManager,
   addTeamMember,
+  archiveProject,
   createProject,
+  deleteProject,
   getAllProjects,
   getMyProjects,
+  getProjectById,
+  getTeamMembers,
+  removeTeamMember,
   updateProject,
 } from '../controller/project.controller.js';
 import { type IRouter, Router } from 'express';
@@ -58,6 +63,50 @@ router
     requireOrgAccess,
     requirePermission('manage_project_team'),
     addTeamMember,
+  );
+
+router
+  .route('/removeTeamMember/:orgId/:projectId')
+  .delete(
+    authMiddleware,
+    requireOrgAccess,
+    requireProjectAccess,
+    requirePermission('manage_project_team'),
+    removeTeamMember,
+  );
+
+router
+  .route('/getProject/:orgId/:projectId')
+  .get(authMiddleware, requireOrgAccess, requireProjectAccess, getProjectById);
+
+router
+  .route('/archiveProject/:orgId/:projectId')
+  .patch(
+    authMiddleware,
+    requireOrgAccess,
+    requireProjectAccess,
+    requirePermission('archive_project'),
+    archiveProject,
+  );
+
+router
+  .route('/deleteProject/:orgId/:projectId')
+  .delete(
+    authMiddleware,
+    requireOrgAccess,
+    requireProjectAccess,
+    requirePermission('delete_project'),
+    deleteProject,
+  );
+
+router
+  .route('/getTeamMembers/:orgId/:projectId')
+  .get(
+    authMiddleware,
+    requireOrgAccess,
+    requireProjectAccess,
+    requirePermission('manage_project_team'),
+    getTeamMembers,
   );
 
 export default router;

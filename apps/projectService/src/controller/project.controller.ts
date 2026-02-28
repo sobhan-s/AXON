@@ -64,11 +64,16 @@ export const getMyProjects: RequestHandler = asyncHandler(
 
 export const getProjectById: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
+    logger.info('Get projet by id controller has stated . . .');
     const projectId = Number(req.params.projectId);
 
     const result = await projectService.getProjectById(projectId);
 
-    res.json(new ApiResponse(200, result, 'Project retrieved successfully'));
+    logger.info('get project by id successfully .');
+
+    res
+      .status(200)
+      .json(new ApiResponse(200, result, 'Project retrieved successfully'));
   },
 );
 
@@ -124,23 +129,33 @@ export const addManager: RequestHandler = asyncHandler(
 
 export const archiveProject: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
+    logger.info('Archive Pojects controller stated');
     const userId = (req as any).user?.id;
     const projectId = Number(req.params.projectId);
 
     const result = await projectService.archiveProject(projectId, userId);
 
-    res.json(new ApiResponse(200, result, 'Project archived successfully'));
+    logger.info('Project has successfully archived');
+
+    res
+      .status(200)
+      .json(new ApiResponse(200, result, 'Project archived successfully'));
   },
 );
 
 export const deleteProject: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
+    logger.info('Project deliton process stated from controller . . . ');
     const userId = (req as any).user?.id;
     const projectId = Number(req.params.projectId);
 
     const result = await projectService.deleteProject(projectId, userId);
 
-    res.json(new ApiResponse(200, result, 'Project deleted successfully'));
+    logger.info('Project has been deleted successfully');
+
+    res
+      .status(200)
+      .json(new ApiResponse(200, result, 'Project deleted successfully'));
   },
 );
 
@@ -167,26 +182,35 @@ export const removeTeamMember: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const userId = (req as any).user?.id;
     const projectId = Number(req.params.projectId);
-    const { userId: targetUserId } = req.body;
+    const organizationId = Number(req.params.orgId);
+    const { targetUserId } = req.body;
 
     const result = await projectService.removeTeamMember(
       projectId,
       userId,
       targetUserId,
+      organizationId,
     );
 
-    res.json(new ApiResponse(200, result, 'Team member removed successfully'));
+    res
+      .status(200)
+      .json(new ApiResponse(200, result, 'Team member removed successfully'));
   },
 );
 
 export const getTeamMembers: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
+    logger.info('Get team member controller has been stated . . . ');
     const projectId = Number(req.params.projectId);
 
     const result = await projectService.getTeamMembers(projectId);
 
-    res.json(
-      new ApiResponse(200, result, 'Team members retrieved successfully'),
-    );
+    logger.info('Data has fetched successfully .');
+
+    res
+      .status(200)
+      .json(
+        new ApiResponse(200, result, 'Team members retrieved successfully'),
+      );
   },
 );

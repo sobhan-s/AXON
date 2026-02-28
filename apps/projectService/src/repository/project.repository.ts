@@ -99,7 +99,6 @@ export class ProjectRepository {
           },
           _count: {
             select: {
-              // FIXED: removed modules (model deleted) — replaced with tasks
               tasks: true,
               teamMembers: true,
             },
@@ -310,20 +309,20 @@ export class ProjectRepository {
           });
         }
 
-        // const anyMembership = await tx.projectTeamMember.findFirst({
-        //   where: { userId, organizationId },
-        //   select: { roleId: true },
-        // });
+        const anyMembership = await tx.projectTeamMember.findFirst({
+          where: { userId, organizationId },
+          select: { roleId: true },
+        });
 
-        // return await tx.projectTeamMember.create({
-        //   data: {
-        //     organizationId,
-        //     projectId,
-        //     userId,
-        //     addedBy,
-        //     roleId: anyMembership!.roleId,
-        //   },
-        // });
+        return await tx.projectTeamMember.create({
+          data: {
+            organizationId,
+            projectId,
+            userId,
+            addedBy,
+            roleId: anyMembership!.roleId,
+          },
+        });
       });
     } catch (error) {
       logger.error('Error adding team member', { error });
@@ -331,14 +330,22 @@ export class ProjectRepository {
     }
   }
 
-  async removeTeamMember(projectId: number, userId: number) {
+  async removeTeamMember(
+    projectId: number,
+    userId: number,
+    organizationId: number,
+  ) {
     try {
-      return await prisma.projectTeamMember.delete({
+      return await prisma.projectTeamMember.update({
         where: {
           projectId_userId: {
             projectId,
             userId,
           },
+          organizationId,
+        },
+        data: {
+          projectId: null,
         },
       });
     } catch (error) {

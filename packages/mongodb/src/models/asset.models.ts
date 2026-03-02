@@ -44,11 +44,6 @@ const AssetSchema = new Schema<IAsset>(
       required: true,
       index: true,
     },
-    moduleId: {
-      type: Number,
-      required: true,
-      index: true,
-    },
     projectId: {
       type: Number,
       required: true,
@@ -160,7 +155,6 @@ AssetSchema.index({ tags: 1 });
 
 AssetSchema.index({ organizationId: 1, isFinal: 1, fileType: 1 });
 AssetSchema.index({ projectId: 1, status: 1, createdAt: -1 });
-AssetSchema.index({ moduleId: 1, status: 1 });
 
 AssetSchema.index({
   filename: 'text',

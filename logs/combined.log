@@ -8926,3 +8926,680 @@
 {"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-28 23:10:51"}
 {"level":"info","message":" HTTP server closed","timestamp":"2026-02-28 23:10:51"}
 {"level":"info","message":" Database disconnected","timestamp":"2026-02-28 23:10:51"}
+{"level":"info","message":"SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-28 23:35:33"}
+{"level":"info","message":"HTTP server closed","timestamp":"2026-02-28 23:35:33"}
+{"level":"info","message":"Database disconnected","timestamp":"2026-02-28 23:35:33"}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-02-28 23:35:36"}
+{"level":"info","message":" HTTP server closed","timestamp":"2026-02-28 23:35:36"}
+{"level":"info","message":" Database disconnected","timestamp":"2026-02-28 23:35:36"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 15:12:43"}
+{"level":"info","message":"MongoDB disconnected","timestamp":"2026-03-01 15:12:43"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 15:23:58"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 15:23:58"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 15:23:58"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 15:23:58"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 15:23:58"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 15:24:00"}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-03-01 15:24:32"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 15:53:40"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 17:32:57"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 17:33:36"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 21:28:11"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:15:56"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:16:50"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:16:50"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:16:50"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:16:50"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:16:50"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:16:52"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-03-01 22:17:02"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-03-01 22:17:02"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:17:04"}
+{"level":"info","message":"Database connected successfully","timestamp":"2026-03-01 22:17:05"}
+{"level":"info","message":"server running on port 8001","timestamp":"2026-03-01 22:17:05"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:17:07"}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-03-01 22:17:23"}
+{"level":"info","message":"SIGINT received. Starting graceful shutdown...","timestamp":"2026-03-01 22:17:25"}
+{"level":"info","message":"HTTP server closed","timestamp":"2026-03-01 22:17:25"}
+{"level":"info","message":"Database disconnected","timestamp":"2026-03-01 22:17:25"}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-03-01 22:17:27"}
+{"level":"info","message":" HTTP server closed","timestamp":"2026-03-01 22:17:27"}
+{"level":"info","message":" Database disconnected","timestamp":"2026-03-01 22:17:27"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-03-01 22:33:59"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-03-01 22:33:59"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:34:01"}
+{"level":"info","message":"Database connected successfully","timestamp":"2026-03-01 22:34:02"}
+{"level":"info","message":"server running on port 8001","timestamp":"2026-03-01 22:34:02"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:34:05"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:34:08"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:34:08"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:34:08"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:34:08"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:34:08"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:34:09"}
+{"email":"sobhansahoo2000@gmail.com","level":"info","message":"Login service called","timestamp":"2026-03-01 22:34:15"}
+{"action":"USER_LOGIN","level":"info","message":"Activity logged","timestamp":"2026-03-01 22:34:15","userId":5}
+{"level":"info","message":"User logged in successfully","timestamp":"2026-03-01 22:34:15","userId":5}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:34:47"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:34:47"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:34:47"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:34:47"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:34:47"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:34:49"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:35:02"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:35:02"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:35:02"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:35:02"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:35:02"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:35:04"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:35:10"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:35:10"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:35:10"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:35:10"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:35:10"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:35:12"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:35:25"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:35:25"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:35:25"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:35:25"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:35:25"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:35:28"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:35:28"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:35:28"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:35:28"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:35:28"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:35:33"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:35:33"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:35:33"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:35:33"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:35:33"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:35:36"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:35:36"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:35:36"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:35:36"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:35:36"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:35:38"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:36:27"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:36:28"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:36:28"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:36:28"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:36:28"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:36:33"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:36:33"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:36:33"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:36:33"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:36:33"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:36:34"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:36:41"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:36:41"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:36:41"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:36:41"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:36:41"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:36:43"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:41:48"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:41:48"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:41:48"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:41:48"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:41:48"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:41:52"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:41:52"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:41:52"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:41:52"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:41:52"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:41:54"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:42:59"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:42:59"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:42:59"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:42:59"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:42:59"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:43:01"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:44:41"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:44:41"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:44:41"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:44:41"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:44:41"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:44:43"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:45:00"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:45:00"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:45:00"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:45:00"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:45:00"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:45:02"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:45:58"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:45:58"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:45:58"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:45:58"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:45:58"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:46:00"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:46:16"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:46:16"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:46:16"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:46:16"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:46:16"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:46:24"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:46:24"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:46:24"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:46:24"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:46:24"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:46:27"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:46:27"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:46:27"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:46:27"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:46:27"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:46:30"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:46:30"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:46:30"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:46:30"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:46:30"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:46:32"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:46:37"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:46:37"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:46:37"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:46:37"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:46:37"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:46:39"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:46:43"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:46:43"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:46:43"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:46:43"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:46:43"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:46:45"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:49:43"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:49:43"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:49:43"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:49:43"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:49:43"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:49:45"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:50:23"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:50:23"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:50:23"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:50:23"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:50:23"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:50:25"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:50:29"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:50:29"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:50:29"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:50:29"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:50:29"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:50:31"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:50:34"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:50:34"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:50:34"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:50:34"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:50:34"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:50:41"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:50:59"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:50:59"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:50:59"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:50:59"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:50:59"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:51:01"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:51:11"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:51:11"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:51:11"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:51:11"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:51:11"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:51:13"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:52:25"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:52:25"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:52:25"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:52:25"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:52:25"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:52:27"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:52:41"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:52:41"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:52:41"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:52:41"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:52:41"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:52:43"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:53:21"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:53:21"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:53:21"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:53:21"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:53:21"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:53:23"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:53:32"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:53:32"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:53:32"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:53:32"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:53:32"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 22:53:34"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 22:53:34"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 22:53:34"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 22:53:34"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 22:53:34"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 22:53:36"}
+{"email":"sobhansahoo2000@gmail.com","level":"info","message":"Login service called","timestamp":"2026-03-01 22:54:32"}
+{"action":"USER_LOGIN","level":"info","message":"Activity logged","timestamp":"2026-03-01 22:54:33","userId":5}
+{"level":"info","message":"User logged in successfully","timestamp":"2026-03-01 22:54:33","userId":5}
+{"email":"rathrituparna642@gmail.com","level":"info","message":"Login service called","timestamp":"2026-03-01 22:55:26"}
+{"action":"USER_LOGIN","level":"info","message":"Activity logged","timestamp":"2026-03-01 22:55:26","userId":7}
+{"level":"info","message":"User logged in successfully","timestamp":"2026-03-01 22:55:26","userId":7}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 23:01:14"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 23:01:14"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 23:01:14"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 23:01:14"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 23:01:14"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 23:01:16"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 23:01:28"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 23:01:28"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 23:01:28"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 23:01:28"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 23:01:28"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-01 23:01:30"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 23:01:35"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 23:01:35"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 23:01:35"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 23:01:35"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 23:01:35"}
+{"code":"EDNS","command":"CONN","errno":-3001,"hostname":"smtp.gmail.com","level":"error","message":"Mail server connection failed getaddrinfo EAI_AGAIN smtp.gmail.com","stack":"Error: getaddrinfo EAI_AGAIN smtp.gmail.com\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)","syscall":"getaddrinfo","timestamp":"2026-03-01 23:01:39"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 23:01:39"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 23:01:39"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 23:01:39"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 23:01:39"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 23:01:39"}
+{"code":"EDNS","command":"CONN","errno":-3001,"hostname":"smtp.gmail.com","level":"error","message":"Mail server connection failed getaddrinfo EAI_AGAIN smtp.gmail.com","stack":"Error: getaddrinfo EAI_AGAIN smtp.gmail.com\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)","syscall":"getaddrinfo","timestamp":"2026-03-01 23:01:50"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 23:01:51"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 23:01:51"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 23:01:51"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 23:01:51"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 23:01:51"}
+{"code":"EDNS","command":"CONN","errno":-3001,"hostname":"smtp.gmail.com","level":"error","message":"Mail server connection failed getaddrinfo EAI_AGAIN smtp.gmail.com","stack":"Error: getaddrinfo EAI_AGAIN smtp.gmail.com\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)","syscall":"getaddrinfo","timestamp":"2026-03-01 23:01:55"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 23:01:55"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 23:01:55"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 23:01:55"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 23:01:55"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 23:01:55"}
+{"code":"EDNS","command":"CONN","errno":-3001,"hostname":"smtp.gmail.com","level":"error","message":"Mail server connection failed getaddrinfo EAI_AGAIN smtp.gmail.com","stack":"Error: getaddrinfo EAI_AGAIN smtp.gmail.com\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)","syscall":"getaddrinfo","timestamp":"2026-03-01 23:03:24"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 23:03:24"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 23:03:24"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 23:03:24"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 23:03:24"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 23:03:24"}
+{"code":"EDNS","command":"CONN","errno":-3001,"hostname":"smtp.gmail.com","level":"error","message":"Mail server connection failed getaddrinfo EAI_AGAIN smtp.gmail.com","stack":"Error: getaddrinfo EAI_AGAIN smtp.gmail.com\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)","syscall":"getaddrinfo","timestamp":"2026-03-01 23:03:32"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 23:03:32"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 23:03:32"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 23:03:32"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 23:03:32"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 23:03:32"}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-03-01 23:07:31"}
+{"level":"info","message":" HTTP server closed","timestamp":"2026-03-01 23:07:31"}
+{"level":"info","message":" Database disconnected","timestamp":"2026-03-01 23:07:31"}
+{"code":"EDNS","command":"CONN","errno":-3001,"hostname":"smtp.gmail.com","level":"error","message":"Mail server connection failed getaddrinfo EAI_AGAIN smtp.gmail.com","stack":"Error: getaddrinfo EAI_AGAIN smtp.gmail.com\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)","syscall":"getaddrinfo","timestamp":"2026-03-01 23:07:33"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-03-01 23:07:33"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-03-01 23:07:33"}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-03-01 23:07:37"}
+{"code":"EDNS","command":"CONN","errno":-3001,"hostname":"smtp.gmail.com","level":"error","message":"Mail server connection failed getaddrinfo EAI_AGAIN smtp.gmail.com","stack":"Error: getaddrinfo EAI_AGAIN smtp.gmail.com\n    at GetAddrInfoReqWrap.onlookupall [as oncomplete] (node:dns:122:26)","syscall":"getaddrinfo","timestamp":"2026-03-01 23:07:39"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-01 23:07:39"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-01 23:07:39"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-01 23:07:39"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-01 23:07:39"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-01 23:07:39"}
+{"level":"info","message":"create manually tasks in cotrollers  . . . ","timestamp":"2026-03-01 23:07:43"}
+{"createdById":7,"level":"info","message":"Creating manual task","projectId":15,"timestamp":"2026-03-01 23:07:43"}
+{"action":"TASK_CREATED","level":"info","message":"Activity logged","timestamp":"2026-03-01 23:07:43","userId":7}
+{"level":"info","message":" manually tasks creations successfully ","timestamp":"2026-03-01 23:07:43"}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-03-01 23:08:03"}
+{"level":"info","message":"SIGINT received. Starting graceful shutdown...","timestamp":"2026-03-01 23:08:13"}
+{"level":"info","message":"HTTP server closed","timestamp":"2026-03-01 23:08:13"}
+{"level":"info","message":"Database disconnected","timestamp":"2026-03-01 23:08:13"}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-03-01 23:08:20"}
+{"level":"info","message":" HTTP server closed","timestamp":"2026-03-01 23:08:20"}
+{"level":"info","message":" Database disconnected","timestamp":"2026-03-01 23:08:20"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 07:45:22"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 07:45:23"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 07:45:23"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 07:45:23"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 07:45:23"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 07:45:25"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 07:45:38"}
+{"level":"info","message":"Database connected successfully","timestamp":"2026-03-02 07:45:42"}
+{"level":"info","message":"server running on port 8001","timestamp":"2026-03-02 07:45:42"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 07:45:44"}
+{"level":"info","message":" Database connected successfully","timestamp":"2026-03-02 07:45:45"}
+{"level":"info","message":" Server running on port 8002","timestamp":"2026-03-02 07:45:45"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 07:45:47"}
+{"email":"rathrituparna642@gmail.com","level":"info","message":"Login service called","timestamp":"2026-03-02 07:45:53"}
+{"action":"USER_LOGIN","level":"info","message":"Activity logged","timestamp":"2026-03-02 07:45:53","userId":7}
+{"level":"info","message":"User logged in successfully","timestamp":"2026-03-02 07:45:53","userId":7}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 07:47:01"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 07:47:01"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 07:47:01"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 07:47:01"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 07:47:01"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 07:47:02"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 07:47:28"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 07:47:28"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 07:47:28"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 07:47:28"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 07:47:28"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 07:47:37"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 07:47:37"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 07:47:37"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 07:47:37"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 07:47:37"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 07:47:38"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 07:47:46"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 07:47:46"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 07:47:46"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 07:47:46"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 07:47:46"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 07:47:48"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 07:47:55"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 07:47:55"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 07:47:55"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 07:47:55"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 07:47:55"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 07:47:57"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 07:48:09"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 07:48:09"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 07:48:09"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 07:48:09"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 07:48:09"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 07:48:12"}
+{"level":"info","message":"Fetching tasks by there projects . . . ","timestamp":"2026-03-02 07:48:50"}
+{"filters":{},"level":"info","message":"Fetching project tasks","projectId":15,"timestamp":"2026-03-02 07:48:50"}
+{"level":"info","message":"fetching tasks by there projects","timestamp":"2026-03-02 07:48:50"}
+{"level":"info","message":"get overdue taks contorller . . .","timestamp":"2026-03-02 07:49:50"}
+{"level":"info","message":"Fetching the overdue taks","timestamp":"2026-03-02 07:49:50"}
+{"level":"info","message":"OverDue taks successfully .","timestamp":"2026-03-02 07:49:50"}
+{"level":"info","message":"Fetching tasks by there projects . . . ","timestamp":"2026-03-02 07:50:58"}
+{"filters":{"priority":"low"},"level":"info","message":"Fetching project tasks","projectId":15,"timestamp":"2026-03-02 07:50:58"}
+{"error":{"clientVersion":"6.19.2","name":"PrismaClientValidationError"},"level":"error","message":"Error finding project tasks","timestamp":"2026-03-02 07:50:58"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 07:54:06"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 07:54:06"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 07:54:06"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 07:54:06"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 07:54:06"}
+{"level":"info","message":"Fetching tasks by there projects . . . ","timestamp":"2026-03-02 07:54:06"}
+{"filters":{"priority":"low"},"level":"info","message":"Fetching project tasks","projectId":15,"timestamp":"2026-03-02 07:54:06"}
+{"error":{"clientVersion":"6.19.2","name":"PrismaClientValidationError"},"level":"error","message":"Error finding project tasks","timestamp":"2026-03-02 07:54:06"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 07:54:08"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 07:55:34"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 07:55:34"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 07:55:34"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 07:55:34"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 07:55:34"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 07:55:36"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:10:38"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:10:38"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:10:38"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:10:38"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:10:38"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:10:40"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-03-02 08:10:43"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-03-02 08:10:43","userId":7}
+{"level":"info","message":"Fetching tasks by there projects . . . ","timestamp":"2026-03-02 08:10:47"}
+{"filters":{"priority":"low"},"level":"info","message":"Fetching project tasks","projectId":15,"timestamp":"2026-03-02 08:10:47"}
+{"level":"info","message":"fetching tasks by there projects","timestamp":"2026-03-02 08:10:47"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:11:28"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:11:28"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:11:28"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:11:28"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:11:28"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:11:30"}
+{"level":"info","message":"Fetching tasks by there projects . . . ","timestamp":"2026-03-02 08:11:33"}
+{"filters":{"priority":"low"},"level":"info","message":"Fetching project tasks","projectId":15,"timestamp":"2026-03-02 08:11:33"}
+{"level":"info","message":"fetching tasks by there projects","timestamp":"2026-03-02 08:11:33"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:12:20"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:12:20"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:12:20"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:12:20"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:12:20"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:12:22"}
+{"level":"info","message":"Fetching tasks by there projects . . . ","timestamp":"2026-03-02 08:12:23"}
+{"filters":{"priority":"low"},"level":"info","message":"Fetching project tasks","projectId":15,"timestamp":"2026-03-02 08:12:23"}
+{"level":"info","message":"fetching tasks by there projects","timestamp":"2026-03-02 08:12:23"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:34:30"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:36:31"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:36:31"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:36:31"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:36:31"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:36:31"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:36:33"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-03-02 08:36:58"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-03-02 08:36:58","userId":7}
+{"level":"info","message":"Fetching tasks by there projects . . . ","timestamp":"2026-03-02 08:37:01"}
+{"filters":{"priority":"low"},"level":"info","message":"Fetching project tasks","projectId":15,"timestamp":"2026-03-02 08:37:01"}
+{"error":{"clientVersion":"6.19.2","name":"PrismaClientValidationError"},"level":"error","message":"Error finding project tasks","timestamp":"2026-03-02 08:37:01"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:39:40"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:39:40"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:39:40"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:39:40"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:39:40"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:39:42"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:40:59"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:40:59"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:40:59"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:40:59"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:40:59"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:41:01"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:41:12"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:41:12"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:41:12"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:41:12"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:41:12"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:41:14"}
+{"level":"info","message":"Fetching tasks by there projects . . . ","timestamp":"2026-03-02 08:41:18"}
+{"filters":{"priority":"low"},"level":"info","message":"Fetching project tasks","projectId":15,"timestamp":"2026-03-02 08:41:18"}
+{"error":{"clientVersion":"6.19.2","name":"PrismaClientValidationError"},"level":"error","message":"Error finding project tasks","timestamp":"2026-03-02 08:41:18"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:45:02"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:46:43"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:46:43"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:46:43"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:46:43"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:46:43"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:46:45"}
+{"level":"info","message":"Fetching tasks by there projects . . . ","timestamp":"2026-03-02 08:46:46"}
+{"filters":{"priority":"low"},"level":"info","message":"Fetching project tasks","projectId":15,"timestamp":"2026-03-02 08:46:46"}
+{"level":"info","message":"fetching tasks by there projects","timestamp":"2026-03-02 08:46:46"}
+{"level":"info","message":"create manually tasks in cotrollers  . . . ","timestamp":"2026-03-02 08:47:30"}
+{"createdById":7,"level":"info","message":"Creating manual task","projectId":15,"timestamp":"2026-03-02 08:47:30"}
+{"action":"TASK_CREATED","level":"info","message":"Activity logged","timestamp":"2026-03-02 08:47:30","userId":7}
+{"level":"info","message":" manually tasks creations successfully ","timestamp":"2026-03-02 08:47:30"}
+{"level":"info","message":"Fetching tasks by there projects . . . ","timestamp":"2026-03-02 08:47:38"}
+{"filters":{"priority":"low"},"level":"info","message":"Fetching project tasks","projectId":15,"timestamp":"2026-03-02 08:47:38"}
+{"level":"info","message":"fetching tasks by there projects","timestamp":"2026-03-02 08:47:38"}
+{"level":"info","message":"Fetching tasks by there projects . . . ","timestamp":"2026-03-02 08:47:46"}
+{"filters":{},"level":"info","message":"Fetching project tasks","projectId":15,"timestamp":"2026-03-02 08:47:46"}
+{"level":"info","message":"fetching tasks by there projects","timestamp":"2026-03-02 08:47:46"}
+{"level":"info","message":"Fetching tasks by there projects . . . ","timestamp":"2026-03-02 08:47:58"}
+{"filters":{"priority":"MEDIUM"},"level":"info","message":"Fetching project tasks","projectId":15,"timestamp":"2026-03-02 08:47:58"}
+{"level":"info","message":"fetching tasks by there projects","timestamp":"2026-03-02 08:47:58"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:49:39"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:49:39"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:49:39"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:49:39"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:49:39"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:49:43"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:49:43"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:49:43"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:49:43"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:49:43"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:49:50"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:49:50"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:49:50"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:49:50"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:49:50"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:49:52"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:50:00"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:50:00"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:50:00"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:50:00"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:50:00"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:50:01"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:50:27"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:50:28"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:50:28"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:50:28"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:50:28"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:50:29"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:50:36"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:50:36"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:50:36"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:50:36"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:50:36"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:50:38"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:51:42"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:51:42"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:51:42"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:51:42"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:51:42"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:51:44"}
+{"level":"info","message":"fetcing tasks by there id  . . .","timestamp":"2026-03-02 08:51:49"}
+{"level":"info","message":"fetchin tasks successfully there id .","timestamp":"2026-03-02 08:51:49"}
+{"level":"info","message":"fetcing tasks by there id  . . .","timestamp":"2026-03-02 08:52:05"}
+{"level":"info","message":"fetchin tasks successfully there id .","timestamp":"2026-03-02 08:52:05"}
+{"level":"info","message":"Update takss in contrller level","timestamp":"2026-03-02 08:53:18"}
+{"action":"TASK_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-03-02 08:53:18","userId":7}
+{"level":"info","message":"taks is update successfully","timestamp":"2026-03-02 08:53:18"}
+{"level":"info","message":"Update takss in contrller level","timestamp":"2026-03-02 08:53:33"}
+{"action":"TASK_UPDATED","level":"info","message":"Activity logged","timestamp":"2026-03-02 08:53:33","userId":7}
+{"level":"info","message":"taks is update successfully","timestamp":"2026-03-02 08:53:33"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:54:30"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:54:30"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:54:30"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:54:30"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:54:30"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:54:32"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:54:36"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:54:36"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:54:36"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:54:36"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:54:36"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:54:38"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:54:46"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:54:46"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:54:46"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:54:46"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:54:46"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:54:48"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:55:59"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:55:59"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:55:59"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:55:59"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:55:59"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:56:01"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:56:07"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:56:07"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:56:07"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:56:07"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:56:07"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:56:09"}
+{"level":"info","message":"Change status start in contrller level","timestamp":"2026-03-02 08:56:09"}
+{"level":"info","message":"Changing task status","newStatus":"IN_PROGRESS","taskId":1,"timestamp":"2026-03-02 08:56:09","userId":7}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:56:42"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:56:42"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:56:42"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:56:42"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:56:42"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:56:44"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 08:56:49"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 08:56:49"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 08:56:49"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 08:56:49"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 08:56:49"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 08:56:50"}
+{"level":"info","message":"Refresh token service called","timestamp":"2026-03-02 08:59:24"}
+{"level":"info","message":"Tokens refreshed successfully","timestamp":"2026-03-02 08:59:24","userId":7}
+{"assignedToId":27,"level":"info","message":"Assigning task","requesterId":7,"taskId":1,"timestamp":"2026-03-02 08:59:26"}
+{"assignedToId":21,"level":"info","message":"Assigning task","requesterId":7,"taskId":1,"timestamp":"2026-03-02 09:00:16"}
+{"action":"TASK_ASSIGNED","level":"info","message":"Activity logged","timestamp":"2026-03-02 09:00:16","userId":7}
+{"level":"info","message":"fetcing tasks by there id  . . .","timestamp":"2026-03-02 09:00:33"}
+{"level":"info","message":"fetchin tasks successfully there id .","timestamp":"2026-03-02 09:00:33"}
+{"level":"info","message":"create manually tasks in cotrollers  . . . ","timestamp":"2026-03-02 09:01:23"}
+{"createdById":7,"level":"info","message":"Creating manual task","projectId":15,"timestamp":"2026-03-02 09:01:23"}
+{"action":"TASK_CREATED","level":"info","message":"Activity logged","timestamp":"2026-03-02 09:01:23","userId":7}
+{"level":"info","message":" manually tasks creations successfully ","timestamp":"2026-03-02 09:01:23"}
+{"level":"info","message":"create manually tasks in cotrollers  . . . ","timestamp":"2026-03-02 09:01:29"}
+{"createdById":7,"level":"info","message":"Creating manual task","projectId":15,"timestamp":"2026-03-02 09:01:29"}
+{"action":"TASK_CREATED","level":"info","message":"Activity logged","timestamp":"2026-03-02 09:01:29","userId":7}
+{"level":"info","message":" manually tasks creations successfully ","timestamp":"2026-03-02 09:01:29"}
+{"level":"info","message":"create manually tasks in cotrollers  . . . ","timestamp":"2026-03-02 09:01:34"}
+{"createdById":7,"level":"info","message":"Creating manual task","projectId":15,"timestamp":"2026-03-02 09:01:34"}
+{"action":"TASK_CREATED","level":"info","message":"Activity logged","timestamp":"2026-03-02 09:01:34","userId":7}
+{"level":"info","message":" manually tasks creations successfully ","timestamp":"2026-03-02 09:01:34"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 09:02:26"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 09:02:27"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 09:02:27"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 09:02:27"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 09:02:27"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 09:02:29"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 09:02:37"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 09:02:37"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 09:02:37"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 09:02:37"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 09:02:37"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 09:02:39"}
+{"action":"TASK_ASSIGNED","level":"info","message":"Activity logged","timestamp":"2026-03-02 09:03:40","userId":7}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 09:04:16"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 09:04:16"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 09:04:16"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 09:04:16"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 09:04:16"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 09:04:22"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 09:04:23"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 09:04:23"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 09:04:23"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 09:04:23"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 09:04:24"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 09:04:29"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 09:04:29"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 09:04:29"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 09:04:29"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 09:04:29"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 09:04:36"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 09:04:36"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 09:04:36"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 09:04:36"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 09:04:36"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 09:04:37"}
+{"error":{"clientVersion":"6.19.2","name":"PrismaClientUnknownRequestError"},"level":"error","message":"Failed to log activity","timestamp":"2026-03-02 09:05:41"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 09:06:45"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 09:06:45"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 09:06:45"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 09:06:45"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 09:06:45"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 09:06:47"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 09:06:50"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 09:06:50"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 09:06:50"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 09:06:50"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 09:06:50"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 09:06:52"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 09:06:57"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 09:06:57"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 09:06:57"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 09:06:57"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 09:06:57"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 09:06:59"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 09:07:05"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 09:07:05"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 09:07:05"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 09:07:05"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 09:07:05"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 09:07:09"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 09:07:09"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 09:07:09"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 09:07:09"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 09:07:09"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 09:07:18"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 09:07:18"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 09:07:18"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 09:07:18"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 09:07:18"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 09:07:19"}
+{"level":"info","message":"Postgres Database connected successfully","timestamp":"2026-03-02 09:07:26"}
+{"level":"info","message":"MongoDB connected","timestamp":"2026-03-02 09:07:26"}
+{"level":"info","message":"✅ MongoDB connected","timestamp":"2026-03-02 09:07:26"}
+{"level":"info","message":"Mongodb Database connected successfully","timestamp":"2026-03-02 09:07:26"}
+{"level":"info","message":" Server running on port 8003","timestamp":"2026-03-02 09:07:26"}
+{"level":"info","message":"Mail server ready","timestamp":"2026-03-02 09:07:28"}
+{"level":"info","message":"MongoDB disconnected","timestamp":"2026-03-02 09:22:22"}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-03-02 09:58:14"}
+{"level":"info","message":"SIGINT received. Starting graceful shutdown...","timestamp":"2026-03-02 09:58:17"}
+{"level":"info","message":"HTTP server closed","timestamp":"2026-03-02 09:58:17"}
+{"level":"info","message":"Database disconnected","timestamp":"2026-03-02 09:58:17"}
+{"level":"info","message":" SIGINT received. Starting graceful shutdown...","timestamp":"2026-03-02 09:58:29"}
+{"level":"info","message":" HTTP server closed","timestamp":"2026-03-02 09:58:29"}
+{"level":"info","message":" Database disconnected","timestamp":"2026-03-02 09:58:29"}

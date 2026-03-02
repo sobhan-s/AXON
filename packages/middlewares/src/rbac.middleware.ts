@@ -104,7 +104,8 @@ export function requirePermission(permission: string) {
         case 'create_project':
         case 'delete_project':
         case 'update_organization':
-        case 'manage_org_users': {
+        case 'manage_org_users':
+        case 'delete_asset': {
           const organizationId = parseInt(
             req.params.orgId || req.body.orgId || (req as any).user?.orgId,
           );
@@ -138,7 +139,8 @@ export function requirePermission(permission: string) {
           break;
         }
 
-        case 'create_task': {
+        case 'create_task':
+        case 'update_task': {
           projectId = parseInt(
             req.params.projectId ||
               req.body.projectId ||

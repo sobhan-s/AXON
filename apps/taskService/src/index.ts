@@ -2,6 +2,7 @@ import app from './app.js';
 import { PostgresClient as prisma, PrismaClient } from '@dam/postgresql_db';
 import { env_config_variable } from '@dam/config';
 import { logger } from '@dam/config';
+import { connectMongoDB, disconnectMongoDB } from '@dam/mongodb';
 
 const PORT = env_config_variable.PORT.TASKSERVICE_PORT;
 
@@ -13,7 +14,10 @@ const startServer = async () => {
     // logger.info("------====------",prisma)
     // console.log(prisma.$queryRaw`SELECT now()`);
     await prisma.$connect();
-    logger.info(' Database connected successfully');
+    logger.info('Postgres Database connected successfully');
+
+    await connectMongoDB();
+    logger.info('Mongodb Database connected successfully');
 
     server = app.listen(PORT, () => {
       logger.info(` Server running on port ${PORT}`);
@@ -40,7 +44,10 @@ const gracefulShutdown = async (signal: string) => {
     }
 
     await prisma.$disconnect();
-    logger.info(' Database disconnected');
+    logger.info(' Postres Database disconnected');
+
+    await disconnectMongoDB();
+    logger.info(' MongoDb Database disconnected');
 
     clearTimeout(forceShutdown);
     process.exit(0);

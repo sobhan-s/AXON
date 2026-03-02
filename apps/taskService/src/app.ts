@@ -25,11 +25,14 @@ app.set('trust proxy', 1);
 app.get('/hlth', (req, res) => {
   res.status(200).json({
     status: 'OK',
-    service: 'project-service',
+    service: 'task-service',
     currentTime: `${new Date().toISOString()}`,
   });
 });
 
+import taskRouter from "./routes/task.routes.js"
+
+app.use("/tasks",taskRouter)
 
 
 export default app;

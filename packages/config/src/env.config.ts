@@ -54,4 +54,13 @@ export const env_config_variable = {
     ACCESS_TOKEN_EXPIRY: process.env.ACCESS_TOKEN_EXPIRY,
     REFRESH_TOKEN_EXPIRY: process.env.REFRESH_TOKEN_EXPIRY,
   },
+  MINIO: {
+    MINIO_ENDPOINT: process.env.MINIO_ENDPOINT!,
+    MINIO_PORT: Number(process.env.MINIO_PORT ?? 9000),
+    MINIO_USESSL: process.env.MINIO_USE_SSL === 'true',
+    MINIO_ROOTUSER: process.env.MINIO_ROOT_USER!,
+    MINIO_PASSWORD: process.env.MINIO_ROOT_PASSWORD!,
+    MINIO_BUCKET_NAME: process.env.MINIO_BUCKET!,
+    MINIO_PUBLI_URL: process.env.MINIO_PUBLIC_URL,
+  },
 };

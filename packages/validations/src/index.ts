@@ -28,6 +28,17 @@ import {
   ProjectStatusSchema,
 } from './project/project.validation.js';
 
+import {
+  createManualTaskSchema,
+  updateTaskSchema,
+  changeStatusSchema,
+  reviewApprovalSchema,
+  assignTaskSchema,
+  bulkAssignSchema,
+  bulkStatusSchema,
+  bulkDeleteSchema,
+} from './tasks/task.validatiaon.js';
+
 export {
   verifyEmailSchema,
   registerSchema,
@@ -47,4 +58,12 @@ export {
   addUserToOrg,
   updateUserAdminLevelSchema,
   addedToOrg,
+  createManualTaskSchema,
+  updateTaskSchema,
+  changeStatusSchema,
+  reviewApprovalSchema,
+  assignTaskSchema,
+  bulkAssignSchema,
+  bulkStatusSchema,
+  bulkDeleteSchema,
 };

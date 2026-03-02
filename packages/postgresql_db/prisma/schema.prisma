@@ -151,7 +151,7 @@ model ProjectTeamMember {
   roleId         Int
   addedAt        DateTime @default(now())
 
-  project      Project?      @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  project      Project?     @relation(fields: [projectId], references: [id], onDelete: Cascade)
   role         Role         @relation(fields: [roleId], references: [id])
   user         User         @relation(fields: [userId], references: [id], onDelete: Cascade)
   organization Organization @relation(fields: [organizationId], references: [id], onDelete: Cascade)
@@ -197,12 +197,14 @@ model Task {
 }
 
 model TimeLog {
-  id          Int      @id @default(autoincrement())
+  id          Int       @id @default(autoincrement())
   taskId      Int
   userId      Int
-  hours       Decimal  @db.Decimal(5, 2)
+  hours       Decimal   @db.Decimal(5, 2)
+  startedAt   DateTime  @default(now())
+  endedAt     DateTime?
   description String?
-  loggedAt    DateTime @default(now())
+  loggedAt    DateTime  @default(now())
 
   task Task @relation(fields: [taskId], references: [id], onDelete: Cascade)
   user User @relation(fields: [userId], references: [id])
@@ -356,6 +358,8 @@ enum ActivityAction {
   PROJECT_UPDATED
   MODULE_CREATED
   TASK_CREATED
+  TASK_UPDATED
+  TASK_DELITED
   TASK_ASSIGNED
   TASK_STATUS_CHANGED
   ASSET_UPLOADED

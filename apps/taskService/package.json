@@ -21,6 +21,7 @@
     "@dam/eslint-config": "workspace:*",
     "@dam/mail": "workspace:*",
     "@dam/middlewares": "workspace:*",
+    "@dam/mongodb": "workspace:*",
     "@dam/postgresql_db": "workspace:*",
     "@dam/typescript-config": "workspace:*",
     "@dam/utils": "workspace:*",
@@ -28,6 +29,7 @@
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "express": "^5.2.1",
+    "sharp": "^0.34.5",
     "swagger-autogen": "^2.23.7",
     "swagger-ui-express": "^5.0.1"
   },

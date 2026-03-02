@@ -31,7 +31,7 @@ export async function authMiddleware(
     }
 
     (req as any).user = user;
-    console.log('--------------------------------------', req.params.orgId);
+    // console.log('--------------------------------------', req.params.orgId);
 
     next();
   } catch (error) {

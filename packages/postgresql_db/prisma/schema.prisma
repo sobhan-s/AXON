@@ -219,6 +219,7 @@ model Approval {
   id            Int            @id @default(autoincrement())
   taskId        Int
   assetId       String
+  projectId     Int
   requestedById Int
   reviewedById  Int?
   status        ApprovalStatus @default(PENDING)

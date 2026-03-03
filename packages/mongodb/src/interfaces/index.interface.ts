@@ -14,7 +14,6 @@ export interface IAsset extends Document {
 
   // PostgreSQL references (stored as numbers)
   taskId: number;
-  moduleId: number;
   projectId: number;
   organizationId: number;
   uploadedBy: number;

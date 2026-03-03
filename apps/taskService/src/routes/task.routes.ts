@@ -32,6 +32,7 @@ import {
   getApprovals,
   getTimeLogs,
   deleteTimeLog,
+  getPendingApprovals,
 } from '../controller/task.controller.js';
 
 const router: IRouter = Router();
@@ -88,7 +89,6 @@ router.patch(
   assignTask,
 );
 
-// Bulk operations 
 router.patch(
   '/bulk/assign/:projectId',
   requireProjectAccess,
@@ -110,6 +110,11 @@ router.delete(
 
 // approvals
 router.get('/:taskId/approvals', getApprovals);
+router.get(
+  '/getPendingApprovals/:projectId',
+  requireProjectAccess,
+  getPendingApprovals,
+);
 
 // timelogs
 router.get('/:taskId/timelogs', getTimeLogs);

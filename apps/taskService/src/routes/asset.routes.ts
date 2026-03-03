@@ -7,19 +7,20 @@ import { tusServer, assetService } from '../services/asset.service.js';
 
 const router: IRouter = Router();
 
-router.all('/upload', authMiddleware, (req: Request, res: Response) =>
+// router.options('/upload', (req: Request, res: Response) =>
+//   tusServer.handle(req, res),
+// );
+
+// // All other TUS methods — with auth
+router.all('/upload', (req: Request, res: Response) =>
   tusServer.handle(req, res),
 );
 
-router.options('/upload', (_req: Request, res: Response) => {
-  res.setHeader('Tus-Resumable', '1.0.0');
-  res.setHeader('Tus-Version', '1.0.0');
-  res.setHeader('Tus-Max-Size', String(MINIO_MAX_FILE_SIZE));
-  res.setHeader('Tus-Extension', 'creation,expiration,termination');
-  res.status(204).send();
-});
+router.all('/upload/:id', (req: Request, res: Response) =>
+  tusServer.handle(req, res),
+);
 
-router.use(authMiddleware);
+// router.use(authMiddleware);
 
 router.get(
   '/task/:taskId',
@@ -56,7 +57,9 @@ router.get(
 router.get(
   '/:assetId/versions',
   asyncHandler(async (req, res) => {
-    const versions = await assetService.getVersionHistory(String(req.params.assetId));
+    const versions = await assetService.getVersionHistory(
+      String(req.params.assetId),
+    );
     res.json(new ApiResponse(200, versions, 'Version history fetched'));
   }),
 );

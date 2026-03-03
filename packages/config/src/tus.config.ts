@@ -6,8 +6,8 @@ import os from 'os';
 import { logger } from './logger.config.js';
 import { ALLOWED_MIME_TYPES, MINIO_MAX_FILE_SIZE } from './minio.config.js';
 
-export const TUS_TMP_DIR = process.env.TUS_TMP_DIR
-  ? path.resolve(process.env.TUS_TMP_DIR)
+export const TUS_TMP_DIR = env_config_variable.TEMP_DIR.PATH
+  ? path.resolve(env_config_variable.TEMP_DIR.PATH)
   : path.join(os.tmpdir(), 'tus-uploads');
 
 export function tusMakeTmpDir(): void {
@@ -63,7 +63,7 @@ export type TusFinishHandler<T = void> = (
 ) => Promise<T>;
 
 export function createTusServer<T>(
-  path: string, // e.g. '/api/assets/upload'
+  path: string, // e.g. '/api/assets/upload
   onFinish: TusFinishHandler<T>,
 ): TusServer {
   tusMakeTmpDir();
@@ -127,6 +127,7 @@ export function createTusServer<T>(
 
 import path_module from 'path';
 import { promises } from 'dns';
+import { env_config_variable } from './env.config.js';
 
 export function tusDeleteTempFile(tempPath: string): void {
   fs.unlink(tempPath, (err) => {

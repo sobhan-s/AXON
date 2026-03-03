@@ -186,7 +186,6 @@ export const deleteTask: RequestHandler = asyncHandler(
   },
 );
 
-
 export const bulkAssign: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const { taskIds, assignedToId } = req.body;
@@ -228,9 +227,6 @@ export const bulkDelete: RequestHandler = asyncHandler(
   },
 );
 
-
-
-
 export const getApprovals: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const approvals = await taskService.getApprovals(
@@ -241,8 +237,14 @@ export const getApprovals: RequestHandler = asyncHandler(
   },
 );
 
-
-
+export const getPendingApprovals: RequestHandler = asyncHandler(
+  async (req: Request, res: Response) => {
+    const approvals = await taskService.getPendingApprovals(
+      Number(req.params.projectId),
+    );
+    res.status(200).json(new ApiResponse(200, approvals, 'Pending Approvals fetched'));
+  },
+);
 
 export const getTimeLogs: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {

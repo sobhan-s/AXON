@@ -8,7 +8,16 @@ dotenv.config({ path: path.resolve('../../', '.env.local') });
 
 export const env_config_variable = {
   SERVICE_URI: {
-    AUTH: process.env.AUTH_SERVICE_URI,
+    AUTH_SERVICE: process.env.AUTH_SERVICE_URI,
+    AUTH: process.env.AUTH_URI,
+    USER: process.env.USER_URI,
+    PROJECT_SERVICE_URI: process.env.PROJECT_SERVICE_URI,
+    ORGANIZATION: process.env.ORGANIZATION_URI,
+    PROJECT: process.env.PROJECT_URI,
+    TASK_SERVICE_URI: process.env.TASK_SERVICE_URI,
+    TASK: process.env.TASK_URI,
+
+    GATEWAY_SERVICE: process.env.GATEWAY_SERVICE_URI,
   },
   PORT: {
     MAIN_PORT: parseInt(process.env.MAIN_PORT || '8000', 10),
@@ -62,5 +71,8 @@ export const env_config_variable = {
     MINIO_PASSWORD: process.env.MINIO_ROOT_PASSWORD!,
     MINIO_BUCKET_NAME: process.env.MINIO_BUCKET!,
     MINIO_PUBLI_URL: process.env.MINIO_PUBLIC_URL,
+  },
+  TEMP_DIR: {
+    PATH: process.env.TUS_TMP_DIR_PATH,
   },
 };

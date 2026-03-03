@@ -14,14 +14,14 @@ const LEVEL = {
   ADMIN: 1,
   MANAGER: 2,
   LEAD: 3,
-  REVISER: 4,
+  REVIEWER: 4,
   MEMBER: 5,
 } as const;
 
 const CAN_CREATE_MANUAL = [LEVEL.ADMIN, LEVEL.MANAGER, LEVEL.LEAD];
 const CAN_FINALIZE = [LEVEL.ADMIN, LEVEL.MANAGER, LEVEL.LEAD];
 const CAN_MANAGE_TASK = [LEVEL.ADMIN, LEVEL.MANAGER, LEVEL.LEAD];
-const CAN_REVIEW = [LEVEL.ADMIN, LEVEL.MANAGER, LEVEL.REVISER];
+const CAN_REVIEW = [LEVEL.ADMIN, LEVEL.MANAGER, LEVEL.REVIEWER];
 const CAN_UPLOAD = [LEVEL.ADMIN, LEVEL.MANAGER, LEVEL.LEAD, LEVEL.MEMBER];
 
 export class TaskService {
@@ -89,7 +89,12 @@ export class TaskService {
       assetId,
     );
 
-    await this.approvalRepo.createApproval(task.id, uploadedById, assetId);
+    await this.approvalRepo.createApproval(
+      task.id,
+      uploadedById,
+      assetId,
+      projectId,
+    );
 
     await this.activitySvc.logActivity({
       userId: uploadedById,
@@ -159,7 +164,7 @@ export class TaskService {
         );
       }
       if (!CAN_REVIEW.includes(assigneeMember.role.level as any)) {
-        throw new ApiError(400, 'Reviewer must be Admin, Manager or Reviser');
+        throw new ApiError(400, 'Reviewer must be Admin, Manager or REVIEWER');
       }
     } else if (status === 'FAILED') {
       if (!CAN_REVIEW.includes(requesterLevel as any)) {
@@ -248,9 +253,15 @@ export class TaskService {
 
       await this.timelogRepo.closeSession(taskId, userId);
 
-      const pending = await this.approvalRepo.getPendingApproval(taskId);
+      const pending =
+        await this.approvalRepo.getPendingApprovalByTaskId(taskId);
       if (!pending) {
-        await this.approvalRepo.createApproval(taskId, userId, task.assetId);
+        await this.approvalRepo.createApproval(
+          taskId,
+          userId,
+          task.assetId,
+          task.project.id,
+        );
       }
     }
 
@@ -259,7 +270,7 @@ export class TaskService {
       if (!CAN_REVIEW.includes(level as any)) {
         throw new ApiError(
           403,
-          'Only Admin, Manager or Reviser can approve tasks',
+          'Only Admin, Manager or REVIEWER can approve tasks',
         );
       }
       if (task.assignedToId !== userId) {
@@ -269,7 +280,8 @@ export class TaskService {
         );
       }
 
-      const pending = await this.approvalRepo.getPendingApproval(taskId);
+      const pending =
+        await this.approvalRepo.getPendingApprovalByTaskId(taskId);
       if (pending) {
         await this.approvalRepo.reviewApproval(pending.id, userId, 'APPROVED');
       }
@@ -282,7 +294,7 @@ export class TaskService {
       if (!CAN_REVIEW.includes(level as any)) {
         throw new ApiError(
           403,
-          'Only Admin, Manager or Reviser can reject tasks',
+          'Only Admin, Manager or REVIEWER can reject tasks',
         );
       }
       if (task.assignedToId !== userId) {
@@ -292,7 +304,8 @@ export class TaskService {
         );
       }
 
-      const pending = await this.approvalRepo.getPendingApproval(taskId);
+      const pending =
+        await this.approvalRepo.getPendingApprovalByTaskId(taskId);
       if (pending) {
         await this.approvalRepo.reviewApproval(pending.id, userId, 'REJECTED');
       }
@@ -322,7 +335,12 @@ export class TaskService {
 
       await this.timelogRepo.openSession(taskId, userId);
 
-      await this.approvalRepo.createApproval(taskId, userId, task.assetId);
+      await this.approvalRepo.createApproval(
+        taskId,
+        userId,
+        task.assetId,
+        task.project.id,
+      );
     } else if (currentStatus === 'APPROVED' && newStatus === 'DONE') {
       if (!CAN_FINALIZE.includes(level as any)) {
         throw new ApiError(403, 'Only Lead, Manager or Admin can close a task');
@@ -380,7 +398,12 @@ export class TaskService {
     await this.taskRepo.updateTaskAsset(taskId, assetId);
     await this.timelogRepo.closeSession(taskId, userId);
     await this.taskRepo.updateTaskStatus(taskId, 'REVIEW');
-    await this.approvalRepo.createApproval(taskId, userId, assetId);
+    await this.approvalRepo.createApproval(
+      taskId,
+      userId,
+      assetId,
+      task.project.id,
+    );
 
     await this.activitySvc.logActivity({
       userId,
@@ -637,6 +660,17 @@ export class TaskService {
     if (!task) throw new ApiError(404, 'Task not found');
 
     const approvals = await this.approvalRepo.findApprovalsByTask(taskId);
+
+    return approvals;
+  }
+
+  async getPendingApprovals(projectId: number) {
+    logger.info('Fetching the approval Records . . .');
+    const project = await this.taskRepo.findProjectById(projectId);
+
+    if (!project) throw new ApiError(404, 'project not found');
+
+    const approvals = await this.approvalRepo.getPendingApprovals(projectId);
 
     return approvals;
   }

@@ -9,6 +9,7 @@ import {
   minioBuildObjectName,
   minioDetectFileType,
   MINIO_MAX_FILE_SIZE,
+  initMinio
 } from './minio.config.js';
 import {
   createTusServer,
@@ -21,6 +22,7 @@ export {
   env_config_variable,
   logger,
   transporter,
+  initMinio,
   minioUploadFile,
   minioUploadBuffer,
   minioGetPresignedUrl,

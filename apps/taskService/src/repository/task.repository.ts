@@ -334,4 +334,24 @@ export class TaskRepository {
       throw new ApiError(500, 'Failed to get member role');
     }
   }
+
+  async findProjectById(projectId: number) {
+    try {
+      return await prisma.project.findUnique({
+        where: {
+          id: projectId,
+        },
+        select: {
+          id: true,
+          name: true,
+        },
+      });
+    } catch (error) {
+      logger.error('Error while find the project by there id ');
+      throw new ApiError(
+        500,
+        'Database error while Error while find the project by there id ',
+      );
+    }
+  }
 }

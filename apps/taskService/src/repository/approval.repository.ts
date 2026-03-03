@@ -7,11 +7,11 @@ export class ApprovalRepository {
     taskId: number,
     requestedById: number,
     assetId: string,
-    comments?: string,
+    projectId: number,
   ) {
     try {
       return await prisma.approval.create({
-        data: { taskId, requestedById, assetId, comments },
+        data: { taskId, projectId, requestedById, assetId },
         include: {
           requestedBy: {
             select: { id: true, username: true, avatarUrl: true },
@@ -21,6 +21,38 @@ export class ApprovalRepository {
     } catch (error) {
       logger.error('Error creating approval', { error });
       throw new ApiError(500, 'Failed to create approval');
+    }
+  }
+
+  async getPendingApprovals(projectId: number) {
+    try {
+      return await prisma.approval.findMany({
+        where: {
+          projectId,
+          status: 'PENDING',
+        },
+        include: {
+          requestedBy: {
+            select: {
+              id: true,
+              username: true,
+              email: true,
+              avatarUrl: true,
+            },
+          },
+          reviewedBy: {
+            select: {
+              id: true,
+              username: true,
+              email: true,
+              avatarUrl: true,
+            },
+          },
+        },
+      });
+    } catch (error) {
+      logger.error('Error while get the approvals  . . .');
+      throw new ApiError(500, 'Data base error while get the approvals');
     }
   }
 
@@ -60,7 +92,7 @@ export class ApprovalRepository {
     }
   }
 
-  async getPendingApproval(taskId: number) {
+  async getPendingApprovalByTaskId(taskId: number) {
     try {
       return await prisma.approval.findFirst({
         where: { taskId, status: 'PENDING' },

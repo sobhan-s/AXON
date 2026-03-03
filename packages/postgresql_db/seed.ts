@@ -60,7 +60,7 @@ async function seedRBAC() {
     }
 
     // ── Roles ──────────────────────────────────────────────────────────────
-    // CHANGE: Renamed REVIEWER → REVISER to match RoleType enum in schema
+    // CHANGE: Renamed REVIEWER → REVIEWER to match RoleType enum in schema
     const roles = await Promise.all([
       prisma.role.upsert({
         where: { name: 'ADMIN' },
@@ -280,7 +280,7 @@ async function seedRBAC() {
 
     console.log(`Created ${createdPermissions.length} permissions`);
 
-    const [adminRole, managerRole, leadRole, reviserRole, memberRole] = roles;
+    const [adminRole, managerRole, leadRole, REVIEWERRole, memberRole] = roles;
 
     const adminPermissions = createdPermissions;
 
@@ -337,7 +337,7 @@ async function seedRBAC() {
       ].includes(p.name),
     );
 
-    const reviserPermissions = createdPermissions.filter((p) =>
+    const REVIEWERPermissions = createdPermissions.filter((p) =>
       [
         'view_project',
         'view_task',
@@ -366,8 +366,8 @@ async function seedRBAC() {
         roleId: memberRole.id,
         permissionId: p.id,
       })),
-      ...reviserPermissions.map((p) => ({
-        roleId: reviserRole.id,
+      ...REVIEWERPermissions.map((p) => ({
+        roleId: REVIEWERRole.id,
         permissionId: p.id,
       })),
     ];
@@ -386,7 +386,7 @@ async function seedRBAC() {
     console.log(`MANAGER: ${managerPermissions.length} permissions`);
     console.log(`LEAD: ${leadPermissions.length} permissions`);
     console.log(`MEMBER: ${memberPermissions.length} permissions`);
-    console.log(`REVIEWER: ${reviserPermissions.length} permissions`);
+    console.log(`REVIEWER: ${REVIEWERPermissions.length} permissions`);
 
     console.log('\n RBAC seeding complete!');
   } catch (error) {

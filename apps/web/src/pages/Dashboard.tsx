@@ -8,6 +8,12 @@ import { useAuthStore } from '@/store/auth.store';
 
 import UserManagementPage from '@/pages/Usermanagementpage';
 import SuperAdminOrgsPage from './SuperAdminPage';
+import ProjectBoardPage from './projects/ProjectBoard';
+import ProjectsPage from './projects/Projectpage';
+import ProjectMembersPage from './projects/ProjectMember';
+import ProjectReviewsPage from './projects/ProjectReviewPage';
+import ProjectReportsPage from './projects/ProjectReport';
+import SettingsPage from './SettinPage';
 
 function RequireRole({
   allowed,
@@ -133,17 +139,6 @@ function DashboardHome() {
   );
 }
 
-function ComingSoon({ title }: { title: string }) {
-  return (
-    <div className="flex flex-col items-center justify-center py-24 gap-2">
-      <p className="text-lg font-semibold">{title}</p>
-      <p className="text-muted-foreground text-sm">
-        This section is coming soon.
-      </p>
-    </div>
-  );
-}
-
 export default function Dashboard() {
   return (
     <SidebarProvider
@@ -172,19 +167,19 @@ export default function Dashboard() {
               }
             />
 
-            <Route path="projects" element={<ComingSoon title="Projects" />} />
-            <Route path="tasks" element={<ComingSoon title="Tasks" />} />
-            <Route path="team" element={<ComingSoon title="Team" />} />
+            <Route path="projects" element={<ProjectsPage />} />
+            <Route path="tasks" element={<ProjectBoardPage />} />
+            <Route path="team" element={<ProjectMembersPage />} />
             <Route
               path="review"
-              element={<ComingSoon title="Review Queue" />}
+              element={<ProjectReviewsPage />}
             />
             <Route
               path="analytics"
-              element={<ComingSoon title="Analytics" />}
+              element={<ProjectReportsPage />}
             />
-            <Route path="settings" element={<ComingSoon title="Settings" />} />
-            <Route path="orgs" element={<ComingSoon title="Organizations" />} />
+            <Route path="settings" element={<SettingsPage />} />
+            <Route path="orgs" element={<SuperAdminOrgsPage />} />
 
             <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Routes>

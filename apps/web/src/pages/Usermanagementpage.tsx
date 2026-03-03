@@ -76,7 +76,7 @@ import { useAuthStore } from '@/store/auth.store';
 const ROLES = [
   { id: 2, name: 'MANAGER' },
   { id: 3, name: 'LEAD' },
-  { id: 4, name: 'REVISER' },
+  { id: 4, name: 'REVIEWER' },
   { id: 5, name: 'MEMBER' },
 ];
 
@@ -84,7 +84,7 @@ const ROLE_VARIANT: Record<string, 'default' | 'secondary' | 'outline'> = {
   ADMIN: 'default',
   MANAGER: 'secondary',
   LEAD: 'outline',
-  REVISER: 'outline',
+  REVIEWER: 'outline',
   MEMBER: 'outline',
 };
 
@@ -278,7 +278,7 @@ export default function UserManagementPage() {
   };
 
   return (
-    <div className="flex flex-col gap-6 px-4 py-6 lg:px-6">
+    <div className="flex flex-col gap-6 px-6 py-6 w-full max-w-7xl mx-auto">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">User Management</h1>
         <p className="text-muted-foreground text-sm mt-1">
@@ -536,7 +536,7 @@ export default function UserManagementPage() {
         </DialogContent>
       </Dialog>
 
-       <Dialog
+      <Dialog
         open={!!editTarget}
         onOpenChange={(o) => {
           if (!o) setEditTarget(null);
@@ -613,7 +613,7 @@ export default function UserManagementPage() {
         </DialogContent>
       </Dialog>
 
-       <Dialog
+      <Dialog
         open={!!viewTarget}
         onOpenChange={(o) => {
           if (!o) setViewTarget(null);
@@ -685,7 +685,7 @@ export default function UserManagementPage() {
         </DialogContent>
       </Dialog>
 
-       <AlertDialog
+      <AlertDialog
         open={!!deleteTarget}
         onOpenChange={(o) => {
           if (!o) setDeleteTarget(null);

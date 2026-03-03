@@ -48,6 +48,13 @@ export class ApprovalRepository {
               avatarUrl: true,
             },
           },
+          task: {
+            select: {
+              title: true,
+              description: true,
+              taskType: true,
+            },
+          },
         },
       });
     } catch (error) {

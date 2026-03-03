@@ -128,7 +128,7 @@ export class TaskRepository {
           assignedTo: { select: { id: true, username: true, avatarUrl: true } },
           _count: { select: { timeLogs: true, approvals: true } },
         },
-        orderBy: [{ priority: 'desc' }, { createdAt: 'desc' }],
+        orderBy: [{ id: 'asc' }],
       });
     } catch (error) {
       logger.error('Error finding project tasks', {

@@ -6,14 +6,27 @@ import LoginPage from './pages/auth/Login';
 import VerifyEmailPage from './pages/auth/verifyEmail';
 import ForgotPasswordPage from './pages/auth/ForgotPassword';
 import ResetPasswordPage from './pages/auth/ResetPassword';
-import Dashboard from './pages/Dashboard';
 import AccountPage from './pages/Accounts';
-import UserManagementPage from './pages/Usermanagementpage';
+
+import Dashboard from './pages/Dashboard';
+import ProjectLayout from './pages/projects/Project.layout';
+
 import SuperAdminOrgsPage from './pages/SuperAdminPage';
+import UserManagementPage from './pages/Usermanagementpage';
+import ProjectsPage from './pages/projects/Projectpage';
+import MyTasksPage from './pages/projects/MytaskPage';
+import TeamPage from './pages/TeamPage';
+import SettingsPage from './pages/SettinPage';
+
+import ProjectBoardPage from './pages/projects/ProjectBoard';
+import ProjectUploadPage from './pages/projects/ProjectUpload';
+import ProjectReviewsPage from './pages/projects/ProjectReviewPage';
+import ProjectReportsPage from './pages/projects/ProjectReport';
+import ProjectMembersPage from './pages/projects/ProjectMember';
 
 import { ProtectedRoute, PublicRoute, RoleRoute } from './lib/roteGuard';
 
-const NotFound: React.FC = () => (
+const NotFound = () => (
   <div className="flex min-h-svh items-center justify-center text-center">
     <div>
       <h2 className="text-4xl font-bold">404</h2>
@@ -28,6 +41,7 @@ const NotFound: React.FC = () => (
 const App: React.FC = () => (
   <Router>
     <Routes>
+      {/* PUBLIC */}
       <Route element={<PublicRoute />}>
         <Route path="/" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
@@ -36,38 +50,48 @@ const App: React.FC = () => (
         <Route path="/reset-password" element={<ResetPasswordPage />} />
       </Route>
 
+      {/* PROTECTED */}
       <Route element={<ProtectedRoute />}>
         <Route path="/account" element={<AccountPage />} />
+
+        {/* ── DASHBOARD (top-level layout) ─────────────────────────── */}
         <Route path="/dashboard/*" element={<Dashboard />} />
+        {/*
+          Dashboard.tsx handles its own nested Routes:
+            /dashboard           → DashboardHome
+            /dashboard/orgs      → SuperAdminOrgsPage  (SUPER_ADMIN)
+            /dashboard/users     → UserManagementPage  (ADMIN)
+            /dashboard/projects  → ProjectsPage        (all)
+            /dashboard/tasks     → MyTasksPage         (all except REVIEWER)
+            /dashboard/team      → TeamPage            (MANAGER + ADMIN)
+            /dashboard/settings  → SettingsPage        (ADMIN)
+            /dashboard/review    → ProjectReviewsPage  (REVIEWER)
+        */}
 
-        <Route element={<RoleRoute allowed={['SUPER_ADMIN']} />}>
-          <Route path="/dashboard/orgs" element={<SuperAdminOrgsPage />} />
-        </Route>
+        {/* ── PROJECT LAYOUT (sidebar fully replaces on enter) ─────── */}
+        <Route path="/projects/:projectId" element={<ProjectLayout />}>
+          <Route index element={<ProjectBoardPage />} />
+          <Route path="board" element={<ProjectBoardPage />} />
+          <Route path="reviews" element={<ProjectReviewsPage />} />
 
-        <Route element={<RoleRoute allowed={['ADMIN', 'SUPER_ADMIN']} />}>
-          <Route path="/dashboard/users" element={<UserManagementPage />} />
-        </Route>
-
-        <Route
-          element={<RoleRoute allowed={['ADMIN', 'MANAGER']} />}
-        >
+          {/* Not REVIEWER */}
           <Route
-            path="/dashboard/projects"
-            element={<div>Projects Page</div>}
-          />
-        </Route>
+            element={
+              <RoleRoute allowed={['ADMIN', 'MANAGER', 'LEAD', 'MEMBER']} />
+            }
+          >
+            <Route path="upload" element={<ProjectUploadPage />} />
+          </Route>
 
-        <Route
-          element={
-            <RoleRoute allowed={['ADMIN', 'MANAGER', 'LEAD']} />
-          }
-        >
-          <Route path="/dashboard/team" element={<div>Team Page</div>} />
-          <Route path="/dashboard/tasks" element={<div>Tasks Page</div>} />
-        </Route>
+          {/* LEAD + MANAGER + ADMIN */}
+          <Route element={<RoleRoute allowed={['ADMIN', 'MANAGER', 'LEAD']} />}>
+            <Route path="reports" element={<ProjectReportsPage />} />
+          </Route>
 
-        <Route element={<RoleRoute allowed={['REVISER']} />}>
-          <Route path="/dashboard/review" element={<div>Review Queue</div>} />
+          {/* MANAGER + ADMIN */}
+          <Route element={<RoleRoute allowed={['ADMIN', 'MANAGER']} />}>
+            <Route path="members" element={<ProjectMembersPage />} />
+          </Route>
         </Route>
       </Route>
 

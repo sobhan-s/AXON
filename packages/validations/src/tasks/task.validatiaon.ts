@@ -4,8 +4,8 @@ export const createManualTaskSchema = z.object({
   title: z.string().min(1).max(255),
   description: z.string().max(2000).optional(),
   priority: z.enum(['LOW', 'MEDIUM', 'HIGH', 'URGENT']).default('MEDIUM'),
-  estimatedHours: z.number().min(0.1).max(999).optional(),
-  dueDate: z.iso.datetime().optional(),
+  estimatedHours: z.number().min(0.1).max(999),
+  dueDate: z.string().optional(),
 });
 
 export const updateTaskSchema = z.object({
@@ -13,7 +13,7 @@ export const updateTaskSchema = z.object({
   description: z.string().max(2000).optional(),
   priority: z.enum(['LOW', 'MEDIUM', 'HIGH', 'URGENT']).optional(),
   estimatedHours: z.number().min(0.1).max(999).optional(),
-  dueDate: z.iso.datetime().optional(),
+  dueDate: z.string().optional(),
 });
 
 export const changeStatusSchema = z.object({

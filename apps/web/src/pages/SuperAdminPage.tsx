@@ -308,7 +308,7 @@ export default function SuperAdminOrgsPage() {
   };
 
   return (
-    <div className="flex flex-col gap-6 px-4 py-6 lg:px-6">
+    <div className="flex flex-col gap-6 px-6 py-6 w-full max-w-7xl mx-auto">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">Organizations</h1>
         <p className="text-muted-foreground text-sm mt-1">

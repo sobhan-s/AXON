@@ -1,14 +1,19 @@
 import * as React from 'react';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import {
   LayoutDashboardIcon,
   UsersIcon,
   FolderIcon,
-  BarChartIcon,
   SettingsIcon,
   BuildingIcon,
   CheckSquareIcon,
   ClipboardListIcon,
+  UploadCloudIcon,
+  BarChart2Icon,
+  ChevronLeftIcon,
+  UsersRoundIcon,
 } from 'lucide-react';
+
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
 import {
@@ -19,68 +24,177 @@ import {
   SidebarMenu,
   SidebarMenuButton,
   SidebarMenuItem,
+  SidebarSeparator,
 } from '@/components/ui/sidebar';
 import { useAuthStore } from '@/store/auth.store';
+import { projectService, type Project } from '@/services/Project.service';
+
+// ─── TOP-LEVEL NAV per role ───────────────────────────────────────────────────
 
 const NAV_BY_ROLE: Record<string, { title: string; url: string; icon: any }[]> =
   {
     SUPER_ADMIN: [
       { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },
       { title: 'Organizations', url: '/dashboard/orgs', icon: BuildingIcon },
-      { title: 'All Projects', url: '/dashboard/projects', icon: FolderIcon },
       { title: 'All Users', url: '/dashboard/users', icon: UsersIcon },
-      { title: 'Analytics', url: '/dashboard/analytics', icon: BarChartIcon },
     ],
     ADMIN: [
       { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },
-      { title: 'User Management', url: '/dashboard/users', icon: UsersIcon },
       { title: 'Projects', url: '/dashboard/projects', icon: FolderIcon },
-      { title: 'Analytics', url: '/dashboard/analytics', icon: BarChartIcon },
-      { title: 'Org Settings', url: '/dashboard/settings', icon: SettingsIcon },
+      { title: 'My Tasks', url: '/dashboard/tasks', icon: CheckSquareIcon },
+      { title: 'Team', url: '/dashboard/team', icon: UsersIcon },
+      {
+        title: 'User Management',
+        url: '/dashboard/users',
+        icon: UsersRoundIcon,
+      },
+      { title: 'Settings', url: '/dashboard/settings', icon: SettingsIcon },
     ],
     MANAGER: [
       { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },
-      { title: 'My Projects', url: '/dashboard/projects', icon: FolderIcon },
-      { title: 'Tasks', url: '/dashboard/tasks', icon: CheckSquareIcon },
+      { title: 'Projects', url: '/dashboard/projects', icon: FolderIcon },
+      { title: 'My Tasks', url: '/dashboard/tasks', icon: CheckSquareIcon },
       { title: 'Team', url: '/dashboard/team', icon: UsersIcon },
-      { title: 'Analytics', url: '/dashboard/analytics', icon: BarChartIcon },
     ],
     LEAD: [
       { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },
-      { title: 'My Projects', url: '/dashboard/projects', icon: FolderIcon },
-      { title: 'Tasks', url: '/dashboard/tasks', icon: CheckSquareIcon },
-      { title: 'My Team', url: '/dashboard/team', icon: UsersIcon },
+      { title: 'Projects', url: '/dashboard/projects', icon: FolderIcon },
+      { title: 'My Tasks', url: '/dashboard/tasks', icon: CheckSquareIcon },
     ],
-    REVISER: [
+    REVIEWER: [
       { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },
+      { title: 'Projects', url: '/dashboard/projects', icon: FolderIcon },
       {
         title: 'Review Queue',
         url: '/dashboard/review',
         icon: ClipboardListIcon,
       },
-      { title: 'Projects', url: '/dashboard/projects', icon: FolderIcon },
     ],
     MEMBER: [
       { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },
-      { title: 'My Tasks', url: '/dashboard/tasks', icon: CheckSquareIcon },
       { title: 'Projects', url: '/dashboard/projects', icon: FolderIcon },
+      { title: 'My Tasks', url: '/dashboard/tasks', icon: CheckSquareIcon },
     ],
   };
 
-// const NAV_SECONDARY = [
-//   { title: 'Settings', url: '/dashboard/settings', icon: SettingsIcon },
-//   { title: 'Get Help', url: '#', icon: HelpCircleIcon },
-//   { title: 'Search', url: '#', icon: SearchIcon },
-// ];
+// ─── PROJECT NAV per role ─────────────────────────────────────────────────────
+
+function getProjectNav(projectId: string, role: string) {
+  const base = `/projects/${projectId}`;
+
+  const all = [
+    { title: 'Board', url: `${base}/board`, icon: CheckSquareIcon },
+    { title: 'Review Queue', url: `${base}/reviews`, icon: ClipboardListIcon },
+  ];
+
+  // Upload — all except REVIEWER
+  if (role !== 'REVIEWER') {
+    all.splice(1, 0, {
+      title: 'Upload',
+      url: `${base}/upload`,
+      icon: UploadCloudIcon,
+    });
+  }
+
+  // Reports — LEAD + MANAGER + ADMIN
+  if (['LEAD', 'MANAGER', 'ADMIN'].includes(role)) {
+    all.push({ title: 'Reports', url: `${base}/reports`, icon: BarChart2Icon });
+  }
+
+  // Members — MANAGER + ADMIN
+  if (['MANAGER', 'ADMIN'].includes(role)) {
+    all.push({ title: 'Members', url: `${base}/members`, icon: UsersIcon });
+  }
+
+  return all;
+}
+
+// ─── SIDEBAR ──────────────────────────────────────────────────────────────────
 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const user = useAuthStore((s) => s.user);
+  const orgId = user?.organizationId as number;
   const role = user?.role?.name ?? 'MEMBER';
-  console.log("===========",role)
+  const navigate = useNavigate();
+
+  // Detect if we are inside a project route
+  const { projectId } = useParams<{ projectId?: string }>();
+  const location = useLocation();
+  const inProject = !!projectId || location.pathname.startsWith('/projects/');
+
+  // Extract projectId from pathname if not in params (when sidebar is outside Route context)
+  const resolvedProjectId =
+    projectId ?? location.pathname.match(/\/projects\/(\d+)/)?.[1];
+
+  // Load project name for the sidebar header
+  const [project, setProject] = React.useState<Project | null>(null);
+
+  React.useEffect(() => {
+    if (!resolvedProjectId) {
+      setProject(null);
+      return;
+    }
+    projectService
+      .getById(orgId, Number(resolvedProjectId))
+      .then(setProject)
+      .catch(() => setProject(null));
+  }, [resolvedProjectId]);
+
+  // ── MODE A: inside a project ───────────────────────────────────────────────
+  if (inProject && resolvedProjectId) {
+    const projectNav = getProjectNav(resolvedProjectId, role);
+
+    return (
+      <Sidebar collapsible="offcanvas" {...props} className="w-[250px]">
+        {/* Back button + project name */}
+        <SidebarHeader>
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                onClick={() => navigate('/dashboard/projects')}
+                className="flex items-center gap-2 text-muted-foreground hover:text-foreground"
+              >
+                <ChevronLeftIcon className="h-4 w-4 shrink-0" />
+                <span className="text-xs font-medium">Back to Projects</span>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+
+          <SidebarSeparator />
+
+          {/* Project name */}
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <div className="px-2 py-1.5">
+                <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground">
+                  Project
+                </p>
+                <p className="text-sm font-semibold truncate mt-0.5">
+                  {project?.name ?? '...'}
+                </p>
+              </div>
+            </SidebarMenuItem>
+          </SidebarMenu>
+
+          <SidebarSeparator />
+        </SidebarHeader>
+
+        <SidebarContent>
+          <NavMain items={projectNav} />
+        </SidebarContent>
+
+        <SidebarFooter>
+          <NavUser />
+        </SidebarFooter>
+      </Sidebar>
+    );
+  }
+
+  // ── MODE B: top-level dashboard ────────────────────────────────────────────
   const navItems = NAV_BY_ROLE[role] ?? NAV_BY_ROLE.MEMBER;
 
   return (
-    <Sidebar collapsible="offcanvas" {...props}>
+    <Sidebar collapsible="offcanvas" {...props} className="w-[250px]">
       <SidebarHeader>
         <SidebarMenu>
           <SidebarMenuItem>
@@ -88,8 +202,8 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
               asChild
               className="data-[slot=sidebar-menu-button]:!p-1.5"
             >
-              <div className="w-[170px] h-[70px]">
-                <img src="/axon_logo.png" alt="logo" />
+              <div className="max-w-[140px] h-[70px]">
+                <img src="/axon_logo.png" alt="Axon" />
               </div>
             </SidebarMenuButton>
           </SidebarMenuItem>

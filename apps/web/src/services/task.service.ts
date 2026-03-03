@@ -13,20 +13,25 @@ export type TaskPriority = 'LOW' | 'MEDIUM' | 'HIGH' | 'URGENT';
 export interface Task {
   id: number;
   title: string;
-  description?: string | null;
-  status: TaskStatus;
-  priority: TaskPriority;
-  estimatedHours?: number | null;
-  dueDate?: string | null;
-  projectId: number;
-  assignedToId?: number | null;
-  createdAt: string;
-  updatedAt: string;
-
-  assignee?: {
+  description: string | null;
+  status: 'TODO' | 'IN_PROGRESS' | 'REVIEW' | 'APPROVED' | 'FAILED' | 'DONE';
+  taskType: 'MANUAL' | 'ASSET_BASED';
+  priority: 'LOW' | 'MEDIUM' | 'HIGH' | 'URGENT' | null;
+  dueDate: string | null;
+  assignedTo: {
     id: number;
     username: string;
-    email: string;
+    avatarUrl: string | null;
+  } | null;
+  projectId: number;
+  createdBy?: {
+    id: number;
+    username: string;
+    avatarUrl: string | null;
+  } | null;
+  _count: {
+    timeLogs: number;
+    approvals: number;
   };
 }
 
@@ -53,6 +58,10 @@ export interface PendingApprovals {
     email: string;
     avatarUrl: string | null;
   } | null;
+  task: {
+    title: string;
+    description: string | null;
+  };
 }
 
 export interface CreateTaskPayload {
@@ -150,10 +159,11 @@ export const taskService = {
     projectId: number,
     taskId: number,
     status: TaskStatus,
+    feedBack?: string,
   ): Promise<Task> {
     const { data } = await api.patch(
       TASK_ENDPOINTS.CHANGE_STATUS(projectId, taskId),
-      { status },
+      { status, feedBack },
     );
     return data?.data ?? data;
   },

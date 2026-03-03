@@ -1,5 +1,6 @@
 const AUTHSERVICE_BASE = 'http://localhost:8001';
-const USERSERVICE_BASE = 'http://localhost:8002';
+const PROJECTSERVICE_BASE = 'http://localhost:8002';
+const TASKSERVICE_BASE = 'http://localhost:8003';
 
 export const AUTH_ENDPOINTS = {
   REGISTER: `${AUTHSERVICE_BASE}/auth/register`,
@@ -33,28 +34,124 @@ export const ADMIN_USER_ENDPOINTS = {
 } as const;
 
 export const SUPER_ADMIN_ORG_ENDPOINTS = {
-  CREATE: `${USERSERVICE_BASE}/orgs/create`,
-  GET_ALL: `${USERSERVICE_BASE}/orgs/allOrg`,
-  GET_BY_ID: (orgId: number) => `${USERSERVICE_BASE}/orgs/getOrgById/${orgId}`,
-  UPDATE: (orgId: number) => `${USERSERVICE_BASE}/orgs/update/${orgId}`,
-  DELETE: (orgId: number) => `${USERSERVICE_BASE}/orgs/deleteOrg/${orgId}`,
-  ASSIGN: (orgId: number) => `${USERSERVICE_BASE}/orgs/assign/${orgId}`,
-  UNASSIGN: (orgId: number) => `${USERSERVICE_BASE}/orgs/unAssign/${orgId}`,
-  STATUS: (orgId: number) => `${USERSERVICE_BASE}/orgs/status/${orgId}`,
+  CREATE: `${PROJECTSERVICE_BASE}/orgs/create`,
+  GET_ALL: `${PROJECTSERVICE_BASE}/orgs/allOrg`,
+  GET_BY_ID: (orgId: number) =>
+    `${PROJECTSERVICE_BASE}/orgs/getOrgById/${orgId}`,
+  UPDATE: (orgId: number) => `${PROJECTSERVICE_BASE}/orgs/update/${orgId}`,
+  DELETE: (orgId: number) => `${PROJECTSERVICE_BASE}/orgs/deleteOrg/${orgId}`,
+  ASSIGN: (orgId: number) => `${PROJECTSERVICE_BASE}/orgs/assign/${orgId}`,
+  UNASSIGN: (orgId: number) => `${PROJECTSERVICE_BASE}/orgs/unAssign/${orgId}`,
+  STATUS: (orgId: number) => `${PROJECTSERVICE_BASE}/orgs/status/${orgId}`,
 } as const;
 
 export const PROJECT_ENDPOINTS = {
-  GET_ALL: (orgId: number) => `${USERSERVICE_BASE}/projects/org/${orgId}`,
-  GET_BY_ID: (projectId: number) => `${USERSERVICE_BASE}/projects/${projectId}`,
-  CREATE: (orgId: number) => `${USERSERVICE_BASE}/projects/org/${orgId}`,
-  UPDATE: (projectId: number) => `${USERSERVICE_BASE}/projects/${projectId}`,
-  DELETE: (projectId: number) => `${USERSERVICE_BASE}/projects/${projectId}`,
-  ASSIGN_MANAGER: (projectId: number) =>
-    `${USERSERVICE_BASE}/projects/${projectId}/assign-manager`,
-  GET_TEAM: (projectId: number) =>
-    `${USERSERVICE_BASE}/projects/${projectId}/team`,
-  ADD_MEMBER: (projectId: number) =>
-    `${USERSERVICE_BASE}/projects/${projectId}/team`,
-  REMOVE_MEMBER: (projectId: number, userId: number) =>
-    `${USERSERVICE_BASE}/projects/${projectId}/team/${userId}`,
+  // Projects
+  GET_ALL: (orgId: number) => `${PROJECTSERVICE_BASE}/project/${orgId}/all`,
+
+  GET_MY_PROJECTS: () => `${PROJECTSERVICE_BASE}/project/my-projects`,
+
+  GET_BY_ID: (orgId: number, projectId: number) =>
+    `${PROJECTSERVICE_BASE}/project/getProject/${orgId}/${projectId}`,
+
+  CREATE: (orgId: number) => `${PROJECTSERVICE_BASE}/project/${orgId}/create`,
+
+  UPDATE: (projectId: number) => `${PROJECTSERVICE_BASE}/project/${projectId}`,
+
+  ARCHIVE: (orgId: number, projectId: number) =>
+    `${PROJECTSERVICE_BASE}/project/archiveProject/${orgId}/${projectId}`,
+
+  DELETE: (orgId: number, projectId: number) =>
+    `${PROJECTSERVICE_BASE}/project/deleteProject/${orgId}/${projectId}`,
+
+  ASSIGN_MANAGER: (orgId: number, projectId: number) =>
+    `${PROJECTSERVICE_BASE}/project/assignManager/${orgId}/${projectId}`,
+
+  GET_TEAM: (orgId: number, projectId: number) =>
+    `${PROJECTSERVICE_BASE}/project/getTeamMembers/${orgId}/${projectId}`,
+
+  ADD_MEMBER: (orgId: number, projectId: number) =>
+    `${PROJECTSERVICE_BASE}/project/addTeamMembers/${orgId}/${projectId}`,
+
+  REMOVE_MEMBER: (orgId: number, projectId: number) =>
+    `${PROJECTSERVICE_BASE}/project/removeTeamMember/${orgId}/${projectId}`,
+} as const;
+
+// ─── TASK SERVICE (port 8003) ─────────────────────────────────────────────────
+
+export const TASK_ENDPOINTS = {
+  // my tasks
+  GET_MY_TASKS: (projectId: number) =>
+    `${TASKSERVICE_BASE}/tasks/my/${projectId}`,
+
+  GET_MY_OVERDUE: (projectId: number) =>
+    `${TASKSERVICE_BASE}/tasks/my/overdue/${projectId}`,
+
+  // project tasks
+  GET_PROJECT_TASKS: (projectId: number) =>
+    `${TASKSERVICE_BASE}/tasks/getProjectTasks/project/${projectId}`,
+
+  GET_OVERDUE: (projectId: number) =>
+    `${TASKSERVICE_BASE}/tasks/overdueTasks/project/${projectId}`,
+
+  CREATE_TASK: (projectId: number) =>
+    `${TASKSERVICE_BASE}/tasks/createTask/project/${projectId}`,
+
+  // single task
+  GET_TASK: (projectId: number, taskId: number) =>
+    `${TASKSERVICE_BASE}/tasks/getTaskById/${projectId}/${taskId}`,
+
+  UPDATE_TASK: (projectId: number, taskId: number) =>
+    `${TASKSERVICE_BASE}/tasks/updateTask/${projectId}/${taskId}`,
+
+  DELETE_TASK: (taskId: number) =>
+    `${TASKSERVICE_BASE}/tasks/deleteTask/${taskId}`,
+
+  // status & assign
+  CHANGE_STATUS: (projectId: number, taskId: number) =>
+    `${TASKSERVICE_BASE}/tasks/status/${projectId}/${taskId}`,
+
+  ASSIGN_TASK: (projectId: number, taskId: number) =>
+    `${TASKSERVICE_BASE}/tasks/assign/${projectId}/${taskId}`,
+
+  // bulk
+  BULK_ASSIGN: (projectId: number) =>
+    `${TASKSERVICE_BASE}/tasks/bulk/assign/${projectId}`,
+
+  BULK_STATUS: `${TASKSERVICE_BASE}/tasks/bulk/status`,
+
+  BULK_DELETE: (projectId: number) =>
+    `${TASKSERVICE_BASE}/tasks/bulk/delete/${projectId}`,
+
+  // approvals
+  GET_APPROVALS: (taskId: number) =>
+    `${TASKSERVICE_BASE}/tasks/${taskId}/approvals`,
+  
+  GET_PENDING_APPROVALS: (projectId: number) => 
+    `${TASKSERVICE_BASE}/tasks/getPendingApprovals/${projectId}`,
+
+  // timelogs
+  GET_TIMELOGS: (taskId: number) =>
+    `${TASKSERVICE_BASE}/tasks/${taskId}/timelogs`,
+
+  DELETE_TIMELOG: (taskId: number, timeLogId: number) =>
+    `${TASKSERVICE_BASE}/tasks/${taskId}/timelogs/${timeLogId}`,
+} as const;
+
+export const ASSET_ENDPOINTS = {
+  UPLOAD: `${TASKSERVICE_BASE}/api/assets/upload`,
+  GET_BY_TASK: (taskId: number) =>
+    `${TASKSERVICE_BASE}/api/assets/task/${taskId}`,
+  GET_BY_PROJECT: (projectId: number) =>
+    `${TASKSERVICE_BASE}/api/assets/project/${projectId}`,
+  GET_BY_ID: (assetId: string) => `${TASKSERVICE_BASE}/api/assets/${assetId}`,
+  GET_VERSIONS: (assetId: string) =>
+    `${TASKSERVICE_BASE}/api/assets/${assetId}/versions`,
+  GET_DOWNLOAD_URL: (assetId: string) =>
+    `${TASKSERVICE_BASE}/api/assets/${assetId}/download`,
+  TRACK_VIEW: (assetId: string) =>
+    `${TASKSERVICE_BASE}/api/assets/${assetId}/view`,
+  FINALIZE: (assetId: string) =>
+    `${TASKSERVICE_BASE}/api/assets/${assetId}/finalize`,
+  DELETE: (assetId: string) => `${TASKSERVICE_BASE}/api/assets/${assetId}`,
 } as const;

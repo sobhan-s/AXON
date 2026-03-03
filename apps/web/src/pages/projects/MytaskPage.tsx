@@ -21,7 +21,6 @@ import {
 import { useAuthStore } from '@/store/auth.store';
 import { TASK_ENDPOINTS } from '@/lib/api-endpints';
 
-// ─── TYPES ────────────────────────────────────────────────────────────────────
 
 interface Task {
   id: number;
@@ -39,7 +38,6 @@ interface Task {
   };
 }
 
-// ─── HELPERS ──────────────────────────────────────────────────────────────────
 
 const STATUS_BADGE: Record<
   Task['status'],

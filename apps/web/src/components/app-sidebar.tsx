@@ -29,8 +29,7 @@ import {
 import { useAuthStore } from '@/store/auth.store';
 import { projectService, type Project } from '@/services/Project.service';
 
-// ─── TOP-LEVEL NAV per role ───────────────────────────────────────────────────
-
+ 
 const NAV_BY_ROLE: Record<string, { title: string; url: string; icon: any }[]> =
   {
     SUPER_ADMIN: [
@@ -77,8 +76,7 @@ const NAV_BY_ROLE: Record<string, { title: string; url: string; icon: any }[]> =
     ],
   };
 
-// ─── PROJECT NAV per role ─────────────────────────────────────────────────────
-
+ 
 function getProjectNav(projectId: string, role: string) {
   const base = `/projects/${projectId}`;
 
@@ -87,8 +85,7 @@ function getProjectNav(projectId: string, role: string) {
     { title: 'Review Queue', url: `${base}/reviews`, icon: ClipboardListIcon },
   ];
 
-  // Upload — all except REVIEWER
-  if (role !== 'REVIEWER') {
+   if (role !== 'REVIEWER') {
     all.splice(1, 0, {
       title: 'Upload',
       url: `${base}/upload`,
@@ -96,12 +93,10 @@ function getProjectNav(projectId: string, role: string) {
     });
   }
 
-  // Reports — LEAD + MANAGER + ADMIN
   if (['LEAD', 'MANAGER', 'ADMIN'].includes(role)) {
     all.push({ title: 'Reports', url: `${base}/reports`, icon: BarChart2Icon });
   }
 
-  // Members — MANAGER + ADMIN
   if (['MANAGER', 'ADMIN'].includes(role)) {
     all.push({ title: 'Members', url: `${base}/members`, icon: UsersIcon });
   }
@@ -109,25 +104,21 @@ function getProjectNav(projectId: string, role: string) {
   return all;
 }
 
-// ─── SIDEBAR ──────────────────────────────────────────────────────────────────
-
+ 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const user = useAuthStore((s) => s.user);
   const orgId = user?.organizationId as number;
   const role = user?.role?.name ?? 'MEMBER';
   const navigate = useNavigate();
 
-  // Detect if we are inside a project route
-  const { projectId } = useParams<{ projectId?: string }>();
+   const { projectId } = useParams<{ projectId?: string }>();
   const location = useLocation();
   const inProject = !!projectId || location.pathname.startsWith('/projects/');
 
-  // Extract projectId from pathname if not in params (when sidebar is outside Route context)
-  const resolvedProjectId =
+   const resolvedProjectId =
     projectId ?? location.pathname.match(/\/projects\/(\d+)/)?.[1];
 
-  // Load project name for the sidebar header
-  const [project, setProject] = React.useState<Project | null>(null);
+   const [project, setProject] = React.useState<Project | null>(null);
 
   React.useEffect(() => {
     if (!resolvedProjectId) {
@@ -140,14 +131,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       .catch(() => setProject(null));
   }, [resolvedProjectId]);
 
-  // ── MODE A: inside a project ───────────────────────────────────────────────
-  if (inProject && resolvedProjectId) {
+   if (inProject && resolvedProjectId) {
     const projectNav = getProjectNav(resolvedProjectId, role);
 
     return (
       <Sidebar collapsible="offcanvas" {...props} className="w-[250px]">
-        {/* Back button + project name */}
-        <SidebarHeader>
+         <SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton
@@ -190,8 +179,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     );
   }
 
-  // ── MODE B: top-level dashboard ────────────────────────────────────────────
-  const navItems = NAV_BY_ROLE[role] ?? NAV_BY_ROLE.MEMBER;
+   const navItems = NAV_BY_ROLE[role] ?? NAV_BY_ROLE.MEMBER;
 
   return (
     <Sidebar collapsible="offcanvas" {...props} className="w-[250px]">

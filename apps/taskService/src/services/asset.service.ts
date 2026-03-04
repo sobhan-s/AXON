@@ -1,12 +1,11 @@
 import sharp from 'sharp';
 import { Asset } from '@dam/mongodb';
 import { logger } from '@dam/config';
-import { ApiError } from '@dam/utils';
 import {
   minioUploadFile,
   minioUploadBuffer,
-  minioGetPresignedUrl,
-  minioDeleteFile,
+  // minioGetPresignedUrl,
+  // minioDeleteFile,
   minioBuildObjectName,
   minioDetectFileType,
   type TusUploadMeta,
@@ -39,10 +38,20 @@ async function generateThumbnail(
       .resize(400, 400, { fit: 'inside', withoutEnlargement: true })
       .jpeg({ quality: 80 })
       .toBuffer();
+    const minIoUPloadBuffer = await minioUploadBuffer(
+      thumbBuffer,
+      thumbName,
+      'image/jpeg',
+    );
 
-    return await minioUploadBuffer(thumbBuffer, thumbName, 'image/jpeg');
+    console.log(
+      'miniio ads;fkasdfjaosd ;okaj oas doadsoi jaso fdj',
+      minioUploadBuffer,
+    );
+
+    return minIoUPloadBuffer;
   } catch (error) {
-    logger.warn('Thumbnail generation failed — skipping', {
+    logger.warn('thumbnail generation failed , so skipping this process', {
       error,
       objectName,
     });
@@ -98,7 +107,7 @@ export async function processUpload(
     fileType,
     mimeType,
     fileSize,
-    taskId: taskIdMeta ?? 0, // updated below for ASSET_BASED
+    taskId: taskIdMeta,
     projectId,
     organizationId,
     uploadedBy,
@@ -152,66 +161,3 @@ export const tusServer = createTusServer<UploadResult>(
   processUpload,
 );
 
-export const assetService = {
-  async getByTask(taskId: number) {
-    return Asset.find({ taskId, deletedAt: null }).sort({ version: -1 });
-  },
-
-  async getByProject(
-    projectId: number,
-    filters: { fileType?: string; status?: string; isFinal?: boolean } = {},
-  ) {
-    const query: any = { projectId, deletedAt: null };
-    if (filters.fileType) query.fileType = filters.fileType;
-    if (filters.status) query.status = filters.status;
-    if (filters.isFinal !== undefined) query.isFinal = filters.isFinal;
-    return Asset.find(query).sort({ createdAt: -1 });
-  },
-
-  async getById(assetId: string) {
-    const asset = await Asset.findById(assetId);
-    if (!asset) throw new ApiError(404, 'Asset not found');
-    return asset;
-  },
-
-  async getVersionHistory(assetId: string) {
-    const asset = await Asset.findById(assetId);
-    if (!asset) throw new ApiError(404, 'Asset not found');
-    const rootId = asset.parentAssetId ?? asset._id;
-    return Asset.find({
-      $or: [{ _id: rootId }, { parentAssetId: rootId }],
-      deletedAt: null,
-    }).sort({ version: 1 });
-  },
-
-  async getDownloadUrl(assetId: string, expirySeconds = 3600) {
-    const asset = await Asset.findById(assetId);
-    if (!asset) throw new ApiError(404, 'Asset not found');
-    const url = await minioGetPresignedUrl(asset.filename, expirySeconds);
-    await asset.incrementDownloadCount();
-    return { url, asset };
-  },
-
-  async trackView(assetId: string) {
-    const asset = await Asset.findById(assetId);
-    if (!asset) throw new ApiError(404, 'Asset not found');
-    await asset.incrementViewCount();
-    return asset;
-  },
-
-  async finalize(assetId: string) {
-    const asset = await Asset.findById(assetId);
-    if (!asset) throw new ApiError(404, 'Asset not found');
-    asset.isFinal = true;
-    asset.status = 'final';
-    asset.finalizedAt = new Date();
-    return asset.save();
-  },
-
-  async softDelete(assetId: string) {
-    const asset = await Asset.findById(assetId);
-    if (!asset) throw new ApiError(404, 'Asset not found');
-    await minioDeleteFile(asset.filename).catch(() => {});
-    return asset.softDelete();
-  },
-};

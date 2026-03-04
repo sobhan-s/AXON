@@ -1,6 +1,6 @@
 import { logger } from '@dam/config';
 import { ApiError } from '@dam/utils';
-import { ActivityService } from '@dam/common';
+import { ActivityService, AuthRepository } from '@dam/common';
 import { TaskRepository } from '../repository/task.repository.js';
 import { ApprovalRepository } from '../repository/approval.repository.js';
 import { TimelogRepository } from '../repository/timelog.repository.js';
@@ -9,6 +9,7 @@ import type {
   UpdateTaskPayload,
   TaskFilters,
 } from '../interfaces/task.interface.js';
+import { AssetRepository } from '../repository/asset.repository.js';
 
 const LEVEL = {
   ADMIN: 1,
@@ -29,12 +30,16 @@ export class TaskService {
   private approvalRepo: ApprovalRepository;
   private timelogRepo: TimelogRepository;
   private activitySvc: ActivityService;
+  private authRepo: AuthRepository;
+  private assetRepo: AssetRepository;
 
   constructor() {
     this.taskRepo = new TaskRepository();
     this.approvalRepo = new ApprovalRepository();
     this.timelogRepo = new TimelogRepository();
     this.activitySvc = new ActivityService();
+    this.authRepo = new AuthRepository();
+    this.assetRepo = new AssetRepository();
   }
 
   async createManualTask(
@@ -213,7 +218,7 @@ export class TaskService {
     const currentStatus = task.status;
     const level = member.role.level;
 
-    // TODO → IN_PROGRESS
+    // TODO to IN_PROGRESS
     // MEMBER only, must be assigned to this task
     if (currentStatus === 'TODO' && newStatus === 'IN_PROGRESS') {
       if (level !== LEVEL.MEMBER) {
@@ -231,7 +236,7 @@ export class TaskService {
       await this.timelogRepo.openSession(taskId, userId);
     }
 
-    // IN_PROGRESS → REVIEW
+    // IN_PROGRESS to REVIEW
     else if (currentStatus === 'IN_PROGRESS' && newStatus === 'REVIEW') {
       if (level !== LEVEL.MEMBER) {
         throw new ApiError(
@@ -265,15 +270,17 @@ export class TaskService {
       }
     }
 
-    // REVIEW → APPROVED
+    // REVIEW to APPROVED
     else if (currentStatus === 'REVIEW' && newStatus === 'APPROVED') {
+      const notAccess = [4, 5];
+      const findiingTask = await this.taskRepo.findTaskById(taskId);
       if (!CAN_REVIEW.includes(level as any)) {
         throw new ApiError(
           403,
           'Only Admin, Manager or REVIEWER can approve tasks',
         );
       }
-      if (task.assignedToId !== userId) {
+      if (task.assignedToId !== userId && notAccess.includes(level)) {
         throw new ApiError(
           403,
           'Only the assigned reviewer can approve this task',
@@ -286,18 +293,30 @@ export class TaskService {
         await this.approvalRepo.reviewApproval(pending.id, userId, 'APPROVED');
       }
 
+      const asset = await this.assetRepo.getById(String(findiingTask?.assetId));
+
+      if (!asset) {
+        throw new ApiError(500, 'Asset has been not found');
+      }
+      const updatedAsset = await this.assetRepo.updateAsset(
+        asset._id,
+        'approved',
+      );
+
       await this.taskRepo.updateTaskStatus(taskId, 'APPROVED');
     }
 
-    // REVIEW → FAILED
+    // REVIEW to FAILED
     else if (currentStatus === 'REVIEW' && newStatus === 'FAILED') {
+      const findiingTask = await this.taskRepo.findTaskById(taskId);
+      const notAccess = [4, 5];
       if (!CAN_REVIEW.includes(level as any)) {
         throw new ApiError(
           403,
           'Only Admin, Manager or REVIEWER can reject tasks',
         );
       }
-      if (task.assignedToId !== userId) {
+      if (task.assignedToId !== userId && notAccess.includes(level)) {
         throw new ApiError(
           403,
           'Only the assigned reviewer can reject this task',
@@ -310,12 +329,20 @@ export class TaskService {
         await this.approvalRepo.reviewApproval(pending.id, userId, 'REJECTED');
       }
 
-      await this.taskRepo.updateTaskStatus(taskId, 'FAILED');
+      const asset = await this.assetRepo.getById(String(findiingTask?.assetId));
 
-      // Note: reviewer will then call assignTask to send back to member
+      if (!asset) {
+        throw new ApiError(500, 'Asset has been not found');
+      }
+      const updatedAsset = await this.assetRepo.updateAsset(
+        asset._id,
+        'rejected',
+      );
+
+      await this.taskRepo.updateTaskStatus(taskId, 'FAILED');
     }
 
-    // FAILED → REVIEW
+    // FAILED to REVIEW
     else if (currentStatus === 'FAILED' && newStatus === 'REVIEW') {
       // Must be the original uploader / assigned member
       const isCreator = task.createdById === userId;

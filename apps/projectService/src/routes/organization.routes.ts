@@ -9,6 +9,9 @@ import {
   unAssignFromOrganization,
   changeStatus,
   addToOrganization,
+  requestCreationForOrganizations,
+  handletOrgRequestDecission,
+  pendinOrgnizationRequest,
 } from '../controller/organization.controller.js';
 import {
   requireOrgAccess,
@@ -87,5 +90,15 @@ router
     validate(addedToOrg),
     addToOrganization,
   );
+
+router
+  .route('/pendingOrgRequest')
+  .get(authMiddleware, requireSuperAdmin, pendinOrgnizationRequest);
+
+router.route('/requestOrg').get(requestCreationForOrganizations);
+
+router
+  .route('/hanleOrgRequests')
+  .post(authMiddleware, requireSuperAdmin, handletOrgRequestDecission);
 
 export default router;

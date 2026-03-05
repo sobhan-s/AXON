@@ -4,7 +4,14 @@ import { PrismaPg } from '@prisma/adapter-pg';
 import { env_config_variable } from '@dam/config';
 import { logger } from '@dam/config';
 import dotenv from 'dotenv';
-import { OrganizationStatus, ProjectStatus, TaskStatus,TaskPriority,TaskType } from '@prisma/client';
+import {
+  OrganizationStatus,
+  ProjectStatus,
+  TaskStatus,
+  TaskPriority,
+  TaskType,
+  ApprovalStatus,
+} from '@prisma/client';
 import path from 'path';
 
 dotenv.config({ path: path.resolve('../../', '.env.local') });
@@ -31,5 +38,10 @@ if (isDev) {
 }
 
 export { PrismaClient, PostgresClient };
-export type { ActivityAction, OrganizationStatus, ProjectStatus };
-export {TaskPriority,TaskType,TaskStatus}
+export type {
+  ActivityAction,
+  OrganizationStatus,
+  ProjectStatus,
+  ApprovalStatus,
+};
+export { TaskPriority, TaskType, TaskStatus };

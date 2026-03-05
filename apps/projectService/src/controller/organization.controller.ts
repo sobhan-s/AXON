@@ -2,6 +2,7 @@ import { logger } from '@dam/config';
 import { asyncHandler, ApiError, ApiResponse } from '@dam/utils';
 import type { RequestHandler, Request, Response } from 'express';
 import { OrganizationServices } from '../services/organization.service.js';
+import e from 'express';
 
 const orgService = new OrganizationServices();
 
@@ -253,6 +254,79 @@ export const addToOrganization: RequestHandler = asyncHandler(
           204,
           result,
           'successfully Added organization and added a role for this organization ',
+        ),
+      );
+  },
+);
+
+export const requestCreationForOrganizations: RequestHandler = asyncHandler(
+  async (req: Request, res: Response) => {
+    logger.info('Request creation for organization');
+    const { requetedUserMail, orgName, orgSlug } = req.body;
+
+    const result = await orgService.requestCreationForOrganizations(
+      requetedUserMail,
+      orgName,
+      orgSlug,
+    );
+
+    logger.info('Creation or orgs request successfully done');
+
+    res
+      .status(201)
+      .json(
+        new ApiResponse(
+          201,
+          result,
+          'Creation or orgs request successfully done',
+        ),
+      );
+  },
+);
+
+export const handletOrgRequestDecission: RequestHandler = asyncHandler(
+  async (req: Request, res: Response) => {
+    logger.info(
+      'Hanle the orgnization acceptance or reject request in controller',
+    );
+
+    const userId = req.user?.id as number;
+
+    const { orgName, orgSlug, requestedByUserEmail, status } = req.body;
+
+    const result = await orgService.handletOrgRequestDecission(
+      orgName,
+      orgSlug,
+      status,
+      userId,
+      requestedByUserEmail,
+    );
+
+    res
+      .status(200)
+      .json(
+        new ApiResponse(
+          200,
+          result,
+          'Handle the Organization Request Decissoins',
+        ),
+      );
+  },
+);
+
+export const pendinOrgnizationRequest: RequestHandler = asyncHandler(
+  async (req: Request, res: Response) => {
+    logger.info('Fetchint the pending organization requests . . .');
+
+    const result = await orgService.getPendingOrgRequests();
+
+    res
+      .status(200)
+      .json(
+        new ApiResponse(
+          200,
+          result,
+          'Fetchint the pending organization requests successfully . . .',
         ),
       );
   },

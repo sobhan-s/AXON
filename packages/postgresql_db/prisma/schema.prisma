@@ -40,6 +40,7 @@ model User {
   createdProjects         Project[]                @relation("ProjectCreator")
   timeLogs                TimeLog[]
   organization            Organization?            @relation(fields: [organizationId], references: [id])
+  organizationRequests    OrganizationRequest[]
 
   @@index([email])
   @@index([organizationId])
@@ -112,6 +113,17 @@ model Organization {
   @@index([createdBy])
   @@index([status])
   @@map("organizations")
+}
+
+model OrganizationRequest {
+  id               Int            @id @default(autoincrement())
+  userId           Int
+  organizationName String
+  organizationSlug String         @unique
+  status           ApprovalStatus @default(PENDING)
+  createdAt        DateTime       @default(now())
+
+  user User @relation(fields: [userId], references: [id])
 }
 
 model Project {

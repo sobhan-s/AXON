@@ -1,7 +1,7 @@
-import { logger } from '@dam/config';
+import { logger, tusDeleteTempFile, tusParseMetadata } from '@dam/config';
 import { prisma } from '../index.js';
-import { ApiError } from '@dam/utils';
-import { OrganizationStatus } from '@dam/postgresql_db';
+import { ApiError, ApiResponse } from '@dam/utils';
+import { ApprovalStatus, OrganizationStatus } from '@dam/postgresql_db';
 
 export class OrganizationRepositories {
   async createOrganizations(
@@ -341,6 +341,151 @@ export class OrganizationRepositories {
       throw new ApiError(
         500,
         'Database error while Adding to the organization .',
+      );
+    }
+  }
+
+  async requestCreationForOrganizations(
+    requestedByUser: number,
+    orgName: string,
+    orgSlug: string,
+  ) {
+    try {
+      return await prisma.organizationRequest.create({
+        data: {
+          organizationName: orgName,
+          organizationSlug: orgSlug,
+          userId: requestedByUser,
+        },
+        include: {
+          user: {
+            select: {
+              username: true,
+              email: true,
+              id: true,
+            },
+          },
+        },
+      });
+    } catch (error) {
+      logger.error('Error while creating the request for organizations');
+      throw new ApiError(
+        500,
+        'Database error while creating the request for organizations',
+      );
+    }
+  }
+
+  async handleAcceptOrgRequest(
+    orgName: string,
+    orgSlug: string,
+    adminId: number,
+    requestedById: number,
+  ) {
+    try {
+      return await prisma.$transaction(async (tx) => {
+        await tx.organizationRequest.update({
+          where: {
+            organizationSlug: orgSlug,
+          },
+          data: {
+            status: 'APPROVED',
+          },
+        });
+
+        const createOrganizations = await tx.organization.create({
+          data: {
+            name: orgName,
+            slug: orgSlug,
+            createdBy: adminId,
+            assignedTo: requestedById,
+          },
+          include: {
+            creator: {
+              select: {
+                username: true,
+                email: true,
+                id: true,
+              },
+            },
+            assignee: {
+              select: {
+                username: true,
+                email: true,
+                id: true,
+              },
+            },
+          },
+        });
+
+        await tx.user.update({
+          where: {
+            id: requestedById,
+          },
+          data: {
+            organizationId: createOrganizations.id,
+          },
+        });
+
+        await tx.projectTeamMember.create({
+          data: {
+            organizationId: createOrganizations.id,
+            userId: requestedById,
+            addedBy: adminId,
+            roleId: 1,
+          },
+        });
+
+        return createOrganizations;
+      });
+    } catch (error) {
+      logger.error(
+        'Error while Handling the acceptance of orgnization reuqest',
+      );
+      throw new ApiError(
+        500,
+        'Error while Handling the acceptance of orgnization reuqest',
+      );
+    }
+  }
+
+  async handleRejectOrgRequest(orgSlug: string) {
+    try {
+      return await prisma.organizationRequest.update({
+        where: {
+          organizationSlug: orgSlug,
+        },
+        data: {
+          status: 'REJECTED',
+        },
+      });
+    } catch (error) {
+      logger.error('Error while handling the reject the organization request ');
+      throw new ApiError(
+        500,
+        'Database erroe while handling the reject the organization request .',
+      );
+    }
+  }
+
+  async getPendingOrgRequests() {
+    try {
+      return await prisma.organizationRequest.findMany({
+        include: {
+          user: {
+            select: {
+              username: true,
+              email: true,
+              id: true,
+            },
+          },
+        },
+      });
+    } catch (error) {
+      logger.error('Error while fetcing the Pending org Requests');
+      throw new ApiError(
+        500,
+        'Database error while fetcing the Pending org Requests',
       );
     }
   }

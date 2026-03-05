@@ -1,16 +1,18 @@
 import { logger } from '@dam/config';
 import { OrganizationRepositories } from '../repository/organization.repository.js';
-import { ApiError } from '@dam/utils';
-import { ActivityService } from '@dam/common';
-import { OrganizationStatus } from '@dam/postgresql_db';
+import { ApiError, ApiResponse } from '@dam/utils';
+import { ActivityService, AuthRepository } from '@dam/common';
+import { ApprovalStatus, OrganizationStatus } from '@dam/postgresql_db';
 
 export class OrganizationServices {
   private orgRepo: OrganizationRepositories;
   private activityService: ActivityService;
+  private authRepo: AuthRepository;
 
   constructor() {
     this.orgRepo = new OrganizationRepositories();
     this.activityService = new ActivityService();
+    this.authRepo = new AuthRepository();
   }
 
   async createOrgs(
@@ -432,5 +434,91 @@ export class OrganizationServices {
     });
 
     return result;
+  }
+
+  async requestCreationForOrganizations(
+    requestedByUserEmail: string,
+    orgName: string,
+    orgSlug: string,
+  ) {
+    logger.info('request Creation For Organizations handle by service layer');
+
+    const findRequestedUser =
+      await this.authRepo.findUserByEmail(requestedByUserEmail);
+
+    if (!findRequestedUser) {
+      throw new ApiError(404, 'Requested User is not found');
+    }
+
+    const request = await this.orgRepo.requestCreationForOrganizations(
+      findRequestedUser.id,
+      orgName,
+      orgSlug,
+    );
+
+    logger.info('Request for organiation successfully done');
+
+    return request;
+  }
+
+  async handletOrgRequestDecission(
+    orgName: string,
+    orgSlug: string,
+    status: string,
+    adminId: number,
+    requestedByUserEmail: string,
+  ) {
+    logger.info(
+      'Handle the organization request approved the organization or reject the organizations . . .',
+    );
+
+    const adminUser = await this.authRepo.findUserById(adminId);
+
+    if (!adminUser) {
+      throw new ApiError(404, 'Admin user is not found');
+    }
+
+    const requestedUser =
+      await this.authRepo.findUserByEmail(requestedByUserEmail);
+
+    if (!requestedUser) {
+      throw new ApiError(404, 'Requested user is not found.');
+    }
+
+    const STATUS = ['APPROVED', 'REJECTED'];
+
+    if (!STATUS.includes(status)) {
+      throw new ApiError(
+        403,
+        "Can't proceed with this status , please give valid status (approved / reject)",
+      );
+    }
+
+    if (status == 'REJECTED') {
+      const rejectOrg = await this.orgRepo.handleRejectOrgRequest(orgSlug);
+
+      logger.info('Organization request rejected successfully . ');
+
+      return rejectOrg;
+    }
+
+    const acceptOrg = await this.orgRepo.handleAcceptOrgRequest(
+      orgName,
+      orgSlug,
+      adminUser.id,
+      requestedUser.id,
+    );
+
+    logger.info('Organization request is accepted');
+
+    return {
+      ...acceptOrg,
+      storageLimit: acceptOrg.storageLimit.toString(),
+      storageUsed: acceptOrg.storageUsed.toString(),
+    };
+  }
+
+  async getPendingOrgRequests() {
+    return await this.orgRepo.getPendingOrgRequests();
   }
 }

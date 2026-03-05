@@ -12,7 +12,7 @@ export const createProject: RequestHandler = asyncHandler(
     const ip = req.ip as string;
     const userAgent = req.get('user-agent') as string;
     const organizationId = Number(req.params.orgId);
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
 
     const result = await projectService.createProjects(
       userId,
@@ -48,7 +48,7 @@ export const getAllProjects: RequestHandler = asyncHandler(
 export const getMyProjects: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('get my project controller has stated');
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
 
     const result = await projectService.getUserProjects(userId);
 
@@ -80,7 +80,7 @@ export const getProjectById: RequestHandler = asyncHandler(
 export const updateProject: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('update project controller has been stated');
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     const projectId = Number(req.params.projectId);
 
     const result = await projectService.updateProject(
@@ -97,7 +97,7 @@ export const addManager: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Adding a manager to the project has been stated');
 
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     const targetUserId = req.body.targetUserId;
     const projectId = Number(req.params.projectId);
     const organizationId = Number(req.params.orgId);
@@ -130,7 +130,7 @@ export const addManager: RequestHandler = asyncHandler(
 export const archiveProject: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Archive Pojects controller stated');
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     const projectId = Number(req.params.projectId);
 
     const result = await projectService.archiveProject(projectId, userId);
@@ -146,7 +146,7 @@ export const archiveProject: RequestHandler = asyncHandler(
 export const deleteProject: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Project deliton process stated from controller . . . ');
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     const projectId = Number(req.params.projectId);
 
     const result = await projectService.deleteProject(projectId, userId);
@@ -162,7 +162,7 @@ export const deleteProject: RequestHandler = asyncHandler(
 export const addTeamMember: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Adding team member controlle has been statend ');
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     const projectId = Number(req.params.projectId);
     const targetUserId = req.body.targetUserId;
 
@@ -180,7 +180,7 @@ export const addTeamMember: RequestHandler = asyncHandler(
 
 export const removeTeamMember: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     const projectId = Number(req.params.projectId);
     const organizationId = Number(req.params.orgId);
     const { targetUserId } = req.body;

@@ -158,7 +158,7 @@ export const logout: RequestHandler = asyncHandler(
       throw new ApiError(401, 'Refresh token not provided');
     }
 
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     if (!userId) {
       throw new ApiError(401, 'Unauthorized');
     }
@@ -175,7 +175,7 @@ export const logout: RequestHandler = asyncHandler(
 
 export const logoutAllDevices: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     if (!userId) {
       throw new ApiError(401, 'Unauthorized');
     }

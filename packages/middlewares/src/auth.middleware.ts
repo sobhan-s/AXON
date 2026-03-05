@@ -5,6 +5,16 @@ import { ApiError } from '@dam/utils';
 const tokenService = new TokenService();
 const authRepo = new AuthRepository();
 
+declare global {
+  namespace Express {
+    interface Request {
+      user?: {
+        id: number;
+      };
+    }
+  }
+}
+
 export async function authMiddleware(
   req: Request,
   res: Response,
@@ -30,7 +40,7 @@ export async function authMiddleware(
       throw new ApiError(403, 'Account is deactivated');
     }
 
-    (req as any).user = user;
+    req.user = user;
     // console.log('--------------------------------------', req.params.orgId);
 
     next();

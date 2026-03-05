@@ -10,7 +10,7 @@ export const createManualTask: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('create manually tasks in cotrollers  . . . ');
 
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     const ip = req.ip!;
     const userAgent = req.header('user-agent');
     const task = await taskService.createManualTask(
@@ -70,7 +70,7 @@ export const getMyTasks: RequestHandler = asyncHandler(
     logger.info('get self taks  . . .');
 
     const { status, projectId } = req.query;
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     const tasks = await taskService.getMyTasks(userId, {
       status: status,
       projectId: projectId ? Number(projectId) : undefined,
@@ -98,7 +98,7 @@ export const getMyOverdueTasks: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Get over due task sfor admin leve');
 
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     const tasks = await taskService.getMyOverdueTasks(userId);
 
     logger.info('over due taks of adminl level fetched succssfully');
@@ -112,7 +112,7 @@ export const updateTask: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Update takss in contrller level');
 
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     const ip = req.ip!;
     const userAgent = req.get('user-agent');
 
@@ -136,7 +136,7 @@ export const changeStatus: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Change status start in contrller level');
 
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     const ip = req.ip!;
     const userAgent = req.get('user-agent');
     const { status } = req.body;
@@ -161,7 +161,7 @@ export const assignTask: RequestHandler = asyncHandler(
     const { assignedToId } = req.body;
     const task = await taskService.assignTask(
       Number(req.params.taskId),
-      (req as any).user?.id,
+      req.user?.id as number,
       assignedToId,
       req.ip,
       req.headers['user-agent'],
@@ -176,7 +176,7 @@ export const deleteTask: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     await taskService.deleteTask(
       Number(req.params.taskId),
-      (req as any).user?.id,
+      req.user?.id as number,
       req.ip,
       req.headers['user-agent'],
     );
@@ -192,7 +192,7 @@ export const bulkAssign: RequestHandler = asyncHandler(
     const result = await taskService.bulkAssign(
       taskIds,
       assignedToId,
-      (req as any).user?.id,
+      req.user?.id as number,
       req.ip,
       req.headers['user-agent'],
     );
@@ -206,7 +206,7 @@ export const bulkChangeStatus: RequestHandler = asyncHandler(
     const result = await taskService.bulkChangeStatus(
       taskIds,
       status,
-      (req as any).user?.id,
+      req.user?.id as number,
       req.ip,
       req.headers['user-agent'],
     );
@@ -219,7 +219,7 @@ export const bulkDelete: RequestHandler = asyncHandler(
     const { taskIds } = req.body;
     const result = await taskService.deleteBulkTasks(
       taskIds,
-      (req as any).user?.id,
+      req.user?.id as number,
       req.ip,
       req.headers['user-agent'],
     );
@@ -231,7 +231,7 @@ export const getApprovals: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const approvals = await taskService.getApprovals(
       Number(req.params.taskId),
-      (req as any).user?.id,
+      req.user?.id as number,
     );
     res.status(200).json(new ApiResponse(200, approvals, 'Approvals fetched'));
   },
@@ -242,7 +242,9 @@ export const getPendingApprovals: RequestHandler = asyncHandler(
     const approvals = await taskService.getPendingApprovals(
       Number(req.params.projectId),
     );
-    res.status(200).json(new ApiResponse(200, approvals, 'Pending Approvals fetched'));
+    res
+      .status(200)
+      .json(new ApiResponse(200, approvals, 'Pending Approvals fetched'));
   },
 );
 
@@ -250,7 +252,7 @@ export const getTimeLogs: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const result = await taskService.getTimeLogs(
       Number(req.params.taskId),
-      (req as any).user?.id,
+      req.user?.id as number,
     );
     res.status(200).json(new ApiResponse(200, result, 'Time logs fetched'));
   },
@@ -261,7 +263,7 @@ export const deleteTimeLog: RequestHandler = asyncHandler(
     await taskService.deleteTimeLog(
       Number(req.params.taskId),
       Number(req.params.timeLogId),
-      (req as any).user?.id,
+      req.user?.id as number,
     );
     res.status(200).json(new ApiResponse(200, null, 'Time log deleted'));
   },

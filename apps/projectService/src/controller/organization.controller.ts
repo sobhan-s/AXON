@@ -9,7 +9,7 @@ export const createOrganizations: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Organization creation controller started');
 
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     const ip = req.ip as string;
     const { name, slug, description } = req.body;
 
@@ -42,7 +42,7 @@ export const createOrganizations: RequestHandler = asyncHandler(
 export const assignAdminToOrganizations: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Assign admin to the organizations.');
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     const ip = req.ip as string;
     const organizationId = Number(req.params.orgId);
     const assignEmail = req.body.adminEmail;
@@ -83,7 +83,7 @@ export const updateOrganizations: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Organization updation controller has started .');
 
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     const ip = req.ip as string;
     const userAgent = req.get('user-agent') as string;
     const organizationId = Number(req.params.orgId);
@@ -119,7 +119,7 @@ export const updateOrganizations: RequestHandler = asyncHandler(
 export const getAllOrganizations: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('getAll Organization Controller has been started . . .');
-    const userId = (req as any).user?.id as number;
+    const userId = req.user?.id as number as number;
 
     const result = await orgService.getAllOrganizations(userId);
 
@@ -155,7 +155,7 @@ export const deleteOrganization: RequestHandler = asyncHandler(
     logger.info('Delete organisations stated ');
 
     const orgId = Number(req.params.orgId);
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     const ip = req.ip as string;
     const userAgent = req.get('user-agent') as string;
 
@@ -177,7 +177,7 @@ export const unAssignFromOrganization: RequestHandler = asyncHandler(
     logger.info('Unassign from the org');
 
     const orgId = Number(req.params.orgId);
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
 
     const result = await orgService.unAssignFromOrganization(userId, orgId);
 
@@ -231,7 +231,7 @@ export const addToOrganization: RequestHandler = asyncHandler(
 
     const ip = req.ip!;
     const userAgent = req.get('user-agent')!;
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     const orgId = Number(req.params.orgId);
 
     const result = orgService.addToTheOrganizations(

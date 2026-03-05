@@ -9,7 +9,7 @@ const service = new userService();
 
 const getUserMe: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     if (!userId) {
       throw new ApiError(401, 'Unauthorized');
     }
@@ -24,7 +24,7 @@ const getUserMe: RequestHandler = asyncHandler(
 
 const updateUserMe: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     console.log(userId);
     const result = service.updateMe(userId, req.body);
     const response = new ApiResponse(
@@ -40,7 +40,7 @@ const updateUserMe: RequestHandler = asyncHandler(
 
 const deleteMe: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
 
     const response = new ApiResponse(204, null, 'Account deleted successfully');
     res
@@ -51,7 +51,7 @@ const deleteMe: RequestHandler = asyncHandler(
 
 const changePasswordHandler: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     const data = passwordVerifySchema.safeParse(req.body);
     if (data.error) {
       throw new ApiError(400, data.error.message);
@@ -97,7 +97,7 @@ const getOrganizationMembers: RequestHandler = asyncHandler(
 const addUsersToOrganizations: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('add users to the organizations controller stated . . . ');
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     const ip = req.ip!;
     const userAgent = req.get('user-agent')!;
     const orgId = Number(req.params.orgId);
@@ -128,7 +128,7 @@ const removeUsersToOrganizations: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Removed user process stated from the controllers .  . .');
 
-    const userId = (req as any).user?.id;
+    const userId = req.user?.id as number;
     const targetUserId = req.body.targetUserId;
     const ip = req.ip!;
     const userAgent = req.get('user-agent')!;

@@ -69,7 +69,6 @@ export function minioBuildPublicUrl(objectName: string): string {
   return `${env_config_variable.MINIO.MINIO_PUBLI_URL}/${MINIO_BUCKET}/${objectName}`;
 }
 
-// {orgId}/{projectId}/{taskId or 'upload'}/{timestamp}-{random}.{ext}
 export function minioBuildObjectName(
   orgId: number,
   projectId: number,

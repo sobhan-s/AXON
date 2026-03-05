@@ -63,7 +63,7 @@ export type TusFinishHandler<T = void> = (
 ) => Promise<T>;
 
 export function createTusServer<T>(
-  path: string, // e.g. '/api/assets/upload
+  path: string,
   onFinish: TusFinishHandler<T>,
 ): TusServer {
   tusMakeTmpDir();
@@ -126,7 +126,6 @@ export function createTusServer<T>(
 }
 
 import path_module from 'path';
-import { promises } from 'dns';
 import { env_config_variable } from './env.config.js';
 
 export function tusDeleteTempFile(tempPath: string): void {
@@ -135,31 +134,4 @@ export function tusDeleteTempFile(tempPath: string): void {
       logger.warn('Failed to delete TUS temp file', { tempPath });
     }
   });
-}
-
-export function tusCleanupStaleFiles(maxAgeHours = 24): void {
-  try {
-    const files = fs.readdirSync(TUS_TMP_DIR);
-    const cutoff = Date.now() - maxAgeHours * 60 * 60 * 1000;
-    let removed = 0;
-
-    for (const file of files) {
-      const filePath = path_module.join(TUS_TMP_DIR, file);
-      try {
-        const stat = fs.statSync(filePath);
-        if (stat.mtimeMs < cutoff) {
-          fs.unlinkSync(filePath);
-          removed++;
-        }
-      } catch {
-        // file already gone — skip
-      }
-    }
-
-    if (removed > 0) {
-      logger.info(`TUS cleanup: removed ${removed} stale temp files`);
-    }
-  } catch (error) {
-    logger.error('TUS cleanup error', { error });
-  }
 }

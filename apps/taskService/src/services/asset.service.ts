@@ -107,7 +107,7 @@ export async function processUpload(
     fileType,
     mimeType,
     fileSize,
-    taskId: taskIdMeta,
+    taskId: taskIdMeta ?? 0,
     projectId,
     organizationId,
     uploadedBy,
@@ -160,4 +160,3 @@ export const tusServer = createTusServer<UploadResult>(
   '/api/assets/upload',
   processUpload,
 );
-

@@ -72,6 +72,13 @@ export const env_config_variable = {
     MINIO_BUCKET_NAME: process.env.MINIO_BUCKET!,
     MINIO_PUBLI_URL: process.env.MINIO_PUBLIC_URL,
   },
+  RABBITMQ: {
+    HOST: process.env.RABBITMQ_HOST || "localhost",
+    PORT: parseInt(process.env.RABBITMQ_PORT || "5672", 10),
+    USER: process.env.RABBITMQ_DEFAULT_USER || "damrabbitmq",
+    PASSWORD: process.env.RABBITMQ_DEFAULT_PASS,
+    VHOST: process.env.RABBITMQ_VHOST || "dam",
+  },
   TEMP_DIR: {
     PATH: process.env.TUS_TMP_DIR_PATH,
   },

@@ -117,7 +117,6 @@ export function createTusServer<T>(
         });
       }
 
-      // Return an empty object or custom headers/body
       return {};
     },
   });

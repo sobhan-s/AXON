@@ -5,10 +5,31 @@ import { Types } from 'mongoose';
 
 export class AssetRepository {
   async getByTask(taskId: number) {
-    return Asset.find({
+    const assets = await Asset.find({
       taskId,
       deletedAt: null,
     }).sort({ version: -1 });
+
+    const result = await Promise.all(
+      assets.map(async (asset) => {
+        const originalUrl = await minioGetPresignedUrl(asset.filename, 7200);
+
+        const thumbnailUrl = asset.thumbnailUrl
+          ? await minioGetPresignedUrl(
+              asset.filename.replace(/(\.[^.]+)$/, '_thumb.jpg'),
+              3600,
+            )
+          : originalUrl;
+
+        return {
+          ...asset.toObject(),
+          originalUrl,
+          thumbnailUrl,
+        };
+      }),
+    );
+
+    return result;
   }
 
   async getByProject(
@@ -63,10 +84,31 @@ export class AssetRepository {
 
     const rootId = asset.parentAssetId ?? asset._id;
 
-    return Asset.find({
+    const assets = await Asset.find({
       $or: [{ _id: rootId }, { parentAssetId: rootId }],
       deletedAt: null,
     }).sort({ version: 1 });
+
+    const result = await Promise.all(
+      assets.map(async (asset) => {
+        const originalUrl = await minioGetPresignedUrl(asset.filename, 3600);
+
+        const thumbnailUrl = asset.thumbnailUrl
+          ? await minioGetPresignedUrl(
+              asset.filename.replace(/(\.[^.]+)$/, '_thumb.jpg'),
+              3600,
+            )
+          : originalUrl;
+
+        return {
+          ...asset.toObject(),
+          originalUrl,
+          thumbnailUrl,
+        };
+      }),
+    );
+
+    return result;
   }
 
   async getDownloadUrl(assetId: string, expirySeconds = 7200) {

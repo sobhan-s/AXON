@@ -471,6 +471,9 @@ export class OrganizationRepositories {
   async getPendingOrgRequests() {
     try {
       return await prisma.organizationRequest.findMany({
+        where: {
+          status: 'PENDING',
+        },
         include: {
           user: {
             select: {

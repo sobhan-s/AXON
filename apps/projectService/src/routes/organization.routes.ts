@@ -95,7 +95,7 @@ router
   .route('/pendingOrgRequest')
   .get(authMiddleware, requireSuperAdmin, pendinOrgnizationRequest);
 
-router.route('/requestOrg').get(requestCreationForOrganizations);
+router.route('/requestOrg').post(requestCreationForOrganizations);
 
 router
   .route('/hanleOrgRequests')

@@ -272,18 +272,11 @@ export class TaskService {
 
     // REVIEW to APPROVED
     else if (currentStatus === 'REVIEW' && newStatus === 'APPROVED') {
-      const notAccess = [4, 5];
       const findiingTask = await this.taskRepo.findTaskById(taskId);
       if (!CAN_REVIEW.includes(level as any)) {
         throw new ApiError(
           403,
           'Only Admin, Manager or REVIEWER can approve tasks',
-        );
-      }
-      if (task.assignedToId !== userId && notAccess.includes(level)) {
-        throw new ApiError(
-          403,
-          'Only the assigned reviewer can approve this task',
         );
       }
 
@@ -309,17 +302,10 @@ export class TaskService {
     // REVIEW to FAILED
     else if (currentStatus === 'REVIEW' && newStatus === 'FAILED') {
       const findiingTask = await this.taskRepo.findTaskById(taskId);
-      const notAccess = [4, 5];
       if (!CAN_REVIEW.includes(level as any)) {
         throw new ApiError(
           403,
           'Only Admin, Manager or REVIEWER can reject tasks',
-        );
-      }
-      if (task.assignedToId !== userId && notAccess.includes(level)) {
-        throw new ApiError(
-          403,
-          'Only the assigned reviewer can reject this task',
         );
       }
 
@@ -607,13 +593,8 @@ export class TaskService {
       task.project.id,
       assignFromId,
     );
-    if (!member)
+    if (!member) {
       throw new ApiError(403, 'You are not a member of this project');
-    if (!CAN_MANAGE_TASK.includes(member.role.level as any)) {
-      throw new ApiError(
-        403,
-        'Only Admin, Manager or Lead can bulk assign tasks',
-      );
     }
 
     const bulkAssign = await this.taskRepo.bulkAssignTask(

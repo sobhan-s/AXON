@@ -37,7 +37,7 @@ export class ProjectRepository {
         });
 
         if (existingMembership) {
-          // Admin already has an org-level record — update it with the new projectId
+          // Admin already has an org-level record . . . update it with the new projectId
           await tx.projectTeamMember.update({
             where: { id: existingMembership.id },
             data: { projectId: createProject.id },
@@ -124,7 +124,7 @@ export class ProjectRepository {
           },
           _count: {
             select: {
-              // FIXED: removed modules — replaced with tasks
+              // FIXED: removed modules . . . replaced with tasks
               tasks: true,
               teamMembers: true,
             },
@@ -155,7 +155,7 @@ export class ProjectRepository {
           },
           _count: {
             select: {
-              // FIXED: removed modules — replaced with tasks
+              // FIXED: removed modules . . . replaced with tasks
               tasks: true,
               teamMembers: true,
             },

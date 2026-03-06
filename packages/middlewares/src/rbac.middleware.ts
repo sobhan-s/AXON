@@ -156,7 +156,7 @@ export function requirePermission(permission: string) {
         }
 
         case 'upload_asset': {
-          // CHANGED: was moduleId — uploads now scoped to project
+          // CHANGED: was moduleId . . . uploads now scoped to project
           projectId = parseInt(
             req.params.projectId ||
               req.body.projectId ||

@@ -126,6 +126,7 @@ export class TaskRepository {
         include: {
           createdBy: { select: { id: true, username: true, avatarUrl: true } },
           assignedTo: { select: { id: true, username: true, avatarUrl: true } },
+          
           _count: { select: { timeLogs: true, approvals: true } },
         },
         orderBy: [{ id: 'asc' }],

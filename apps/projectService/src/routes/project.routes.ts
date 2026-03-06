@@ -105,7 +105,7 @@ router
     authMiddleware,
     requireOrgAccess,
     requireProjectAccess,
-    requirePermission('manage_project_team'),
+    // requirePermission('manage_project_team'),
     getTeamMembers,
   );
 

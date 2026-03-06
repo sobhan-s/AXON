@@ -88,4 +88,26 @@ export const superAdminOrgService = {
   ): Promise<void> {
     await api.patch(SUPER_ADMIN_ORG_ENDPOINTS.STATUS(orgId), { status });
   },
+
+  async pendingOrgReqests() {
+    const { data } = await api.get(
+      SUPER_ADMIN_ORG_ENDPOINTS.PEINDING_ORGANIZATION_REQUEST,
+    );
+
+    return data.data ?? [];
+  },
+
+  async handlingOrgRequestDicission(
+    orgName: string,
+    orgSlug: string,
+    requestedByUserEmail: string,
+    status: string,
+  ) {
+    const { data } = await api.post(
+      SUPER_ADMIN_ORG_ENDPOINTS.HANDLE_ORG_REQUESTS,
+      { orgName, orgSlug, requestedByUserEmail, status },
+    );
+
+    return data.result;
+  },
 };

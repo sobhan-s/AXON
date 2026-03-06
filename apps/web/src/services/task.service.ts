@@ -159,11 +159,11 @@ export const taskService = {
     projectId: number,
     taskId: number,
     status: TaskStatus,
-    feedBack?: string,
+    comments?: string,
   ): Promise<Task> {
     const { data } = await api.patch(
       TASK_ENDPOINTS.CHANGE_STATUS(projectId, taskId),
-      { status, feedBack },
+      { status, comments: comments },
     );
     return data?.data ?? data;
   },
@@ -200,7 +200,7 @@ export const taskService = {
 
   async getApprovals(taskId: number) {
     const { data } = await api.get(TASK_ENDPOINTS.GET_APPROVALS(taskId));
-    return data?.data?.approvals ?? [];
+    return data?.data ?? [];
   },
 
   async getPendingApprovals(projectId: number): Promise<PendingApprovals[]> {

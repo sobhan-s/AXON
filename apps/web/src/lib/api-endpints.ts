@@ -43,6 +43,9 @@ export const SUPER_ADMIN_ORG_ENDPOINTS = {
   ASSIGN: (orgId: number) => `${PROJECTSERVICE_BASE}/orgs/assign/${orgId}`,
   UNASSIGN: (orgId: number) => `${PROJECTSERVICE_BASE}/orgs/unAssign/${orgId}`,
   STATUS: (orgId: number) => `${PROJECTSERVICE_BASE}/orgs/status/${orgId}`,
+  PEINDING_ORGANIZATION_REQUEST: `{PROJECTSERVICE_BASE}/orgs/pendingOrgRequest`,
+  REQUEST_ORG: `${PROJECTSERVICE_BASE}/orgs/requestOrg`,
+  HANDLE_ORG_REQUESTS: `${PROJECTSERVICE_BASE}/orgs/hanleOrgRequests`,
 } as const;
 
 export const PROJECT_ENDPOINTS = {
@@ -76,8 +79,6 @@ export const PROJECT_ENDPOINTS = {
   REMOVE_MEMBER: (orgId: number, projectId: number) =>
     `${PROJECTSERVICE_BASE}/project/removeTeamMember/${orgId}/${projectId}`,
 } as const;
-
-// ─── TASK SERVICE (port 8003) ─────────────────────────────────────────────────
 
 export const TASK_ENDPOINTS = {
   // my tasks
@@ -126,8 +127,8 @@ export const TASK_ENDPOINTS = {
   // approvals
   GET_APPROVALS: (taskId: number) =>
     `${TASKSERVICE_BASE}/tasks/${taskId}/approvals`,
-  
-  GET_PENDING_APPROVALS: (projectId: number) => 
+
+  GET_PENDING_APPROVALS: (projectId: number) =>
     `${TASKSERVICE_BASE}/tasks/getPendingApprovals/${projectId}`,
 
   // timelogs

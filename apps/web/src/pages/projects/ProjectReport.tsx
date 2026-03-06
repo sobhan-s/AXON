@@ -4,7 +4,7 @@ import { Card, CardContent } from '@/components/ui/card';
 
 export function ProjectReportsPage() {
   return (
-    <div className="flex flex-col gap-6 px-4 py-6 lg:px-8">
+    <div className="flex flex-col gap-6 px-6 py-6 w-full max-w-7xl mx-auto">
       <div>
         <h1 className="text-2xl font-bold tracking-tight">Reports</h1>
         <p className="text-muted-foreground text-sm mt-1">
@@ -17,25 +17,25 @@ export function ProjectReportsPage() {
           {
             icon: CheckSquare,
             label: 'Tasks Completed',
-            value: '—',
+            value: '. . .',
             color: 'text-emerald-600 bg-emerald-100',
           },
           {
             icon: Clock,
             label: 'Total Hours',
-            value: '—',
+            value: '. . .',
             color: 'text-blue-600 bg-blue-100',
           },
           {
             icon: AlertCircle,
             label: 'Overdue Tasks',
-            value: '—',
+            value: '. . .',
             color: 'text-red-600 bg-red-100',
           },
           {
             icon: BarChart2,
             label: 'Approval Rate',
-            value: '—',
+            value: '. . .',
             color: 'text-violet-600 bg-violet-100',
           },
         ].map((s) => (

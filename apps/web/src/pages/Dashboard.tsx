@@ -14,6 +14,7 @@ import ProjectMembersPage from './projects/ProjectMember';
 import ProjectReviewsPage from './projects/ProjectReviewPage';
 import ProjectReportsPage from './projects/ProjectReport';
 import SettingsPage from './SettinPage';
+import ProjectUploadPage from './projects/ProjectUpload';
 
 function RequireRole({
   allowed,
@@ -168,19 +169,17 @@ export default function Dashboard() {
             />
 
             <Route path="projects" element={<ProjectsPage />} />
+            <Route
+              path="projects/:projectId/upload"
+              element={<ProjectUploadPage />}
+            />
             <Route path="tasks" element={<ProjectBoardPage />} />
             <Route path="team" element={<ProjectMembersPage />} />
-            <Route
-              path="review"
-              element={<ProjectReviewsPage />}
-            />
-            <Route
-              path="analytics"
-              element={<ProjectReportsPage />}
-            />
+            <Route path="review" element={<ProjectReviewsPage />} />
+            <Route path="analytics" element={<ProjectReportsPage />} />
             <Route path="settings" element={<SettingsPage />} />
-            <Route path="orgs" element={<SuperAdminOrgsPage />} />
 
+            {/* removed duplicate orgs route */}
             <Route path="*" element={<Navigate to="/dashboard" replace />} />
           </Routes>
         </div>

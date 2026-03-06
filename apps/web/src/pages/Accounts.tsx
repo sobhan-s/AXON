@@ -91,8 +91,7 @@ export default function AccountPage() {
   const displayName = user?.username || user?.email?.split('@')[0] || 'User';
   const initials = getInitials(displayName, user?.email ?? '');
 
-  console.log("asd;lfasodfasdfiasdosadiasdhf",user);
-  
+  console.log('asd;lfasodfasdfiasdosadiasdhf', user);
 
   const {
     register: regUpdate,
@@ -266,7 +265,7 @@ export default function AccountPage() {
                       month: 'long',
                       day: 'numeric',
                     })
-                  : '—'}
+                  : '. . .'}
               </p>
             </div>
             <div>
@@ -278,7 +277,7 @@ export default function AccountPage() {
                       month: 'long',
                       day: 'numeric',
                     })
-                  : '—'}
+                  : '. . .'}
               </p>
             </div>
           </div>

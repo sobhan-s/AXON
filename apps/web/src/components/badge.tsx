@@ -1,4 +1,4 @@
-import type { UploadFile } from '@/hooks/useUpload';
+import type { UploadFile } from '@/interfaces/upload.interface';
 import { cn } from '@/lib/utils';
 import { Badge } from 'lucide-react';
 
@@ -24,5 +24,19 @@ export function StatusBadge({ status }: { status: UploadFile['status'] }) {
     >
       {label}
     </Badge>
+  );
+}
+
+export function AssetTypeBadge({ mimeType }: { mimeType: string }) {
+  const ext = mimeType?.split('/')[1]?.toUpperCase().slice(0, 6) ?? 'FILE';
+  const colors = mimeType?.startsWith('image/')
+    ? 'bg-violet-100 text-violet-700 dark:bg-violet-900/30'
+    : mimeType?.startsWith('video/')
+      ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/30'
+      : 'bg-slate-100 text-slate-600 dark:bg-slate-800';
+  return (
+    <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded ${colors}`}>
+      {ext}
+    </span>
   );
 }

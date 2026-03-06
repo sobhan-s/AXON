@@ -45,7 +45,7 @@ export function useTusUpload({
       const upload = new tus.Upload(file, {
         endpoint,
         retryDelays: [0, 1000, 3000, 5000, 10000],
-        chunkSize: 0.5 * 1024 * 1024, // 10MB
+        chunkSize: 0.5 * 1024 * 1024, // 0.5 MB
 
         metadata: {
           filename: encodeURIComponent(file.name),

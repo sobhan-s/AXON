@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
-import { Loader2, CheckCircle2, XCircle, Clock, Eye } from 'lucide-react';
+import { Loader2, CheckCircle2, XCircle, Eye } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
@@ -24,7 +24,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
 
 import { useAuthStore } from '@/store/auth.store';
-import { TASK_ENDPOINTS } from '@/lib/api-endpints';
+// import { TASK_ENDPOINTS } from '@/lib/api-endpints';
 import { taskService, type TaskStatus } from '@/services/task.service';
 
 interface ReviewTask {
@@ -115,7 +115,7 @@ export function ProjectReviewsPage() {
         <p className="text-muted-foreground text-sm mt-1">
           {canReview
             ? 'Review and approve or reject submitted assets.'
-            : 'Assets currently in review — read only.'}
+            : 'Assets currently in review . . . read only.'}
         </p>
       </div>
 
@@ -162,12 +162,12 @@ export function ProjectReviewsPage() {
                   </TableCell>
                   <TableCell>
                     <span className="text-sm text-muted-foreground">
-                      {task?.requestedBy?.username ?? '—'}
+                      {task?.requestedBy?.username ?? '. . .'}
                     </span>
                   </TableCell>
                   <TableCell>
                     <span className="text-sm text-muted-foreground">
-                      {task?.reviewedBy?.username ?? '—'}
+                      {task?.reviewedBy?.username ?? '. . .'}
                     </span>
                   </TableCell>
                   <TableCell className="text-sm text-muted-foreground">
@@ -213,7 +213,6 @@ export function ProjectReviewsPage() {
         </div>
       )}
 
-      {/* Review Modal */}
       <Dialog
         open={!!viewTask}
         onOpenChange={(o) => {
@@ -228,7 +227,7 @@ export function ProjectReviewsPage() {
             <DialogTitle>{viewTask?.task.title}</DialogTitle>
           </DialogHeader>
 
-          {viewTask?.asset && (
+          {viewTask?.ass && (
             <div className="rounded-lg overflow-hidden border">
               {viewTask.asset.mimeType?.startsWith('image/') ? (
                 <img

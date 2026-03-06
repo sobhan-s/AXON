@@ -12,6 +12,7 @@ import {
   BarChart2Icon,
   ChevronLeftIcon,
   UsersRoundIcon,
+  GalleryThumbnailsIcon,
 } from 'lucide-react';
 
 import { NavMain } from '@/components/nav-main';
@@ -29,7 +30,6 @@ import {
 import { useAuthStore } from '@/store/auth.store';
 import { projectService, type Project } from '@/services/Project.service';
 
- 
 const NAV_BY_ROLE: Record<string, { title: string; url: string; icon: any }[]> =
   {
     SUPER_ADMIN: [
@@ -40,8 +40,7 @@ const NAV_BY_ROLE: Record<string, { title: string; url: string; icon: any }[]> =
     ADMIN: [
       { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },
       { title: 'Projects', url: '/dashboard/projects', icon: FolderIcon },
-      { title: 'My Tasks', url: '/dashboard/tasks', icon: CheckSquareIcon },
-      { title: 'Team', url: '/dashboard/team', icon: UsersIcon },
+
       {
         title: 'User Management',
         url: '/dashboard/users',
@@ -52,13 +51,12 @@ const NAV_BY_ROLE: Record<string, { title: string; url: string; icon: any }[]> =
     MANAGER: [
       { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },
       { title: 'Projects', url: '/dashboard/projects', icon: FolderIcon },
-      { title: 'My Tasks', url: '/dashboard/tasks', icon: CheckSquareIcon },
+
       { title: 'Team', url: '/dashboard/team', icon: UsersIcon },
     ],
     LEAD: [
       { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },
       { title: 'Projects', url: '/dashboard/projects', icon: FolderIcon },
-      { title: 'My Tasks', url: '/dashboard/tasks', icon: CheckSquareIcon },
     ],
     REVIEWER: [
       { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },
@@ -72,20 +70,24 @@ const NAV_BY_ROLE: Record<string, { title: string; url: string; icon: any }[]> =
     MEMBER: [
       { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },
       { title: 'Projects', url: '/dashboard/projects', icon: FolderIcon },
-      { title: 'My Tasks', url: '/dashboard/tasks', icon: CheckSquareIcon },
     ],
   };
 
- 
 function getProjectNav(projectId: string, role: string) {
   const base = `/projects/${projectId}`;
 
   const all = [
     { title: 'Board', url: `${base}/board`, icon: CheckSquareIcon },
     { title: 'Review Queue', url: `${base}/reviews`, icon: ClipboardListIcon },
+    {
+      title: 'Finalized',
+      url: `${base}/finalized`,
+      icon: GalleryThumbnailsIcon,
+    },
+    { title: 'My Tasks', url: `${base}/mytask`, icon: CheckSquareIcon },
   ];
 
-   if (role !== 'REVIEWER') {
+  if (role !== 'REVIEWER') {
     all.splice(1, 0, {
       title: 'Upload',
       url: `${base}/upload`,
@@ -104,21 +106,20 @@ function getProjectNav(projectId: string, role: string) {
   return all;
 }
 
- 
 export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const user = useAuthStore((s) => s.user);
   const orgId = user?.organizationId as number;
   const role = user?.role?.name ?? 'MEMBER';
   const navigate = useNavigate();
 
-   const { projectId } = useParams<{ projectId?: string }>();
+  const { projectId } = useParams<{ projectId?: string }>();
   const location = useLocation();
   const inProject = !!projectId || location.pathname.startsWith('/projects/');
 
-   const resolvedProjectId =
+  const resolvedProjectId =
     projectId ?? location.pathname.match(/\/projects\/(\d+)/)?.[1];
 
-   const [project, setProject] = React.useState<Project | null>(null);
+  const [project, setProject] = React.useState<Project | null>(null);
 
   React.useEffect(() => {
     if (!resolvedProjectId) {
@@ -131,12 +132,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
       .catch(() => setProject(null));
   }, [resolvedProjectId]);
 
-   if (inProject && resolvedProjectId) {
+  if (inProject && resolvedProjectId) {
     const projectNav = getProjectNav(resolvedProjectId, role);
 
     return (
       <Sidebar collapsible="offcanvas" {...props} className="w-[250px]">
-         <SidebarHeader>
+        <SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem>
               <SidebarMenuButton
@@ -179,7 +180,7 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     );
   }
 
-   const navItems = NAV_BY_ROLE[role] ?? NAV_BY_ROLE.MEMBER;
+  const navItems = NAV_BY_ROLE[role] ?? NAV_BY_ROLE.MEMBER;
 
   return (
     <Sidebar collapsible="offcanvas" {...props} className="w-[250px]">

@@ -4,7 +4,7 @@ import path from 'path';
 // dotenv.config({ path: path.resolve('../../', '.env') });
 dotenv.config({ path: path.resolve('../../', '.env.local') });
 
-// console.log("-------",process.env.AUTH_SERVICE_URI);
+console.log('-------', process.env.AUTH_SERVICE_URI);
 
 export const env_config_variable = {
   SERVICE_URI: {
@@ -24,6 +24,9 @@ export const env_config_variable = {
     AUTH: parseInt(process.env.AUTH_PORT || '8001', 10),
     PROJECT_PORT: parseInt(process.env.PROJECT_PORT || '8002', 10),
     TASKSERVICE_PORT: parseInt(process.env.TASK_PORT || '8003', 10),
+    UPLOAD_PORT: parseInt(process.env.UPLOAD_PORT || '8004', 10),
+    ASSET_PORT: parseInt(process.env.ASSET_PORT || '8005', 10),
+    WORKER_PORT: parseInt(process.env.WORKER_PORT || '8006', 10),
   },
   DB: {
     DEV: {
@@ -73,11 +76,11 @@ export const env_config_variable = {
     MINIO_PUBLI_URL: process.env.MINIO_PUBLIC_URL,
   },
   RABBITMQ: {
-    HOST: process.env.RABBITMQ_HOST || "localhost",
-    PORT: parseInt(process.env.RABBITMQ_PORT || "5672", 10),
-    USER: process.env.RABBITMQ_DEFAULT_USER || "damrabbitmq",
+    HOST: process.env.RABBITMQ_HOST || 'localhost',
+    PORT: parseInt(process.env.RABBITMQ_PORT || '5672', 10),
+    USER: process.env.RABBITMQ_DEFAULT_USER || 'damrabbitmq',
     PASSWORD: process.env.RABBITMQ_DEFAULT_PASS,
-    VHOST: process.env.RABBITMQ_VHOST || "dam",
+    VHOST: process.env.RABBITMQ_VHOST || 'dam',
   },
   TEMP_DIR: {
     PATH: process.env.TUS_TMP_DIR_PATH,

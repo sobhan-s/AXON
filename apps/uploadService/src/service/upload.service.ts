@@ -9,7 +9,7 @@ import {
   type TusUploadMeta,
 } from '@dam/config';
 import { createTusServer, tusDeleteTempFile } from '@dam/config';
-import { TaskService } from './task.service.js';
+import { TaskHelperService } from './taskHelper.service.js';
 
 export interface UploadResult {
   assetId: string;
@@ -20,7 +20,7 @@ export interface UploadResult {
   taskId?: number;
 }
 
-const taskService = new TaskService();
+const taskService = new TaskHelperService();
 
 async function generateThumbnail(
   localPath: string,

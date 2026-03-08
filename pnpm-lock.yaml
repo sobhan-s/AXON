@@ -336,6 +336,85 @@ importers:
       '@dam/postgresql_db':
         specifier: workspace:*
         version: link:../../packages/postgresql_db
+      '@dam/repository':
+        specifier: workspace:*
+        version: link:../../packages/repository
+      '@dam/typescript-config':
+        specifier: workspace:*
+        version: link:../../packages/typescript-config
+      '@dam/utils':
+        specifier: workspace:*
+        version: link:../../packages/utils
+      '@dam/validations':
+        specifier: workspace:*
+        version: link:../../packages/validations
+      cookie-parser:
+        specifier: ^1.4.7
+        version: 1.4.7
+      cors:
+        specifier: ^2.8.6
+        version: 2.8.6
+      express:
+        specifier: ^5.2.1
+        version: 5.2.1
+      sharp:
+        specifier: ^0.34.5
+        version: 0.34.5
+      swagger-autogen:
+        specifier: ^2.23.7
+        version: 2.23.7
+      swagger-ui-express:
+        specifier: ^5.0.1
+        version: 5.0.1(express@5.2.1)
+    devDependencies:
+      '@types/cookie-parser':
+        specifier: ^1.4.10
+        version: 1.4.10(@types/express@5.0.6)
+      '@types/cors':
+        specifier: ^2.8.19
+        version: 2.8.19
+      '@types/express':
+        specifier: ^5.0.6
+        version: 5.0.6
+      '@types/node':
+        specifier: ^25.2.3
+        version: 25.2.3
+      '@types/swagger-ui-express':
+        specifier: ^4.1.8
+        version: 4.1.8
+      nodemon:
+        specifier: ^3.1.11
+        version: 3.1.11
+
+  apps/uploadService:
+    dependencies:
+      '@dam/common':
+        specifier: workspace:*
+        version: link:../../packages/common
+      '@dam/config':
+        specifier: workspace:*
+        version: link:../../packages/config
+      '@dam/constants':
+        specifier: workspace:*
+        version: link:../../packages/constants
+      '@dam/eslint-config':
+        specifier: workspace:*
+        version: link:../../packages/eslint-config
+      '@dam/mail':
+        specifier: workspace:*
+        version: link:../../packages/mail
+      '@dam/middlewares':
+        specifier: workspace:*
+        version: link:../../packages/middlewares
+      '@dam/mongodb':
+        specifier: workspace:*
+        version: link:../../packages/mongodb
+      '@dam/postgresql_db':
+        specifier: workspace:*
+        version: link:../../packages/postgresql_db
+      '@dam/repository':
+        specifier: workspace:*
+        version: link:../../packages/repository
       '@dam/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config
@@ -863,9 +942,24 @@ importers:
 
   packages/repository:
     dependencies:
+      '@dam/common':
+        specifier: workspace:*
+        version: link:../common
+      '@dam/config':
+        specifier: workspace:*
+        version: link:../config
+      '@dam/mongodb':
+        specifier: workspace:*
+        version: link:../mongodb
+      '@dam/postgresql_db':
+        specifier: workspace:*
+        version: link:../postgresql_db
       '@dam/typescript-config':
         specifier: workspace:*
         version: link:../typescript-config
+      '@dam/utils':
+        specifier: workspace:*
+        version: link:../utils
 
   packages/typescript-config:
     devDependencies:

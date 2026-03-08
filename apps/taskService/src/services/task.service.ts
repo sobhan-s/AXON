@@ -1,15 +1,17 @@
 import { logger } from '@dam/config';
 import { ApiError } from '@dam/utils';
 import { ActivityService, AuthRepository } from '@dam/common';
-import { TaskRepository } from '../repository/task.repository.js';
-import { ApprovalRepository } from '../repository/approval.repository.js';
-import { TimelogRepository } from '../repository/timelog.repository.js';
+import {
+  TaskRepository,
+  ApprovalRepository,
+  TimelogRepository,
+  AssetRepository,
+} from '@dam/repository';
 import type {
   CreateManualTaskPayload,
   UpdateTaskPayload,
   TaskFilters,
 } from '../interfaces/task.interface.js';
-import { AssetRepository } from '../repository/asset.repository.js';
 
 const LEVEL = {
   ADMIN: 1,
@@ -19,11 +21,9 @@ const LEVEL = {
   MEMBER: 5,
 } as const;
 
-const CAN_CREATE_MANUAL = [LEVEL.ADMIN, LEVEL.MANAGER, LEVEL.LEAD];
 const CAN_FINALIZE = [LEVEL.ADMIN, LEVEL.MANAGER, LEVEL.LEAD];
 const CAN_MANAGE_TASK = [LEVEL.ADMIN, LEVEL.MANAGER, LEVEL.LEAD];
 const CAN_REVIEW = [LEVEL.ADMIN, LEVEL.MANAGER, LEVEL.REVIEWER];
-const CAN_UPLOAD = [LEVEL.ADMIN, LEVEL.MANAGER, LEVEL.LEAD, LEVEL.MEMBER];
 
 export class TaskService {
   private taskRepo: TaskRepository;

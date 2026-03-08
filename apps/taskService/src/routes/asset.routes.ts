@@ -1,15 +1,10 @@
 import { IRouter, Router } from 'express';
 import { asyncHandler } from '@dam/utils';
 import { ApiResponse } from '@dam/utils';
-import { tusServer } from '../services/asset.service.js';
-import { AssetRepository } from '../repository/asset.repository.js';
+import { AssetRepository } from '@dam/repository';
 
 const router: IRouter = Router();
 const assetRepository = new AssetRepository();
-
-router.all('/upload', (req, res) => tusServer.handle(req, res));
-
-router.all('/upload/:id', (req, res) => tusServer.handle(req, res));
 
 router.get(
   '/task/:taskId',

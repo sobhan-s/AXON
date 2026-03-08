@@ -19,7 +19,7 @@ import { formatBytes } from '@/constants/chunkSize';
 import { StatusBadge } from './badge';
 import type { UploadSectionProps } from '@/interfaces/uploadSection.interface';
 
-const API_BASE = import.meta.env.VITE_API_URL ?? 'http://localhost:8003';
+const API_BASE = import.meta.env.VITE_API_URL ?? 'http://localhost:8004';
 const UPLOAD_ENDPOINT = `${API_BASE}/api/assets/upload`;
 
 function getFileIcon(mimeType: string) {

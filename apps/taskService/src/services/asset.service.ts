@@ -4,17 +4,11 @@ import { logger } from '@dam/config';
 import {
   minioUploadFile,
   minioUploadBuffer,
-  // minioGetPresignedUrl,
-  // minioDeleteFile,
   minioBuildObjectName,
   minioDetectFileType,
   type TusUploadMeta,
 } from '@dam/config';
-import {
-  createTusServer,
-  tusDeleteTempFile,
-  tusParseMetadata,
-} from '@dam/config';
+import { createTusServer, tusDeleteTempFile } from '@dam/config';
 import { TaskService } from './task.service.js';
 
 export interface UploadResult {
@@ -38,23 +32,9 @@ async function generateThumbnail(
       .resize(400, 400, { fit: 'inside', withoutEnlargement: true })
       .jpeg({ quality: 80 })
       .toBuffer();
-    const minIoUPloadBuffer = await minioUploadBuffer(
-      thumbBuffer,
-      thumbName,
-      'image/jpeg',
-    );
-
-    console.log(
-      'miniio ads;fkasdfjaosd ;okaj oas doadsoi jaso fdj',
-      minioUploadBuffer,
-    );
-
-    return minIoUPloadBuffer;
+    return await minioUploadBuffer(thumbBuffer, thumbName, 'image/jpeg');
   } catch (error) {
-    logger.warn('thumbnail generation failed , so skipping this process', {
-      error,
-      objectName,
-    });
+    logger.warn('Thumbnail generation failed, skipping', { error, objectName });
     return undefined;
   }
 }
@@ -75,8 +55,7 @@ export async function processUpload(
   const parsedTags = meta.tags ? (JSON.parse(meta.tags) as string[]) : [];
 
   let version = 1;
-  let parentObjId = undefined;
-
+  let parentObjId: any = undefined;
   if (meta.parentAssetId) {
     const parent = await Asset.findById(meta.parentAssetId);
     if (parent) {
@@ -113,7 +92,7 @@ export async function processUpload(
     uploadedBy,
     version,
     parentAssetId: parentObjId,
-    status: 'review',
+    status: 'draft',
     processingStatus: 'completed',
     tags: parsedTags,
   });
@@ -131,14 +110,16 @@ export async function processUpload(
       originalName,
       assetId,
     );
-
-    await Asset.findByIdAndUpdate(assetId, { taskId: task.id });
+    await Asset.findByIdAndUpdate(assetId, {
+      taskId: task.id,
+      status: 'review',
+    });
     finalTaskId = task.id;
     logger.info('ASSET_BASED task auto-created', { taskId: task.id, assetId });
   } else {
     await Asset.findByIdAndUpdate(assetId, { taskId: taskIdMeta });
-    await taskService.linkUploadToManualTask(taskIdMeta, uploadedBy, assetId);
-    logger.info('MANUAL task linked to upload', {
+    await taskService.updateTaskAsset(taskIdMeta, assetId);
+    logger.info('Re-upload linked to existing task', {
       taskId: taskIdMeta,
       assetId,
     });

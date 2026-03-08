@@ -204,6 +204,7 @@ export class TaskService {
     newStatus: string,
     ip?: string,
     userAgent?: string,
+    feedback?: string,
   ) {
     logger.info('Changing task status', { taskId, newStatus, userId });
 
@@ -211,51 +212,39 @@ export class TaskService {
     if (!task) throw new ApiError(404, 'Task not found');
 
     const member = await this.taskRepo.getMemberRole(task.project.id, userId);
-    if (!member) {
+    if (!member)
       throw new ApiError(403, 'You are not a member of this project');
-    }
 
     const currentStatus = task.status;
     const level = member.role.level;
 
-    // TODO to IN_PROGRESS
-    // MEMBER only, must be assigned to this task
     if (currentStatus === 'TODO' && newStatus === 'IN_PROGRESS') {
-      if (level !== LEVEL.MEMBER) {
-        throw new ApiError(403, 'Only the assigned Member can start the task');
-      }
-      if (task.assignedToId !== userId) {
+      if (level !== LEVEL.MEMBER)
+        throw new ApiError(403, 'Only the assigned member can start the task');
+      if (task.assignedToId !== userId)
         throw new ApiError(403, 'You can only start tasks assigned to you');
-      }
-      if (task.taskType !== 'MANUAL') {
-        throw new ApiError(400, 'ASSET_BASED tasks do not have a TODO stage');
-      }
+      if (task.taskType !== 'MANUAL')
+        throw new ApiError(400, 'Only MANUAL tasks go through IN_PROGRESS');
 
       await this.taskRepo.updateTaskStatus(taskId, 'IN_PROGRESS');
-
       await this.timelogRepo.openSession(taskId, userId);
-    }
-
-    // IN_PROGRESS to REVIEW
-    else if (currentStatus === 'IN_PROGRESS' && newStatus === 'REVIEW') {
-      if (level !== LEVEL.MEMBER) {
+    } else if (currentStatus === 'IN_PROGRESS' && newStatus === 'REVIEW') {
+      if (level !== LEVEL.MEMBER)
         throw new ApiError(
           403,
-          'Only the assigned Member can submit for review',
+          'Only the assigned member can submit for review',
         );
-      }
-      if (task.assignedToId !== userId) {
+      if (task.assignedToId !== userId)
         throw new ApiError(403, 'You can only submit tasks assigned to you');
-      }
-      if (!task.assetId) {
+      if (task.taskType !== 'MANUAL')
         throw new ApiError(
           400,
-          'You must upload a file before submitting for review',
+          'Only MANUAL tasks transition from IN_PROGRESS',
         );
-      }
+      if (!task.assetId)
+        throw new ApiError(400, 'Upload a file before submitting for review');
 
       await this.taskRepo.updateTaskStatus(taskId, 'REVIEW');
-
       await this.timelogRepo.closeSession(taskId, userId);
 
       const pending =
@@ -268,85 +257,66 @@ export class TaskService {
           task.project.id,
         );
       }
-    }
-
-    // REVIEW to APPROVED
-    else if (currentStatus === 'REVIEW' && newStatus === 'APPROVED') {
-      const findiingTask = await this.taskRepo.findTaskById(taskId);
-      if (!CAN_REVIEW.includes(level as any)) {
+    } else if (currentStatus === 'REVIEW' && newStatus === 'APPROVED') {
+      if (!CAN_REVIEW.includes(level as any))
         throw new ApiError(
           403,
-          'Only Admin, Manager or REVIEWER can approve tasks',
+          'Only Admin, Manager or Reviewer can approve tasks',
         );
-      }
 
       const pending =
         await this.approvalRepo.getPendingApprovalByTaskId(taskId);
       if (pending) {
-        await this.approvalRepo.reviewApproval(pending.id, userId, 'APPROVED');
+        await this.approvalRepo.reviewApproval(
+          pending.id,
+          userId,
+          'APPROVED',
+          feedback,
+        );
       }
 
-      const asset = await this.assetRepo.getById(String(findiingTask?.assetId));
-
-      if (!asset) {
-        throw new ApiError(500, 'Asset has been not found');
-      }
-      const updatedAsset = await this.assetRepo.updateAsset(
-        asset._id,
-        'approved',
-      );
+      const asset = await this.assetRepo.getById(String(task.assetId));
+      if (!asset) throw new ApiError(500, 'Asset not found');
+      await this.assetRepo.updateAsset(asset._id, 'approved');
 
       await this.taskRepo.updateTaskStatus(taskId, 'APPROVED');
-    }
-
-    // REVIEW to FAILED
-    else if (currentStatus === 'REVIEW' && newStatus === 'FAILED') {
-      const findiingTask = await this.taskRepo.findTaskById(taskId);
-      if (!CAN_REVIEW.includes(level as any)) {
+    } else if (currentStatus === 'REVIEW' && newStatus === 'FAILED') {
+      if (!CAN_REVIEW.includes(level as any))
         throw new ApiError(
           403,
-          'Only Admin, Manager or REVIEWER can reject tasks',
+          'Only Admin, Manager or Reviewer can reject tasks',
         );
-      }
 
       const pending =
         await this.approvalRepo.getPendingApprovalByTaskId(taskId);
       if (pending) {
-        await this.approvalRepo.reviewApproval(pending.id, userId, 'REJECTED');
-      }
-
-      const asset = await this.assetRepo.getById(String(findiingTask?.assetId));
-
-      if (!asset) {
-        throw new ApiError(500, 'Asset has been not found');
-      }
-      const updatedAsset = await this.assetRepo.updateAsset(
-        asset._id,
-        'rejected',
-      );
-
-      await this.taskRepo.updateTaskStatus(taskId, 'FAILED');
-    }
-
-    // FAILED to REVIEW
-    else if (currentStatus === 'FAILED' && newStatus === 'REVIEW') {
-      // Must be the original uploader / assigned member
-      const isCreator = task.createdById === userId;
-      const isAssignedTo = task.assignedToId === userId;
-
-      if (!isCreator && !isAssignedTo) {
-        throw new ApiError(403, 'Only the original uploader can resubmit');
-      }
-      if (!task.assetId) {
-        throw new ApiError(
-          400,
-          'You must upload a new file before resubmitting',
+        await this.approvalRepo.reviewApproval(
+          pending.id,
+          userId,
+          'REJECTED',
+          feedback,
         );
       }
+
+      const asset = await this.assetRepo.getById(String(task.assetId));
+      if (!asset) throw new ApiError(500, 'Asset not found');
+      await this.assetRepo.updateAsset(asset._id, 'rejected');
+
+      await this.taskRepo.updateTaskStatus(taskId, 'FAILED');
+    } else if (currentStatus === 'FAILED' && newStatus === 'REVIEW') {
+      const isAssignedTo = task.assignedToId === userId;
+      const isCreator = task.createdById === userId;
+
+      if (!isAssignedTo && !isCreator)
+        throw new ApiError(403, 'Only the assignee or creator can resubmit');
+      if (!task.assetId)
+        throw new ApiError(400, 'Upload a new file before resubmitting');
 
       await this.taskRepo.updateTaskStatus(taskId, 'REVIEW');
 
-      await this.timelogRepo.openSession(taskId, userId);
+      if (task.taskType === 'MANUAL') {
+        await this.timelogRepo.openSession(taskId, userId);
+      }
 
       await this.approvalRepo.createApproval(
         taskId,
@@ -355,9 +325,8 @@ export class TaskService {
         task.project.id,
       );
     } else if (currentStatus === 'APPROVED' && newStatus === 'DONE') {
-      if (!CAN_FINALIZE.includes(level as any)) {
+      if (!CAN_FINALIZE.includes(level as any))
         throw new ApiError(403, 'Only Lead, Manager or Admin can close a task');
-      }
 
       await this.taskRepo.updateTaskStatus(taskId, 'DONE');
     } else {
@@ -373,12 +342,16 @@ export class TaskService {
       action: 'TASK_STATUS_CHANGED',
       entityType: 'TASK',
       entityId: taskId.toString(),
-      details: { from: currentStatus, to: newStatus },
+      details: { from: currentStatus, to: newStatus, feedback },
       ipAddress: ip,
       userAgent,
     });
 
     return this.taskRepo.findTaskById(taskId);
+  }
+
+  async updateTaskAsset(taskId: number, assetId: string) {
+    return this.taskRepo.updateTaskAsset(taskId, assetId);
   }
 
   async linkUploadToManualTask(

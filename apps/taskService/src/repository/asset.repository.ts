@@ -8,7 +8,7 @@ export class AssetRepository {
     const assets = await Asset.find({
       taskId,
       deletedAt: null,
-    }).sort({ version: -1 });
+    }).sort({ version: 1 });
 
     const result = await Promise.all(
       assets.map(async (asset) => {

@@ -12,7 +12,6 @@ import {
   CheckSquare,
   Calendar,
   MoreHorizontal,
-  Pencil,
   Trash2,
   ArrowRight,
 } from 'lucide-react';
@@ -64,16 +63,6 @@ const createSchema = z.object({
   description: z.string().max(500).optional(),
 });
 type CreateValues = z.infer<typeof createSchema>;
-
-const ROLE_COLORS: Record<string, string> = {
-  ADMIN:
-    'bg-violet-100 text-violet-700 dark:bg-violet-900/30 dark:text-violet-300',
-  MANAGER: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300',
-  LEAD: 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300',
-  REVIEWER:
-    'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300',
-  MEMBER: 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300',
-};
 
 function FieldError({ message }: { message?: string }) {
   if (!message) return null;
@@ -335,10 +324,8 @@ export default function ProjectsPage() {
   );
 }
 
-
 function ProjectCard({
   project,
-  role,
   canDelete,
   onOpen,
   onDelete,
@@ -364,7 +351,6 @@ function ProjectCard({
           </div>
 
           <div className="flex items-center gap-1.5 shrink-0">
-            {/* Status */}
             <Badge
               variant={project.status === 'ACTIVE' ? 'default' : 'secondary'}
               className="text-[10px]"
@@ -372,7 +358,6 @@ function ProjectCard({
               {project.status}
             </Badge>
 
-            {/* Actions — stop propagation so clicks don't open project */}
             {canDelete && (
               <DropdownMenu>
                 <DropdownMenuTrigger

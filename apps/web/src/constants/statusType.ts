@@ -115,3 +115,26 @@ export const ROLE_COLORS: Record<string, string> = {
   MEMBER: 'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300',
 };
 
+
+export const VARIANT_LABELS: Record<string, string> = {
+  thumbnail: 'Thumbnail',
+  compressed: 'Compressed',
+  optimized: 'Optimized',
+  '480p': '480p',
+  '720p': '720p',
+  '1080p': '1080p',
+  '4k': '4K',
+};
+export const VARIANT_COLORS: Record<string, string> = {
+  thumbnail: 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300',
+  compressed:
+    'bg-orange-100 text-orange-700 dark:bg-orange-900/30 dark:text-orange-300',
+  optimized:
+    'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-300',
+  '480p':
+    'bg-slate-100 text-slate-700 dark:bg-slate-900/30 dark:text-slate-300',
+  '720p':
+    'bg-violet-100 text-violet-700 dark:bg-violet-900/30 dark:text-violet-300',
+  '1080p': 'bg-pink-100 text-pink-700 dark:bg-pink-900/30 dark:text-pink-300',
+  '4k': 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300',
+};

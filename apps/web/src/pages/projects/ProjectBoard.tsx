@@ -14,8 +14,6 @@ import {
 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
-
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -67,101 +65,10 @@ import { toast } from 'sonner';
 import { useAuthStore } from '@/store/auth.store';
 import { taskService, type TaskStatus } from '@/services/task.service';
 import { projectService, type ProjectMember } from '@/services/Project.service';
-
-interface Task {
-  id: number;
-  title: string;
-  description: string | null;
-  status: 'TODO' | 'IN_PROGRESS' | 'REVIEW' | 'APPROVED' | 'FAILED' | 'DONE';
-  taskType: 'MANUAL' | 'ASSET_BASED';
-  priority: 'LOW' | 'MEDIUM' | 'HIGH' | 'URGENT' | null;
-  dueDate: string | null;
-  assignedTo: { id: number; username: string; avatarUrl: string | null } | null;
-  projectId: number;
-  createdBy?: { id: number; username: string; avatarUrl: string | null } | null;
-  _count: { timeLogs: number; approvals: number };
-}
-
-const STATUS_STYLE: Record<
-  string,
-  { label: string; className: string; dot: string }
-> = {
-  TODO: {
-    label: 'To Do',
-    className:
-      'bg-slate-100 text-slate-700 dark:bg-slate-800 dark:text-slate-300',
-    dot: 'bg-slate-400',
-  },
-  IN_PROGRESS: {
-    label: 'In Progress',
-    className:
-      'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-300',
-    dot: 'bg-blue-500',
-  },
-  REVIEW: {
-    label: 'In Review',
-    className:
-      'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-300',
-    dot: 'bg-amber-500',
-  },
-  APPROVED: {
-    label: 'Approved',
-    className:
-      'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/30 dark:text-emerald-300',
-    dot: 'bg-emerald-500',
-  },
-  FAILED: {
-    label: 'Failed',
-    className: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-300',
-    dot: 'bg-red-500',
-  },
-  DONE: {
-    label: 'Done',
-    className:
-      'bg-purple-100 text-purple-700 dark:bg-purple-900/30 dark:text-purple-300',
-    dot: 'bg-purple-500',
-  },
-};
-
-const PRIORITY_STYLE: Record<string, string> = {
-  URGENT:
-    'bg-purple-50 text-purple-600 dark:bg-purple-900/20 border border-purple-200',
-  HIGH: 'bg-red-50 text-red-600 dark:bg-red-900/20 border border-red-200',
-  MEDIUM:
-    'bg-amber-50 text-amber-600 dark:bg-amber-900/20 border border-amber-200',
-  LOW: 'bg-slate-100 text-slate-500 dark:bg-slate-800 border border-slate-200',
-};
-
-const STATUS_TRANSITIONS: Record<string, TaskStatus[]> = {
-  TODO: ['IN_PROGRESS'],
-  IN_PROGRESS: ['REVIEW'],
-  REVIEW: ['APPROVED', 'FAILED'],
-  APPROVED: ['DONE'],
-  FAILED: ['IN_PROGRESS'],
-  DONE: [],
-};
-
-const createSchema = z.object({
-  title: z.string().min(1, 'Title is required').max(255),
-  description: z.string().max(2000).optional(),
-  priority: z.enum(['LOW', 'MEDIUM', 'HIGH', 'URGENT']).optional(),
-  dueDate: z.string().optional(),
-  estimatedHours: z.number('Must be a number').min(0.1).max(999),
-});
-type CreateValues = z.infer<typeof createSchema>;
-
-function FieldError({ message }: { message?: string }) {
-  if (!message) return null;
-  return <p className="text-xs text-destructive mt-1">{message}</p>;
-}
-function FormError({ message }: { message?: string }) {
-  if (!message) return null;
-  return (
-    <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md">
-      {message}
-    </p>
-  );
-}
+import type { Task } from '@/interfaces/projectBoard';
+import { createSchema, type CreateValues } from '@/validations/createTask.validations';
+import { PRIORITY_STYLE, STATUS_STYLE, STATUS_TRANSITIONS } from '@/constants/statusType';
+import { FieldError, FormError } from '@/helper/error';
 
 export default function ProjectBoardPage() {
   const { projectId } = useParams<{ projectId: string }>();
@@ -555,11 +462,6 @@ export default function ProjectBoardPage() {
                           >
                             {task.title}
                           </p>
-                          {task.description && (
-                            <p className="text-xs text-muted-foreground truncate max-w-xs mt-0.5">
-                              {task.description}
-                            </p>
-                          )}
                         </div>
                         {task.taskType === 'ASSET_BASED' && (
                           <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-blue-50 text-blue-600 dark:bg-blue-900/20 shrink-0">

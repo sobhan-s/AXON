@@ -23,6 +23,7 @@
     "@dam/eslint-config": "workspace:*",
     "@dam/typescript-config": "workspace:*",
     "@tus/file-store": "^2.0.0",
+    "@tus/s3-store": "^2.0.1",
     "@tus/server": "^2.3.0",
     "@types/dotenv": "^8.2.3",
     "@types/jest": "^30.0.0",

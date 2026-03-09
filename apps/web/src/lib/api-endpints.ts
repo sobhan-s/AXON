@@ -1,6 +1,7 @@
 const AUTHSERVICE_BASE = 'http://localhost:8001';
 const PROJECTSERVICE_BASE = 'http://localhost:8002';
 const TASKSERVICE_BASE = 'http://localhost:8003';
+const ASSET_SERVICE = 'http://localhost:8005';
 
 export const AUTH_ENDPOINTS = {
   REGISTER: `${AUTHSERVICE_BASE}/auth/register`,
@@ -140,19 +141,24 @@ export const TASK_ENDPOINTS = {
 } as const;
 
 export const ASSET_ENDPOINTS = {
-  UPLOAD: `${TASKSERVICE_BASE}/api/assets/upload`,
-  GET_BY_TASK: (taskId: number) =>
-    `${TASKSERVICE_BASE}/api/assets/task/${taskId}`,
+  UPLOAD: `${ASSET_SERVICE}/api/assets/upload`,
+  GET_BY_TASK: (taskId: number) => `${ASSET_SERVICE}/api/assets/task/${taskId}`,
   GET_BY_PROJECT: (projectId: number) =>
-    `${TASKSERVICE_BASE}/api/assets/project/${projectId}`,
-  GET_BY_ID: (assetId: string) => `${TASKSERVICE_BASE}/api/assets/${assetId}`,
+    `${ASSET_SERVICE}/api/assets/project/${projectId}`,
+  GET_BY_ID: (assetId: string) => `${ASSET_SERVICE}/api/assets/${assetId}`,
   GET_VERSIONS: (assetId: string) =>
-    `${TASKSERVICE_BASE}/api/assets/${assetId}/versions`,
+    `${ASSET_SERVICE}/api/assets/${assetId}/versions`,
   GET_DOWNLOAD_URL: (assetId: string) =>
-    `${TASKSERVICE_BASE}/api/assets/${assetId}/download`,
+    `${ASSET_SERVICE}/api/assets/${assetId}/download`,
+  GET_VARIANT_DOWNLOAD_URL: (variantId: string) =>
+    `${ASSET_SERVICE}/assetvariants/${variantId}/download`,
   TRACK_VIEW: (assetId: string) =>
-    `${TASKSERVICE_BASE}/api/assets/${assetId}/view`,
+    `${ASSET_SERVICE}/api/assets/${assetId}/view`,
   FINALIZE: (assetId: string) =>
-    `${TASKSERVICE_BASE}/api/assets/${assetId}/finalize`,
-  DELETE: (assetId: string) => `${TASKSERVICE_BASE}/api/assets/${assetId}`,
+    `${ASSET_SERVICE}/api/assets/${assetId}/finalize`,
+  DELETE: (assetId: string) => `${ASSET_SERVICE}/api/assets/${assetId}`,
+  GET_VARIANTS: (assetId: string) =>
+    `${ASSET_SERVICE}/assetvariants/${assetId}/variants`,
+  REQUEST_VARIANTS: (assetId: string) =>
+    `${ASSET_SERVICE}/assetvariants/${assetId}/variants`,
 } as const;

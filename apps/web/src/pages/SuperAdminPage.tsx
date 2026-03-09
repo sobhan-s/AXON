@@ -437,10 +437,10 @@ export default function SuperAdminOrgsPage() {
                       </Badge>
                     </TableCell>
                     <TableCell className="text-sm text-muted-foreground">
-                      {org._count?.projects ?? '—'}
+                      {org._count?.projects ?? '. . .'}
                     </TableCell>
                     <TableCell className="text-sm text-muted-foreground">
-                      {org._count?.users ?? '—'}
+                      {org._count?.users ?? '. . .'}
                     </TableCell>
                     <TableCell className="text-sm text-muted-foreground">
                       {new Date(org.createdAt).toLocaleDateString()}
@@ -597,7 +597,7 @@ export default function SuperAdminOrgsPage() {
       >
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Edit — {editTarget?.name}</DialogTitle>
+            <DialogTitle>Edit . . . {editTarget?.name}</DialogTitle>
           </DialogHeader>
           <form
             onSubmit={updateForm.handleSubmit(onUpdateOrg)}
@@ -725,13 +725,13 @@ export default function SuperAdminOrgsPage() {
                 <div>
                   <p className="text-muted-foreground">Projects</p>
                   <p className="font-medium mt-1">
-                    {viewTarget._count?.projects ?? '—'}
+                    {viewTarget._count?.projects ?? '. . .'}
                   </p>
                 </div>
                 <div>
                   <p className="text-muted-foreground">Members</p>
                   <p className="font-medium mt-1">
-                    {viewTarget._count?.users ?? '—'}
+                    {viewTarget._count?.users ?? '. . .'}
                   </p>
                 </div>
                 <div>

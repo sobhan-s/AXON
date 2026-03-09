@@ -1,7 +1,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import {
   Loader2,
   Plus,
@@ -72,64 +71,16 @@ import { Separator } from '@/components/ui/separator';
 
 import { adminUserService, type OrgUser } from '@/services/AdminUser.service';
 import { useAuthStore } from '@/store/auth.store';
+import {
+  createSchema,
+  updateSchema,
+  type CreateValues,
+  type UpdateValues,
+} from '@/validations/userManagement.validations';
+import { ROLE_VARIANT, ROLES } from '@/constants/userManagementRole';
+import { FieldError, FormError } from '@/helper/error';
+import {getInitials} from "@/helper/getInitials"
 
-const ROLES = [
-  { id: 2, name: 'MANAGER' },
-  { id: 3, name: 'LEAD' },
-  { id: 4, name: 'REVIEWER' },
-  { id: 5, name: 'MEMBER' },
-];
-
-const ROLE_VARIANT: Record<string, 'default' | 'secondary' | 'outline'> = {
-  ADMIN: 'default',
-  MANAGER: 'secondary',
-  LEAD: 'outline',
-  REVIEWER: 'outline',
-  MEMBER: 'outline',
-};
-
-const createSchema = z.object({
-  email: z.email('Invalid email'),
-  password: z.string().min(8, 'Minimum 8 characters'),
-  username: z
-    .string()
-    .min(3)
-    .max(30)
-    .regex(/^[a-zA-Z0-9_]+$/, 'Only letters, numbers and underscore'),
-  roleId: z.number('Select a role'),
-});
-
-const updateSchema = z.object({
-  username: z
-    .string()
-    .min(3)
-    .max(30)
-    .regex(/^[a-zA-Z0-9_]+$/, 'Only letters, numbers and underscore')
-    .optional(),
-  isActive: z.boolean().optional(),
-  roleId: z.number().optional(),
-});
-
-type CreateValues = z.infer<typeof createSchema>;
-type UpdateValues = z.infer<typeof updateSchema>;
-
-function getInitials(username: string, email: string) {
-  return (username || email).slice(0, 2).toUpperCase();
-}
-
-function ErrorMessage({ message }: { message?: string }) {
-  if (!message) return null;
-  return <p className="text-xs text-destructive mt-1">{message}</p>;
-}
-
-function FormError({ message }: { message?: string }) {
-  if (!message) return null;
-  return (
-    <p className="text-sm text-destructive bg-destructive/10 px-3 py-2 rounded-md">
-      {message}
-    </p>
-  );
-}
 
 function StatCard({
   icon: Icon,
@@ -391,7 +342,7 @@ export default function UserManagementPage() {
                     </TableCell>
                     <TableCell>
                       <Badge variant={ROLE_VARIANT[m.role?.name] ?? 'outline'}>
-                        {m.role?.name ?? '—'}
+                        {m.role?.name ?? '. . .'}
                       </Badge>
                     </TableCell>
                     <TableCell>
@@ -442,8 +393,7 @@ export default function UserManagementPage() {
         </CardContent>
       </Card>
 
-      {/* ── CREATE MODAL ─────────────────────────────────────────────────── */}
-      <Dialog open={createOpen} onOpenChange={setCreateOpen}>
+       <Dialog open={createOpen} onOpenChange={setCreateOpen}>
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
             <DialogTitle>Add New User</DialogTitle>
@@ -462,7 +412,7 @@ export default function UserManagementPage() {
                 placeholder="user@example.com"
                 {...createForm.register('email')}
               />
-              <ErrorMessage
+              <FieldError
                 message={createForm.formState.errors.email?.message}
               />
             </div>
@@ -473,7 +423,7 @@ export default function UserManagementPage() {
                 placeholder="john_doe"
                 {...createForm.register('username')}
               />
-              <ErrorMessage
+              <FieldError
                 message={createForm.formState.errors.username?.message}
               />
             </div>
@@ -485,7 +435,7 @@ export default function UserManagementPage() {
                 placeholder="Min. 8 characters"
                 {...createForm.register('password')}
               />
-              <ErrorMessage
+              <FieldError
                 message={createForm.formState.errors.password?.message}
               />
             </div>
@@ -507,7 +457,7 @@ export default function UserManagementPage() {
                   ))}
                 </SelectContent>
               </Select>
-              <ErrorMessage
+              <FieldError
                 message={createForm.formState.errors.roleId?.message}
               />
             </div>
@@ -544,7 +494,7 @@ export default function UserManagementPage() {
       >
         <DialogContent className="sm:max-w-md">
           <DialogHeader>
-            <DialogTitle>Edit — {editTarget?.user.username}</DialogTitle>
+            <DialogTitle>Edit . . . {editTarget?.user.username}</DialogTitle>
           </DialogHeader>
           <form
             onSubmit={updateForm.handleSubmit(onUpdateUser)}
@@ -555,7 +505,7 @@ export default function UserManagementPage() {
             <div className="space-y-1.5">
               <Label htmlFor="u-username">Username</Label>
               <Input id="u-username" {...updateForm.register('username')} />
-              <ErrorMessage
+              <FieldError
                 message={updateForm.formState.errors.username?.message}
               />
             </div>
@@ -651,7 +601,7 @@ export default function UserManagementPage() {
                   <Badge
                     variant={ROLE_VARIANT[viewTarget.role?.name] ?? 'outline'}
                   >
-                    {viewTarget.role?.name ?? '—'}
+                    {viewTarget.role?.name ?? '. . .'}
                   </Badge>
                 </div>
                 <div>

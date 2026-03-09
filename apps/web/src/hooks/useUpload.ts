@@ -29,7 +29,7 @@ export function useTusUpload({
       const upload = new tus.Upload(file, {
         endpoint,
         retryDelays: [0, 1000, 3000, 5000, 10000],
-        chunkSize: 0.5 * 1024 * 1024, // 0.5 MB
+        chunkSize: 5 * 1024 * 1024, 
 
         metadata: {
           filename: encodeURIComponent(file.name),
@@ -59,8 +59,7 @@ export function useTusUpload({
           });
           uploadsRef.current.delete(id);
 
-          // Check if all uploads are done
-          setFiles((prev) => {
+           setFiles((prev) => {
             const allDone = prev
               .map((f) => (f.id === id ? { ...f, status: 'done' as const } : f))
               .every(

@@ -1,6 +1,6 @@
 import app from './app.js';
 import { PostgresClient as prisma, PrismaClient } from '@dam/postgresql_db';
-import { env_config_variable } from '@dam/config';
+import { env_config_variable, initRabbitMQ } from '@dam/config';
 import { logger } from '@dam/config';
 import { connectMongoDB, disconnectMongoDB } from '@dam/mongodb';
 import { initMinio } from '@dam/config';
@@ -21,6 +21,8 @@ const startServer = async () => {
     logger.info('Mongodb Database connected successfully');
 
     await initMinio();
+
+    await initRabbitMQ();
 
     server = app.listen(PORT, () => {
       logger.info(` Server running on port ${PORT}`);

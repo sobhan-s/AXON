@@ -3,6 +3,7 @@ import cookieparser from 'cookie-parser';
 import cors from 'cors';
 import { errorMiddleware } from '@dam/middlewares';
 import swaggerui from 'swagger-ui-express';
+import helmet from 'helmet';
 
 // import swaggerfile from "./swagger_output.json" with { type: "json" }
 
@@ -48,6 +49,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true, limit: '8mb' }));
 app.use(cookieparser());
 app.use(errorMiddleware);
+app.use(helmet())
 app.set('trust proxy', 1);
 
 app.get('/hlth', (req, res) => {

@@ -80,6 +80,13 @@ export function minioBuildObjectName(
   return `${orgId}/${projectId}/${taskId}/${uid}.${ext}`;
 }
 
+export async function minioDownloadFile(
+  objectName: string,
+  localPath: string,
+): Promise<void> {
+  await minioClient.fGetObject(MINIO_BUCKET, objectName, localPath);
+}
+
 export function minioDetectFileType(
   mimeType: string,
 ): 'image' | 'video' | 'document' {
@@ -102,5 +109,5 @@ export const MIME_TO_EXT: Record<string, string> = {
 export const ALLOWED_MIME_TYPES = new Set(Object.keys(MIME_TO_EXT));
 
 export const MINIO_MAX_FILE_SIZE = Number(
-  process.env.MAX_FILE_SIZE ?? 10 * 1024 * 1024 * 1024, // 5GB default
+  process.env.MAX_FILE_SIZE ?? 10 * 1024 * 1024 * 1024, 
 );

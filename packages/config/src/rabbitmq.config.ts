@@ -1,154 +1,82 @@
 import amqp from 'amqplib';
-import { env_config_variable } from './env.config.js';
 import { logger } from './logger.config.js';
-import { MessageHandler } from './interfaces/rabbitmq.interface.js';
+import { env_config_variable } from './env.config.js';
 
-export class RabbitMQClient {
-  private connection: amqp.ChannelModel | null = null;
-  private publishChannel: amqp.Channel | null = null;
-  private consumeChannel: amqp.Channel | null = null;
-  private readonly serviceName: string;
+export const QUEUE_NAME = 'dam.asset.process';
+export const EXCHANGE = 'dam.assets';
 
-  constructor(serviceName: string) {
-    this.serviceName = serviceName;
-  }
+let publishChannel: amqp.Channel | null = null;
+let consumeChannel: amqp.Channel | null = null;
 
-  async connect(retries = 10, delayMs = 5000): Promise<void> {
-    const { USER, PASSWORD, HOST, PORT, VHOST } = env_config_variable.RABBITMQ;
-    const url = `amqp://${USER}:${PASSWORD}@${HOST}:${PORT}/${VHOST}`;
+export async function initRabbitMQ(): Promise<void> {
+  const { USER, PASSWORD, HOST, PORT, VHOST } = env_config_variable.RABBITMQ;
+  const url = `amqp://${USER}:${PASSWORD}@${HOST}:${PORT}/${VHOST ?? ''}`;
 
-    for (let attempt = 1; attempt <= retries; attempt++) {
-      try {
-        this.connection = await amqp.connect(url);
+  const connection = await amqp.connect(url, {
+    heartbeat: 60,
+  });
 
-        this.connection.on('error', (err) => {
-          logger.error(`RabbitMQ:${this.serviceName} Connection error`, {
-            error: err.message,
-          });
-        });
+  publishChannel = await connection.createChannel();
+  consumeChannel = await connection.createChannel();
 
-        this.connection.on('close', () => {
-          logger.warn(
-            `[RabbitMQ:${this.serviceName}] Connection closed unexpectedly`,
-          );
-        });
+  await consumeChannel.prefetch(10);
 
-        this.publishChannel = await this.connection.createChannel();
-        this.consumeChannel = await this.connection.createChannel();
+  await publishChannel.assertQueue(QUEUE_NAME, { durable: true });
+  await consumeChannel.assertQueue(QUEUE_NAME, { durable: true });
 
-        await this.consumeChannel.prefetch(1);
+  logger.info('RabbitMQ connected');
+}
 
-        logger.info(
-          `RabbitMQ:${this.serviceName} Connected successfully (attempt ${attempt})`,
+export function rabbitPublish(payload: object): void {
+  if (!publishChannel) throw new Error('RabbitMQ not initialized');
+
+  publishChannel.sendToQueue(QUEUE_NAME, Buffer.from(JSON.stringify(payload)), {
+    persistent: true,
+    contentType: 'application/json',
+  });
+
+  logger.info('============== rabbitMQ job published', { payload });
+}
+
+export async function rabbitConsume(
+  handler: (data: any) => Promise<void>,
+): Promise<void> {
+  if (!consumeChannel) throw new Error('RabbitMQ not initialized');
+
+  const ch = consumeChannel;
+
+  await ch.consume(QUEUE_NAME, async (msg) => {
+    if (!msg) return;
+
+    const retries = (msg.properties.headers?.['x-retry-count'] as number) ?? 0;
+
+    try {
+      const data = JSON.parse(msg.content.toString());
+      await handler(data);
+      ch.ack(msg);
+    } catch (error: any) {
+      logger.error('RabbitMQ handler failed', {
+        error: error.message,
+        retries,
+      });
+
+      if (retries < 3) {
+        setTimeout(
+          () => {
+            publishChannel?.sendToQueue(QUEUE_NAME, msg.content, {
+              persistent: true,
+              headers: { 'x-retry-count': retries + 1 },
+            });
+          },
+          2000 * (retries + 1),
         );
-        return;
-      } catch (err: any) {
-        logger.warn(
-          `[RabbitMQ:${this.serviceName} Connection attempt ${attempt}/${retries} failed: ${err.message}`,
-        );
-
-        if (attempt === retries) {
-          logger.error(
-            `RabbitMQ:${this.serviceName} Exhausted all retries. Giving up.`,
-          );
-          throw err;
-        }
-
-        await new Promise((resolve) => setTimeout(resolve, delayMs));
+        ch.ack(msg);
+      } else {
+        logger.error('max reties reached ', { retries });
+        ch.nack(msg, false, false);
       }
     }
-  }
+  });
 
-  async publish(
-    exchange: string,
-    routingKey: string,
-    payload: object,
-    messageId?: string,
-  ): Promise<void> {
-    if (!this.publishChannel) {
-      throw new Error(
-        `[RabbitMQ:${this.serviceName}] Publish channel is not open. Call connect() first.`,
-      );
-    }
-
-    const message = Buffer.from(JSON.stringify(payload));
-
-    this.publishChannel.publish(exchange, routingKey, message, {
-      persistent: true,
-      contentType: 'application/json',
-      messageId: messageId ?? crypto.randomUUID(),
-      timestamp: Math.floor(Date.now() / 1000),
-    });
-
-    logger.info(
-      `[RabbitMQ:${this.serviceName}] Published to exchange="${exchange}" routingKey="${routingKey}"`,
-    );
-  }
-
-  async consume(
-    queue: string,
-    handler: MessageHandler,
-    options: { noAck?: boolean } = {},
-  ): Promise<void> {
-    if (!this.consumeChannel) {
-      throw new Error(
-        `[RabbitMQ:${this.serviceName}] Consume channel is not open. Call connect() first.`,
-      );
-    }
-
-    const channel = this.consumeChannel;
-
-    await channel.consume(
-      queue,
-      async (msg) => {
-        if (!msg) return;
-
-        try {
-          const payload = JSON.parse(msg.content.toString());
-          await handler(payload, msg);
-
-          if (!options.noAck) {
-            channel.ack(msg);
-          }
-        } catch (err: any) {
-          logger.error(
-            `[RabbitMQ:${this.serviceName}] Handler error on queue="${queue}"`,
-            { error: err.message },
-          );
-          if (!options.noAck) {
-            channel.nack(msg, false, false);
-          }
-        }
-      },
-      { noAck: options.noAck ?? false },
-    );
-
-    logger.info(
-      `[RabbitMQ:${this.serviceName}] Consuming from queue="${queue}"`,
-    );
-  }
-
-  isConnected(): boolean {
-    return this.publishChannel !== null && this.consumeChannel !== null;
-  }
-
-  getPublishChannel(): amqp.Channel | null {
-    return this.publishChannel;
-  }
-
-  getConsumeChannel(): amqp.Channel | null {
-    return this.consumeChannel;
-  }
-
-  async close(): Promise<void> {
-    try {
-      await this.publishChannel?.close();
-      await this.consumeChannel?.close();
-      await this.connection?.close();
-    } catch (err: any) {
-      logger.warn(`RabbitMQ:${this.serviceName} Error during close`, {
-        error: err.message,
-      });
-    }
-  }
+  logger.info(`cosume by rabbit mq, with queue name : --- ${QUEUE_NAME}`);
 }

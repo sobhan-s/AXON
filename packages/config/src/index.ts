@@ -9,7 +9,8 @@ import {
   minioBuildObjectName,
   minioDetectFileType,
   MINIO_MAX_FILE_SIZE,
-  initMinio
+  initMinio,
+  minioDownloadFile,
 } from './minio.config.js';
 import {
   createTusServer,
@@ -17,6 +18,12 @@ import {
   tusParseMetadata,
   type TusUploadMeta,
 } from './tus.config.js';
+
+import {
+  initRabbitMQ,
+  rabbitPublish,
+  rabbitConsume,
+} from './rabbitmq.config.js';
 
 export {
   env_config_variable,
@@ -30,8 +37,12 @@ export {
   minioBuildObjectName,
   minioDetectFileType,
   MINIO_MAX_FILE_SIZE,
+  minioDownloadFile,
   createTusServer,
   tusDeleteTempFile,
   tusParseMetadata,
   type TusUploadMeta,
+  initRabbitMQ,
+  rabbitPublish,
+  rabbitConsume,
 };

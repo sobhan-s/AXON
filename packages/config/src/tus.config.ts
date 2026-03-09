@@ -1,5 +1,6 @@
 import { Server as TusServer } from '@tus/server';
-import { FileStore } from '@tus/file-store';
+// import { FileStore } from '@tus/file-store';
+import { S3Store } from '@tus/s3-store';
 import path from 'path';
 import fs from 'fs';
 import os from 'os';
@@ -27,6 +28,20 @@ export interface TusUploadMeta {
   parentAssetId?: string;
   tags?: string;
 }
+
+const s3Store = new S3Store({
+  partSize: 5 * 1024 * 1024,
+  s3ClientConfig: {
+    bucket: env_config_variable.MINIO.MINIO_BUCKET_NAME,
+    region: 'us-east-1',
+    endpoint: process.env.MINIO_ENDPOINT,
+    forcePathStyle: true,
+    credentials: {
+      accessKeyId: env_config_variable.MINIO.MINIO_ROOTUSER,
+      secretAccessKey: env_config_variable.MINIO.MINIO_PASSWORD,
+    },
+  },
+});
 
 export function tusParseMetadata(
   raw: Record<string, string> = {},
@@ -70,7 +85,8 @@ export function createTusServer<T>(
 
   const server = new TusServer({
     path,
-    datastore: new FileStore({ directory: TUS_TMP_DIR }),
+    datastore: s3Store,
+    // new FileStore({ directory: TUS_TMP_DIR }),
 
     onUploadCreate: async (req, upload) => {
       const meta = tusParseMetadata(upload.metadata as any);

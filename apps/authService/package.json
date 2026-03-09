@@ -27,6 +27,7 @@
     "cookie-parser": "^1.4.7",
     "cors": "^2.8.6",
     "express": "^5.2.1",
+    "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.3",
     "swagger-autogen": "^2.23.7",
     "swagger-ui-express": "^5.0.1"

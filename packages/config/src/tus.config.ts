@@ -34,7 +34,7 @@ const s3Store = new S3Store({
   s3ClientConfig: {
     bucket: env_config_variable.MINIO.MINIO_BUCKET_NAME,
     region: 'us-east-1',
-    endpoint: process.env.MINIO_ENDPOINT,
+    endpoint: 'http://localhost:9000',
     forcePathStyle: true,
     credentials: {
       accessKeyId: env_config_variable.MINIO.MINIO_ROOTUSER,
@@ -115,8 +115,9 @@ export function createTusServer<T>(
 
     onUploadFinish: async (req, upload) => {
       const meta = tusParseMetadata(upload.metadata as any);
-      const tempPath = path_module.join(TUS_TMP_DIR, upload.id);
       const fileSize = upload.size ?? 0;
+
+      const s3Key = upload.id;
 
       logger.info('TUS upload complete', {
         uploadId: upload.id,
@@ -125,7 +126,7 @@ export function createTusServer<T>(
       });
 
       try {
-        await onFinish(upload.id, tempPath, meta, fileSize);
+        await onFinish(upload.id, s3Key, meta, fileSize);
       } catch (error) {
         logger.error('TUS finish handler error', {
           error,

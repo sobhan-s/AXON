@@ -80,6 +80,33 @@ export function minioBuildObjectName(
   return `${orgId}/${projectId}/${taskId}/${uid}.${ext}`;
 }
 
+export async function minioCopyObject(
+  sourceKey: string,
+  destKey: string,
+  mimeType: string,
+): Promise<string> {
+  await minioClient.copyObject(
+    MINIO_BUCKET,
+    destKey,
+    `/${MINIO_BUCKET}/${sourceKey}`,
+  );
+  return minioBuildPublicUrl(destKey);
+}
+
+export async function minioGetBuffer(objectKey: string): Promise<Buffer> {
+  const stream = await minioClient.getObject(MINIO_BUCKET, objectKey);
+  return new Promise((resolve, reject) => {
+    const chunks: Buffer[] = [];
+    stream.on('data', (chunk) => chunks.push(chunk));
+    stream.on('end', () => resolve(Buffer.concat(chunks)));
+    stream.on('error', reject);
+  });
+}
+
+export async function minioDeleteObject(objectKey: string): Promise<void> {
+  await minioClient.removeObject(MINIO_BUCKET, objectKey);
+}
+
 export async function minioDownloadFile(
   objectName: string,
   localPath: string,
@@ -109,5 +136,5 @@ export const MIME_TO_EXT: Record<string, string> = {
 export const ALLOWED_MIME_TYPES = new Set(Object.keys(MIME_TO_EXT));
 
 export const MINIO_MAX_FILE_SIZE = Number(
-  process.env.MAX_FILE_SIZE ?? 10 * 1024 * 1024 * 1024, 
+  process.env.MAX_FILE_SIZE ?? 10 * 1024 * 1024 * 1024,
 );

@@ -67,7 +67,7 @@ export const env_config_variable = {
     REFRESH_TOKEN_EXPIRY: process.env.REFRESH_TOKEN_EXPIRY,
   },
   MINIO: {
-    MINIO_ENDPOINT: process.env.MINIO_ENDPOINT!,
+    MINIO_ENDPOINT: process.env.MINIO_ENDPOINT! || 'localhost',
     MINIO_PORT: Number(process.env.MINIO_PORT ?? 9000),
     MINIO_USESSL: process.env.MINIO_USE_SSL === 'true',
     MINIO_ROOTUSER: process.env.MINIO_ROOT_USER!,

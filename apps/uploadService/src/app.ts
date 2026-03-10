@@ -4,6 +4,7 @@ import cors from 'cors';
 import { errorMiddleware } from '@dam/middlewares';
 import swaggerui from 'swagger-ui-express';
 import helmet from 'helmet';
+// import status from "express-status-monitor"
 
 // import swaggerfile from "./swagger_output.json" with { type: "json" }
 
@@ -42,6 +43,7 @@ app.use(
     optionsSuccessStatus: 204,
   }),
 );
+// app.use(status())
 
 app.options(/.*/, cors());
 

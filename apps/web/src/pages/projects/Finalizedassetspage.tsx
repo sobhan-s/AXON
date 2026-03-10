@@ -81,7 +81,7 @@ function VariantsPanel({
   const availableVariants = isImage
     ? ['thumbnail', 'compressed', 'optimized']
     : isVideo
-      ? ['thumbnail', '480p', '720p', '1080p', '4k']
+      ? ['thumbnail', '480p', '720p', '1080p']
       : [];
   const fetchVariants = useCallback(async () => {
     try {
@@ -328,10 +328,10 @@ function VersionsPanel({
                 day: 'numeric',
               })}
             </span>
-            {v.uploadedBy?.username && (
+            {v.userName && (
               <span className="flex items-center gap-0.5">
                 <User className="h-3 w-3" />
-                {v.uploadedBy.username}
+                {v.userName}
               </span>
             )}
           </div>
@@ -394,7 +394,7 @@ export default function FinalizedAssetsPage() {
     const q = search.toLowerCase();
     const matchSearch =
       a.originalName.toLowerCase().includes(q) ||
-      (a.uploadedBy?.username ?? '').toLowerCase().includes(q);
+      (a.userName ?? '').toLowerCase().includes(q);
     const matchType =
       typeFilter === 'ALL'
         ? true
@@ -580,7 +580,7 @@ export default function FinalizedAssetsPage() {
                   </TableCell>
                   <TableCell>
                     <span className="text-xs text-muted-foreground">
-                      {asset.uploadedBy?.username ?? ''}
+                      {asset.userName ?? ''}
                     </span>
                   </TableCell>
                   <TableCell>
@@ -783,12 +783,12 @@ export default function FinalizedAssetsPage() {
                   <span>
                     {new Date(previewAsset.createdAt).toLocaleDateString()}
                   </span>
-                  {previewAsset.uploadedBy?.username && (
+                  {previewAsset.userName && (
                     <>
                       <span>·</span>
                       <span className="flex items-center gap-1">
                         <User className="h-3 w-3" />
-                        {previewAsset.uploadedBy.username}
+                        {previewAsset?.userName}
                       </span>
                     </>
                   )}

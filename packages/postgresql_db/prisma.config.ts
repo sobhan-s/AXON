@@ -6,7 +6,7 @@ import dotenv from 'dotenv';
 import path from 'path';
 
 dotenv.config({ path: path.resolve('../../', '.env.local') });
-// console.log(env_config_variable.DB.DEV.POSTGRESQL_DB);
+console.log(env_config_variable.DB.DEV.POSTGRESQL_DB);
 
 export default defineConfig({
   schema: 'prisma/schema.prisma',
@@ -14,6 +14,6 @@ export default defineConfig({
     path: 'prisma/migrations',
   },
   datasource: {
-    url: env_config_variable.DB.DEV.POSTGRESQL_DB,
+    url: env_config_variable.DB.PROD.POSTGRESQL_DB,
   },
 });

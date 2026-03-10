@@ -1,9 +1,16 @@
+import { AuthRepository } from '@dam/common';
 import { minioDeleteFile, minioGetPresignedUrl } from '@dam/config';
 import { Asset } from '@dam/mongodb';
 import { ApiError } from '@dam/utils';
 import { Types } from 'mongoose';
 
 export class AssetRepository {
+  private authRepo: AuthRepository;
+
+  constructor() {
+    this.authRepo = new AuthRepository();
+  }
+
   async getByTask(taskId: number) {
     const assets = await Asset.find({
       taskId,
@@ -47,6 +54,7 @@ export class AssetRepository {
     const result = await Promise.all(
       assets.map(async (asset) => {
         const originalUrl = await minioGetPresignedUrl(asset.filename, 3600);
+        const user = await this.authRepo.findUserById(Number(asset.uploadedBy));
 
         const thumbnailUrl = asset.thumbnailUrl
           ? await minioGetPresignedUrl(
@@ -59,6 +67,8 @@ export class AssetRepository {
           ...asset.toObject(),
           originalUrl,
           thumbnailUrl,
+          userName: user?.username,
+          userEmail: user?.email,
         };
       }),
     );

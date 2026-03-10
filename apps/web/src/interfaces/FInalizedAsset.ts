@@ -10,7 +10,8 @@ export interface FinalizedAsset {
   viewCount?: number;
   createdAt: string;
   taskId?: number;
-  uploadedBy?: { username?: string };
+  userName: string;
+  userEmail: string;
   tags?: string[];
 }
 
@@ -40,7 +41,8 @@ export interface AssetVersion {
   fileSize: number;
   mimeType: string;
   createdAt: string;
-  uploadedBy?: { username: string };
+  userName: string;
+  userEmail: string;
   status: string;
 }
 export interface VariantsData {

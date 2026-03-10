@@ -2,13 +2,15 @@ import sharp from 'sharp';
 import { Asset } from '@dam/mongodb';
 import { logger } from '@dam/config';
 import {
-  minioUploadFile,
   minioUploadBuffer,
   minioBuildObjectName,
   minioDetectFileType,
+  minioGetBuffer,
+  minioCopyObject,
+  minioDeleteObject,
   type TusUploadMeta,
 } from '@dam/config';
-import { createTusServer, tusDeleteTempFile } from '@dam/config';
+import { createTusServer } from '@dam/config';
 import { TaskHelperService } from './taskHelper.service.js';
 
 export interface UploadResult {
@@ -23,12 +25,12 @@ export interface UploadResult {
 const taskService = new TaskHelperService();
 
 async function generateThumbnail(
-  localPath: string,
+  sourceBuffer: Buffer,
   objectName: string,
 ): Promise<string | undefined> {
   try {
     const thumbName = objectName.replace(/(\.[^.]+)$/, '_thumb.jpg');
-    const thumbBuffer = await sharp(localPath)
+    const thumbBuffer = await sharp(sourceBuffer)
       .resize(400, 400, { fit: 'inside', withoutEnlargement: true })
       .jpeg({ quality: 80 })
       .toBuffer();
@@ -40,8 +42,8 @@ async function generateThumbnail(
 }
 
 export async function processUpload(
-  _uploadId: string,
-  tempPath: string,
+  uploadId: string,
+  s3Key: string,
   meta: TusUploadMeta,
   fileSize: number,
 ): Promise<UploadResult> {
@@ -70,13 +72,15 @@ export async function processUpload(
     taskIdMeta ?? 'upload',
     mimeType,
   );
-  const originalUrl = await minioUploadFile(tempPath, objectName, mimeType);
-  logger.info('Uploaded to MinIO', { objectName });
 
-  const thumbnailUrl =
-    fileType === 'image'
-      ? await generateThumbnail(tempPath, objectName)
-      : undefined;
+  const originalUrl = await minioCopyObject(s3Key, objectName, mimeType);
+  logger.info('Copied to final MinIO key', { from: s3Key, to: objectName });
+
+  let thumbnailUrl: string | undefined;
+  if (fileType === 'image') {
+    const sourceBuffer = await minioGetBuffer(s3Key);
+    thumbnailUrl = await generateThumbnail(sourceBuffer, objectName);
+  }
 
   const asset = await Asset.create({
     filename: objectName,
@@ -101,7 +105,6 @@ export async function processUpload(
   logger.info('Asset saved to MongoDB', { assetId });
 
   let finalTaskId: number | undefined = taskIdMeta;
-
   if (!taskIdMeta) {
     const task = await taskService.createAssetBasedTask(
       projectId,
@@ -125,7 +128,8 @@ export async function processUpload(
     });
   }
 
-  tusDeleteTempFile(tempPath);
+  await minioDeleteObject(s3Key);
+  logger.info('Deleted TUS staging object', { s3Key });
 
   return {
     assetId,

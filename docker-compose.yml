@@ -125,6 +125,26 @@ services:
     networks:
       - dam-network
 
+  task-api:
+    build:
+      context: .
+      dockerfile: Docker/taskService.Dockerfile
+
+    env_file:
+      - .env
+
+    restart: always
+
+    ports:
+      - '8003:8003'
+
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+    networks:
+      - dam-network
+
   gateway-api:
     container_name: gateway-api
 
@@ -165,6 +185,7 @@ volumes:
   dam_mongo_data:
     external: true
   web-build:
+  rabbitmq_data:
 
 networks:
   dam-network:

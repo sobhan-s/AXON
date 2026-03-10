@@ -11,19 +11,21 @@ COPY packages ./packages
 
 RUN pnpm install --frozen-lockfile
 
+ENV DATABASE_URL="postgresql://sobhan:dampostgres123@postgres:5432/dampostgres?schema=public"
+
 RUN pnpm --filter @dam/postgresql_db exec prisma generate
 
-RUN pnpm --filter @dam/projectService build
+RUN pnpm --filter @dam/taskService build
 
 FROM node:20-slim AS runtime
 WORKDIR /app
 
 RUN corepack enable && corepack prepare pnpm@latest --activate
 
-COPY --from=builder /app/apps/projectService ./apps/projectService
+COPY --from=builder /app/apps/taskService ./apps/taskService
 COPY --from=builder /app/packages ./packages
 COPY --from=builder /app/node_modules ./node_modules
 COPY pnpm-lock.yaml pnpm-workspace.yaml package.json ./
 
-EXPOSE 8002
-CMD ["pnpm", "--filter", "@dam/projectService", "start"]
+EXPOSE 8003
+CMD ["pnpm", "--filter", "@dam/taskService", "start"]

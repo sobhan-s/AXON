@@ -1,135 +1,415 @@
-# Turborepo starter
-
-This Turborepo starter is maintained by the Turborepo core team.
-
-## Using this example
-
-Run the following command:
-
-```sh
-npx create-turbo@latest
-```
-
-## What's inside?
-
-This Turborepo includes the following packages/apps:
-
-### Apps and Packages
-
-- `docs`: a [Next.js](https://nextjs.org/) app
-- `web`: another [Next.js](https://nextjs.org/) app
-- `@repo/ui`: a stub React component library shared by both `web` and `docs` applications
-- `@repo/eslint-config`: `eslint` configurations (includes `eslint-config-next` and `eslint-config-prettier`)
-- `@repo/typescript-config`: `tsconfig.json`s used throughout the monorepo
-
-Each package/app is 100% [TypeScript](https://www.typescriptlang.org/).
-
-### Utilities
-
-This Turborepo has some additional tools already setup for you:
-
-- [TypeScript](https://www.typescriptlang.org/) for static type checking
-- [ESLint](https://eslint.org/) for code linting
-- [Prettier](https://prettier.io) for code formatting
-
-### Build
-
-To build all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build
-yarn dlx turbo build
-pnpm exec turbo build
-```
-
-You can build a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
-
-```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo build --filter=docs
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo build --filter=docs
-yarn exec turbo build --filter=docs
-pnpm exec turbo build --filter=docs
-```
-
-### Develop
-
-To develop all apps and packages, run the following command:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev
-yarn exec turbo dev
-pnpm exec turbo dev
-```
-
-You can develop a specific package by using a [filter](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters):
-
-```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo dev --filter=web
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo dev --filter=web
-yarn exec turbo dev --filter=web
-pnpm exec turbo dev --filter=web
-```
-
-### Remote Caching
-
-> [!TIP]
-> Vercel Remote Cache is free for all plans. Get started today at [vercel.com](https://vercel.com/signup?/signup?utm_source=remote-cache-sdk&utm_campaign=free_remote_cache).
-
-Turborepo can use a technique known as [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching) to share cache artifacts across machines, enabling you to share build caches with your team and CI/CD pipelines.
-
-By default, Turborepo will cache locally. To enable Remote Caching you will need an account with Vercel. If you don't have an account you can [create one](https://vercel.com/signup?utm_source=turborepo-examples), then enter the following commands:
-
-```
-cd my-turborepo
-
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo login
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo login
-yarn exec turbo login
-pnpm exec turbo login
-```
-
-This will authenticate the Turborepo CLI with your [Vercel account](https://vercel.com/docs/concepts/personal-accounts/overview).
-
-Next, you can link your Turborepo to your Remote Cache by running the following command from the root of your Turborepo:
-
-```
-# With [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation) installed (recommended)
-turbo link
-
-# Without [global `turbo`](https://turborepo.dev/docs/getting-started/installation#global-installation), use your package manager
-npx turbo link
-yarn exec turbo link
-pnpm exec turbo link
-```
-
-## Useful Links
-
-Learn more about the power of Turborepo:
-
-- [Tasks](https://turborepo.dev/docs/crafting-your-repository/running-tasks)
-- [Caching](https://turborepo.dev/docs/crafting-your-repository/caching)
-- [Remote Caching](https://turborepo.dev/docs/core-concepts/remote-caching)
-- [Filtering](https://turborepo.dev/docs/crafting-your-repository/running-tasks#using-filters)
-- [Configuration Options](https://turborepo.dev/docs/reference/configuration)
-- [CLI Usage](https://turborepo.dev/docs/reference/command-line-reference)
+Directory structure:
+└── sobhan-s-axon/
+    ├── README.md
+    ├── commitlint.config.js
+    ├── docker-compose.dev.yml
+    ├── docker-compose.yml
+    ├── eslint.config.mjs
+    ├── package.json
+    ├── pnpm-workspace.yaml
+    ├── turbo.json
+    ├── .npmrc
+    ├── .prettierignore
+    ├── .prettierrc
+    ├── .txt
+    ├── apps/
+    │   ├── assetService/
+    │   │   ├── eslint.config.mjs
+    │   │   ├── nodemon.json
+    │   │   ├── package.json
+    │   │   ├── tsconfig.json
+    │   │   ├── tsconfig.tsbuildinfo
+    │   │   └── src/
+    │   │       ├── app.ts
+    │   │       ├── index.ts
+    │   │       ├── controller/
+    │   │       │   ├── asset.controller.ts
+    │   │       │   └── assetVariants.controller.ts
+    │   │       ├── routes/
+    │   │       │   ├── asset.routes.ts
+    │   │       │   └── assetVariant.routes.ts
+    │   │       └── service/
+    │   │           ├── asset.service.ts
+    │   │           ├── assetVariant.service.ts
+    │   │           └── VariantQueue.service.ts
+    │   ├── authService/
+    │   │   ├── eslint.config.mjs
+    │   │   ├── nodemon.json
+    │   │   ├── package.json
+    │   │   ├── tsconfig.json
+    │   │   ├── tsconfig.tsbuildinfo
+    │   │   └── src/
+    │   │       ├── app.ts
+    │   │       ├── index.ts
+    │   │       ├── swagger.ts
+    │   │       ├── swagger_output.json
+    │   │       ├── controller/
+    │   │       │   ├── auth.controller.ts
+    │   │       │   └── user.controller.ts
+    │   │       ├── repository/
+    │   │       │   ├── auth.repository.ts
+    │   │       │   └── user.repository.ts
+    │   │       ├── routes/
+    │   │       │   ├── auth.routes.ts
+    │   │       │   └── user.routes.ts
+    │   │       └── services/
+    │   │           ├── auth.service.ts
+    │   │           ├── token.service.ts
+    │   │           └── user.service.ts
+    │   ├── gatewayApi/
+    │   │   ├── nodemon.json
+    │   │   ├── package.json
+    │   │   ├── tsconfig.json
+    │   │   ├── tsconfig.tsbuildinfo
+    │   │   └── src/
+    │   │       └── index.ts
+    │   ├── projectService/
+    │   │   ├── eslint.config.mjs
+    │   │   ├── nodemon.json
+    │   │   ├── package.json
+    │   │   ├── tsconfig.json
+    │   │   └── src/
+    │   │       ├── app.ts
+    │   │       ├── index.ts
+    │   │       ├── controller/
+    │   │       │   ├── organization.controller.ts
+    │   │       │   └── project.controller.ts
+    │   │       ├── repository/
+    │   │       │   ├── organization.repository.ts
+    │   │       │   └── project.repository.ts
+    │   │       ├── routes/
+    │   │       │   ├── organization.routes.ts
+    │   │       │   └── project.routes.ts
+    │   │       └── services/
+    │   │           ├── organization.service.ts
+    │   │           └── project.service.ts
+    │   ├── taskService/
+    │   │   ├── eslint.config.mjs
+    │   │   ├── nodemon.json
+    │   │   ├── package.json
+    │   │   ├── tsconfig.json
+    │   │   ├── tsconfig.tsbuildinfo
+    │   │   └── src/
+    │   │       ├── app.ts
+    │   │       ├── index.ts
+    │   │       ├── controller/
+    │   │       │   └── task.controller.ts
+    │   │       ├── interfaces/
+    │   │       │   └── task.interface.ts
+    │   │       ├── routes/
+    │   │       │   ├── asset.routes.ts
+    │   │       │   └── task.routes.ts
+    │   │       └── services/
+    │   │           └── task.service.ts
+    │   ├── uploadService/
+    │   │   ├── eslint.config.mjs
+    │   │   ├── nodemon.json
+    │   │   ├── package.json
+    │   │   ├── tsconfig.json
+    │   │   ├── tsconfig.tsbuildinfo
+    │   │   └── src/
+    │   │       ├── app.ts
+    │   │       ├── index.ts
+    │   │       ├── routes/
+    │   │       │   └── upload.routes.ts
+    │   │       └── service/
+    │   │           ├── taskHelper.service.ts
+    │   │           └── upload.service.ts
+    │   ├── web/
+    │   │   ├── README.md
+    │   │   ├── components.json
+    │   │   ├── eslint.config.js
+    │   │   ├── index.html
+    │   │   ├── package.json
+    │   │   ├── postcss.config.js
+    │   │   ├── tailwind.config.js
+    │   │   ├── tsconfig.app.json
+    │   │   ├── tsconfig.json
+    │   │   ├── tsconfig.node.json
+    │   │   ├── vite.config.ts
+    │   │   ├── public/
+    │   │   │   └── placeholder.webp
+    │   │   └── src/
+    │   │       ├── App.css
+    │   │       ├── App.tsx
+    │   │       ├── index.css
+    │   │       ├── main.tsx
+    │   │       ├── components/
+    │   │       │   ├── app-sidebar.tsx
+    │   │       │   ├── badge.tsx
+    │   │       │   ├── chart-area-interactive.tsx
+    │   │       │   ├── data-table.tsx
+    │   │       │   ├── form-alert.tsx
+    │   │       │   ├── login-form.tsx
+    │   │       │   ├── nav-documents.tsx
+    │   │       │   ├── nav-main.tsx
+    │   │       │   ├── nav-secondary.tsx
+    │   │       │   ├── nav-user.tsx
+    │   │       │   ├── section-cards.tsx
+    │   │       │   ├── Signup-form.tsx
+    │   │       │   ├── site-header.tsx
+    │   │       │   ├── UploadSection.tsx
+    │   │       │   └── ui/
+    │   │       │       ├── alert-dialog.tsx
+    │   │       │       ├── alert.tsx
+    │   │       │       ├── avatar.tsx
+    │   │       │       ├── badge.tsx
+    │   │       │       ├── breadcrumb.tsx
+    │   │       │       ├── button.tsx
+    │   │       │       ├── card.tsx
+    │   │       │       ├── chart.tsx
+    │   │       │       ├── checkbox.tsx
+    │   │       │       ├── dialog.tsx
+    │   │       │       ├── drawer.tsx
+    │   │       │       ├── dropdown-menu.tsx
+    │   │       │       ├── field.tsx
+    │   │       │       ├── input.tsx
+    │   │       │       ├── label.tsx
+    │   │       │       ├── progress.tsx
+    │   │       │       ├── select.tsx
+    │   │       │       ├── separator.tsx
+    │   │       │       ├── sheet.tsx
+    │   │       │       ├── sidebar.tsx
+    │   │       │       ├── skeleton.tsx
+    │   │       │       ├── sonner.tsx
+    │   │       │       ├── switch.tsx
+    │   │       │       ├── table.tsx
+    │   │       │       ├── tabs.tsx
+    │   │       │       ├── textarea.tsx
+    │   │       │       ├── toggle-group.tsx
+    │   │       │       ├── toggle.tsx
+    │   │       │       └── tooltip.tsx
+    │   │       ├── config/
+    │   │       │   └── axios.ts
+    │   │       ├── constants/
+    │   │       │   ├── chunkSize.ts
+    │   │       │   ├── docsType.ts
+    │   │       │   ├── statusType.ts
+    │   │       │   └── userManagementRole.ts
+    │   │       ├── helper/
+    │   │       │   ├── error.tsx
+    │   │       │   ├── fileHandling.helper.ts
+    │   │       │   ├── formatByte.ts
+    │   │       │   └── getInitials.tsx
+    │   │       ├── hooks/
+    │   │       │   ├── use-mobile.tsx
+    │   │       │   └── useUpload.ts
+    │   │       ├── interfaces/
+    │   │       │   ├── FInalizedAsset.ts
+    │   │       │   ├── projectBoard.ts
+    │   │       │   ├── Task.interface.ts
+    │   │       │   ├── TaskDetails.interfaces.ts
+    │   │       │   ├── upload.interface.ts
+    │   │       │   └── uploadSection.interface.ts
+    │   │       ├── json/
+    │   │       │   └── data.json
+    │   │       ├── lib/
+    │   │       │   ├── api-endpints.ts
+    │   │       │   ├── roteGuard.tsx
+    │   │       │   └── utils.ts
+    │   │       ├── pages/
+    │   │       │   ├── Accounts.tsx
+    │   │       │   ├── Dashboard.tsx
+    │   │       │   ├── SuperAdminPage.tsx
+    │   │       │   ├── TaskDetails.tsx
+    │   │       │   ├── Usermanagementpage.tsx
+    │   │       │   ├── auth/
+    │   │       │   │   ├── ForgotPassword.tsx
+    │   │       │   │   ├── Login.tsx
+    │   │       │   │   ├── ResetPassword.tsx
+    │   │       │   │   ├── Signup.tsx
+    │   │       │   │   └── verifyEmail.tsx
+    │   │       │   └── projects/
+    │   │       │       ├── Finalizedassetspage.tsx
+    │   │       │       ├── MytaskPage.tsx
+    │   │       │       ├── Project.layout.tsx
+    │   │       │       ├── ProjectBoard.tsx
+    │   │       │       ├── ProjectMember.tsx
+    │   │       │       ├── Projectpage.tsx
+    │   │       │       ├── ProjectReport.tsx
+    │   │       │       ├── ProjectReviewPage.tsx
+    │   │       │       └── ProjectUpload.tsx
+    │   │       ├── services/
+    │   │       │   ├── AdminUser.service.ts
+    │   │       │   ├── Project.service.ts
+    │   │       │   ├── SuperAdmin.service.ts
+    │   │       │   ├── task.service.ts
+    │   │       │   └── user.service.ts
+    │   │       ├── store/
+    │   │       │   └── auth.store.ts
+    │   │       └── validations/
+    │   │           ├── createTask.validations.ts
+    │   │           └── userManagement.validations.ts
+    │   └── worker/
+    │       ├── eslint.config.mjs
+    │       ├── nodemon.json
+    │       ├── package.json
+    │       ├── tsconfig.json
+    │       ├── tsconfig.tsbuildinfo
+    │       └── src/
+    │           ├── asset.processor.ts
+    │           ├── index.ts
+    │           └── processior/
+    │               ├── image.processor.ts
+    │               └── video.processor.ts
+    ├── Docker/
+    │   ├── authservice.Dockerfile
+    │   ├── gateway.Dockerfile
+    │   ├── projectservice.Dockerfile
+    │   └── web.Dockerfile
+    ├── infra/
+    │   └── nginx/
+    │       └── default.conf
+    ├── packages/
+    │   ├── common/
+    │   │   ├── package.json
+    │   │   ├── tsconfig.json
+    │   │   └── src/
+    │   │       ├── index.ts
+    │   │       ├── repository/
+    │   │       │   └── auth.repository.ts
+    │   │       └── services/
+    │   │           ├── activity.service.ts
+    │   │           ├── permission.service.ts
+    │   │           └── token.service.ts
+    │   ├── config/
+    │   │   ├── eslint.config.mjs
+    │   │   ├── package.json
+    │   │   ├── tsconfig.json
+    │   │   └── src/
+    │   │       ├── env.config.ts
+    │   │       ├── index.ts
+    │   │       ├── logger.config.ts
+    │   │       ├── mail.config.ts
+    │   │       ├── minio.config.ts
+    │   │       ├── rabbitmq.config.ts
+    │   │       └── tus.config.ts
+    │   ├── constants/
+    │   │   ├── eslint.config.mjs
+    │   │   ├── package.json
+    │   │   ├── tsconfig.json
+    │   │   └── src/
+    │   │       └── index.ts
+    │   ├── eslint-config/
+    │   │   ├── README.md
+    │   │   ├── base.js
+    │   │   ├── next.js
+    │   │   ├── package.json
+    │   │   └── react-internal.js
+    │   ├── mail/
+    │   │   ├── package.json
+    │   │   ├── tsconfig.json
+    │   │   └── src/
+    │   │       ├── index.ts
+    │   │       └── templates/
+    │   │           ├── reset.template.ts
+    │   │           └── verification.template.ts
+    │   ├── middlewares/
+    │   │   ├── package.json
+    │   │   ├── tsconfig.json
+    │   │   └── src/
+    │   │       ├── auth.middleware.ts
+    │   │       ├── error.middleware.ts
+    │   │       ├── index.ts
+    │   │       ├── ratelimitor.middleware.ts
+    │   │       ├── rbac.middleware.ts
+    │   │       └── validation.middleware.ts
+    │   ├── mongodb/
+    │   │   ├── package.json
+    │   │   ├── tsconfig.json
+    │   │   └── src/
+    │   │       ├── connection.ts
+    │   │       ├── index.ts
+    │   │       ├── interfaces/
+    │   │       │   └── index.interface.ts
+    │   │       └── models/
+    │   │           ├── asset.models.ts
+    │   │           ├── assetVariants.models.ts
+    │   │           ├── comments.model.ts
+    │   │           ├── notifications.models.ts
+    │   │           └── tags.models.ts
+    │   ├── postgresql_db/
+    │   │   ├── index.ts
+    │   │   ├── package.json
+    │   │   ├── prisma.config.ts
+    │   │   ├── seed.ts
+    │   │   ├── tsconfig.json
+    │   │   └── prisma/
+    │   │       ├── schema.prisma
+    │   │       └── migrations/
+    │   │           ├── migration_lock.toml
+    │   │           ├── 20260215061437_user_schema/
+    │   │           │   └── migration.sql
+    │   │           ├── 20260215114552_added_user_alltokenverification_organization_project_module_tasks_members_timelog_activitylog_all_role_permission_enums/
+    │   │           │   └── migration.sql
+    │   │           ├── 20260224065428_add_org_status/
+    │   │           │   └── migration.sql
+    │   │           ├── 20260224101055_added_relations_ship_betwen_orgs_and_project_memebers/
+    │   │           │   └── migration.sql
+    │   │           ├── 20260224101527_add_optional_for_project_id_for_project_team_member/
+    │   │           │   └── migration.sql
+    │   │           ├── 20260224102952_add_one_one_member_have_multiple_projects/
+    │   │           │   └── migration.sql
+    │   │           ├── 20260225091433_remove_the_cascade_proerty_from_activitylogs/
+    │   │           │   └── migration.sql
+    │   │           ├── 20260226064212_update_project_id_user_id_as_uniqueness/
+    │   │           │   └── migration.sql
+    │   │           ├── 20260226082317_remove_module/
+    │   │           │   └── migration.sql
+    │   │           ├── 20260226090654_add_optioal_for_project/
+    │   │           │   └── migration.sql
+    │   │           ├── 20260301120328_added_stat_and_end_time_timelog/
+    │   │           │   └── migration.sql
+    │   │           ├── 20260303062547_add_project_id_in_approval_model/
+    │   │           │   └── migration.sql
+    │   │           └── 20260305105931_add_orgnanization_requst_access/
+    │   │               └── migration.sql
+    │   ├── repository/
+    │   │   ├── package.json
+    │   │   ├── tsconfig.json
+    │   │   ├── tsconfig.tsbuildinfo
+    │   │   └── src/
+    │   │       ├── index.ts
+    │   │       ├── approvalrepository/
+    │   │       │   └── approval.repository.ts
+    │   │       ├── assetrepository/
+    │   │       │   └── asset.repository.ts
+    │   │       ├── assetVariants/
+    │   │       │   └── assetVariants.repository.ts
+    │   │       ├── interfaces/
+    │   │       │   └── task.interface.ts
+    │   │       ├── taskrepository/
+    │   │       │   └── task.repository.ts
+    │   │       └── timelogRepo/
+    │   │           └── timelog.repository.ts
+    │   ├── typescript-config/
+    │   │   ├── base.json
+    │   │   ├── nextjs.json
+    │   │   ├── package.json
+    │   │   └── react-library.json
+    │   ├── utils/
+    │   │   ├── package.json
+    │   │   ├── tsconfig.json
+    │   │   └── src/
+    │   │       ├── apiError.utils.ts
+    │   │       ├── apiResponce.utils.ts
+    │   │       ├── asyncHandler.utils.ts
+    │   │       └── index.ts
+    │   └── validations/
+    │       ├── package.json
+    │       ├── tsconfig.json
+    │       └── src/
+    │           ├── index.ts
+    │           ├── auth/
+    │           │   └── auth.validations.ts
+    │           ├── orgs/
+    │           │   └── orgs.validations.ts
+    │           ├── project/
+    │           │   └── project.validation.ts
+    │           ├── tasks/
+    │           │   └── task.validatiaon.ts
+    │           └── user/
+    │               └── user.validations.ts
+    └── .husky/
+        ├── commit-msg
+        └── pre-commit

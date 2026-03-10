@@ -1,0 +1,1 @@
+{"root":["./src/app.ts","./src/index.ts","./src/controller/asset.controller.ts","./src/controller/assetVariants.controller.ts","./src/routes/asset.routes.ts","./src/routes/assetVariant.routes.ts","./src/service/VariantQueue.service.ts","./src/service/asset.service.ts","./src/service/assetVariant.service.ts"],"version":"5.9.2"}

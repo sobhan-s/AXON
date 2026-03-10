@@ -2,24 +2,42 @@
   "name": "@dam/config",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "type": "module",
   "exports": {
-    "./env_variables": "./src/env.config.ts",
-    "./logs": "./src/logger.config.ts"
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
   },
   "scripts": {
+    "build": "tsc -p tsconfig.json",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@types/dotenv": "^8.2.3",
-    "dotenv": "^17.3.1",
-    "winston": "^3.19.0",
+    "@dam/constants": "workspace:*",
     "@dam/eslint-config": "workspace:*",
     "@dam/typescript-config": "workspace:*",
-    "@dam/constants": "workspace:*"
+    "@tus/file-store": "^2.0.0",
+    "@tus/s3-store": "^2.0.1",
+    "@tus/server": "^2.3.0",
+    "@types/dotenv": "^8.2.3",
+    "@types/jest": "^30.0.0",
+    "dotenv": "^17.3.1",
+    "jest": "^30.2.0",
+    "minio": "^8.0.7",
+    "nodemailer": "^8.0.1",
+    "ts-jest": "^29.4.6",
+    "winston": "^3.19.0"
+  },
+  "devDependencies": {
+    "@types/amqplib": "^0.10.8",
+    "@types/node": "^25.2.3",
+    "@types/nodemailer": "^7.0.10",
+    "amqplib": "^0.10.9"
   }
 }

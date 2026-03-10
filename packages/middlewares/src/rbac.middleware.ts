@@ -1,0 +1,284 @@
+import { Request, Response, NextFunction } from 'express';
+import { PermissionService } from '@dam/common';
+import { ApiError } from '@dam/utils';
+import { logger } from '@dam/config';
+
+const permissionService = new PermissionService();
+
+export async function requireSuperAdmin(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
+  try {
+    const userId = (req as any).user?.id;
+
+    if (!userId) {
+      throw new ApiError(401, 'Unauthorized');
+    }
+
+    const isSuperAdmin = await permissionService.isSuperAdmin(userId);
+
+    if (!isSuperAdmin) {
+      throw new ApiError(403, 'Super Admin access required');
+    }
+
+    next();
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function requireOrgAccess(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
+  try {
+    const userId = (req as any).user?.id;
+    const organizationId = Number(
+      req.params.orgId || req.body.orgId || (req.query.orgId as string),
+    );
+
+    if (!organizationId) {
+      throw new ApiError(400, 'Organization ID required');
+    }
+
+    const canAccess = await permissionService.canAccessOrganization(
+      userId,
+      organizationId,
+    );
+
+    if (!canAccess) {
+      throw new ApiError(403, 'Access denied to this organization');
+    }
+
+    next();
+  } catch (error) {
+    next(error);
+  }
+}
+
+export async function requireProjectAccess(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
+  try {
+    const userId = (req as any).user?.id;
+    const projectId = parseInt(
+      req.params.projectId ||
+        req.body.projectId ||
+        (req.query.projectId as string),
+    );
+
+    if (!projectId) {
+      throw new ApiError(400, 'Project ID required');
+    }
+
+    const canAccess = await permissionService.canAccessProject(
+      userId,
+      projectId,
+    );
+
+    if (!canAccess) {
+      throw new ApiError(403, 'Not a member of this project');
+    }
+
+    (req as any).projectId = projectId;
+
+    next();
+  } catch (error) {
+    next(error);
+  }
+}
+
+export function requirePermission(permission: string) {
+  return async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const userId = (req as any).user?.id;
+      let projectId: number;
+      let allowed = false;
+
+      switch (permission) {
+        case 'create_project':
+        case 'delete_project':
+        case 'update_organization':
+        case 'manage_org_users':
+        case 'delete_asset': {
+          const organizationId = parseInt(
+            req.params.orgId || req.body.orgId || (req as any).user?.orgId,
+          );
+
+          if (!organizationId) {
+            throw new ApiError(400, 'Organization context required');
+          }
+
+          allowed = await permissionService.isOrgAdmin(userId, organizationId);
+          break;
+        }
+
+        case 'update_project':
+        case 'manage_project_team':
+        case 'archive_project': {
+          projectId = parseInt(
+            req.params.projectId ||
+              req.body.projectId ||
+              (req as any).projectId,
+          );
+
+          if (!projectId) {
+            throw new ApiError(400, 'Project context required');
+          }
+
+          allowed = await permissionService.hasPermission(
+            userId,
+            projectId,
+            permission,
+          );
+          break;
+        }
+
+        case 'create_task':
+        case 'update_task': {
+          projectId = parseInt(
+            req.params.projectId ||
+              req.body.projectId ||
+              (req as any).projectId,
+          );
+
+          if (!projectId) {
+            throw new ApiError(400, 'Project ID required');
+          }
+
+          allowed = await permissionService.canCreateTask(userId, projectId);
+          break;
+        }
+
+        case 'upload_asset': {
+          // CHANGED: was moduleId . . . uploads now scoped to project
+          projectId = parseInt(
+            req.params.projectId ||
+              req.body.projectId ||
+              (req as any).projectId,
+          );
+
+          if (!projectId) {
+            throw new ApiError(400, 'Project ID required');
+          }
+
+          allowed = await permissionService.canUploadAsset(userId, projectId);
+          break;
+        }
+
+        case 'approve_asset': {
+          const approveTaskId = parseInt(req.params.taskId || req.body.taskId);
+
+          if (!approveTaskId) {
+            throw new ApiError(400, 'Task ID required');
+          }
+
+          allowed = await permissionService.canApproveAsset(
+            userId,
+            approveTaskId,
+          );
+          break;
+        }
+
+        case 'reject_asset': {
+          const rejectTaskId = parseInt(req.params.taskId || req.body.taskId);
+
+          if (!rejectTaskId) {
+            throw new ApiError(400, 'Task ID required');
+          }
+
+          allowed = await permissionService.canRejectAsset(
+            userId,
+            rejectTaskId,
+          );
+          break;
+        }
+
+        case 'finalize_asset': {
+          const finalizeTaskId = parseInt(req.params.taskId || req.body.taskId);
+
+          if (!finalizeTaskId) {
+            throw new ApiError(400, 'Task ID required');
+          }
+
+          allowed = await permissionService.canFinalizeAsset(
+            userId,
+            finalizeTaskId,
+          );
+          break;
+        }
+
+        default:
+          throw new ApiError(500, `Unknown permission: ${permission}`);
+      }
+
+      if (!allowed) {
+        logger.warn('Permission denied', {
+          userId,
+          permission,
+          route: req.path,
+        });
+
+        throw new ApiError(
+          403,
+          `You don't have permission to ${permission.replace('_', ' ')}`,
+        );
+      }
+
+      next();
+    } catch (error) {
+      next(error);
+    }
+  };
+}
+
+export function requireTaskUpdatePermission() {
+  return async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const userId = (req as any).user?.id;
+      const taskId = parseInt((req as any).params.taskId);
+
+      if (!taskId) {
+        throw new ApiError(400, 'Task ID required');
+      }
+
+      const canUpdate = await permissionService.canUpdateTask(userId, taskId);
+
+      if (!canUpdate) {
+        throw new ApiError(403, 'You cannot update this task');
+      }
+
+      next();
+    } catch (error) {
+      next(error);
+    }
+  };
+}
+
+export function requireTaskDeletePermission() {
+  return async (req: Request, res: Response, next: NextFunction) => {
+    try {
+      const userId = (req as any).user?.id;
+      const taskId = parseInt((req as any).params.taskId);
+
+      if (!taskId) {
+        throw new ApiError(400, 'Task ID required');
+      }
+
+      const canDelete = await permissionService.canDeleteTask(userId, taskId);
+
+      if (!canDelete) {
+        throw new ApiError(403, 'You cannot delete this task');
+      }
+
+      next();
+    } catch (error) {
+      next(error);
+    }
+  };
+}

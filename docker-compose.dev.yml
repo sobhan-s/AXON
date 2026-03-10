@@ -7,7 +7,7 @@ services:
     restart: always
 
     env_file:
-      - .env
+      - .env.local
 
     environment:
       - POSTGRES_USER=${POSTGRES_USER}
@@ -36,7 +36,7 @@ services:
     restart: always
 
     env_file:
-      - .env
+      - .env.local
 
     environment:
       - MONGO_USERNAME=${MONGO_USERNAME}
@@ -60,7 +60,7 @@ services:
     restart: always
 
     env_file:
-      - .env
+      - .env.local
 
     ports:
       - '9000:9000'
@@ -74,6 +74,40 @@ services:
     networks:
       - dam-network
 
+  rabbitmq:
+    image: rabbitmq:3-management
+
+    container_name: rabbitmq
+
+    hostname: rabbitmq
+
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+
+    env_file:
+      - .env.local 
+
+    environment:
+      - RABBITMQ_DEFAULT_USER=admin
+      - RABBITMQ_DEFAULT_PASS=admin123
+      - RABBITMQ_DEFAULT_VHOST=dam
+
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+      - ./rabbitmq.conf:/etc/rabbitmq/rabbitmq.conf:ro
+
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+    restart: unless-stopped
+
+    networks:
+      - dam-network
+
 volumes:
   dam-postgres-data:
     external: true
@@ -81,6 +115,7 @@ volumes:
     external: true
   minio_data:
     external: true
+  rabbitmq_data:
 
 networks:
   dam-network:

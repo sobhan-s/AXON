@@ -4,8 +4,8 @@ import Fastify, {
   HookHandlerDoneFunction,
 } from 'fastify';
 import httpProxy from '@fastify/http-proxy';
-import { env_config_variable } from '@dam/config/env_variables';
-import { logger } from '@dam/config/logs';
+import { env_config_variable } from '@dam/config';
+import { logger } from '@dam/config';
 
 const app = Fastify({ logger: false });
 

@@ -1,0 +1,29 @@
+{
+  "name": "@dam/repository",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "type": "module",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc -b",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@dam/typescript-config": "workspace:*",
+    "@dam/common": "workspace:*",
+    "@dam/config": "workspace:*",
+    "@dam/mongodb": "workspace:*",
+    "@dam/postgresql_db": "workspace:*",
+    "@dam/utils": "workspace:*"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

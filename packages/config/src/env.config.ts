@@ -27,6 +27,7 @@ export const env_config_variable = {
     UPLOAD_PORT: parseInt(process.env.UPLOAD_PORT || '8004', 10),
     ASSET_PORT: parseInt(process.env.ASSET_PORT || '8005', 10),
     WORKER_PORT: parseInt(process.env.WORKER_PORT || '8006', 10),
+    ANALYTICS_PORT: parseInt(process.env.ANALYTICS_PORT || '8007', 10),
   },
   DB: {
     DEV: {
@@ -84,5 +85,9 @@ export const env_config_variable = {
   },
   TEMP_DIR: {
     PATH: process.env.TUS_TMP_DIR_PATH,
+  },
+  REDIS: {
+    REDIS_PORT: parseInt(process.env.REDIS_PORT || '6379', 10),
+    REDIS_HOST: process.env.REDIS_HOST,
   },
 };

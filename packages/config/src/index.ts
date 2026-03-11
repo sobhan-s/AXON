@@ -28,6 +28,15 @@ import {
   rabbitConsume,
 } from './rabbitmq.config.js';
 
+import {
+  getRedisClient,
+  CACHE_TTL,
+  cacheKey,
+  getCache,
+  setCache,
+  invalidateCache,
+} from './redis.config.js';
+
 export {
   env_config_variable,
   logger,
@@ -51,4 +60,10 @@ export {
   initRabbitMQ,
   rabbitPublish,
   rabbitConsume,
+  getRedisClient,
+  CACHE_TTL,
+  cacheKey,
+  getCache,
+  setCache,
+  invalidateCache,
 };

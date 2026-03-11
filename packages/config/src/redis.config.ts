@@ -52,7 +52,7 @@ export async function setCache(
     if (!client) {
       throw new Error('Redis client is not found');
     }
-    await client.set(key, JSON.stringify(data), 'EX', ttl);
+    await client.setex(key, ttl, JSON.stringify(data));
   } catch (err: any) {
     logger.warn('Redis setCache failed', { error: err.message });
   }

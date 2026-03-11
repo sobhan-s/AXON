@@ -1,0 +1,1 @@
+{"root":["./src/app.ts","./src/index.ts","./src/controller/org.analytics.controller.ts","./src/routes/org.routes.ts","./src/service/orgAnalytics.service.ts","./src/service/platformAnalytics.service.ts","./src/service/projectAnalytics.service.ts"],"version":"5.9.2"}

@@ -1,1 +1,1 @@
-{"root":["./src/app.ts","./src/index.ts","./src/controller/analytics.controller.ts","./src/controller/report.controller.ts","./src/routes/analytics.routes.ts","./src/service/orgAnalytics.service.ts","./src/service/platformAnalytics.service.ts","./src/service/projectAnalytics.service.ts","./src/service/report.service.ts"],"version":"5.9.2"}
+{"root":["./src/app.ts","./src/index.ts","./src/controller/analytics.controller.ts","./src/controller/report.controller.ts","./src/routes/analytics.routes.ts"],"version":"5.9.2"}

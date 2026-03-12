@@ -38,18 +38,18 @@ app.use(
       'Tus-Extension',
     ],
     credentials: true,
-    preflightContinue: false, 
+    preflightContinue: false,
     optionsSuccessStatus: 204,
   }),
 );
 
-app.options(/.*/, cors()); 
+app.options(/.*/, cors());
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true, limit: '8mb' }));
 app.use(cookieparser());
 app.use(errorMiddleware);
-app.use(helmet())
+app.use(helmet());
 app.set('trust proxy', 1);
 
 app.get('/hlth', (req, res) => {
@@ -61,9 +61,7 @@ app.get('/hlth', (req, res) => {
 });
 
 import taskRouter from './routes/task.routes.js';
-import assetRouter from './routes/asset.routes.js';
 
 app.use('/tasks', taskRouter);
-app.use('/api/assets', assetRouter);
 
 export default app;

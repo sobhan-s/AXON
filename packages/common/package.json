@@ -20,6 +20,7 @@
     "@dam/postgresql_db": "workspace:*",
     "@dam/typescript-config": "workspace:*",
     "@dam/utils": "workspace:*",
+    "@dam/repository": "workspace:*",
     "jsonwebtoken": "^9.0.3"
   },
   "keywords": [],

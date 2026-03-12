@@ -3,7 +3,9 @@ import { TaskRepository } from './taskrepository/task.repository.js';
 import { AssetRepository } from './assetrepository/asset.repository.js';
 import { TimelogRepository } from './timelogRepo/timelog.repository.js';
 import { AssetVariantRepository } from './assetVariants/assetVariants.repository.js';
-import {ProjectAnalyticsRepository} from "./projectAnalyticsRepository/ProjectAnalytics.repo.js"
+import { ProjectAnalyticsRepository } from './analyticsRepository/projectAnalytics.repo.js';
+import { OrgAnalyticsRepository } from './analyticsRepository/orgAnalytics.repo.js';
+import { PlatformAnalyticsRepository } from './analyticsRepository/platformAanlytics.js';
 
 export {
   ApprovalRepository,
@@ -11,5 +13,7 @@ export {
   AssetRepository,
   TimelogRepository,
   AssetVariantRepository,
-  ProjectAnalyticsRepository
+  ProjectAnalyticsRepository,
+  OrgAnalyticsRepository,
+  PlatformAnalyticsRepository,
 };

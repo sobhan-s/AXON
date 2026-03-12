@@ -1,6 +1,6 @@
 import app from './app.js';
 import { PostgresClient as prisma, PrismaClient } from '@dam/postgresql_db';
-import { env_config_variable, getRedisClient } from '@dam/config';
+import { env_config_variable, getRedisClient, initRabbitMQ } from '@dam/config';
 import { logger } from '@dam/config';
 import { connectMongoDB, disconnectMongoDB } from '@dam/mongodb';
 
@@ -20,6 +20,8 @@ const startServer = async () => {
     logger.info('Mongodb Database connected successfully');
 
     const redis = await getRedisClient();
+
+    await initRabbitMQ();
 
     server = app.listen(PORT, () => {
       logger.info(` Server running on port ${PORT}`);

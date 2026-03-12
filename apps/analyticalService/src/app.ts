@@ -5,7 +5,7 @@ import { errorMiddleware } from '@dam/middlewares';
 import swaggerui from 'swagger-ui-express';
 import helmet from 'helmet';
 // import status from "express-status-monitor"
-import organizationsAnalyticalRoutes from './routes/org.routes.js';
+import organizationsAnalyticalRoutes from './routes/analytics.routes.js';
 
 // import swaggerfile from "./swagger_output.json" with { type: "json" }
 

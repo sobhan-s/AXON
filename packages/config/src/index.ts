@@ -26,6 +26,8 @@ import {
   initRabbitMQ,
   rabbitPublish,
   rabbitConsume,
+  QUEUES,
+  QueueName
 } from './rabbitmq.config.js';
 
 import {
@@ -60,6 +62,8 @@ export {
   initRabbitMQ,
   rabbitPublish,
   rabbitConsume,
+  QUEUES,
+  type QueueName,
   getRedisClient,
   CACHE_TTL,
   cacheKey,

@@ -72,10 +72,10 @@ import { toast } from 'sonner';
 import { useAuthStore } from '@/store/auth.store';
 import { taskService, type TaskStatus } from '@/services/task.service';
 import { projectService, type ProjectMember } from '@/services/Project.service';
-import type {
-  Task,
-  Filters,
+import {
   EMPTY_FILTERS,
+  type Task,
+  type Filters,
   activeFilterCount,
 } from '@/interfaces/projectBoard';
 import {

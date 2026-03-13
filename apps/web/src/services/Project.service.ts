@@ -95,7 +95,7 @@ export const projectService = {
 
   async getMyProjects(): Promise<Project[]> {
     const { data } = await api.get(PROJECT_ENDPOINTS.GET_MY_PROJECTS());
-    return data?.data ?? data;
+    return data?.data?.projects ?? data;
   },
 
   async getById(orgId: number, projectId: number): Promise<Project> {

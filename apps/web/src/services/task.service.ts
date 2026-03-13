@@ -113,8 +113,14 @@ export const taskService = {
     return data?.data?.tasks ?? [];
   },
 
-  async getProjectTasks(projectId: number): Promise<Task[]> {
-    const { data } = await api.get(TASK_ENDPOINTS.GET_PROJECT_TASKS(projectId));
+  async getProjectTasks(
+    projectId: number,
+    params?: Record<string, any>,
+  ): Promise<Task[]> {
+    const { data } = await api.get(
+      TASK_ENDPOINTS.GET_PROJECT_TASKS(projectId),
+      { params },
+    );
     return data?.data ?? [];
   },
 

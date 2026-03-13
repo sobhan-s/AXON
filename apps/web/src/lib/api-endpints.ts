@@ -4,6 +4,12 @@ const TASKSERVICE_BASE = 'http://localhost:8003';
 const ASSET_SERVICE = 'http://localhost:8005';
 const ANALYTICS_SERVICE = 'http://localhost:8007';
 
+// const AUTHSERVICE_BASE = '/api/au/';
+// const PROJECTSERVICE_BASE = '/api/pr/';
+// const TASKSERVICE_BASE = '/api/tr/';
+// const ASSET_SERVICE = '/api/as/';
+// const ANALYTICS_SERVICE = '/api/an/';
+
 export const AUTH_ENDPOINTS = {
   REGISTER: `${AUTHSERVICE_BASE}/auth/register`,
   LOGIN: `${AUTHSERVICE_BASE}/auth/login`,
@@ -142,21 +148,21 @@ export const TASK_ENDPOINTS = {
 } as const;
 
 export const ASSET_ENDPOINTS = {
-  UPLOAD: `${ASSET_SERVICE}/api/assets/upload`,
-  GET_BY_TASK: (taskId: number) => `${ASSET_SERVICE}/api/assets/task/${taskId}`,
+  UPLOAD: `${ASSET_SERVICE}/assets/upload`,
+  GET_BY_TASK: (taskId: number) => `${ASSET_SERVICE}/assets/task/${taskId}`,
   GET_BY_PROJECT: (projectId: number) =>
-    `${ASSET_SERVICE}/api/assets/project/${projectId}`,
-  GET_BY_ID: (assetId: string) => `${ASSET_SERVICE}/api/assets/${assetId}`,
+    `${ASSET_SERVICE}/assets/project/${projectId}`,
+  GET_BY_ID: (assetId: string) => `${ASSET_SERVICE}/assets/${assetId}`,
   GET_VERSIONS: (assetId: string) =>
-    `${ASSET_SERVICE}/api/assets/${assetId}/versions`,
+    `${ASSET_SERVICE}/assets/${assetId}/versions`,
   GET_DOWNLOAD_URL: (assetId: string) =>
-    `${ASSET_SERVICE}/api/assets/${assetId}/download`,
+    `${ASSET_SERVICE}/assets/${assetId}/download`,
   GET_VARIANT_DOWNLOAD_URL: (variantId: string) =>
     `${ASSET_SERVICE}/assetvariants/${variantId}/download`,
   TRACK_VIEW: (assetId: string) =>
-    `${ASSET_SERVICE}/api/assets/${assetId}/view`,
+    `${ASSET_SERVICE}/assets/${assetId}/view`,
   FINALIZE: (assetId: string) =>
-    `${ASSET_SERVICE}/api/assets/${assetId}/finalize`,
+    `${ASSET_SERVICE}/assets/${assetId}/finalize`,
   DELETE: (assetId: string) => `${ASSET_SERVICE}/api/assets/${assetId}`,
   GET_VARIANTS: (assetId: string) =>
     `${ASSET_SERVICE}/assetvariants/${assetId}/variants`,

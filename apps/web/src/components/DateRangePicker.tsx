@@ -18,7 +18,7 @@ export function DateRangePicker({
         onChange={(e) => onChange({ ...value, from: e.target.value })}
         className="rounded-md border border-input bg-background px-3 py-1.5 text-sm shadow-sm focus:outline-none focus:ring-1 focus:ring-ring"
       />
-      <span className="text-xs text-muted-foreground">→</span>
+      <span className="text-xs text-muted-foreground">to</span>
       <input
         type="date"
         value={value.to}

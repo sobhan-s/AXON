@@ -60,7 +60,7 @@ async function seedRBAC() {
     }
 
     // ── Roles ──────────────────────────────────────────────────────────────
-    // CHANGE: Renamed REVIEWER → REVIEWER to match RoleType enum in schema
+    // CHANGE: Renamed REVIEWER to REVIEWER to match RoleType enum in schema
     const roles = await Promise.all([
       prisma.role.upsert({
         where: { name: 'ADMIN' },

@@ -68,7 +68,7 @@ export const env_config_variable = {
     REFRESH_TOKEN_EXPIRY: process.env.REFRESH_TOKEN_EXPIRY,
   },
   MINIO: {
-    MINIO_ENDPOINT: process.env.MINIO_ENDPOINT! || 'localhost',
+    MINIO_ENDPOINT: process.env.MINIO_ENDPOINT! || 'minio',
     MINIO_PORT: Number(process.env.MINIO_PORT ?? 9000),
     MINIO_USESSL: process.env.MINIO_USE_SSL === 'true',
     MINIO_ROOTUSER: process.env.MINIO_ROOT_USER!,
@@ -77,7 +77,7 @@ export const env_config_variable = {
     MINIO_PUBLI_URL: process.env.MINIO_PUBLIC_URL,
   },
   RABBITMQ: {
-    HOST: process.env.RABBITMQ_HOST || 'localhost',
+    HOST: process.env.RABBITMQ_HOST || 'rabbitmq',
     PORT: parseInt(process.env.RABBITMQ_PORT || '5672', 10),
     USER: process.env.RABBITMQ_DEFAULT_USER || 'damrabbitmq',
     PASSWORD: process.env.RABBITMQ_DEFAULT_PASS,

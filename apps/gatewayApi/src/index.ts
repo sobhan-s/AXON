@@ -37,7 +37,7 @@ const createServiceProxy = async (routePath: string, target: string) => {
       reply: FastifyReply,
       done: HookHandlerDoneFunction,
     ) => {
-      logger.info(`Forwarding ${request.method} ${request.url} → ${target}`);
+      logger.info(`Forwarding ${request.method} ${request.url} to ${target}`);
       done();
     },
 

@@ -52,7 +52,7 @@ const NAV_BY_ROLE: Record<string, { title: string; url: string; icon: any }[]> =
       { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },
       { title: 'Projects', url: '/dashboard/projects', icon: FolderIcon },
 
-      { title: 'Team', url: '/dashboard/team', icon: UsersIcon },
+      // { title: 'Team', url: '/dashboard/team', icon: UsersIcon },
     ],
     LEAD: [
       { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },

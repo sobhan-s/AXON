@@ -2,6 +2,7 @@ const AUTHSERVICE_BASE = 'http://localhost:8001';
 const PROJECTSERVICE_BASE = 'http://localhost:8002';
 const TASKSERVICE_BASE = 'http://localhost:8003';
 const ASSET_SERVICE = 'http://localhost:8005';
+const ANALYTICS_SERVICE = 'http://localhost:8007';
 
 export const AUTH_ENDPOINTS = {
   REGISTER: `${AUTHSERVICE_BASE}/auth/register`,
@@ -162,3 +163,21 @@ export const ASSET_ENDPOINTS = {
   REQUEST_VARIANTS: (assetId: string) =>
     `${ASSET_SERVICE}/assetvariants/${assetId}/variants`,
 } as const;
+
+export const ANALYTICS_ENDPOINT = {
+  ORG_ANALYTICS: (orgId: number) =>
+    `${ANALYTICS_SERVICE}/analytics/org/overview/${orgId}`,
+
+  PLATFORM_ANALYTICS: `${ANALYTICS_SERVICE}/analytics/platform/overview`,
+
+  PROJECT_ANALYTICS: (projectId: number) =>
+    `${ANALYTICS_SERVICE}/analytics/project/${projectId}/overview`,
+
+  REPORT_PLATFORM: `${ANALYTICS_SERVICE}/analytics/report/platform`,
+
+  REPORT_ORG: (orgId: number) =>
+    `${ANALYTICS_SERVICE}/analytics/report/org/${orgId}`,
+
+  REPORT_PROJECT: (projectId: number) =>
+    `${ANALYTICS_SERVICE}/analytics/report/project/${projectId}`,
+};

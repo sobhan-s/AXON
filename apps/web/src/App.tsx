@@ -22,6 +22,10 @@ const FinalizedAssetsPage = lazy(
   () => import('./pages/projects/Finalizedassetspage'),
 );
 const MyTasksPage = lazy(() => import('./pages/projects/MytaskPage'));
+const ProjectsPage = lazy(() => import('./pages/projects/Projectpage'));
+const UserManagementPage = lazy(() => import('./pages/Usermanagementpage'));
+const SuperAdminOrgsPage = lazy(() => import('./pages/SuperAdminPage'));
+const SettingsPage = lazy(() => import('./pages/SettinPage'));
 
 const PageLoader = () => (
   <div className="flex min-h-svh items-center justify-center">
@@ -54,30 +58,37 @@ const App: React.FC = () => (
         </Route>
 
         <Route element={<ProtectedRoute />}>
-          <Route path="/account" element={<AccountPage />} />
-          <Route path="/dashboard/*" element={<Dashboard />} />
-
-          <Route path="/projects/:projectId" element={<ProjectLayout />}>
-            <Route index element={<ProjectBoardPage />} />
-            <Route path="board" element={<ProjectBoardPage />} />
-            <Route path="tasks/:taskId" element={<TaskDetailPage />} />{' '}
-            <Route path="reviews" element={<ProjectReviewsPage />} />
-            <Route path="finalized" element={<FinalizedAssetsPage />} />
-            <Route path="mytask" element={<MyTasksPage />} />
-            <Route
-              element={
-                <RoleRoute allowed={['ADMIN', 'MANAGER', 'LEAD', 'MEMBER']} />
-              }
-            >
-              <Route path="upload" element={<ProjectUploadPage />} />
-            </Route>
-            <Route
-              element={<RoleRoute allowed={['ADMIN', 'MANAGER', 'LEAD']} />}
-            >
-              <Route path="reports" element={<ProjectReportsPage />} />
-            </Route>
-            <Route element={<RoleRoute allowed={['ADMIN', 'MANAGER']} />}>
-              <Route path="members" element={<ProjectMembersPage />} />
+          <Route element={<ProjectLayout />}>
+            <Route path="/account" element={<AccountPage />} />
+            <Route path="/dashboard/*" element={<Dashboard />} />
+            <Route path="/dashboard/projects" element={<ProjectsPage />} />
+            <Route path="/dashboard/users" element={<UserManagementPage />} />
+            <Route path="/dashboard/orgs" element={<SuperAdminOrgsPage />} />
+            <Route path="/dashboard/settings" element={<SettingsPage />} />
+            <Route path="/dashboard/review" element={<ProjectReviewsPage />} />
+            {/* <Route path='/dashboard/team' element={<} */}
+            <Route path="/projects/:projectId">
+              <Route index element={<ProjectBoardPage />} />
+              <Route path="board" element={<ProjectBoardPage />} />
+              <Route path="tasks/:taskId" element={<TaskDetailPage />} />
+              <Route path="reviews" element={<ProjectReviewsPage />} />
+              <Route path="finalized" element={<FinalizedAssetsPage />} />
+              <Route path="mytask" element={<MyTasksPage />} />
+              <Route
+                element={
+                  <RoleRoute allowed={['ADMIN', 'MANAGER', 'LEAD', 'MEMBER']} />
+                }
+              >
+                <Route path="upload" element={<ProjectUploadPage />} />
+              </Route>
+              <Route
+                element={<RoleRoute allowed={['ADMIN', 'MANAGER', 'LEAD']} />}
+              >
+                <Route path="reports" element={<ProjectReportsPage />} />
+              </Route>
+              <Route element={<RoleRoute allowed={['ADMIN', 'MANAGER']} />}>
+                <Route path="members" element={<ProjectMembersPage />} />
+              </Route>
             </Route>
           </Route>
         </Route>

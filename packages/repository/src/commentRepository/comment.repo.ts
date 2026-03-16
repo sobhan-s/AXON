@@ -5,8 +5,8 @@ import { ApiError } from '@dam/utils';
 
 export class CommentRepository {
   async createComment(data: {
-    taskId?: number;
-    assetId?: Types.ObjectId;
+    taskId: number;
+    assetId?: string;
     userId: number;
     text: string;
     mentions?: number[];
@@ -16,6 +16,23 @@ export class CommentRepository {
     } catch (error) {
       logger.error('Error creating comment', { error, data });
       throw new ApiError(500, 'Failed to create comment');
+    }
+  }
+
+  async updateComment(commentId: string, text: string) {
+    try {
+      return await Comment.findByIdAndUpdate(
+        commentId,
+        {
+          text,
+          isEdited: true,
+          editedAt: new Date(),
+        },
+        { new: true },
+      );
+    } catch (error) {
+      logger.error('Error updating comment', { error, commentId });
+      throw new ApiError(500, 'Failed to update comment');
     }
   }
 

@@ -6,6 +6,7 @@ import { AssetVariantRepository } from './assetVariants/assetVariants.repository
 import { ProjectAnalyticsRepository } from './analyticsRepository/projectAnalytics.repo.js';
 import { OrgAnalyticsRepository } from './analyticsRepository/orgAnalytics.repo.js';
 import { PlatformAnalyticsRepository } from './analyticsRepository/platformAanlytics.js';
+import { CommentRepository } from './commentRepository/comment.repo.js';
 
 export {
   ApprovalRepository,
@@ -16,4 +17,5 @@ export {
   ProjectAnalyticsRepository,
   OrgAnalyticsRepository,
   PlatformAnalyticsRepository,
+  CommentRepository,
 };

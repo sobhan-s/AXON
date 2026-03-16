@@ -16,12 +16,6 @@
     "dev": {
       "cache": false,
       "persistent": true
-    },
-    "pipeline": {
-      "test": {
-        "dependsOn": ["^test"],
-        "outputs": ["coverage/**"]
-      }
     }
   }
 }

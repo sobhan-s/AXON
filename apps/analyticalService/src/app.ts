@@ -32,7 +32,7 @@ app.use(helmet());
 app.get('/hlth', (req, res) => {
   res.status(200).json({
     status: 'OK',
-    service: 'upload-service',
+    service: 'analytics-service',
     currentTime: `${new Date().toISOString()}`,
   });
 });

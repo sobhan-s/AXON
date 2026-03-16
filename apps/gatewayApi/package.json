@@ -18,6 +18,7 @@
     "@dam/constants": "workspace:*",
     "@dam/eslint-config": "workspace:*",
     "@dam/typescript-config": "workspace:*",
+    "@fastify/cors": "^11.2.0",
     "@fastify/http-proxy": "^11.4.1",
     "fastify": "^5.7.4",
     "http-proxy-middleware": "^3.0.5",

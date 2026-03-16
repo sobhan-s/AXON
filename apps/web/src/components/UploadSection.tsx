@@ -19,9 +19,9 @@ import { formatBytes } from '@/constants/chunkSize';
 import { StatusBadge } from './badge';
 import type { UploadSectionProps } from '@/interfaces/uploadSection.interface';
 
-// const API_BASE = '/api/assets/upload/';
-const API_BASE = 'http://localhost:8004';
-const UPLOAD_ENDPOINT = `${API_BASE}/api/assets/upload`;
+const API_BASE = '/api/assets/upload/';
+// const API_BASE = 'http://localhost:8004';
+const UPLOAD_ENDPOINT = `${API_BASE}`;
 
 function getFileIcon(mimeType: string) {
   if (mimeType.startsWith('image/')) return FileImage;

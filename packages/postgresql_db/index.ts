@@ -14,10 +14,11 @@ import {
 } from '@prisma/client';
 import path from 'path';
 
-dotenv.config({ path: path.resolve('../../', '.env.local') });
+// dotenv.config({ path: path.resolve('../../', '.env.local') });
+dotenv.config({ path: path.resolve('../../', '.env') });
 
 const isDev = env_config_variable.ENVIORMENT.PROD !== 'production';
-const connectionSting = env_config_variable.DB.DEV.POSTGRESQL_DB;
+const connectionSting = env_config_variable.DB.PROD.POSTGRESQL_DB;
 
 if (!connectionSting) {
   logger.error('Connection Url is missing .....');

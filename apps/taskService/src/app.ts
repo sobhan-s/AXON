@@ -13,33 +13,7 @@ app.use(
   cors({
     origin: ['http://localhost:5173', 'http://localhost:3000'],
     methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS', 'HEAD'],
-    allowedHeaders: [
-      'Authorization',
-      'Content-Type',
-      'Upload-Length',
-      'Upload-Offset',
-      'Upload-Metadata',
-      'Upload-Defer-Length',
-      'Upload-Concat',
-      'Tus-Resumable',
-      'Tus-Version',
-      'Tus-Max-Size',
-      'Tus-Extension',
-      'X-HTTP-Method-Override',
-      'X-Requested-With',
-    ],
-    exposedHeaders: [
-      'Location',
-      'Upload-Offset',
-      'Upload-Length',
-      'Tus-Resumable',
-      'Tus-Version',
-      'Tus-Max-Size',
-      'Tus-Extension',
-    ],
     credentials: true,
-    preflightContinue: false,
-    optionsSuccessStatus: 204,
   }),
 );
 
@@ -61,7 +35,9 @@ app.get('/hlth', (req, res) => {
 });
 
 import taskRouter from './routes/task.routes.js';
+import commentRouter from "./routes/comment.routes.js"
 
 app.use('/tasks', taskRouter);
+app.use('/comment',commentRouter)
 
 export default app;

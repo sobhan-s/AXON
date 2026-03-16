@@ -4,10 +4,24 @@ import Fastify, {
   HookHandlerDoneFunction,
 } from 'fastify';
 import httpProxy from '@fastify/http-proxy';
-import { env_config_variable } from '@dam/config/env_variables';
-import { logger } from '@dam/config/logs';
+import { env_config_variable } from '@dam/config';
+import { logger } from '@dam/config';
+import cors from '@fastify/cors';
 
-const app = Fastify({ logger: false });
+const app = Fastify({ logger: true });
+
+await app.register(cors, {
+  origin: true,
+  credentials: true,
+  allowedHeaders: [
+    'Content-Type',
+    'Authorization',
+    'Origin',
+    'X-Requested-With',
+    'Accept',
+  ],
+  methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE', 'OPTIONS'],
+});
 
 app.addHook('onRequest', async (request, reply) => {
   const start = Date.now();
@@ -15,7 +29,7 @@ app.addHook('onRequest', async (request, reply) => {
   reply.raw.on('finish', () => {
     const duration = Date.now() - start;
 
-    logger.info({
+    logger.info('asdfasdf', {
       method: request.method,
       url: request.url,
       status: reply.statusCode,
@@ -25,6 +39,7 @@ app.addHook('onRequest', async (request, reply) => {
 });
 
 const createServiceProxy = async (routePath: string, target: string) => {
+  // console.log('-----------------', routePath, target);
   await app.register(httpProxy, {
     upstream: target,
     prefix: routePath,
@@ -37,7 +52,7 @@ const createServiceProxy = async (routePath: string, target: string) => {
       reply: FastifyReply,
       done: HookHandlerDoneFunction,
     ) => {
-      logger.info(`Forwarding ${request.method} ${request.url} → ${target}`);
+      logger.info(`Forwarding ${request.method} ${request.url} to ${target}`);
       done();
     },
 
@@ -61,7 +76,42 @@ const createServiceProxy = async (routePath: string, target: string) => {
   });
 };
 
-createServiceProxy('/auth', env_config_variable.SERVICE_URI.AUTH as string);
+createServiceProxy(
+  `/api/${env_config_variable.PREFIXES.AUTH_SERVICE.AUTH}`,
+  env_config_variable.SERVICE_URI.AUTH_URI!,
+);
+createServiceProxy(
+  `/api/${env_config_variable.PREFIXES.AUTH_SERVICE.USER}`,
+  env_config_variable.SERVICE_URI.USER_URI!,
+);
+createServiceProxy(
+  `/api/${env_config_variable.PREFIXES.PROJECT_SERVICE.ORGS}`,
+  env_config_variable.SERVICE_URI.ORGANIZATION_URI!,
+);
+createServiceProxy(
+  `/api/${env_config_variable.PREFIXES.PROJECT_SERVICE.PROJECT}`,
+  env_config_variable.SERVICE_URI.PROJECT_URI!,
+);
+createServiceProxy(
+  `/api/${env_config_variable.PREFIXES.TASK_SERVICE.TASKS}`,
+  env_config_variable.SERVICE_URI.TASK_URI!,
+);
+createServiceProxy(
+  `/api/${env_config_variable.PREFIXES.TASK_SERVICE.COMMENT}`,
+  env_config_variable.SERVICE_URI.COMMENT_URI!,
+);
+createServiceProxy(
+  `/api/${env_config_variable.PREFIXES.ASSETS_SERVICE.ASSETS}`,
+  env_config_variable.SERVICE_URI.ASSET_URI!,
+);
+createServiceProxy(
+  `/${env_config_variable.PREFIXES.ASSETS_SERVICE.ASSET_VARIANTS}`,
+  env_config_variable.SERVICE_URI.ASSET_VARIANTS_URI!,
+);
+createServiceProxy(
+  `/api/${env_config_variable.PREFIXES.ANALYTICS_SERVICE}`,
+  env_config_variable.SERVICE_URI.ANALYTICS_URI!,
+);
 
 app.setErrorHandler(
   (error: Error, request: FastifyRequest, reply: FastifyReply) => {

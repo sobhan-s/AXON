@@ -1,0 +1,6 @@
+-- AlterEnum
+ALTER TYPE "ActivityAction" ADD VALUE 'TASK_UPDATED';
+
+-- AlterTable
+ALTER TABLE "time_logs" ADD COLUMN     "endedAt" TIMESTAMP(3),
+ADD COLUMN     "startedAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP;

@@ -1,6 +1,6 @@
 import winston from 'winston';
 import path from 'path';
-import { CONSTANTS } from '@dam/constants/constants';
+import { CONSTANTS } from '@dam/constants';
 
 const logFormat = winston.format.combine(
   winston.format.timestamp({ format: 'YYYY-MM-DD HH:mm:ss' }),

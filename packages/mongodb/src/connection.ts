@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
-import { env_config_variable } from '@dam/config/env_variables';
-import { logger } from '@dam/config/logs';
+import { env_config_variable } from '@dam/config';
+import { logger } from '@dam/config';
 
 let isConnected = false;
 

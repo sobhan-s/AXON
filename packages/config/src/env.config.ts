@@ -1,21 +1,48 @@
 import dotenv from 'dotenv';
 import path from 'path';
 
-// dotenv.config({ path: path.resolve('../../', '.env') });
-dotenv.config({ path: path.resolve('../../', '.env.local') });
+dotenv.config({ path: path.resolve('../../', '.env') });
+// dotenv.config({ path: path.resolve('../../', '.env.local') });
 
-console.log('-------', process.env.AUTH_SERVICE_URI);
+// console.log('-------', process.env.AUTH_SERVICE_URI);
 
 export const env_config_variable = {
+  PREFIXES: {
+    AUTH_SERVICE: {
+      AUTH: process.env.AUTH,
+      USER: 'user',
+    },
+    PROJECT_SERVICE: {
+      ORGS: process.env.ORGS,
+      PROJECT: process.env.PROJECT,
+    },
+    TASK_SERVICE: {
+      TASKS: process.env.TASKS,
+      COMMENT: process.env.COMMENT,
+    },
+    ASSETS_SERVICE: {
+      ASSETS: process.env.ASSETS,
+      ASSET_VARIANTS: process.env.ASSET_VARIANTS,
+    },
+    ANALYTICS_SERVICE: {
+      ANALYTICS: process.env.ANALYTICS,
+    },
+  },
   SERVICE_URI: {
     AUTH_SERVICE: process.env.AUTH_SERVICE_URI,
-    AUTH: process.env.AUTH_URI,
-    USER: process.env.USER_URI,
+    AUTH_URI: process.env.AUTH_URI,
+    USER_URI: process.env.USER_URI,
     PROJECT_SERVICE_URI: process.env.PROJECT_SERVICE_URI,
-    ORGANIZATION: process.env.ORGANIZATION_URI,
-    PROJECT: process.env.PROJECT_URI,
+    ORGANIZATION_URI: process.env.ORGANIZATION_URI,
+    PROJECT_URI: process.env.PROJECT_URI,
     TASK_SERVICE_URI: process.env.TASK_SERVICE_URI,
-    TASK: process.env.TASK_URI,
+    TASK_URI: process.env.TASK_URI,
+    COMMENT_URI: process.env.COMMENT_URI,
+    ASSET_SERVICE_URI: process.env.ASSET_SERVICE_URI,
+    ASSET_URI: process.env.ASSET_URI,
+    ASSET_VARIANTS_URI: process.env.ASSET_VARIANTS_URI,
+    ANALYTICS_SERVICE_URI: process.env.ANALYTICS_SERVICE_URI,
+    ANALYTICS_URI: process.env.ANALYTICS_URI,
 
     GATEWAY_SERVICE: process.env.GATEWAY_SERVICE_URI,
   },
@@ -91,3 +118,4 @@ export const env_config_variable = {
     REDIS_HOST: process.env.REDIS_HOST,
   },
 };
+// console.log('-------', env_config_variable);

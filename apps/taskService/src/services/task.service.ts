@@ -332,7 +332,7 @@ export class TaskService {
     } else {
       throw new ApiError(
         400,
-        `Invalid transition: ${currentStatus} → ${newStatus}`,
+        `Invalid transition: ${currentStatus} to ${newStatus}`,
       );
     }
 

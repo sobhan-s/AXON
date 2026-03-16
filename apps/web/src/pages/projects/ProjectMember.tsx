@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
 import { Loader2, Plus, Trash2, Search } from 'lucide-react';
@@ -7,7 +6,6 @@ import axios from 'axios';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
-import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import {
@@ -45,19 +43,7 @@ import {
 
 import { projectService, type ProjectMember } from '@/services/Project.service';
 import { useAuthStore } from '@/store/auth.store';
-
-const ROLES = [
-  { id: 3, name: 'LEAD' },
-  { id: 4, name: 'REVIEWER' },
-  { id: 5, name: 'MEMBER' },
-];
-
-const ROLE_VARIANT: Record<string, string> = {
-  MANAGER: 'bg-blue-100 text-blue-700',
-  LEAD: 'bg-emerald-100 text-emerald-700',
-  REVIEWER: 'bg-amber-100 text-amber-700',
-  MEMBER: 'bg-slate-100 text-slate-700',
-};
+import { ROLES, ROLE_VARIANT } from '@/constants/statusType';
 
 export function ProjectMembersPage() {
   const user = useAuthStore((s) => s.user);

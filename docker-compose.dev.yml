@@ -86,7 +86,7 @@ services:
       - '15672:15672'
 
     env_file:
-      - .env.local 
+      - .env.local
 
     environment:
       - RABBITMQ_DEFAULT_USER=admin
@@ -108,6 +108,34 @@ services:
     networks:
       - dam-network
 
+  redis:
+    image: redis:7-alpine
+
+    container_name: redis
+
+    hostname: redis
+
+    env_file:
+      - .env.local
+
+    healthcheck:
+      test: ['CMD-SHELL', 'redis-cli ping | grep PONG']
+      interval: 1s
+      timeout: 3s
+      retries: 5
+
+    command: ['redis-server']
+
+    ports:
+      - '6379:6379'
+    restart: unless-stopped
+
+    volumes:
+      - redis-data:/data
+      
+    networks:
+      - dam-network
+
 volumes:
   dam-postgres-data:
     external: true
@@ -116,6 +144,8 @@ volumes:
   minio_data:
     external: true
   rabbitmq_data:
+  redis-data:
+    driver: local
 
 networks:
   dam-network:

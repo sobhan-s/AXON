@@ -126,7 +126,7 @@ export class TaskRepository {
         include: {
           createdBy: { select: { id: true, username: true, avatarUrl: true } },
           assignedTo: { select: { id: true, username: true, avatarUrl: true } },
-          
+
           _count: { select: { timeLogs: true, approvals: true } },
         },
         orderBy: [{ id: 'asc' }],
@@ -353,6 +353,18 @@ export class TaskRepository {
         500,
         'Database error while Error while find the project by there id ',
       );
+    }
+  }
+
+  async updateOrgStorage(orgId: number, fileSize: number) {
+    try {
+      await prisma.organization.update({
+        where: { id: orgId },
+        data: { storageUsed: { increment: BigInt(fileSize) } },
+      });
+    } catch (error) {
+      logger.error('Error comming while update the org storage .')
+      throw new ApiError(500, 'Database Error while update the org strgae')
     }
   }
 }

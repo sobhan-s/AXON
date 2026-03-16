@@ -34,7 +34,7 @@ app.get('/hlth', (req, res) => {
 import assetRouter from './routes/asset.routes.js';
 import assetvariantRouter from './routes/assetVariant.routes.js';
 
-app.use('/api/assets', assetRouter);
+app.use('/assets', assetRouter);
 app.use('/assetvariants', assetvariantRouter);
 
 export default app;

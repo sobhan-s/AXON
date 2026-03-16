@@ -97,7 +97,7 @@ export default function ProjectsPage() {
     setLoading(true);
     setError(null);
     try {
-      const data = await projectService.getAll(orgId);
+      const data = await projectService.getMyProjects();
       setProjects(Array.isArray(data) ? data : []);
     } catch (err) {
       setError(

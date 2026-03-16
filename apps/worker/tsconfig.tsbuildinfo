@@ -1,1 +1,1 @@
-{"root":["./src/asset.processor.ts","./src/index.ts","./src/processior/image.processor.ts","./src/processior/video.processor.ts"],"version":"5.9.2"}
+{"root":["./src/asset.processor.ts","./src/index.ts","./src/helper/dashboardData.ts","./src/helper/pdfKIt.helper.ts","./src/processior/image.processor.ts","./src/processior/report.processor.ts","./src/processior/video.processor.ts"],"version":"5.9.2"}

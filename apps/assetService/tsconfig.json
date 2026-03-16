@@ -3,6 +3,8 @@
   "compilerOptions": {
     "rootDir": "./src",
     "outDir": "./dist",
-    "types": ["node"]
-  }
+    "declaration": true,
+    "types": ["vitest/globals", "node"]
+  },
+  "include": ["src/**/*"]
 }

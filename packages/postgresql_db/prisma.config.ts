@@ -5,8 +5,9 @@ import { env_config_variable } from '@dam/config';
 import dotenv from 'dotenv';
 import path from 'path';
 
-dotenv.config({ path: path.resolve('../../', '.env.local') });
-console.log(env_config_variable.DB.DEV.POSTGRESQL_DB);
+// dotenv.config({ path: path.resolve('../../', '.env.local') });
+dotenv.config({ path: path.resolve('../../', '.env') });
+// console.log(env_config_variable.DB.PROD.POSTGRESQL_DB);
 
 export default defineConfig({
   schema: 'prisma/schema.prisma',

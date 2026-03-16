@@ -1,4 +1,4 @@
-import * as React from 'react';
+import { useEffect, useState } from 'react';
 import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import {
   LayoutDashboardIcon,
@@ -52,7 +52,7 @@ const NAV_BY_ROLE: Record<string, { title: string; url: string; icon: any }[]> =
       { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },
       { title: 'Projects', url: '/dashboard/projects', icon: FolderIcon },
 
-      { title: 'Team', url: '/dashboard/team', icon: UsersIcon },
+      // { title: 'Team', url: '/dashboard/team', icon: UsersIcon },
     ],
     LEAD: [
       { title: 'Dashboard', url: '/dashboard', icon: LayoutDashboardIcon },
@@ -119,9 +119,9 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   const resolvedProjectId =
     projectId ?? location.pathname.match(/\/projects\/(\d+)/)?.[1];
 
-  const [project, setProject] = React.useState<Project | null>(null);
+  const [project, setProject] = useState<Project | null>(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (!resolvedProjectId) {
       setProject(null);
       return;

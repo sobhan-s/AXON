@@ -2,50 +2,62 @@ import amqp from 'amqplib';
 import { logger } from './logger.config.js';
 import { env_config_variable } from './env.config.js';
 
-export const QUEUE_NAME = 'dam.asset.process';
-export const EXCHANGE = 'dam.assets';
+export const QUEUES = {
+  ASSET_PROCESS: 'dam.asset.process',
+  REPORT_GENERATE: 'dam.report.generate',
+} as const;
 
+export type QueueName = (typeof QUEUES)[keyof typeof QUEUES];
+
+let connection: amqp.ChannelModel | null = null;
 let publishChannel: amqp.Channel | null = null;
-let consumeChannel: amqp.Channel | null = null;
 
 export async function initRabbitMQ(): Promise<void> {
   const { USER, PASSWORD, HOST, PORT, VHOST } = env_config_variable.RABBITMQ;
   const url = `amqp://${USER}:${PASSWORD}@${HOST}:${PORT}/${VHOST ?? ''}`;
 
-  const connection = await amqp.connect(url, {
-    heartbeat: 60,
+  connection = await amqp.connect(url, { heartbeat: 60 });
+  publishChannel = await connection.createChannel();
+
+  for (const queue of Object.values(QUEUES)) {
+    await publishChannel.assertQueue(queue, { durable: true });
+  }
+
+  connection.on('close', () => {
+    logger.warn('RabbitMQ connection closed — reconnecting in 5s');
+    setTimeout(initRabbitMQ, 5000);
   });
 
-  publishChannel = await connection.createChannel();
-  consumeChannel = await connection.createChannel();
+  connection.on('error', (err) => {
+    logger.error('RabbitMQ connection error', { error: err.message });
+  });
 
-  await consumeChannel.prefetch(10);
-
-  await publishChannel.assertQueue(QUEUE_NAME, { durable: true });
-  await consumeChannel.assertQueue(QUEUE_NAME, { durable: true });
-
-  logger.info('RabbitMQ connected');
+  logger.info('RabbitMQ connected', { queues: Object.values(QUEUES) });
 }
 
-export function rabbitPublish(payload: object): void {
+export function rabbitPublish(queue: QueueName, payload: object): void {
   if (!publishChannel) throw new Error('RabbitMQ not initialized');
 
-  publishChannel.sendToQueue(QUEUE_NAME, Buffer.from(JSON.stringify(payload)), {
+  publishChannel.sendToQueue(queue, Buffer.from(JSON.stringify(payload)), {
     persistent: true,
     contentType: 'application/json',
   });
 
-  logger.info('============== rabbitMQ job published', { payload });
+  logger.info('RabbitMQ job published', { queue, payload });
 }
 
 export async function rabbitConsume(
+  queue: QueueName,
   handler: (data: any) => Promise<void>,
+  prefetch = 10,
 ): Promise<void> {
-  if (!consumeChannel) throw new Error('RabbitMQ not initialized');
+  if (!connection) throw new Error('RabbitMQ not initialized');
 
-  const ch = consumeChannel;
+  const consumeChannel = await connection.createChannel();
+  await consumeChannel.prefetch(prefetch);
+  await consumeChannel.assertQueue(queue, { durable: true });
 
-  await ch.consume(QUEUE_NAME, async (msg) => {
+  await consumeChannel.consume(queue, async (msg) => {
     if (!msg) return;
 
     const retries = (msg.properties.headers?.['x-retry-count'] as number) ?? 0;
@@ -53,9 +65,10 @@ export async function rabbitConsume(
     try {
       const data = JSON.parse(msg.content.toString());
       await handler(data);
-      ch.ack(msg);
+      consumeChannel.ack(msg);
     } catch (error: any) {
       logger.error('RabbitMQ handler failed', {
+        queue,
         error: error.message,
         retries,
       });
@@ -63,20 +76,24 @@ export async function rabbitConsume(
       if (retries < 3) {
         setTimeout(
           () => {
-            publishChannel?.sendToQueue(QUEUE_NAME, msg.content, {
+            publishChannel?.sendToQueue(queue, msg.content, {
               persistent: true,
               headers: { 'x-retry-count': retries + 1 },
             });
           },
           2000 * (retries + 1),
         );
-        ch.ack(msg);
+
+        consumeChannel.ack(msg);
       } else {
-        logger.error('max reties reached ', { retries });
-        ch.nack(msg, false, false);
+        logger.error('Max retries reached  discarding message', {
+          queue,
+          retries,
+        });
+        consumeChannel.nack(msg, false, false);
       }
     }
   });
 
-  logger.info(`cosume by rabbit mq, with queue name : --- ${QUEUE_NAME}`);
+  logger.info(`RabbitMQ consumer started`, { queue, prefetch });
 }

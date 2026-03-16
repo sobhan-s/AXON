@@ -12,6 +12,7 @@ import {
 } from '@dam/config';
 import { createTusServer } from '@dam/config';
 import { TaskHelperService } from './taskHelper.service.js';
+import { TaskRepository } from '@dam/repository';
 
 export interface UploadResult {
   assetId: string;
@@ -23,6 +24,7 @@ export interface UploadResult {
 }
 
 const taskService = new TaskHelperService();
+const taskRepo = new TaskRepository();
 
 async function generateThumbnail(
   sourceBuffer: Buffer,
@@ -103,6 +105,8 @@ export async function processUpload(
 
   const assetId = asset._id.toString();
   logger.info('Asset saved to MongoDB', { assetId });
+
+  await taskRepo.updateOrgStorage(organizationId, fileSize);
 
   let finalTaskId: number | undefined = taskIdMeta;
   if (!taskIdMeta) {

@@ -1,4 +1,4 @@
-import { rabbitPublish, logger } from '@dam/config';
+import { rabbitPublish, logger, QUEUES } from '@dam/config';
 import { AssetVariant } from '@dam/mongodb';
 import { Asset } from '@dam/mongodb';
 import { ApiError } from '@dam/utils';
@@ -37,12 +37,12 @@ export async function queueAssetProcessing(
     return { queued: [], alreadyExist };
   }
 
-  rabbitPublish({
+  rabbitPublish(QUEUES.ASSET_PROCESS, {
     assetId,
     objectKey: asset.filename,
     mimeType: asset.mimeType,
     fileType: asset.fileType,
-    variants: toProcess, 
+    variants: toProcess,
   });
 
   logger.info('Variant job queued', { assetId, toProcess });

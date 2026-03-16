@@ -26,7 +26,18 @@ import {
   initRabbitMQ,
   rabbitPublish,
   rabbitConsume,
+  QUEUES,
+  QueueName
 } from './rabbitmq.config.js';
+
+import {
+  getRedisClient,
+  CACHE_TTL,
+  cacheKey,
+  getCache,
+  setCache,
+  invalidateCache,
+} from './redis.config.js';
 
 export {
   env_config_variable,
@@ -51,4 +62,12 @@ export {
   initRabbitMQ,
   rabbitPublish,
   rabbitConsume,
+  QUEUES,
+  type QueueName,
+  getRedisClient,
+  CACHE_TTL,
+  cacheKey,
+  getCache,
+  setCache,
+  invalidateCache,
 };

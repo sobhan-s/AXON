@@ -11,6 +11,7 @@ import {
   Users,
   CheckSquare2,
   X,
+  SlidersHorizontal,
 } from 'lucide-react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -20,6 +21,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { Separator } from '@/components/ui/separator';
 import { Checkbox } from '@/components/ui/checkbox';
+import { Badge } from '@/components/ui/badge';
 import {
   Table,
   TableBody,
@@ -60,14 +62,31 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from '@/components/ui/popover';
 import { toast } from 'sonner';
 
 import { useAuthStore } from '@/store/auth.store';
 import { taskService, type TaskStatus } from '@/services/task.service';
 import { projectService, type ProjectMember } from '@/services/Project.service';
-import type { Task } from '@/interfaces/projectBoard';
-import { createSchema, type CreateValues } from '@/validations/createTask.validations';
-import { PRIORITY_STYLE, STATUS_STYLE, STATUS_TRANSITIONS } from '@/constants/statusType';
+import {
+  EMPTY_FILTERS,
+  type Task,
+  type Filters,
+  activeFilterCount,
+} from '@/interfaces/projectBoard';
+import {
+  createSchema,
+  type CreateValues,
+} from '@/validations/createTask.validations';
+import {
+  PRIORITY_STYLE,
+  STATUS_STYLE,
+  STATUS_TRANSITIONS,
+} from '@/constants/statusType';
 import { FieldError, FormError } from '@/helper/error';
 
 export default function ProjectBoardPage() {
@@ -82,7 +101,9 @@ export default function ProjectBoardPage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [search, setSearch] = useState('');
-  const [statusFilter, setStatusFilter] = useState<string>('ALL');
+  const [filters, setFilters] = useState<Filters>(EMPTY_FILTERS);
+  const [pendingFilters, setPendingFilters] = useState<Filters>(EMPTY_FILTERS);
+  const [filterOpen, setFilterOpen] = useState(false);
   const [createOpen, setCreateOpen] = useState(false);
   const [deleteTarget, setDeleteTarget] = useState<Task | null>(null);
   const [deleteLoading, setDeleteLoading] = useState(false);
@@ -102,14 +123,23 @@ export default function ProjectBoardPage() {
     setLoading(true);
     setError(null);
     try {
-      const result = await taskService.getProjectTasks(Number(projectId));
+      const params: Record<string, any> = {};
+      if (filters.status) params.status = filters.status;
+      if (filters.priority) params.priority = filters.priority;
+      if (filters.taskType) params.taskType = filters.taskType;
+      if (filters.assignedToId) params.assignedToId = filters.assignedToId;
+
+      const result = await taskService.getProjectTasks(
+        Number(projectId),
+        params,
+      );
       setTasks(result);
     } catch {
       setError('Failed to load tasks');
     } finally {
       setLoading(false);
     }
-  }, [projectId]);
+  }, [projectId, filters]);
 
   useEffect(() => {
     fetchTasks();
@@ -131,38 +161,28 @@ export default function ProjectBoardPage() {
     }
   };
 
-  const onBulkAssign = async () => {
-    if (!projectId || !bulkAssignUserId || selectedRows.length === 0) return;
-    try {
-      await taskService.bulkAssign(Number(projectId), {
-        taskIds: selectedRows,
-        assignedToId: Number(bulkAssignUserId),
-      });
-      const assignedUser = members.find(
-        (m) => String(m.userId) === bulkAssignUserId,
-      );
-      setSelectedRows([]);
-      setBulkAssignOpen(false);
-      setBulkAssignUserId('');
-      fetchTasks();
-      toast.success('Tasks assigned', {
-        description: `${selectedRows.length} task(s) assigned to ${assignedUser?.user.username ?? 'user'}.`,
-      });
-    } catch {
-      toast.error('Error', { description: 'Bulk assign failed.' });
-    }
-  };
-
-  const filtered = tasks.filter((t) => {
-    const matchSearch = t.title.toLowerCase().includes(search.toLowerCase());
-    const matchStatus = statusFilter === 'ALL' || t.status === statusFilter;
-    return matchSearch && matchStatus;
-  });
+  const filtered = tasks.filter((t) =>
+    t.title.toLowerCase().includes(search.toLowerCase()),
+  );
 
   const counts = tasks.reduce<Record<string, number>>((acc, t) => {
     acc[t.status] = (acc[t.status] ?? 0) + 1;
     return acc;
   }, {});
+
+  const applyFilters = () => {
+    setFilters(pendingFilters);
+    setFilterOpen(false);
+  };
+
+  const clearFilters = () => {
+    const empty = EMPTY_FILTERS;
+    setFilters(empty);
+    setPendingFilters(empty);
+    setFilterOpen(false);
+  };
+
+  const activeCount = activeFilterCount(filters);
 
   const form = useForm<CreateValues>({ resolver: zodResolver(createSchema) });
 
@@ -244,6 +264,28 @@ export default function ProjectBoardPage() {
     }
   };
 
+  const onBulkAssign = async () => {
+    if (!projectId || !bulkAssignUserId || selectedRows.length === 0) return;
+    try {
+      await taskService.bulkAssign(Number(projectId), {
+        taskIds: selectedRows,
+        assignedToId: Number(bulkAssignUserId),
+      });
+      const assignedUser = members.find(
+        (m) => String(m.userId) === bulkAssignUserId,
+      );
+      setSelectedRows([]);
+      setBulkAssignOpen(false);
+      setBulkAssignUserId('');
+      fetchTasks();
+      toast.success('Tasks assigned', {
+        description: `${selectedRows.length} task(s) assigned to ${assignedUser?.user.username ?? 'user'}.`,
+      });
+    } catch {
+      toast.error('Error', { description: 'Bulk assign failed.' });
+    }
+  };
+
   const allSelected =
     filtered.length > 0 && selectedRows.length === filtered.length;
   const someSelected = selectedRows.length > 0;
@@ -311,9 +353,12 @@ export default function ProjectBoardPage() {
       {!loading && (
         <div className="flex items-center gap-2 flex-wrap">
           <button
-            onClick={() => setStatusFilter('ALL')}
+            onClick={() => {
+              setPendingFilters((p) => ({ ...p, status: '' }));
+              setFilters((p) => ({ ...p, status: '' }));
+            }}
             className={`text-xs font-medium px-3 py-1.5 rounded-full border transition-all ${
-              statusFilter === 'ALL'
+              !filters.status
                 ? 'bg-foreground text-background border-transparent'
                 : 'border-border bg-background text-muted-foreground hover:bg-muted'
             }`}
@@ -323,37 +368,164 @@ export default function ProjectBoardPage() {
           {Object.entries(STATUS_STYLE).map(([key, s]) => (
             <button
               key={key}
-              onClick={() =>
-                setStatusFilter(statusFilter === key ? 'ALL' : key)
-              }
+              onClick={() => {
+                const next = filters.status === key ? '' : key;
+                setFilters((p) => ({ ...p, status: next }));
+                setPendingFilters((p) => ({ ...p, status: next }));
+              }}
               className={`flex items-center gap-1.5 text-xs font-medium px-3 py-1.5 rounded-full border transition-all ${
-                statusFilter === key
+                filters.status === key
                   ? s.className + ' border-transparent'
                   : 'border-border bg-background text-muted-foreground hover:bg-muted'
               }`}
             >
               <span className={`w-1.5 h-1.5 rounded-full ${s.dot}`} />
-              {s.label} {counts[key] ? `(${counts[key]})` : '(0)'}
+              {s.label} ({counts[key] ?? 0})
             </button>
           ))}
         </div>
       )}
 
-      <div className="relative w-80">
-        <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-        <Input
-          placeholder="Search tasks..."
-          className="pl-9"
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-        {search && (
-          <button
-            onClick={() => setSearch('')}
-            className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
-          >
-            <X className="h-3.5 w-3.5" />
-          </button>
+      <div className="flex items-center gap-2 flex-wrap">
+        <div className="relative w-72">
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+          <Input
+            placeholder="Search tasks..."
+            className="pl-9"
+            value={search}
+            onChange={(e) => setSearch(e.target.value)}
+          />
+          {search && (
+            <button
+              onClick={() => setSearch('')}
+              className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+            >
+              <X className="h-3.5 w-3.5" />
+            </button>
+          )}
+        </div>
+
+        <Popover
+          open={filterOpen}
+          onOpenChange={(o) => {
+            setFilterOpen(o);
+            if (o) setPendingFilters(filters);
+          }}
+        >
+          <PopoverTrigger asChild>
+            <Button variant="outline" size="sm" className="gap-2 h-9">
+              <SlidersHorizontal className="h-3.5 w-3.5" />
+              Filters
+              {activeCount > 0 && (
+                <Badge
+                  variant="secondary"
+                  className="ml-0.5 h-4 w-4 p-0 flex items-center justify-center text-[10px] rounded-full"
+                >
+                  {activeCount}
+                </Badge>
+              )}
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent align="start" className="w-72 p-4 space-y-4">
+            <p className="text-sm font-medium">Filter Tasks</p>
+
+            <div className="space-y-1.5">
+              <Label className="text-xs text-muted-foreground uppercase tracking-wide">
+                Priority
+              </Label>
+              <Select
+                value={pendingFilters.priority}
+                onValueChange={(v) =>
+                  setPendingFilters((p) => ({
+                    ...p,
+                    priority: v === '_all' ? '' : v,
+                  }))
+                }
+              >
+                <SelectTrigger className="h-8 text-sm">
+                  <SelectValue placeholder="Any priority" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="_all">Any priority</SelectItem>
+                  <SelectItem value="LOW">Low</SelectItem>
+                  <SelectItem value="MEDIUM">Medium</SelectItem>
+                  <SelectItem value="HIGH">High</SelectItem>
+                  <SelectItem value="URGENT">Urgent</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <div className="space-y-1.5">
+              <Label className="text-xs text-muted-foreground uppercase tracking-wide">
+                Task Type
+              </Label>
+              <Select
+                value={pendingFilters.taskType}
+                onValueChange={(v) =>
+                  setPendingFilters((p) => ({
+                    ...p,
+                    taskType: v === '_all' ? '' : v,
+                  }))
+                }
+              >
+                <SelectTrigger className="h-8 text-sm">
+                  <SelectValue placeholder="Any type" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="_all">Any type</SelectItem>
+                  <SelectItem value="MANUAL">Manual</SelectItem>
+                  <SelectItem value="ASSET_BASED">Asset Based</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            <Separator />
+
+            <div className="flex items-center justify-between gap-2">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-xs"
+                onClick={clearFilters}
+              >
+                Clear all
+              </Button>
+              <Button size="sm" className="text-xs" onClick={applyFilters}>
+                Apply filters
+              </Button>
+            </div>
+          </PopoverContent>
+        </Popover>
+
+        {/* Active filter chips */}
+        {filters.priority && (
+          <Badge variant="secondary" className="gap-1 text-xs">
+            Priority: {filters.priority}
+            <button onClick={() => setFilters((p) => ({ ...p, priority: '' }))}>
+              <X className="h-3 w-3" />
+            </button>
+          </Badge>
+        )}
+        {filters.taskType && (
+          <Badge variant="secondary" className="gap-1 text-xs">
+            Type:{' '}
+            {filters.taskType === 'ASSET_BASED' ? 'Asset Based' : 'Manual'}
+            <button onClick={() => setFilters((p) => ({ ...p, taskType: '' }))}>
+              <X className="h-3 w-3" />
+            </button>
+          </Badge>
+        )}
+        {filters.assignedToId && (
+          <Badge variant="secondary" className="gap-1 text-xs">
+            Assigned:{' '}
+            {members.find((m) => String(m.userId) === filters.assignedToId)
+              ?.user.username ?? filters.assignedToId}
+            <button
+              onClick={() => setFilters((p) => ({ ...p, assignedToId: '' }))}
+            >
+              <X className="h-3 w-3" />
+            </button>
+          </Badge>
         )}
       </div>
 
@@ -369,11 +541,11 @@ export default function ProjectBoardPage() {
         <div className="flex flex-col items-center justify-center py-24 gap-3">
           <CheckSquare2 className="h-12 w-12 text-muted-foreground/20" />
           <p className="text-muted-foreground text-sm">
-            {search || statusFilter !== 'ALL'
+            {search || activeCount > 0
               ? 'No tasks match your filters.'
               : 'No tasks yet.'}
           </p>
-          {canCreateTask && !search && statusFilter === 'ALL' && (
+          {canCreateTask && !search && activeCount === 0 && (
             <Button onClick={() => setCreateOpen(true)}>
               <Plus className="h-4 w-4 mr-2" /> Create first task
             </Button>
@@ -387,9 +559,9 @@ export default function ProjectBoardPage() {
                 <TableHead className="w-10">
                   <Checkbox
                     checked={allSelected}
-                    onCheckedChange={(checked) => {
-                      setSelectedRows(checked ? filtered.map((t) => t.id) : []);
-                    }}
+                    onCheckedChange={(checked) =>
+                      setSelectedRows(checked ? filtered.map((t) => t.id) : [])
+                    }
                   />
                 </TableHead>
                 <TableHead className="w-24 text-xs font-semibold text-muted-foreground">
@@ -440,13 +612,13 @@ export default function ProjectBoardPage() {
                     <TableCell onClick={(e) => e.stopPropagation()}>
                       <Checkbox
                         checked={isSelected}
-                        onCheckedChange={(checked) => {
+                        onCheckedChange={(checked) =>
                           setSelectedRows((prev) =>
                             checked
                               ? [...prev, task.id]
                               : prev.filter((id) => id !== task.id),
-                          );
-                        }}
+                          )
+                        }
                       />
                     </TableCell>
 
@@ -456,13 +628,11 @@ export default function ProjectBoardPage() {
 
                     <TableCell>
                       <div className="flex items-center gap-2">
-                        <div>
-                          <p
-                            className={`font-medium text-sm group-hover:text-primary transition-colors ${overdue ? 'text-red-600' : ''}`}
-                          >
-                            {task.title}
-                          </p>
-                        </div>
+                        <p
+                          className={`font-medium text-sm group-hover:text-primary transition-colors ${overdue ? 'text-red-600' : ''}`}
+                        >
+                          {task.title}
+                        </p>
                         {task.taskType === 'ASSET_BASED' && (
                           <span className="text-[10px] font-medium px-1.5 py-0.5 rounded bg-blue-50 text-blue-600 dark:bg-blue-900/20 shrink-0">
                             ASSET
@@ -516,7 +686,7 @@ export default function ProjectBoardPage() {
                     <TableCell>
                       {task._count.approvals > 0 ? (
                         <span className="text-xs text-muted-foreground">
-                          {task._count.approvals} approvals
+                          {task._count.approvals} approval
                           {task._count.approvals > 1 ? 's' : ''}
                         </span>
                       ) : (
@@ -526,7 +696,6 @@ export default function ProjectBoardPage() {
                       )}
                     </TableCell>
 
-                    {/* Due Date */}
                     <TableCell>
                       {task.dueDate ? (
                         <span
@@ -746,21 +915,19 @@ export default function ProjectBoardPage() {
             </DialogDescription>
           </DialogHeader>
           <div className="flex flex-col gap-2 py-2">
-            {(Object.keys(STATUS_STYLE) as TaskStatus[])
-              // .filter((k) => k !== 'TODO')
-              .map((key) => {
-                const s = STATUS_STYLE[key];
-                return (
-                  <button
-                    key={key}
-                    onClick={() => onBulkStatus(key)}
-                    className={`flex items-center gap-2 text-left text-sm font-medium px-3 py-2.5 rounded-lg transition-colors hover:opacity-80 ${s.className}`}
-                  >
-                    <span className={`w-2 h-2 rounded-full ${s.dot}`} />
-                    {s.label}
-                  </button>
-                );
-              })}
+            {(Object.keys(STATUS_STYLE) as TaskStatus[]).map((key) => {
+              const s = STATUS_STYLE[key];
+              return (
+                <button
+                  key={key}
+                  onClick={() => onBulkStatus(key)}
+                  className={`flex items-center gap-2 text-left text-sm font-medium px-3 py-2.5 rounded-lg transition-colors hover:opacity-80 ${s.className}`}
+                >
+                  <span className={`w-2 h-2 rounded-full ${s.dot}`} />
+                  {s.label}
+                </button>
+              );
+            })}
           </div>
         </DialogContent>
       </Dialog>
@@ -856,7 +1023,6 @@ export default function ProjectBoardPage() {
         </DialogContent>
       </Dialog>
 
-      {/* ── Bulk Delete Confirm ── */}
       <AlertDialog open={bulkDeleteOpen} onOpenChange={setBulkDeleteOpen}>
         <AlertDialogContent>
           <AlertDialogHeader>

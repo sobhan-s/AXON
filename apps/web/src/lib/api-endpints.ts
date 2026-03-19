@@ -1,5 +1,5 @@
-const ANALYTICS_SERVICE = '/api/an/';
-const GATEWAY_API = '/api';
+const ANALYTICS_SERVICE = 'http://localhost:8007';
+const GATEWAY_API = 'http://localhost:8000';
 
 // console.log('asdfasdfasdfasdfasdfasdfasdasdfas', GATEWAY_API);
 
@@ -132,10 +132,16 @@ export const TASK_ENDPOINTS = {
     `${GATEWAY_API}/tasks/${taskId}/timelogs/${timeLogId}`,
 } as const;
 
-// export const COMMENTS_ENDPOINT = {
-//   ADD_COMMENT: (projectId : number) =>
-//       ``
-// }
+export const COMMENTS_ENDPOINT = {
+  ADD_COMMENT: (projectId: number) =>
+    `${GATEWAY_API}/comment/${projectId}/create`,
+  GET_COMMENT: (projectId: number, taskId: number) =>
+    `${GATEWAY_API}/comment/${projectId}/task/${taskId}`,
+  UPDATE_COMMENT: (projectId: number, commentId: number) =>
+    `${GATEWAY_API}/comment/${projectId}/${commentId}`,
+  DELETE_COMMENT: (projectId: number, commentId: number) =>
+    `${GATEWAY_API}/comment/${projectId}/${commentId}`,
+};
 
 export const ASSET_ENDPOINTS = {
   UPLOAD: `${GATEWAY_API}/assets/upload`,

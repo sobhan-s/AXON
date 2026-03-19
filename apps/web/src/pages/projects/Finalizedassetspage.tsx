@@ -29,6 +29,7 @@ import {
   DialogHeader,
   DialogTitle,
   DialogFooter,
+  DialogDescription,
 } from '@/components/ui/dialog';
 import {
   Table,
@@ -474,11 +475,13 @@ export default function FinalizedAssetsPage() {
           className="pl-9"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
+          aria-label="Search finalized assets"
         />
         {search && (
           <button
             onClick={() => setSearch('')}
             className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground hover:text-foreground"
+            aria-label="Clear search"
           >
             <X className="h-3.5 w-3.5" />
           </button>
@@ -501,7 +504,7 @@ export default function FinalizedAssetsPage() {
         </div>
       ) : (
         <div className="rounded-xl border overflow-hidden shadow-sm">
-          <Table>
+          <Table aria-label="Finalized assets">
             <TableHeader>
               <TableRow className="bg-muted/40 hover:bg-muted/40">
                 <TableHead className="w-12" />
@@ -546,6 +549,7 @@ export default function FinalizedAssetsPage() {
                   key={asset._id}
                   className="group cursor-pointer hover:bg-muted/30 transition-colors"
                   onClick={() => openPreview(asset)}
+                  aria-label={`Preview ${asset.originalName}`}
                 >
                   <TableCell>
                     <div className="h-9 w-9 rounded-lg bg-muted flex items-center justify-center shrink-0">
@@ -601,6 +605,7 @@ export default function FinalizedAssetsPage() {
                     {asset.taskId ? (
                       <button
                         className="flex items-center gap-1 text-xs text-primary hover:underline font-medium"
+                        aria-label={`Open task TASK-${asset.taskId}`}
                         onClick={() =>
                           navigate(
                             `/projects/${projectId}/tasks/${asset.taskId}`,
@@ -625,6 +630,7 @@ export default function FinalizedAssetsPage() {
                       size="icon"
                       className="h-7 w-7 opacity-0 group-hover:opacity-100 transition-opacity"
                       onClick={() => openPreview(asset)}
+                      aria-label={`Preview ${asset.originalName}`}
                     >
                       <Eye className="h-3.5 w-3.5" />
                     </Button>
@@ -677,6 +683,10 @@ export default function FinalizedAssetsPage() {
                 </span>
               )}
             </DialogTitle>
+            <DialogDescription className="sr-only">
+              Preview, variants, and version history for{' '}
+              {previewAsset?.originalName}
+            </DialogDescription>
           </DialogHeader>
           {previewAsset && (
             <Tabs

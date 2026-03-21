@@ -80,5 +80,5 @@ COPY --from=builder /app/package.json ./package.json
 COPY --from=builder /app/pnpm-lock.yaml ./pnpm-lock.yaml
 COPY --from=builder /app/pnpm-workspace.yaml ./pnpm-workspace.yaml
 
-EXPOSE 8001
+EXPOSE 8002
 CMD ["pnpm", "--filter", "@dam/projectService", "start"]

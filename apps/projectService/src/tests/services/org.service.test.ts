@@ -28,7 +28,7 @@ const activityMock = {
   logActivity: vi.fn(),
 };
 
-vi.mock('../../repository/organization.repository.js', () => {
+vi.mock('@dam/repository', () => {
   return {
     OrganizationRepositories: class {
       findOrgsBySlugs = repoMock.findOrgsBySlugs;

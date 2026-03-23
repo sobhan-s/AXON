@@ -9,7 +9,9 @@
     "start": "node ./dist/index.js",
     "build": "tsc -b",
     "swagger-autogen": "node src/swagger.ts",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest --coverage"
   },
   "keywords": [],
   "author": "",
@@ -33,8 +35,10 @@
     "express-status-monitor": "^1.3.4",
     "helmet": "^8.1.0",
     "sharp": "^0.34.5",
+    "supertest": "^7.2.2",
     "swagger-autogen": "^2.23.7",
-    "swagger-ui-express": "^5.0.1"
+    "swagger-ui-express": "^5.0.1",
+    "vitest": "^4.0.18"
   },
   "devDependencies": {
     "@types/cookie-parser": "^1.4.10",
@@ -42,7 +46,9 @@
     "@types/express": "^5.0.6",
     "@types/express-status-monitor": "^1.3.3",
     "@types/node": "^25.2.3",
+    "@types/supertest": "^7.2.0",
     "@types/swagger-ui-express": "^4.1.8",
+    "@vitest/coverage-v8": "^4.0.18",
     "nodemon": "^3.1.11"
   }
 }

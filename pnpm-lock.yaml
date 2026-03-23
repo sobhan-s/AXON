@@ -396,6 +396,9 @@ importers:
       '@dam/postgresql_db':
         specifier: workspace:*
         version: link:../../packages/postgresql_db
+      '@dam/repository':
+        specifier: workspace:*
+        version: link:../../packages/repository
       '@dam/typescript-config':
         specifier: workspace:*
         version: link:../../packages/typescript-config

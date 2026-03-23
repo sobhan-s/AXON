@@ -7,6 +7,8 @@ import { ProjectAnalyticsRepository } from './analyticsRepository/projectAnalyti
 import { OrgAnalyticsRepository } from './analyticsRepository/orgAnalytics.repo.js';
 import { PlatformAnalyticsRepository } from './analyticsRepository/platformAanlytics.js';
 import { CommentRepository } from './commentRepository/comment.repo.js';
+import { UserRepository } from './userRepo/user.repository.js';
+import { AuthRepository } from './authRepository/auth.repository.js';
 
 export {
   ApprovalRepository,
@@ -18,4 +20,6 @@ export {
   OrgAnalyticsRepository,
   PlatformAnalyticsRepository,
   CommentRepository,
+  UserRepository,
+  AuthRepository,
 };

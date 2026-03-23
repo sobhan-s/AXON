@@ -1,4 +1,4 @@
-import { prisma } from '../index.js';
+import { PostgresClient as prisma } from '@dam/postgresql_db';
 import { ApiError } from '@dam/utils';
 import { logger } from '@dam/config';
 
@@ -180,7 +180,7 @@ export class UserRepository {
           },
         });
 
-        const deletedUser = await tx.user.delete({ 
+        const deletedUser = await tx.user.delete({
           where: { id: userId },
           select: {
             id: true,

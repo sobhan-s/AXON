@@ -29,12 +29,11 @@ const prismaMock = vi.hoisted(() => ({
   },
 }));
 
-
 vi.mock('../../index.js', () => ({
   prisma: prismaMock,
 }));
 
-import { AuthRepository } from '../../repository/auth.repository.js';
+import { AuthRepository } from '@dam/repository';
 
 describe('AuthRepository', () => {
   let repo: AuthRepository;

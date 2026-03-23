@@ -23,7 +23,7 @@ const activityMock = {
   logActivity: vi.fn(),
 };
 
-vi.mock('../../repository/user.repository.js', () => {
+vi.mock('@dam/repository', () => {
   return {
     UserRepository: class {
       updateUser = repoMock.updateUser;
@@ -36,11 +36,7 @@ vi.mock('../../repository/user.repository.js', () => {
       getParticularUser = repoMock.getParticularUser;
       updateUserProfileAdminLevel = repoMock.updateUserProfileAdminLevel;
     },
-  };
-});
 
-vi.mock('../../repository/auth.repository.js', () => {
-  return {
     AuthRepository: class {
       getFindUserById = authRepoMock.getFindUserById;
       findUserById = authRepoMock.findUserById;

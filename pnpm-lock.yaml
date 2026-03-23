@@ -221,12 +221,21 @@ importers:
       '@types/node':
         specifier: ^25.2.3
         version: 25.2.3
+      '@types/supertest':
+        specifier: ^7.2.0
+        version: 7.2.0
       '@types/swagger-ui-express':
         specifier: ^4.1.8
         version: 4.1.8
+      '@vitest/coverage-v8':
+        specifier: ^4.0.18
+        version: 4.0.18(vitest@4.0.18(@types/node@25.2.3)(jiti@2.6.1)(lightningcss@1.31.1)(yaml@2.8.2))
       nodemon:
         specifier: ^3.1.11
         version: 3.1.11
+      supertest:
+        specifier: ^7.2.2
+        version: 7.2.2
 
   apps/authService:
     dependencies:

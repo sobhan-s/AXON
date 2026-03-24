@@ -1,4 +1,4 @@
-import { prisma } from '../index.js';
+import { PostgresClient as prisma } from '@dam/postgresql_db';
 import { ApiError } from '@dam/utils';
 import { logger } from '@dam/config';
 
@@ -24,7 +24,7 @@ export class AuthRepository {
       throw new ApiError(500, 'Database error while fetching user');
     }
   }
-  
+
   async getFindUserById(userId: number) {
     try {
       const user = await prisma.user.findUnique({
@@ -41,14 +41,14 @@ export class AuthRepository {
           lastLoginAt: true,
           createdAt: true,
           updatedAt: true,
-           organization: {
+          organization: {
             select: {
               id: true,
               name: true,
               slug: true,
             },
           },
-           projectTeamMembers: {
+          projectTeamMembers: {
             take: 1,
             select: {
               role: {

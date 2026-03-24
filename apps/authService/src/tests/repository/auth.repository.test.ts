@@ -1,4 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { PostgresClient as prisma } from '@dam/postgresql_db';
 
 const prismaMock = vi.hoisted(() => ({
   user: {
@@ -29,12 +30,11 @@ const prismaMock = vi.hoisted(() => ({
   },
 }));
 
-
-vi.mock('../../index.js', () => ({
-  prisma: prismaMock,
+vi.mock('@dam/postgresql_db', () => ({
+  PostgresClient: prismaMock,
 }));
 
-import { AuthRepository } from '../../repository/auth.repository.js';
+import { AuthRepository } from '@dam/repository';
 
 describe('AuthRepository', () => {
   let repo: AuthRepository;

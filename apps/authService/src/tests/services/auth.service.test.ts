@@ -35,7 +35,7 @@ const activityMock = {
 }
 
  
-vi.mock('../../repository/auth.repository.js', () => {
+vi.mock('@dam/repository', () => {
   return {
     AuthRepository: class {
       findUserByEmail = repoMock.findUserByEmail

@@ -23,6 +23,7 @@ import {
 
 const router: IRouter = Router();
 
+/* Create a new project under an organization */
 router
   .route('/:orgId/create')
   .post(
@@ -33,11 +34,13 @@ router
     createProject,
   );
 
+/* Fetch all projects of an organization */
 router.get('/:orgId/all', authMiddleware, requireOrgAccess, getAllProjects);
 
 // user level , all project i am member of
 router.get('/my-projects', authMiddleware, getMyProjects);
 
+/* Assign a manager to a project */
 router
   .route('/assignManager/:orgId/:projectId')
   .patch(
@@ -47,6 +50,7 @@ router
     addManager,
   );
 
+/* Update project details */
 router.put(
   '/:projectId',
   authMiddleware,
@@ -56,6 +60,7 @@ router.put(
   updateProject,
 );
 
+/* Add team members to a project */
 router
   .route('/addTeamMembers/:orgId/:projectId')
   .post(
@@ -65,6 +70,7 @@ router
     addTeamMember,
   );
 
+/* Remove a team member from a project */
 router
   .route('/removeTeamMember/:orgId/:projectId')
   .delete(
@@ -75,10 +81,12 @@ router
     removeTeamMember,
   );
 
+/* Fetch project details by ID */
 router
   .route('/getProject/:orgId/:projectId')
   .get(authMiddleware, requireOrgAccess, requireProjectAccess, getProjectById);
 
+/* Archive a project */
 router
   .route('/archiveProject/:orgId/:projectId')
   .patch(
@@ -89,6 +97,7 @@ router
     archiveProject,
   );
 
+/* Delete a project */
 router
   .route('/deleteProject/:orgId/:projectId')
   .delete(
@@ -99,14 +108,13 @@ router
     deleteProject,
   );
 
-router
-  .route('/getTeamMembers/:orgId/:projectId')
-  .get(
-    authMiddleware,
-    requireOrgAccess,
-    requireProjectAccess,
-    // requirePermission('manage_project_team'),
-    getTeamMembers,
-  );
+/* Fetch all team members of a project */
+router.route('/getTeamMembers/:orgId/:projectId').get(
+  authMiddleware,
+  requireOrgAccess,
+  requireProjectAccess,
+  // requirePermission('manage_project_team'),
+  getTeamMembers,
+);
 
 export default router;

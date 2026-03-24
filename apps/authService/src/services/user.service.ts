@@ -1,8 +1,7 @@
 import { ActivityService, TokenService } from '@dam/common';
 import { logger } from '@dam/config';
-import { AuthRepository } from '../repository/auth.repository.js';
+import { AuthRepository, UserRepository } from '@dam/repository';
 import { ApiError } from '@dam/utils';
-import { UserRepository } from '../repository/user.repository.js';
 import bcrypt from 'bcrypt';
 
 export class userService {

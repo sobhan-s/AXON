@@ -30,7 +30,7 @@ const activityMock = {
   logActivity: vi.fn(),
 };
 
-vi.mock('../../repository/project.repository.js', () => {
+vi.mock('@dam/repository', () => {
   return {
     ProjectRepository: class {
       findProjectBySlugs = projectRepoMock.findProjectBySlugs;
@@ -48,11 +48,6 @@ vi.mock('../../repository/project.repository.js', () => {
       removeTeamMember = projectRepoMock.removeTeamMember;
       getTeamMembers = projectRepoMock.getTeamMembers;
     },
-  };
-});
-
-vi.mock('../../repository/organization.repository.js', () => {
-  return {
     OrganizationRepositories: class {
       findOrgById = orgRepoMock.findOrgById;
     },

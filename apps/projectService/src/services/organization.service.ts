@@ -1,5 +1,5 @@
 import { logger } from '@dam/config';
-import { OrganizationRepositories } from '../repository/organization.repository.js';
+import { OrganizationRepositories } from '@dam/repository';
 import { ApiError, ApiResponse } from '@dam/utils';
 import { ActivityService, AuthRepository } from '@dam/common';
 import { ApprovalStatus, OrganizationStatus } from '@dam/postgresql_db';

@@ -6,6 +6,7 @@ import e from 'express';
 
 const orgService = new OrganizationServices();
 
+/* Create a new organization with provided details */
 export const createOrganizations: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Organization creation controller started');
@@ -40,6 +41,7 @@ export const createOrganizations: RequestHandler = asyncHandler(
   },
 );
 
+/* Assign admin role to a user in an organization */
 export const assignAdminToOrganizations: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Assign admin to the organizations.');
@@ -80,6 +82,7 @@ export const assignAdminToOrganizations: RequestHandler = asyncHandler(
   },
 );
 
+/* Update organization details */
 export const updateOrganizations: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Organization updation controller has started .');
@@ -117,6 +120,7 @@ export const updateOrganizations: RequestHandler = asyncHandler(
   },
 );
 
+/* Fetch all organizations for the logged-in user */
 export const getAllOrganizations: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('getAll Organization Controller has been started . . .');
@@ -134,6 +138,7 @@ export const getAllOrganizations: RequestHandler = asyncHandler(
   },
 );
 
+/* Fetch organization details by ID */
 export const getOrganizationById: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('get organization by id controller started . . .');
@@ -151,6 +156,7 @@ export const getOrganizationById: RequestHandler = asyncHandler(
   },
 );
 
+/* Delete an organization */
 export const deleteOrganization: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Delete organisations stated ');
@@ -173,6 +179,7 @@ export const deleteOrganization: RequestHandler = asyncHandler(
   },
 );
 
+/* Unassign admin/user from an organization */
 export const unAssignFromOrganization: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Unassign from the org');
@@ -196,6 +203,7 @@ export const unAssignFromOrganization: RequestHandler = asyncHandler(
   },
 );
 
+/* Change organization status (active/inactive) */
 export const changeStatus: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('changes status of organizatino called in controller');
@@ -226,6 +234,7 @@ export const changeStatus: RequestHandler = asyncHandler(
   },
 );
 
+/* Add a user to an organization with role */
 export const addToOrganization: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Add to the organizations . . .');
@@ -259,6 +268,7 @@ export const addToOrganization: RequestHandler = asyncHandler(
   },
 );
 
+/* Request creation of a new organization */
 export const requestCreationForOrganizations: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Request creation for organization');
@@ -284,6 +294,7 @@ export const requestCreationForOrganizations: RequestHandler = asyncHandler(
   },
 );
 
+/* Handle organization creation request approval or rejection */
 export const handletOrgRequestDecission: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info(
@@ -314,6 +325,7 @@ export const handletOrgRequestDecission: RequestHandler = asyncHandler(
   },
 );
 
+/* Fetch all pending organization creation requests */
 export const pendinOrgnizationRequest: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Fetchint the pending organization requests . . .');

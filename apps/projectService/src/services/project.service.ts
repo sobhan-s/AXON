@@ -1,10 +1,9 @@
 import { logger } from '@dam/config';
-import { ProjectRepository } from '../repository/project.repository.js';
+import { ProjectRepository, OrganizationRepositories } from '@dam/repository';
 import { ApiError } from '@dam/utils';
 import { ActivityService } from '@dam/common';
 import { ProjectStatus } from '@dam/postgresql_db';
 import { AuthRepository } from '@dam/common';
-import { OrganizationRepositories } from '../repository/organization.repository.js';
 
 export class ProjectServices {
   private projectRepo: ProjectRepository;

@@ -1,5 +1,5 @@
 import bcrypt from 'bcrypt';
-import { AuthRepository } from '../repository/auth.repository.js';
+import { AuthRepository } from '@dam/repository';
 import { TokenService } from './token.service.js';
 import { ActivityService } from '@dam/common';
 import { sendPasswordResetEmail, sendVerificationEmail } from '@dam/mail';

@@ -17,7 +17,7 @@ services:
       - '5432:5432'
 
     volumes:
-      - dam-postgres-data:/var/lib/postgresql/data
+      - ./data/postgres:/var/lib/postgresql/data
 
     networks:
       - dam-network
@@ -47,7 +47,7 @@ services:
       - '27017:27017'
 
     volumes:
-      - dam_mongo_data:/data/db
+      - ./data/mongo:/data/db
 
     networks:
       - dam-network
@@ -67,7 +67,7 @@ services:
       - '9001:9001'
 
     volumes:
-      - minio_data:/data
+      - ./data/minio:/data
 
     command: server /data --console-address ":9001"
 
@@ -137,12 +137,12 @@ services:
       - dam-network
 
 volumes:
-  dam-postgres-data:
-    external: true
-  dam_mongo_data:
-    external: true
-  minio_data:
-    external: true
+  # dam-postgres-data:
+  #   external: true
+  # dam_mongo_data:
+  #   external: true
+  # minio_data:
+  #   external: true
   rabbitmq_data:
   redis-data:
     driver: local

@@ -5,6 +5,7 @@ import { logger } from '@dam/config';
 
 const assetService = new AssetService();
 
+/* Fetch all assets associated with a specific task */
 export const getAssetsByTask: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Fetching assets by task');
@@ -17,6 +18,7 @@ export const getAssetsByTask: RequestHandler = asyncHandler(
   },
 );
 
+/* Fetch assets for a project with optional filters (fileType, status, isFinal) */
 export const getProjectAssets: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Fetching project assets');
@@ -34,6 +36,7 @@ export const getProjectAssets: RequestHandler = asyncHandler(
   },
 );
 
+/* Fetch a single asset by its unique ID */
 export const getAssetById: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Fetching asset by id');
@@ -44,6 +47,7 @@ export const getAssetById: RequestHandler = asyncHandler(
   },
 );
 
+/* Fetch version history of a specific asset */
 export const getAssetVersions: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Fetching asset version history');
@@ -56,6 +60,7 @@ export const getAssetVersions: RequestHandler = asyncHandler(
   },
 );
 
+/* Generate a secure downloadable URL for an asset with expiry */
 export const generateDownloadUrl: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Generating download URL');
@@ -71,6 +76,7 @@ export const generateDownloadUrl: RequestHandler = asyncHandler(
   },
 );
 
+/* Track asset view activity */
 export const trackAssetView: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Tracking asset view');
@@ -81,6 +87,7 @@ export const trackAssetView: RequestHandler = asyncHandler(
   },
 );
 
+/* Mark an asset as finalized */
 export const finalizeAsset: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Finalizing asset');
@@ -91,6 +98,7 @@ export const finalizeAsset: RequestHandler = asyncHandler(
   },
 );
 
+/* Soft delete an asset mark as deleted without permanent removal */
 export const deleteAssetSoft: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Soft deleting asset');

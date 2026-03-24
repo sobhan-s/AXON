@@ -1,5 +1,8 @@
-const ANALYTICS_SERVICE = 'http://localhost:8007';
-const GATEWAY_API = 'http://localhost:8000';
+// const ANALYTICS_SERVICE = 'http://localhost:8007';
+// const GATEWAY_API = 'http://localhost:8000';
+
+const ANALYTICS_SERVICE = '/api/an/';
+const GATEWAY_API = '/api';
 
 // console.log('asdfasdfasdfasdfasdfasdfasdasdfas', GATEWAY_API);
 

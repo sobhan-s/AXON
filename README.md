@@ -1,418 +1,370 @@
-```text
-AXON/
-    ├── README.md
-    ├── commitlint.config.js
-    ├── docker-compose.dev.yml
-    ├── docker-compose.yml
-    ├── eslint.config.mjs
-    ├── package.json
-    ├── pnpm-workspace.yaml
-    ├── turbo.json
-    ├── .npmrc
-    ├── .prettierignore
-    ├── .prettierrc
-    ├── apps/
-    │   ├── assetService/
-    │   │   ├── eslint.config.mjs
-    │   │   ├── nodemon.json
-    │   │   ├── package.json
-    │   │   ├── tsconfig.json
-    │   │   ├── tsconfig.tsbuildinfo
-    │   │   └── src/
-    │   │       ├── app.ts
-    │   │       ├── index.ts
-    │   │       ├── controller/
-    │   │       │   ├── asset.controller.ts
-    │   │       │   └── assetVariants.controller.ts
-    │   │       ├── routes/
-    │   │       │   ├── asset.routes.ts
-    │   │       │   └── assetVariant.routes.ts
-    │   │       └── service/
-    │   │           ├── asset.service.ts
-    │   │           ├── assetVariant.service.ts
-    │   │           └── VariantQueue.service.ts
-    │   ├── authService/
-    │   │   ├── eslint.config.mjs
-    │   │   ├── nodemon.json
-    │   │   ├── package.json
-    │   │   ├── tsconfig.json
-    │   │   ├── tsconfig.tsbuildinfo
-    │   │   └── src/
-    │   │       ├── app.ts
-    │   │       ├── index.ts
-    │   │       ├── swagger.ts
-    │   │       ├── swagger_output.json
-    │   │       ├── controller/
-    │   │       │   ├── auth.controller.ts
-    │   │       │   └── user.controller.ts
-    │   │       ├── repository/
-    │   │       │   ├── auth.repository.ts
-    │   │       │   └── user.repository.ts
-    │   │       ├── routes/
-    │   │       │   ├── auth.routes.ts
-    │   │       │   └── user.routes.ts
-    │   │       └── services/
-    │   │           ├── auth.service.ts
-    │   │           ├── token.service.ts
-    │   │           └── user.service.ts
-    │   ├── gatewayApi/
-    │   │   ├── nodemon.json
-    │   │   ├── package.json
-    │   │   ├── tsconfig.json
-    │   │   ├── tsconfig.tsbuildinfo
-    │   │   └── src/
-    │   │       └── index.ts
-    │   ├── projectService/
-    │   │   ├── eslint.config.mjs
-    │   │   ├── nodemon.json
-    │   │   ├── package.json
-    │   │   ├── tsconfig.json
-    │   │   └── src/
-    │   │       ├── app.ts
-    │   │       ├── index.ts
-    │   │       ├── controller/
-    │   │       │   ├── organization.controller.ts
-    │   │       │   └── project.controller.ts
-    │   │       ├── repository/
-    │   │       │   ├── organization.repository.ts
-    │   │       │   └── project.repository.ts
-    │   │       ├── routes/
-    │   │       │   ├── organization.routes.ts
-    │   │       │   └── project.routes.ts
-    │   │       └── services/
-    │   │           ├── organization.service.ts
-    │   │           └── project.service.ts
-    │   ├── taskService/
-    │   │   ├── eslint.config.mjs
-    │   │   ├── nodemon.json
-    │   │   ├── package.json
-    │   │   ├── tsconfig.json
-    │   │   ├── tsconfig.tsbuildinfo
-    │   │   └── src/
-    │   │       ├── app.ts
-    │   │       ├── index.ts
-    │   │       ├── controller/
-    │   │       │   └── task.controller.ts
-    │   │       ├── interfaces/
-    │   │       │   └── task.interface.ts
-    │   │       ├── routes/
-    │   │       │   ├── asset.routes.ts
-    │   │       │   └── task.routes.ts
-    │   │       └── services/
-    │   │           └── task.service.ts
-    │   ├── uploadService/
-    │   │   ├── eslint.config.mjs
-    │   │   ├── nodemon.json
-    │   │   ├── package.json
-    │   │   ├── tsconfig.json
-    │   │   ├── tsconfig.tsbuildinfo
-    │   │   └── src/
-    │   │       ├── app.ts
-    │   │       ├── index.ts
-    │   │       ├── routes/
-    │   │       │   └── upload.routes.ts
-    │   │       └── service/
-    │   │           ├── taskHelper.service.ts
-    │   │           └── upload.service.ts
-    │   ├── web/
-    │   │   ├── README.md
-    │   │   ├── components.json
-    │   │   ├── eslint.config.js
-    │   │   ├── index.html
-    │   │   ├── package.json
-    │   │   ├── postcss.config.js
-    │   │   ├── tailwind.config.js
-    │   │   ├── tsconfig.app.json
-    │   │   ├── tsconfig.json
-    │   │   ├── tsconfig.node.json
-    │   │   ├── vite.config.ts
-    │   │   ├── public/
-    │   │   │   └── placeholder.webp
-    │   │   └── src/
-    │   │       ├── App.css
-    │   │       ├── App.tsx
-    │   │       ├── index.css
-    │   │       ├── main.tsx
-    │   │       ├── components/
-    │   │       │   ├── app-sidebar.tsx
-    │   │       │   ├── badge.tsx
-    │   │       │   ├── chart-area-interactive.tsx
-    │   │       │   ├── data-table.tsx
-    │   │       │   ├── form-alert.tsx
-    │   │       │   ├── login-form.tsx
-    │   │       │   ├── nav-documents.tsx
-    │   │       │   ├── nav-main.tsx
-    │   │       │   ├── nav-secondary.tsx
-    │   │       │   ├── nav-user.tsx
-    │   │       │   ├── section-cards.tsx
-    │   │       │   ├── Signup-form.tsx
-    │   │       │   ├── site-header.tsx
-    │   │       │   ├── UploadSection.tsx
-    │   │       │   └── ui/
-    │   │       │       ├── alert-dialog.tsx
-    │   │       │       ├── alert.tsx
-    │   │       │       ├── avatar.tsx
-    │   │       │       ├── badge.tsx
-    │   │       │       ├── breadcrumb.tsx
-    │   │       │       ├── button.tsx
-    │   │       │       ├── card.tsx
-    │   │       │       ├── chart.tsx
-    │   │       │       ├── checkbox.tsx
-    │   │       │       ├── dialog.tsx
-    │   │       │       ├── drawer.tsx
-    │   │       │       ├── dropdown-menu.tsx
-    │   │       │       ├── field.tsx
-    │   │       │       ├── input.tsx
-    │   │       │       ├── label.tsx
-    │   │       │       ├── progress.tsx
-    │   │       │       ├── select.tsx
-    │   │       │       ├── separator.tsx
-    │   │       │       ├── sheet.tsx
-    │   │       │       ├── sidebar.tsx
-    │   │       │       ├── skeleton.tsx
-    │   │       │       ├── sonner.tsx
-    │   │       │       ├── switch.tsx
-    │   │       │       ├── table.tsx
-    │   │       │       ├── tabs.tsx
-    │   │       │       ├── textarea.tsx
-    │   │       │       ├── toggle-group.tsx
-    │   │       │       ├── toggle.tsx
-    │   │       │       └── tooltip.tsx
-    │   │       ├── config/
-    │   │       │   └── axios.ts
-    │   │       ├── constants/
-    │   │       │   ├── chunkSize.ts
-    │   │       │   ├── docsType.ts
-    │   │       │   ├── statusType.ts
-    │   │       │   └── userManagementRole.ts
-    │   │       ├── helper/
-    │   │       │   ├── error.tsx
-    │   │       │   ├── fileHandling.helper.ts
-    │   │       │   ├── formatByte.ts
-    │   │       │   └── getInitials.tsx
-    │   │       ├── hooks/
-    │   │       │   ├── use-mobile.tsx
-    │   │       │   └── useUpload.ts
-    │   │       ├── interfaces/
-    │   │       │   ├── FInalizedAsset.ts
-    │   │       │   ├── projectBoard.ts
-    │   │       │   ├── Task.interface.ts
-    │   │       │   ├── TaskDetails.interfaces.ts
-    │   │       │   ├── upload.interface.ts
-    │   │       │   └── uploadSection.interface.ts
-    │   │       ├── json/
-    │   │       │   └── data.json
-    │   │       ├── lib/
-    │   │       │   ├── api-endpints.ts
-    │   │       │   ├── roteGuard.tsx
-    │   │       │   └── utils.ts
-    │   │       ├── pages/
-    │   │       │   ├── Accounts.tsx
-    │   │       │   ├── Dashboard.tsx
-    │   │       │   ├── RequestOrg.tsx
-    │   │       │   ├── SettinPage.tsx
-    │   │       │   ├── SuperAdminPage.tsx
-    │   │       │   ├── TaskDetails.tsx
-    │   │       │   ├── Usermanagementpage.tsx
-    │   │       │   ├── auth/
-    │   │       │   │   ├── ForgotPassword.tsx
-    │   │       │   │   ├── Login.tsx
-    │   │       │   │   ├── ResetPassword.tsx
-    │   │       │   │   ├── Signup.tsx
-    │   │       │   │   └── verifyEmail.tsx
-    │   │       │   └── projects/
-    │   │       │       ├── Finalizedassetspage.tsx
-    │   │       │       ├── MytaskPage.tsx
-    │   │       │       ├── Project.layout.tsx
-    │   │       │       ├── ProjectBoard.tsx
-    │   │       │       ├── ProjectMember.tsx
-    │   │       │       ├── Projectpage.tsx
-    │   │       │       ├── ProjectReport.tsx
-    │   │       │       ├── ProjectReviewPage.tsx
-    │   │       │       └── ProjectUpload.tsx
-    │   │       ├── services/
-    │   │       │   ├── AdminUser.service.ts
-    │   │       │   ├── Project.service.ts
-    │   │       │   ├── SuperAdmin.service.ts
-    │   │       │   ├── task.service.ts
-    │   │       │   └── user.service.ts
-    │   │       ├── store/
-    │   │       │   └── auth.store.ts
-    │   │       └── validations/
-    │   │           ├── createTask.validations.ts
-    │   │           └── userManagement.validations.ts
-    │   └── worker/
-    │       ├── eslint.config.mjs
-    │       ├── nodemon.json
-    │       ├── package.json
-    │       ├── tsconfig.json
-    │       ├── tsconfig.tsbuildinfo
-    │       └── src/
-    │           ├── asset.processor.ts
-    │           ├── index.ts
-    │           └── processior/
-    │               ├── image.processor.ts
-    │               └── video.processor.ts
-    ├── Docker/
-    │   ├── authservice.Dockerfile
-    │   ├── gateway.Dockerfile
-    │   ├── projectservice.Dockerfile
-    │   ├── taskService.Dockerfile
-    │   └── web.Dockerfile
-    ├── infra/
-    │   └── nginx/
-    │       └── default.conf
-    ├── packages/
-    │   ├── common/
-    │   │   ├── package.json
-    │   │   ├── tsconfig.json
-    │   │   └── src/
-    │   │       ├── index.ts
-    │   │       ├── repository/
-    │   │       │   └── auth.repository.ts
-    │   │       └── services/
-    │   │           ├── activity.service.ts
-    │   │           ├── permission.service.ts
-    │   │           └── token.service.ts
-    │   ├── config/
-    │   │   ├── eslint.config.mjs
-    │   │   ├── package.json
-    │   │   ├── tsconfig.json
-    │   │   └── src/
-    │   │       ├── env.config.ts
-    │   │       ├── index.ts
-    │   │       ├── logger.config.ts
-    │   │       ├── mail.config.ts
-    │   │       ├── minio.config.ts
-    │   │       ├── rabbitmq.config.ts
-    │   │       └── tus.config.ts
-    │   ├── constants/
-    │   │   ├── eslint.config.mjs
-    │   │   ├── package.json
-    │   │   ├── tsconfig.json
-    │   │   └── src/
-    │   │       └── index.ts
-    │   ├── eslint-config/
-    │   │   ├── README.md
-    │   │   ├── base.js
-    │   │   ├── next.js
-    │   │   ├── package.json
-    │   │   └── react-internal.js
-    │   ├── mail/
-    │   │   ├── package.json
-    │   │   ├── tsconfig.json
-    │   │   └── src/
-    │   │       ├── index.ts
-    │   │       └── templates/
-    │   │           ├── reset.template.ts
-    │   │           └── verification.template.ts
-    │   ├── middlewares/
-    │   │   ├── package.json
-    │   │   ├── tsconfig.json
-    │   │   └── src/
-    │   │       ├── auth.middleware.ts
-    │   │       ├── error.middleware.ts
-    │   │       ├── index.ts
-    │   │       ├── ratelimitor.middleware.ts
-    │   │       ├── rbac.middleware.ts
-    │   │       └── validation.middleware.ts
-    │   ├── mongodb/
-    │   │   ├── package.json
-    │   │   ├── tsconfig.json
-    │   │   └── src/
-    │   │       ├── connection.ts
-    │   │       ├── index.ts
-    │   │       ├── interfaces/
-    │   │       │   └── index.interface.ts
-    │   │       └── models/
-    │   │           ├── asset.models.ts
-    │   │           ├── assetVariants.models.ts
-    │   │           ├── comments.model.ts
-    │   │           ├── notifications.models.ts
-    │   │           └── tags.models.ts
-    │   ├── postgresql_db/
-    │   │   ├── index.ts
-    │   │   ├── package.json
-    │   │   ├── prisma.config.ts
-    │   │   ├── seed.ts
-    │   │   ├── tsconfig.json
-    │   │   └── prisma/
-    │   │       ├── schema.prisma
-    │   │       └── migrations/
-    │   │           ├── migration_lock.toml
-    │   │           ├── 20260215061437_user_schema/
-    │   │           │   └── migration.sql
-    │   │           ├── 20260215114552_added_user_alltokenverification_organization_project_module_tasks_members_timelog_activitylog_all_role_permission_enums/
-    │   │           │   └── migration.sql
-    │   │           ├── 20260224065428_add_org_status/
-    │   │           │   └── migration.sql
-    │   │           ├── 20260224101055_added_relations_ship_betwen_orgs_and_project_memebers/
-    │   │           │   └── migration.sql
-    │   │           ├── 20260224101527_add_optional_for_project_id_for_project_team_member/
-    │   │           │   └── migration.sql
-    │   │           ├── 20260224102952_add_one_one_member_have_multiple_projects/
-    │   │           │   └── migration.sql
-    │   │           ├── 20260225091433_remove_the_cascade_proerty_from_activitylogs/
-    │   │           │   └── migration.sql
-    │   │           ├── 20260226064212_update_project_id_user_id_as_uniqueness/
-    │   │           │   └── migration.sql
-    │   │           ├── 20260226082317_remove_module/
-    │   │           │   └── migration.sql
-    │   │           ├── 20260226090654_add_optioal_for_project/
-    │   │           │   └── migration.sql
-    │   │           ├── 20260301120328_added_stat_and_end_time_timelog/
-    │   │           │   └── migration.sql
-    │   │           ├── 20260303062547_add_project_id_in_approval_model/
-    │   │           │   └── migration.sql
-    │   │           └── 20260305105931_add_orgnanization_requst_access/
-    │   │               └── migration.sql
-    │   ├── repository/
-    │   │   ├── package.json
-    │   │   ├── tsconfig.json
-    │   │   ├── tsconfig.tsbuildinfo
-    │   │   └── src/
-    │   │       ├── index.ts
-    │   │       ├── approvalrepository/
-    │   │       │   └── approval.repository.ts
-    │   │       ├── assetrepository/
-    │   │       │   └── asset.repository.ts
-    │   │       ├── assetVariants/
-    │   │       │   └── assetVariants.repository.ts
-    │   │       ├── interfaces/
-    │   │       │   └── task.interface.ts
-    │   │       ├── taskrepository/
-    │   │       │   └── task.repository.ts
-    │   │       └── timelogRepo/
-    │   │           └── timelog.repository.ts
-    │   ├── typescript-config/
-    │   │   ├── base.json
-    │   │   ├── nextjs.json
-    │   │   ├── package.json
-    │   │   └── react-library.json
-    │   ├── utils/
-    │   │   ├── package.json
-    │   │   ├── tsconfig.json
-    │   │   └── src/
-    │   │       ├── apiError.utils.ts
-    │   │       ├── apiResponce.utils.ts
-    │   │       ├── asyncHandler.utils.ts
-    │   │       └── index.ts
-    │   └── validations/
-    │       ├── package.json
-    │       ├── tsconfig.json
-    │       └── src/
-    │           ├── index.ts
-    │           ├── auth/
-    │           │   └── auth.validations.ts
-    │           ├── orgs/
-    │           │   └── orgs.validations.ts
-    │           ├── project/
-    │           │   └── project.validation.ts
-    │           ├── tasks/
-    │           │   └── task.validatiaon.ts
-    │           └── user/
-    │               └── user.validations.ts
-    └── .husky/
-        ├── commit-msg
-        └── pre-commit
+# AXON
 
+A scalable, microservices-based project and asset management platform.
+
+---
+
+## Table of Contents
+
+- [Overview](#overview)
+- [Architecture](#architecture)
+- [Database Schema](#database-schema)
+- [Tech Stack](#tech-stack)
+- [Services](#services)
+- [Project Structure](#project-structure)
+- [Getting Started](#getting-started)
+- [Environment Variables](#environment-variables)
+- [Running with Docker](#running-with-docker)
+- [Development](#development)
+- [Testing](#testing)
+- [Contributing](#contributing)
+- [License](#license)
+
+---
+
+## Overview
+
+AXON is a full-stack, production-grade project management and digital asset platform built on a microservices architecture. It supports multi-organization workspaces, role-based access control, project boards, task management, file uploads, asset versioning, analytics reporting, and more.
+
+### Key Features
+
+- Multi-Organization Support — Manage multiple organizations with request-based onboarding
+- Project and Task Management — Kanban-style boards, task assignments, time logging, and activity tracking
+- Asset Management — Upload, version, and review digital assets with approval workflows
+- Analytics and Reporting — Platform-wide and project-level reports with PDF export
+- Auth and RBAC — JWT-based authentication, email verification, and granular role/permission system
+- Email Notifications — Templated emails for verification, password reset, and reports
+- Background Workers — Asynchronous image/video processing and report generation via RabbitMQ
+
+---
+
+## Architecture
+
+> Place your architecture diagram image here.
+
+> ![Architecture Diagram](./public/ReadmeAssets/arch.png)
+
+The platform follows a microservices architecture where each service is independently deployable and communicates via an API Gateway (NGINX) and a message broker (RabbitMQ). The frontend is a React SPA that communicates exclusively through the gateway.
+
+```
+Client (React)
+     |
+  NGINX Gateway
+     |
+  ┌──────────────────────────────────────────────┐
+  |  authService    |  projectService            |
+  |  taskService    |  assetService              |
+  |  uploadService  |  analyticalService         |
+  └──────────────────────────────────────────────┘
+          |                        |
+   PostgreSQL (Prisma)          MongoDB
+          |
+       Redis
+          |
+    RabbitMQ --> Worker (image, video, report processing)
+          |
+        MinIO (object storage)
+```
+
+---
+
+## Database Schema
+
+> Place your database schema / ER diagram image here.
+
+> ![Database Schema](./public/ReadmeAssets/db.png)
+
+
+AXON uses a hybrid database approach:
+
+- **PostgreSQL** (via Prisma ORM) — stores users, organizations, projects, tasks, members, roles, permissions, time logs, activity logs, approvals, and access requests.
+- **MongoDB** (via Mongoose) — stores assets, asset variants, comments, notifications, and tags.
+
+---
+
+## Tech Stack
+
+| Layer              | Technology                                       |
+|--------------------|--------------------------------------------------|
+| Frontend           | React, TypeScript, Vite, Tailwind CSS, shadcn/ui |
+| Backend Services   | Node.js, Express, TypeScript                     |
+| Primary Database   | PostgreSQL with Prisma ORM                       |
+| Secondary Database | MongoDB with Mongoose                            |
+| Cache              | Redis                                            |
+| Message Broker     | RabbitMQ                                         |
+| Object Storage     | MinIO                                            |
+| File Uploads       | TUS Protocol                                     |
+| Auth               | JWT (access + refresh tokens)                    |
+| Email              | Nodemailer with custom templates                 |
+| Gateway / Proxy    | NGINX                                            |
+| Monorepo Tooling   | Turborepo, pnpm workspaces                       |
+| Containerization   | Docker, Docker Compose                           |
+| Testing            | Vitest                                           |
+| Linting            | ESLint, Prettier                                 |
+| Commit Linting     | commitlint, Husky                                |
+
+---
+
+## Services
+
+| Service               | Description                                                                  |
+|-----------------------|------------------------------------------------------------------------------|
+| `gatewayApi`          | NGINX-based API gateway. Single entry point for all client requests.         |
+| `authService`         | Handles registration, login, email verification, password reset, and tokens. |
+| `projectService`      | Manages organizations, projects, and project members.                        |
+| `taskService`         | Manages tasks, comments, time logs, and activity.                            |
+| `assetService`        | Handles asset uploads, versioning, variants, and approval workflows.         |
+| `uploadService`       | Manages chunked file uploads using the TUS protocol.                         |
+| `analyticalService`   | Generates platform-wide, org-level, and project-level analytics.             |
+| `worker`              | Background processor for image/video transcoding and PDF report generation.  |
+| `web`                 | React frontend SPA.                                                          |
+
+---
+
+## Project Structure
+
+```
+AXON/
+├── apps/
+│   ├── analyticalService/
+│   │   └── src/
+│   │       ├── controller/
+│   │       │   ├── analytics.controller.ts
+│   │       │   └── report.controller.ts
+│   │       └── routes/
+│   │           └── analytics.routes.ts
+│   ├── assetService/
+│   │   └── src/
+│   │       ├── controller/
+│   │       │   ├── asset.controller.ts
+│   │       │   └── assetVariants.controller.ts
+│   │       ├── routes/
+│   │       │   ├── asset.routes.ts
+│   │       │   └── assetVariant.routes.ts
+│   │       └── service/
+│   │           ├── asset.service.ts
+│   │           ├── assetVariant.service.ts
+│   │           └── VariantQueue.service.ts
+│   ├── authService/
+│   │   └── src/
+│   │       ├── controller/
+│   │       │   ├── auth.controller.ts
+│   │       │   └── user.controller.ts
+│   │       ├── routes/
+│   │       │   ├── auth.routes.ts
+│   │       │   └── user.routes.ts
+│   │       └── services/
+│   │           ├── auth.service.ts
+│   │           ├── token.service.ts
+│   │           └── user.service.ts
+│   ├── gatewayApi/
+│   │   └── src/
+│   │       └── index.ts
+│   ├── projectService/
+│   │   └── src/
+│   │       ├── controller/
+│   │       │   ├── organization.controller.ts
+│   │       │   └── project.controller.ts
+│   │       ├── routes/
+│   │       │   ├── organization.routes.ts
+│   │       │   └── project.routes.ts
+│   │       └── services/
+│   │           ├── organization.service.ts
+│   │           └── project.service.ts
+│   ├── taskService/
+│   │   └── src/
+│   │       ├── controller/
+│   │       │   ├── comment.controller.ts
+│   │       │   └── task.controller.ts
+│   │       ├── routes/
+│   │       │   ├── comment.routes.ts
+│   │       │   └── task.routes.ts
+│   │       └── services/
+│   │           ├── comment.service.ts
+│   │           └── task.service.ts
+│   ├── uploadService/
+│   │   └── src/
+│   │       ├── routes/
+│   │       │   └── upload.routes.ts
+│   │       └── service/
+│   │           ├── taskHelper.service.ts
+│   │           └── upload.service.ts
+│   ├── web/
+│   │   └── src/
+│   │       ├── components/
+│   │       ├── config/
+│   │       ├── constants/
+│   │       ├── helper/
+│   │       ├── hooks/
+│   │       ├── interfaces/
+│   │       ├── lib/
+│   │       ├── pages/
+│   │       │   ├── auth/
+│   │       │   ├── dashboard/
+│   │       │   └── projects/
+│   │       ├── services/
+│   │       ├── store/
+│   │       └── validations/
+│   └── worker/
+│       └── src/
+│           ├── helper/
+│           │   ├── dashboardData.ts
+│           │   └── pdfKit.helper.ts
+│           └── processior/
+│               ├── image.processor.ts
+│               ├── report.processor.ts
+│               └── video.processor.ts
+├── packages/
+│   ├── common/             # Shared services (analytics, permissions, reports, tokens)
+│   ├── config/             # Env, logger, mail, MinIO, RabbitMQ, Redis, TUS configs
+│   ├── constants/          # Shared constants
+│   ├── mail/               # Email templates (verification, reset, report)
+│   ├── middlewares/        # Auth, RBAC, rate limiter, error, validation middlewares
+│   ├── mongodb/            # MongoDB connection and models
+│   ├── postgresql_db/      # Prisma schema, migrations, and seed
+│   ├── repository/         # Data access layer for all entities
+│   ├── utils/              # API error/response helpers, async handler, date range
+│   └── validations/        # Zod schemas for auth, orgs, projects, tasks, users
+├── infra/
+│   └── nginx/
+│       └── default.conf
+├── Docker/                 # Per-service Dockerfiles
+├── docker-compose.yml
+├── docker-compose.dev.yml
+├── turbo.json
+├── pnpm-workspace.yaml
+└── .env.example
+```
+
+---
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js >= 18
+- pnpm >= 8
+- Docker and Docker Compose
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/your-org/axon.git
+cd axon
+
+# Install dependencies
+pnpm install
+
+# Copy environment variables
+cp .env.example .env
+```
+
+Fill in the required values in `.env` before proceeding.
+
+---
+
+## Environment Variables
+
+Refer to `.env.example` for the full list of required variables. The key groups are:
+
+| Group       | Variables                                                  |
+|-------------|------------------------------------------------------------|
+| Database    | `DATABASE_URL` (PostgreSQL), `MONGODB_URI`                 |
+| Redis       | `REDIS_HOST`, `REDIS_PORT`                                 |
+| RabbitMQ    | `RABBITMQ_URL`                                             |
+| MinIO       | `MINIO_ENDPOINT`, `MINIO_ACCESS_KEY`, `MINIO_SECRET_KEY`   |
+| Auth        | `JWT_ACCESS_SECRET`, `JWT_REFRESH_SECRET`                  |
+| Mail        | `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`         |
+| Services    | Individual `PORT` values for each microservice             |
+
+---
+
+## Running with Docker
+
+### Production
+
+```bash
+docker-compose up --build
+```
+
+### Development
+
+```bash
+docker-compose -f docker-compose.dev.yml up --build
+```
+
+This starts all services with hot-reload enabled via nodemon.
+
+---
+
+## Development
+
+### Running a specific service locally
+
+```bash
+# Run only the authService in dev mode
+pnpm --filter authService dev
+
+# Run the web frontend
+pnpm --filter web dev
+```
+
+### Running all services
+
+```bash
+pnpm dev
+```
+
+Turborepo handles task orchestration and caching across the monorepo.
+
+### Linting and Formatting
+
+```bash
+# Lint all packages
+pnpm lint
+
+# Format all packages
+pnpm format
+```
+
+### Commit Convention
+
+This project enforces [Conventional Commits](https://www.conventionalcommits.org/) via commitlint and Husky.
+
+```bash
+# Valid commit format
+git commit -m "feat(taskService): add time log endpoint"
+git commit -m "fix(authService): handle expired refresh token"
+```
+
+---
+
+## Testing
+
+Each service has its own test suite powered by Vitest.
+
+```bash
+# Run tests for all services
+pnpm test
+
+# Run tests for a specific service
+pnpm --filter authService test
+
+# Run tests for a specific service in watch mode
+pnpm --filter authService test --watch
+```
+
+Test files are colocated with their source under each service's `src/tests/` directory, organized by layer (controllers, services, routes, repositories).
+
+---
+
+## Contributing
+
+Please read [CONTRIBUTING.md](./CONTRIBUTING.md) before submitting a pull request. All contributors are expected to follow the [Code of Conduct](./CODE_OF_CONDUCT.md).
+
+---
+
+## License
+
+This project is licensed under the terms of the [MIT License](./LICENSE).

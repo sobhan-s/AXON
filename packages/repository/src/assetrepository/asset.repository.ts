@@ -19,12 +19,12 @@ export class AssetRepository {
 
     const result = await Promise.all(
       assets.map(async (asset) => {
-        const originalUrl = await minioGetPresignedUrl(asset.filename, 7200);
+        const originalUrl = await minioGetPresignedUrl(asset.filename, 360);
 
         const thumbnailUrl = asset.thumbnailUrl
           ? await minioGetPresignedUrl(
               asset.filename.replace(/(\.[^.]+)$/, '_thumb.jpg'),
-              3600,
+              360,
             )
           : originalUrl;
 
@@ -53,13 +53,13 @@ export class AssetRepository {
 
     const result = await Promise.all(
       assets.map(async (asset) => {
-        const originalUrl = await minioGetPresignedUrl(asset.filename, 3600);
+        const originalUrl = await minioGetPresignedUrl(asset.filename, 360);
         const user = await this.authRepo.findUserById(Number(asset.uploadedBy));
 
         const thumbnailUrl = asset.thumbnailUrl
           ? await minioGetPresignedUrl(
               asset.filename.replace(/(\.[^.]+)$/, '_thumb.jpg'),
-              3600,
+              360,
             )
           : originalUrl;
 
@@ -101,12 +101,12 @@ export class AssetRepository {
 
     const result = await Promise.all(
       assets.map(async (asset) => {
-        const originalUrl = await minioGetPresignedUrl(asset.filename, 3600);
+        const originalUrl = await minioGetPresignedUrl(asset.filename, 360);
 
         const thumbnailUrl = asset.thumbnailUrl
           ? await minioGetPresignedUrl(
               asset.filename.replace(/(\.[^.]+)$/, '_thumb.jpg'),
-              3600,
+              360,
             )
           : originalUrl;
 
@@ -121,7 +121,7 @@ export class AssetRepository {
     return result;
   }
 
-  async getDownloadUrl(assetId: string, expirySeconds = 7200) {
+  async getDownloadUrl(assetId: string, expirySeconds = 360) {
     const asset = await Asset.findOne({
       _id: assetId,
       deletedAt: null,

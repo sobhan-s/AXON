@@ -3,7 +3,7 @@ import { Asset, AssetVariant } from '@dam/mongodb';
 import { ApiError } from '@dam/utils';
 
 export class AssetVariantRepository {
-  async getVariantDownloadUrl(filename: string, expirySeconds = 7200) {
+  async getVariantDownloadUrl(filename: string, expirySeconds = 360) {
     try {
       const url = await minioGetPresignedUrl(filename, expirySeconds);
 

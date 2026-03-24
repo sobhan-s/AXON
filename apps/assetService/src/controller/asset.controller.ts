@@ -65,7 +65,7 @@ export const generateDownloadUrl: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Generating download URL');
 
-    const expiry = req.query.expiry ? Number(req.query.expiry) : 3600;
+    const expiry = req.query.expiry ? Number(req.query.expiry) : 360;
 
     const result = await assetService.getDownloadUrl(
       String(req.params.assetId),

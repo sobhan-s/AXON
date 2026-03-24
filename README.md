@@ -28,13 +28,13 @@ AXON is a full-stack, production-grade project management and digital asset plat
 
 ### Key Features
 
-- Multi-Organization Support — Manage multiple organizations with request-based onboarding
-- Project and Task Management — Kanban-style boards, task assignments, time logging, and activity tracking
-- Asset Management — Upload, version, and review digital assets with approval workflows
-- Analytics and Reporting — Platform-wide and project-level reports with PDF export
-- Auth and RBAC — JWT-based authentication, email verification, and granular role/permission system
-- Email Notifications — Templated emails for verification, password reset, and reports
-- Background Workers — Asynchronous image/video processing and report generation via RabbitMQ
+- Multi-Organization Support - Manage multiple organizations with request-based onboarding
+- Project and Task Management - Jira style compliance boards, task assignments, time logging, and activity tracking
+- Asset Management - Upload, version, and review digital assets with approval workflows
+- Analytics and Reporting - Platform-wide and project-level reports with PDF export
+- Auth and RBAC - JWT-based authentication, email verification, and granular role/permission system
+- Email Notifications - Templated emails for verification, password reset, and reports
+- Background Workers - Asynchronous image/video processing and report generation via RabbitMQ
 
 ---
 
@@ -53,8 +53,8 @@ The platform follows a microservices architecture where each service is independ
 
 AXON uses a hybrid database approach:
 
-- **PostgreSQL** (via Prisma ORM) — stores users, organizations, projects, tasks, members, roles, permissions, time logs, activity logs, approvals, and access requests.
-- **MongoDB** (via Mongoose) — stores assets, asset variants, comments, notifications, and tags.
+- **PostgreSQL** (via Prisma ORM) - stores users, organizations, projects, tasks, members, roles, permissions, time logs, activity logs, approvals, and access requests.
+- **MongoDB** (via Mongoose) - stores assets, asset variants, comments, notifications, and tags.
 
 ---
 

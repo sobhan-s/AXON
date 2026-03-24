@@ -5,6 +5,7 @@ import { ProjectServices } from '../services/project.service.js';
 
 const projectService = new ProjectServices();
 
+/* Create a new project under an organization */
 export const createProject: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Creation of project in controller called  . . .');
@@ -30,6 +31,7 @@ export const createProject: RequestHandler = asyncHandler(
   },
 );
 
+/* Fetch all projects for a specific organization */
 export const getAllProjects: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('start fetching all project of organization ');
@@ -45,6 +47,7 @@ export const getAllProjects: RequestHandler = asyncHandler(
   },
 );
 
+/* Fetch projects assigned to the logged-in user */
 export const getMyProjects: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('get my project controller has stated');
@@ -62,6 +65,7 @@ export const getMyProjects: RequestHandler = asyncHandler(
   },
 );
 
+/* Fetch project details by ID */
 export const getProjectById: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Get projet by id controller has stated . . .');
@@ -77,6 +81,7 @@ export const getProjectById: RequestHandler = asyncHandler(
   },
 );
 
+/* Update project details */
 export const updateProject: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('update project controller has been stated');
@@ -93,6 +98,7 @@ export const updateProject: RequestHandler = asyncHandler(
   },
 );
 
+/* Assign a manager to a project */
 export const addManager: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Adding a manager to the project has been stated');
@@ -127,6 +133,7 @@ export const addManager: RequestHandler = asyncHandler(
   },
 );
 
+/* Archive a project */
 export const archiveProject: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Archive Pojects controller stated');
@@ -143,6 +150,7 @@ export const archiveProject: RequestHandler = asyncHandler(
   },
 );
 
+/* Delete a project */
 export const deleteProject: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Project deliton process stated from controller . . . ');
@@ -159,6 +167,7 @@ export const deleteProject: RequestHandler = asyncHandler(
   },
 );
 
+/* Add a team member to a project */
 export const addTeamMember: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Adding team member controlle has been statend ');
@@ -178,6 +187,7 @@ export const addTeamMember: RequestHandler = asyncHandler(
   },
 );
 
+/* Remove a team member from a project */
 export const removeTeamMember: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const userId = req.user?.id as number;
@@ -198,6 +208,7 @@ export const removeTeamMember: RequestHandler = asyncHandler(
   },
 );
 
+/* Fetch all team members of a project */
 export const getTeamMembers: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Get team member controller has been stated . . . ');

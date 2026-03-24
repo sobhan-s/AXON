@@ -40,37 +40,13 @@ AXON is a full-stack, production-grade project management and digital asset plat
 
 ## Architecture
 
-> Place your architecture diagram image here.
-
 > ![Architecture Diagram](./public/ReadmeAssets/arch.png)
 
 The platform follows a microservices architecture where each service is independently deployable and communicates via an API Gateway (NGINX) and a message broker (RabbitMQ). The frontend is a React SPA that communicates exclusively through the gateway.
 
-```
-Client (React)
-     |
-  NGINX Gateway
-     |
-  ┌──────────────────────────────────────────────┐
-  |  authService    |  projectService            |
-  |  taskService    |  assetService              |
-  |  uploadService  |  analyticalService         |
-  └──────────────────────────────────────────────┘
-          |                        |
-   PostgreSQL (Prisma)          MongoDB
-          |
-       Redis
-          |
-    RabbitMQ --> Worker (image, video, report processing)
-          |
-        MinIO (object storage)
-```
-
 ---
 
 ## Database Schema
-
-> Place your database schema / ER diagram image here.
 
 > ![Database Schema](./public/ReadmeAssets/db.png)
 

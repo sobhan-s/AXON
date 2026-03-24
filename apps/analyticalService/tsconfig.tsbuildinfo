@@ -1,1 +1,1 @@
-{"root":["./src/app.ts","./src/index.ts","./src/controller/analytics.controller.ts","./src/controller/report.controller.ts","./src/routes/analytics.routes.ts"],"version":"5.9.2"}
+{"root":["./src/app.ts","./src/index.ts","./src/controller/analytics.controller.ts","./src/controller/report.controller.ts","./src/routes/analytics.routes.ts","./src/tests/controllers/analytics.controller.test.ts","./src/tests/controllers/report.controller.test.ts","./src/tests/helper/mockResponse.ts","./src/tests/routes/analytics.routes.test.ts"],"version":"5.9.2"}

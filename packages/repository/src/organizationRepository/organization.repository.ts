@@ -1,5 +1,5 @@
 import { logger, tusDeleteTempFile, tusParseMetadata } from '@dam/config';
-import { prisma } from '../index.js';
+import { PostgresClient as prisma } from '@dam/postgresql_db';
 import { ApiError, ApiResponse } from '@dam/utils';
 import { ApprovalStatus, OrganizationStatus } from '@dam/postgresql_db';
 

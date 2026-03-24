@@ -10,6 +10,9 @@ const orgService = new OrgDashboardService();
 const platformService = new PlatformDashboardService();
 const projectService = new ProjectDashboardService();
 
+/*
+  Fetch organization overview dashboard data
+*/
 export const orgOverview: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const orgId = Number(req.params.orgId);
@@ -28,6 +31,9 @@ export const orgOverview: RequestHandler = asyncHandler(
   },
 );
 
+/*
+  Fetch platform-wide dashboard data
+*/
 export const platformOverview: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const range = parseDateRange(req);
@@ -39,6 +45,9 @@ export const platformOverview: RequestHandler = asyncHandler(
   },
 );
 
+/*
+  Fetch project-specific dashboard data
+*/
 export const projectOverview: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const projectId = Number(req.params.projectId);

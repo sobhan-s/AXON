@@ -6,6 +6,7 @@ import { logger } from '@dam/config';
 
 const taskService = new TaskService();
 
+/* Create a manual task for a project */
 export const createManualTask: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('create manually tasks in cotrollers  . . . ');
@@ -29,6 +30,7 @@ export const createManualTask: RequestHandler = asyncHandler(
   },
 );
 
+/* Get all tasks for a specific project with optional filters */
 export const getProjectTasks: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Fetching tasks by there projects . . . ');
@@ -52,6 +54,7 @@ export const getProjectTasks: RequestHandler = asyncHandler(
   },
 );
 
+/* Get a specific task by taskId */
 export const getTaskById: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('fetcing tasks by there id  . . .');
@@ -65,6 +68,7 @@ export const getTaskById: RequestHandler = asyncHandler(
   },
 );
 
+/* Get all tasks assigned to the authenticated user with optional filters */
 export const getMyTasks: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('get self taks  . . .');
@@ -81,6 +85,7 @@ export const getMyTasks: RequestHandler = asyncHandler(
   },
 );
 
+/* Get all overdue tasks for a project */
 export const getOverdueTasks: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('get overdue taks contorller . . .');
@@ -94,6 +99,7 @@ export const getOverdueTasks: RequestHandler = asyncHandler(
   },
 );
 
+/* Get all overdue tasks assigned to the authenticated user */
 export const getMyOverdueTasks: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Get over due task sfor admin leve');
@@ -108,6 +114,7 @@ export const getMyOverdueTasks: RequestHandler = asyncHandler(
   },
 );
 
+/* Update a task's details */
 export const updateTask: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Update takss in contrller level');
@@ -132,6 +139,7 @@ export const updateTask: RequestHandler = asyncHandler(
   },
 );
 
+/* Change the status of a task */
 export const changeStatus: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Change status start in contrller level');
@@ -156,6 +164,7 @@ export const changeStatus: RequestHandler = asyncHandler(
   },
 );
 
+/* Assign a task to a user */
 export const assignTask: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const { assignedToId } = req.body;
@@ -172,6 +181,7 @@ export const assignTask: RequestHandler = asyncHandler(
   },
 );
 
+/* Delete a specific task */
 export const deleteTask: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     await taskService.deleteTask(
@@ -186,6 +196,7 @@ export const deleteTask: RequestHandler = asyncHandler(
   },
 );
 
+/* Bulk assign tasks to a user */
 export const bulkAssign: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const { taskIds, assignedToId } = req.body;
@@ -200,6 +211,7 @@ export const bulkAssign: RequestHandler = asyncHandler(
   },
 );
 
+/* Bulk change status of multiple tasks */
 export const bulkChangeStatus: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const { taskIds, status } = req.body;
@@ -214,6 +226,7 @@ export const bulkChangeStatus: RequestHandler = asyncHandler(
   },
 );
 
+/* Bulk delete tasks */
 export const bulkDelete: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const { taskIds } = req.body;
@@ -227,6 +240,7 @@ export const bulkDelete: RequestHandler = asyncHandler(
   },
 );
 
+/* Get all approvals for a specific task */
 export const getApprovals: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const approvals = await taskService.getApprovals(
@@ -237,6 +251,7 @@ export const getApprovals: RequestHandler = asyncHandler(
   },
 );
 
+/* Get all pending approvals for a project */
 export const getPendingApprovals: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const approvals = await taskService.getPendingApprovals(
@@ -248,6 +263,7 @@ export const getPendingApprovals: RequestHandler = asyncHandler(
   },
 );
 
+/* Get all time logs for a specific task */
 export const getTimeLogs: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const result = await taskService.getTimeLogs(
@@ -258,6 +274,7 @@ export const getTimeLogs: RequestHandler = asyncHandler(
   },
 );
 
+/* Delete a specific time log from a task */
 export const deleteTimeLog: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     await taskService.deleteTimeLog(

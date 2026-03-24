@@ -5,6 +5,7 @@ import { Request, Response } from 'express';
 
 const commentService = new CommentService();
 
+/* Create a new comment for a task */
 export const createComment: RequestHandler = asyncHandler(async (req, res) => {
   const userId = req.user?.id as number;
 
@@ -18,6 +19,7 @@ export const createComment: RequestHandler = asyncHandler(async (req, res) => {
   res.status(201).json(new ApiResponse(201, comment, 'Comment created'));
 });
 
+/* Update an existing comment by commentId */
 export const updateComment: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const userId = Number(req.user?.id);
@@ -36,6 +38,7 @@ export const updateComment: RequestHandler = asyncHandler(
   },
 );
 
+/* Fetch all comments for a specific task */
 export const getTaskComments: RequestHandler = asyncHandler(
   async (req, res) => {
     const comments = await commentService.getTaskComments(
@@ -46,6 +49,7 @@ export const getTaskComments: RequestHandler = asyncHandler(
   },
 );
 
+/* Delete a comment by commentId */
 export const deleteComment: RequestHandler = asyncHandler(async (req, res) => {
   const userId = req.user?.id as number;
 

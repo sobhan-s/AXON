@@ -12,13 +12,18 @@ const router: IRouter = Router();
 router.use(authMiddleware);
 // router.use(requireProjectAccess);
 
-router.route('/:projectId/create').post(requireProjectAccess,createComment);
+// Create a comment for a specific project
+router.route('/:projectId/create').post(requireProjectAccess, createComment);
 
-router.route('/:projectId/task/:taskId').get(getTaskComments);
+// Get all comments for a specific task within a project
+router
+  .route('/:projectId/task/:taskId')
+  .get(requireProjectAccess, getTaskComments);
 
+// Update or delete a specific comment
 router
   .route('/:projectId/:commentId')
-  .patch(updateComment)
-  .delete(deleteComment);
+  .patch(requireProjectAccess, updateComment)
+  .delete(requireProjectAccess, deleteComment);
 
 export default router;

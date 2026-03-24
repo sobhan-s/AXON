@@ -6,6 +6,7 @@ import { logger } from '@dam/config';
 
 const assetVariantService = new AssetVariantService();
 
+/* Request generation of asset variants and queue processing */
 export const requestVariants: RequestHandler = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -40,6 +41,7 @@ export const requestVariants: RequestHandler = asyncHandler(
   },
 );
 
+/* Fetch all variants of an asset along with processing status */
 export const getVariants: RequestHandler = asyncHandler(
   async (req: Request, res: Response, next: NextFunction) => {
     try {
@@ -70,6 +72,7 @@ export const getVariants: RequestHandler = asyncHandler(
   },
 );
 
+/* Generate download URL for a specific asset variant */
 export const getVariantDownloadUrl: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('getting the download url of varinats');

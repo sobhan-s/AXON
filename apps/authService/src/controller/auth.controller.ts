@@ -33,6 +33,7 @@ const accessTokenCookieOptions = {
   maxAge: 20 * 60 * 1000,
 };
 
+/* Register a new user and send email verification */
 export const register: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const parsed = registerSchema.safeParse(req.body);
@@ -57,6 +58,7 @@ export const register: RequestHandler = asyncHandler(
   },
 );
 
+/* Authenticate user and issue access & refresh tokens */
 export const login: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const parsed = loginSchema.safeParse(req.body);
@@ -99,6 +101,7 @@ export const login: RequestHandler = asyncHandler(
   },
 );
 
+/* Verify user email using verification token */
 export const verifyEmail: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const parsed = verifyEmailSchema.safeParse(req.query);
@@ -114,6 +117,7 @@ export const verifyEmail: RequestHandler = asyncHandler(
   },
 );
 
+/* Refresh access and refresh tokens */
 export const refreshToken: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const token =
@@ -148,6 +152,7 @@ export const refreshToken: RequestHandler = asyncHandler(
   },
 );
 
+/* Logout user and invalidate refresh token */
 export const logout: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const token =
@@ -173,6 +178,7 @@ export const logout: RequestHandler = asyncHandler(
   },
 );
 
+/* Logout user from all devices */
 export const logoutAllDevices: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const userId = req.user?.id as number;
@@ -192,6 +198,7 @@ export const logoutAllDevices: RequestHandler = asyncHandler(
   },
 );
 
+/* Send password reset link to user's email */
 export const forgotPassword: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const parsed = forgotPasswordSchema.safeParse(req.body);
@@ -213,6 +220,7 @@ export const forgotPassword: RequestHandler = asyncHandler(
   },
 );
 
+/* Reset user password using reset token */
 export const resetPassword: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const queryData = req.query.token as string;
@@ -239,6 +247,7 @@ export const resetPassword: RequestHandler = asyncHandler(
   },
 );
 
+/* Resend email verification link */
 export const resendVerificationEmail: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const parsed = resendVerificationSchema.safeParse(req.body);

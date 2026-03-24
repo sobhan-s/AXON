@@ -136,7 +136,12 @@ export function AppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
     const projectNav = getProjectNav(resolvedProjectId, role);
 
     return (
-      <Sidebar collapsible="offcanvas" {...props} className="w-[250px]">
+      <Sidebar
+        collapsible="offcanvas"
+        {...props}
+        className="w-[250px]"
+        aria-label="Sidebar"
+      >
         <SidebarHeader>
           <SidebarMenu>
             <SidebarMenuItem>

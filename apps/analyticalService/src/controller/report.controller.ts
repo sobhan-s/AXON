@@ -4,6 +4,8 @@ import { ApiResponse, asyncHandler, parseDateRange } from '@dam/utils';
 
 const reportService = new ReportService();
 
+/* Generate platform report */
+
 export const generatePlatformReport: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const { email } = req.body;
@@ -27,6 +29,8 @@ export const generatePlatformReport: RequestHandler = asyncHandler(
       );
   },
 );
+
+/* Generate organization report */
 
 export const generateOrgReport: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
@@ -53,6 +57,7 @@ export const generateOrgReport: RequestHandler = asyncHandler(
   },
 );
 
+/* Generate project report */
 export const generateProjectReport: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const projectId = Number(req.params.projectId);

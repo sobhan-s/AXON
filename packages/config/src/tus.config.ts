@@ -34,7 +34,7 @@ const s3Store = new S3Store({
   s3ClientConfig: {
     bucket: env_config_variable.MINIO.MINIO_BUCKET_NAME,
     region: 'us-east-1',
-    endpoint: 'http://localhost:9000',
+    endpoint: 'http://minio:9000',
     forcePathStyle: true,
     credentials: {
       accessKeyId: env_config_variable.MINIO.MINIO_ROOTUSER,

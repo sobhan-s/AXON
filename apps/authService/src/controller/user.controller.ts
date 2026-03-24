@@ -7,6 +7,7 @@ import { passwordVerifySchema } from '@dam/validations';
 
 const service = new userService();
 
+/* Fetch current authenticated user's profile */
 const getUserMe: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const userId = req.user?.id as number;
@@ -22,6 +23,7 @@ const getUserMe: RequestHandler = asyncHandler(
   },
 );
 
+/* Update current authenticated user's profile */
 const updateUserMe: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const userId = req.user?.id as number;
@@ -38,6 +40,7 @@ const updateUserMe: RequestHandler = asyncHandler(
   },
 );
 
+/* Delete current authenticated user's account */
 const deleteMe: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const userId = req.user?.id as number;
@@ -49,6 +52,7 @@ const deleteMe: RequestHandler = asyncHandler(
   },
 );
 
+/* Change password for current authenticated user */
 const changePasswordHandler: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     const userId = req.user?.id as number;
@@ -72,6 +76,7 @@ const changePasswordHandler: RequestHandler = asyncHandler(
   },
 );
 
+/* Fetch all members of a specific organization */
 const getOrganizationMembers: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('fetch orgnization members controller stated . . .');
@@ -94,6 +99,7 @@ const getOrganizationMembers: RequestHandler = asyncHandler(
   },
 );
 
+/* Add a new user to an organization adminlevel action */
 const addUsersToOrganizations: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('add users to the organizations controller stated . . . ');
@@ -124,6 +130,7 @@ const addUsersToOrganizations: RequestHandler = asyncHandler(
   },
 );
 
+/* Remove a user from an organization */
 const removeUsersToOrganizations: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('Removed user process stated from the controllers .  . .');
@@ -152,6 +159,7 @@ const removeUsersToOrganizations: RequestHandler = asyncHandler(
   },
 );
 
+/* Fetch profile of a specific user */
 const getParticularUser: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('get user profile of a particular user');
@@ -168,6 +176,7 @@ const getParticularUser: RequestHandler = asyncHandler(
   },
 );
 
+/* Update user details within an organization admin level action */
 const updateUserDetailInOrg: RequestHandler = asyncHandler(
   async (req: Request, res: Response) => {
     logger.info('user data is start updating in controller level');
